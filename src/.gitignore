@@ -1,0 +1,4 @@
+# .Net
+obj/
+bin/
+app.config

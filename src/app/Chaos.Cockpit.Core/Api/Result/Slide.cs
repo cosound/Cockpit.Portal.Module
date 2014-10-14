@@ -1,12 +1,14 @@
-﻿namespace Chaos.Cockpit.Core
+namespace Chaos.Cockpit.Core.Api.Result
 {
   using System.Collections.Generic;
+  using CHAOS.Serialization;
 
-  public class Screen
+  public class Slide
   {
+    [Serialize("Questions")]
     public IList<Question> Questions { get; set; }
 
-    public Screen()
+    public Slide()
     {
       Questions = new List<Question>();
     }
