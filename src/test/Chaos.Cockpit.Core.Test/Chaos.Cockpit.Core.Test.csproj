@@ -48,10 +48,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Api\Endpoints\AnswerTest.cs" />
     <Compile Include="Api\Endpoints\QuestionnaireTest.cs" />
     <Compile Include="Data\InMemory\EntityGatewayTest.cs" />
     <Compile Include="Main\CockpitModuleTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

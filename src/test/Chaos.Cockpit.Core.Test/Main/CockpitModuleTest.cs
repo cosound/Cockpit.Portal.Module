@@ -1,24 +1,22 @@
-﻿namespace Chaos.Cockpit.Core.Test.Main
-{
-  using System;
-  using Cockpit.Core.Main;
-  using Moq;
-  using NUnit.Framework;
-  using Portal.Core;
-  using Portal.Core.Extension;
+﻿using System;
+using Chaos.Cockpit.Core.Main;
+using Chaos.Portal.Core.Extension;
+using Moq;
+using NUnit.Framework;
 
+namespace Chaos.Cockpit.Core.Test.Main
+{
   [TestFixture]
-  public class CockpitModuleTest
+  public class CockpitModuleTest : TestBase
   {
     [Test]
     public void Load()
     {
       var module = new CockpitModule();
-      var portalApplication = new Mock<IPortalApplication>();
 
-      module.Load(portalApplication.Object);
+      module.Load(PortalApplication.Object);
 
-      portalApplication.Verify(m => m.MapRoute("/v6/Questionnaire", It.IsAny<Func<IExtension>>()));
+      PortalApplication.Verify(m => m.MapRoute("/v6/QuestionnaireResult", It.IsAny<Func<IExtension>>()));
     }
   }
 }

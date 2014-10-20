@@ -48,16 +48,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Api\AnswerResultMapper.cs" />
+    <Compile Include="Api\Endpoints\AnswerExtension.cs" />
     <Compile Include="Api\Endpoints\Questionnaire.cs" />
     <Compile Include="Api\Experiment.cs" />
-    <Compile Include="Api\Result\Answer.cs" />
-    <Compile Include="Api\Result\Question.cs" />
-    <Compile Include="Api\Result\Questionnaire.cs" />
-    <Compile Include="Api\Result\Slide.cs" />
+    <Compile Include="Api\Result\AnswerResult.cs" />
+    <Compile Include="Api\Result\QuestionResult.cs" />
+    <Compile Include="Api\Result\QuestionnaireResult.cs" />
+    <Compile Include="Api\Result\SlideResult.cs" />
+    <Compile Include="Core\Answer.cs" />
     <Compile Include="Core\CockpitContext.cs" />
+    <Compile Include="Core\Question.cs" />
     <Compile Include="Core\Questionnaire.cs" />
+    <Compile Include="Data\InMemory\IEntityGateway.cs" />
+    <Compile Include="Data\InMemory\QuestionGateway.cs" />
     <Compile Include="Data\InMemory\EntityGateway.cs" />
-    <Compile Include="Data\InMemory\IEntiy.cs" />
+    <Compile Include="Data\InMemory\IEntity.cs" />
     <Compile Include="Data\InMemory\QuestionnaireGateway.cs" />
     <Compile Include="Main\CockpitModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

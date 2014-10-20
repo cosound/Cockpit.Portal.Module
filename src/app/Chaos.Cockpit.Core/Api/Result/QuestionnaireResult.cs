@@ -4,7 +4,7 @@
   using CHAOS.Serialization;
   using Portal.Core.Data.Model;
 
-  public class Questionnaire : IResult
+  public class QuestionnaireResult : IResult
   {
     [Serialize("Id")]
     public string Identity { get; set; }
@@ -13,11 +13,11 @@
     public string Name { get; set; }
 
     [Serialize("Slides")]
-    public IList<Slide> Slides { get; set; }
+    public IList<SlideResult> Slides { get; set; }
 
-    public Questionnaire()
+    public QuestionnaireResult()
     {
-      Slides = new List<Slide>();
+      Slides = new List<SlideResult>();
     }
 
     [Serialize]

@@ -3,22 +3,22 @@
   using System;
   using System.Collections.Generic;
 
-  public abstract class EntityGateway<T> where T : IEntiy
+  public abstract class EntityGateway<T> : IEntityGateway<T> where T : IEntity
   {
     protected readonly IDictionary<string, T> Data = new Dictionary<string, T>();
 
-    public T Save(T questionnaire)
+    public T Save(T entity)
     {
-      var copy = Copy(questionnaire);
+      var copy = Copy(entity);
 
-      var isNewEntity = string.IsNullOrEmpty(copy.Identity);
+      var isNewEntity = string.IsNullOrEmpty(copy.Identifier);
       if (isNewEntity)
-        copy.Identity = Guid.NewGuid().ToString();
+        copy.Identifier = Guid.NewGuid().ToString();
 
-      if (Data.ContainsKey(copy.Identity))
-        Data[copy.Identity] = copy;
+      if (Data.ContainsKey(copy.Identifier))
+        Data[copy.Identifier] = copy;
       else
-        Data.Add(copy.Identity, copy);
+        Data.Add(copy.Identifier, copy);
 
       return copy;
     }

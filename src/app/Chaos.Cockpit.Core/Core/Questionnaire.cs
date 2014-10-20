@@ -4,9 +4,9 @@
   using Api.Result;
   using Data.InMemory;
 
-  public class Questionnaire : IEntiy
+  public class Questionnaire : IEntity
   {
-    public string Identity { get; set; }
+    public string Identifier { get; set; }
     
     public string Name { get; set; }
 
@@ -15,6 +15,16 @@
     public Questionnaire()
     {
       Slides = new List<Slide>();
+    }
+  }
+
+  public class Slide
+  {
+    public IList<Question> Questions { get; set; }
+
+    public Slide()
+    {
+      Questions = new List<Question>();
     }
   }
 }

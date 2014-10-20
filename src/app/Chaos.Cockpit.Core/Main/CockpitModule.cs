@@ -15,8 +15,8 @@
 
       CockpitContext.QuestionnaireGateway.Save(new Core.Questionnaire
         {
-          Identity = "a12f",
-          Name = "Sample Questionnaire",
+          Identifier = "a12f",
+          Name = "Sample QuestionnaireResult",
           Slides = new List<Slide>()
             {
               new Slide
@@ -31,7 +31,7 @@
                         {
                           Identifier = "2345", Value = "What about imaginary ones?"
                         },
-                      new ABQuestion
+                      new AbQuestion
                         {
                           Identifier = "3456", Text = "Which is more peppy", Url1 = "http://example.com/1.wav", Url2 = "http://example.com/2.wav"
                         }
@@ -51,8 +51,8 @@
         });
       CockpitContext.QuestionnaireGateway.Save(new Core.Questionnaire
         {
-          Identity = "ab12",
-          Name = "Sample Questionnaire 2",
+          Identifier = "ab12",
+          Name = "Sample QuestionnaireResult 2",
           Slides = new List<Slide>()
             {
               new Slide
@@ -67,7 +67,7 @@
                         {
                           Identifier = "8765", Value = "What about imaginary ones?"
                         },
-                      new ABQuestion
+                      new AbQuestion
                         {
                           Identifier = "7654", Text = "Which is more peppy", Url1 = "http://example.com/1.wav", Url2 = "http://example.com/2.wav"
                         }
@@ -86,7 +86,7 @@
             }
         });
 
-      portalApplication.MapRoute("/v6/Questionnaire", () => new Questionnaire(portalApplication));
+      portalApplication.MapRoute("/v6/QuestionnaireResult", () => new Questionnaire(portalApplication));
     }
   }
 }

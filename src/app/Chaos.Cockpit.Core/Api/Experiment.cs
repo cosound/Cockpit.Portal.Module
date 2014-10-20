@@ -5,11 +5,11 @@ namespace Chaos.Cockpit.Core.Api
 
   public class Experiment
   {
-    public IList<Slide> Screens { get; set; }
+    public IList<SlideResult> Screens { get; set; }
 
     public Experiment()
     {
-      Screens = new List<Slide>();
+      Screens = new List<SlideResult>();
     }
   }
 }

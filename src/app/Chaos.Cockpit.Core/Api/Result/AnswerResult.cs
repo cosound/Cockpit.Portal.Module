@@ -4,13 +4,13 @@ namespace Chaos.Cockpit.Core.Api.Result
   using Portal.Core.Data.Model;
 
   [Serialize]
-  public class Answer : AResult
+  public class AnswerResult : AResult
   {
     [Serialize]
     public string Identifier { get; set; }
   }
 
-  public class BooleanAnswer : Answer
+  public class BooleanAnswerResult : AnswerResult
   {
     [Serialize]
     public bool Value { get; set; }

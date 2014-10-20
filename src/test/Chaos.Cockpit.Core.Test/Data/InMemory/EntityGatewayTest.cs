@@ -15,7 +15,7 @@
        var actual = gateway.Save(entity);
 
        Assert.That(gateway.WasCopied, Is.True);
-       Assert.That(actual.Identity, Is.Not.EqualTo(entity.Identity));
+       Assert.That(actual.Identifier, Is.Not.EqualTo(entity.Identifier));
      }
 
      public class DummyEntityGateway : EntityGateway<DummyEntityGateway.DummyEntity>
@@ -29,9 +29,9 @@
 
        public bool WasCopied { get; set; }
 
-       public class DummyEntity : IEntiy
+       public class DummyEntity : IEntity
        {
-         public string Identity { get; set; }
+         public string Identifier { get; set; }
        }
      }
   }

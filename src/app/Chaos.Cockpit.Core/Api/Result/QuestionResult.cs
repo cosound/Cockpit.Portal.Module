@@ -4,7 +4,7 @@ namespace Chaos.Cockpit.Core.Api.Result
   using Portal.Core.Data.Model;
 
   [Serialize]
-  public class Question : IResult
+  public class QuestionResult : IResult
   {
     [Serialize("Id")]
     public string Identifier { get; set; }
@@ -12,7 +12,7 @@ namespace Chaos.Cockpit.Core.Api.Result
     public string Fullname { get { return "Question, 1.0.0"; } }
   }
 
-  public class BooleanQuestion : Question
+  public class BooleanQuestionResult : QuestionResult
   {
     [Serialize]
     public string Value { get; set; }
@@ -21,7 +21,7 @@ namespace Chaos.Cockpit.Core.Api.Result
     public string Fullname { get { return "BooleanQuestion, 1.0"; } }
   }
 
-  public class ABQuestion : Question
+  public class AbQuestionResult : QuestionResult
   {
     [Serialize]
     public string Text { get; set; }

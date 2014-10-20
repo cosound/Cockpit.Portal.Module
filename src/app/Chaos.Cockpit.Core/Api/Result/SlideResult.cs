@@ -3,14 +3,14 @@ namespace Chaos.Cockpit.Core.Api.Result
   using System.Collections.Generic;
   using CHAOS.Serialization;
 
-  public class Slide
+  public class SlideResult
   {
     [Serialize("Questions")]
-    public IList<Question> Questions { get; set; }
+    public IList<QuestionResult> Questions { get; set; }
 
-    public Slide()
+    public SlideResult()
     {
-      Questions = new List<Question>();
+      Questions = new List<QuestionResult>();
     }
   }
 }

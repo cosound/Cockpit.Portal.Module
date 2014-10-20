@@ -5,5 +5,6 @@
   public static class CockpitContext
   {
     public static QuestionnaireGateway QuestionnaireGateway;
+    public static QuestionGateway QuestionGateway;
   }
 }
