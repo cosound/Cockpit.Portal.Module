@@ -24,7 +24,6 @@
     {
       var extension = new AnswerExtension(PortalApplication.Object);
       var answer = AnswerDto.CreateBooleanAnswer();
-      answer.Identifier = "1234";
       var question = Question.CreateBooleanQuestion();
       CockpitContext.QuestionnaireGateway.Save(new Core.Questionnaire
         {
@@ -44,7 +43,7 @@
       extension.Set(question.Identifier, answer);
 
       var actual = CockpitContext.QuestionGateway.Get(question.Identifier);
-      Assert.That(actual.UserAnswer.Identifier, Is.EqualTo(answer.Identifier));
+      Assert.That(actual.UserAnswer.Identifier, Is.Not.Null);
     }
   }
 }

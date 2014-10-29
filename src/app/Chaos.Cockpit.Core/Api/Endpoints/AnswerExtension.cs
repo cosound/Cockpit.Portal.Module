@@ -5,6 +5,7 @@ using Chaos.Portal.Core.Extension;
 
 namespace Chaos.Cockpit.Core.Api.Endpoints
 {
+  using System;
   using Portal.v5.Extension.Result;
 
   public class AnswerExtension : AExtension
@@ -16,6 +17,9 @@ namespace Chaos.Cockpit.Core.Api.Endpoints
     public EndpointResult Set(string questionId, AnswerDto answer)
     {
       var question = CockpitContext.QuestionGateway.Get(questionId);
+
+      if (string.IsNullOrEmpty(answer.Identifier))
+        answer.Identifier = Guid.NewGuid().ToString();
 
       question.UserAnswer = AnswerDtoFactory.Map(answer);
 

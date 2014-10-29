@@ -22,6 +22,7 @@ namespace Chaos.Cockpit.Core.Api.Result
 
     private QuestionDto(string type)
     {
+      Type = type;
       Data = new Dictionary<string, string>();
     }
 
