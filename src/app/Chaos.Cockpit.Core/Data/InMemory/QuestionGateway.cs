@@ -40,16 +40,22 @@ namespace Chaos.Cockpit.Core.Data.InMemory
 
     protected Question Copy(Question entity)
     {
-      var copy = new Question
+      var copy = new Question(entity.Type)
         {
           Identifier = entity.Identifier,
           UserAnswer = entity.UserAnswer == null
                          ? null
-                         : new Answer
-                           {
-                             Identifier = entity.UserAnswer.Identifier
-                           }
+                         : Copy(entity.UserAnswer)
         };
+
+      return copy;
+    }
+
+    private Answer Copy(Answer answer)
+    {
+      var copy = new Answer(answer.Type);
+      copy.Identifier = answer.Identifier;
+      copy.Data = answer.Data;
 
       return copy;
     }

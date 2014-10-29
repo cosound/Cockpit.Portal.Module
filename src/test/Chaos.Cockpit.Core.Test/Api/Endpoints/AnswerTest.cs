@@ -1,11 +1,11 @@
-﻿using Chaos.Cockpit.Core.Api.Endpoints;
-using Chaos.Cockpit.Core.Core;
-using Chaos.Cockpit.Core.Data.InMemory;
-using NUnit.Framework;
-
-namespace Chaos.Cockpit.Core.Test.Api.Endpoints
+﻿namespace Chaos.Cockpit.Core.Test.Api.Endpoints
 {
   using System.Collections.Generic;
+  using Cockpit.Core.Api.Endpoints;
+  using Cockpit.Core.Api.Result;
+  using Cockpit.Core.Data.InMemory;
+  using Core;
+  using NUnit.Framework;
 
   [TestFixture]
   public class AnswerTest : TestBase
@@ -23,8 +23,9 @@ namespace Chaos.Cockpit.Core.Test.Api.Endpoints
     public void Set_GivenNewAnswer_SetAnswerOnQuestion()
     {
       var extension = new AnswerExtension(PortalApplication.Object);
-      var answer = new DummyAnswerResultResult {Identifier = "id"};
-      var question = new Question {Identifier = "id"};
+      var answer = AnswerDto.CreateBooleanAnswer();
+      answer.Identifier = "1234";
+      var question = Question.CreateBooleanQuestion();
       CockpitContext.QuestionnaireGateway.Save(new Core.Questionnaire
         {
           Name = "Test",
@@ -45,9 +46,5 @@ namespace Chaos.Cockpit.Core.Test.Api.Endpoints
       var actual = CockpitContext.QuestionGateway.Get(question.Identifier);
       Assert.That(actual.UserAnswer.Identifier, Is.EqualTo(answer.Identifier));
     }
-  }
-
-  public class DummyAnswerResultResult : Cockpit.Core.Api.Result.AnswerResult
-  {
   }
 }
