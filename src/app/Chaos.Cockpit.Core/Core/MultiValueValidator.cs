@@ -5,14 +5,43 @@ using Chaos.Cockpit.Core.Core.Exceptions;
 
 namespace Chaos.Cockpit.Core.Core
 {
-  public class MultiValueValidation
+  public class MultiValueValidator
   {
+    public MultiValueValidator()
+    {
+      ComplexValueValidators = new List<ComplexValueValidator>();
+      SimpleValueValidators = new List<SimpleValueValidator>();
+    }
+
     public string Id { get; set; }
     public uint Min { get; set; }
     public uint Max { get; set; }
 
     public IList<ComplexValueValidator> ComplexValueValidators { get; set; }
     public IList<SimpleValueValidator> SimpleValueValidators { get; set; }
+
+    public void Validate(MultiValue multiValue)
+    {
+      if(multiValue == null) throw new ValidationException();
+
+      foreach (var validator in SimpleValueValidators)
+      {
+        var val = multiValue.SimpleValues.FirstOrDefault(item => item.Key == validator.Id);
+
+        if (val == null) throw new ValidationException(string.Format("Value ({0}) is missing", validator.Id));
+
+        validator.Validate(val);
+      }
+
+      foreach (var validator in ComplexValueValidators)
+      {
+        var val = multiValue.ComplexValues.FirstOrDefault(item => item.Key == validator.Id);
+
+        if (val == null) throw new ValidationException(string.Format("Value ({0}) is missing", validator.Id));
+
+        validator.Validate(val);
+      }
+    }
   }
 
   public class SimpleValueValidator
@@ -29,6 +58,15 @@ namespace Chaos.Cockpit.Core.Core
     private bool IsInvalid(SimpleValue value)
     {
       return !Regex.IsMatch(value.Value, Validation, RegexOptions.Singleline);
+    }
+
+    public static SimpleValueValidator Create(string id, string validation)
+    {
+      return new SimpleValueValidator
+        {
+          Id = id,
+          Validation = validation
+        };
     }
   }
 
@@ -52,6 +90,20 @@ namespace Chaos.Cockpit.Core.Core
     }
   }
 
+  public class MultiValue
+  {
+    public MultiValue()
+    {
+      ComplexValues = new List<ComplexValue>();
+      SimpleValues = new List<SimpleValue>();
+    }
+
+    public string Key { get; set; }
+    public IList<ComplexValue> ComplexValues { get; set; }
+    public IList<SimpleValue> SimpleValues { get; set; }
+
+  }
+
   public class ComplexValue
   {
     public ComplexValue()
@@ -59,6 +111,7 @@ namespace Chaos.Cockpit.Core.Core
       SimpleValues = new List<SimpleValue>();
     }
 
+    public string Key { get; set; }
     public IList<SimpleValue> SimpleValues { get; set; }
 
     public SimpleValue GetValue(string key)

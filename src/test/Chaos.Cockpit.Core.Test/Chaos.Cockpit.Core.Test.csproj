@@ -52,7 +52,8 @@
     <Compile Include="Api\Endpoints\AnswerTest.cs" />
     <Compile Include="Api\Endpoints\QuestionnaireTest.cs" />
     <Compile Include="Core\ComplexValueValidatorTest.cs" />
-    <Compile Include="Core\SimpleValueValidationTest.cs" />
+    <Compile Include="Core\MultiValueValidatorTest.cs" />
+    <Compile Include="Core\SimpleValueValidatorTest.cs" />
     <Compile Include="Data\InMemory\EntityGatewayTest.cs" />
     <Compile Include="Data\InMemory\QuestionGatewayTest.cs" />
     <Compile Include="Data\Mcm\DtuFormatConverterTest.cs" />

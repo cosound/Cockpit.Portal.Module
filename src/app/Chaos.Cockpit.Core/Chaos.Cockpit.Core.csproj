@@ -61,7 +61,7 @@
     <Compile Include="Core\CockpitContext.cs" />
     <Compile Include="Core\Exceptions\ValidationException.cs" />
     <Compile Include="Core\IKey.cs" />
-    <Compile Include="Core\MultiValueValidation.cs" />
+    <Compile Include="Core\MultiValueValidator.cs" />
     <Compile Include="Core\Question.cs" />
     <Compile Include="Core\Questionnaire.cs" />
     <Compile Include="Data\Exceptions\DataNotFoundException.cs" />
