@@ -47,6 +47,32 @@ namespace Chaos.Cockpit.Core.Test.Core
       validator.Validate(multiValue);
     }
 
+    [Test]
+    public void Validate_GivenMultipleValidSimpleValue()
+    {
+      var validator = new MultiValueValidator();
+      validator.SimpleValueValidators.Add(SimpleValueValidator.Create("key", "value"));
+      var multiValue = new MultiValue();
+      multiValue.SimpleValues.Add(new SimpleValue("key", "value1"));
+      multiValue.SimpleValues.Add(new SimpleValue("key", "value2"));
+      multiValue.SimpleValues.Add(new SimpleValue("key", "value3"));
+
+      validator.Validate(multiValue);
+    }
+
+    [Test, ExpectedException(typeof(ValidationException))]
+    public void Validate_GivenMultipleValidSimpleValueAndOneInvalid_Throw()
+    {
+      var validator = new MultiValueValidator();
+      validator.SimpleValueValidators.Add(SimpleValueValidator.Create("key", "value"));
+      var multiValue = new MultiValue();
+      multiValue.SimpleValues.Add(new SimpleValue("key", "value1"));
+      multiValue.SimpleValues.Add(new SimpleValue("key", "value2"));
+      multiValue.SimpleValues.Add(new SimpleValue("key", "unknown"));
+
+      validator.Validate(multiValue);
+    }
+
     [Test, ExpectedException(typeof(ValidationException))]
     public void Validate_GivenInvalidComplexValue()
     {
@@ -76,6 +102,31 @@ namespace Chaos.Cockpit.Core.Test.Core
       multiValue.ComplexValues.Add(new ComplexValue
         {
           SimpleValues = new[] {new SimpleValue("key", "value")}
+        });
+
+      validator.Validate(multiValue);
+    }
+
+    [Test, ExpectedException(typeof(ValidationException))]
+    public void Validate_GivenMultiplealidComplexValueWithOneInvalid_Throw()
+    {
+      var validator = new MultiValueValidator();
+      validator.ComplexValueValidators.Add(new ComplexValueValidator
+        {
+          SimpleValueValidators = new[] {SimpleValueValidator.Create("key", "value")}
+        });
+      var multiValue = new MultiValue();
+      multiValue.ComplexValues.Add(new ComplexValue
+        {
+          SimpleValues = new[] {new SimpleValue("key", "value")}
+        });
+      multiValue.ComplexValues.Add(new ComplexValue
+        {
+          SimpleValues = new[] {new SimpleValue("key", "value")}
+        });
+      multiValue.ComplexValues.Add(new ComplexValue
+        {
+          SimpleValues = new[] {new SimpleValue("key", "unknown")}
         });
 
       validator.Validate(multiValue);

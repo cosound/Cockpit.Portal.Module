@@ -5,6 +5,11 @@ using Chaos.Cockpit.Core.Core.Exceptions;
 
 namespace Chaos.Cockpit.Core.Core
 {
+  public interface IValidator
+  {
+    
+  }
+
   public class MultiValueValidator
   {
     public MultiValueValidator()
@@ -26,20 +31,22 @@ namespace Chaos.Cockpit.Core.Core
 
       foreach (var validator in SimpleValueValidators)
       {
-        var val = multiValue.SimpleValues.FirstOrDefault(item => item.Key == validator.Id);
+        var vals = multiValue.SimpleValues.Where(item => item.Key == validator.Id);
 
-        if (val == null) throw new ValidationException(string.Format("Value ({0}) is missing", validator.Id));
+        if (!vals.Any()) throw new ValidationException(string.Format("Value ({0}) is missing", validator.Id));
 
-        validator.Validate(val);
+        foreach (var val in vals)
+          validator.Validate(val);
       }
 
       foreach (var validator in ComplexValueValidators)
       {
-        var val = multiValue.ComplexValues.FirstOrDefault(item => item.Key == validator.Id);
+        var vals = multiValue.ComplexValues.Where(item => item.Key == validator.Id);
 
-        if (val == null) throw new ValidationException(string.Format("Value ({0}) is missing", validator.Id));
+        if (!vals.Any()) throw new ValidationException(string.Format("Value ({0}) is missing", validator.Id));
 
-        validator.Validate(val);
+        foreach (var val in vals)
+          validator.Validate(val);
       }
     }
   }
@@ -101,7 +108,6 @@ namespace Chaos.Cockpit.Core.Core
     public string Key { get; set; }
     public IList<ComplexValue> ComplexValues { get; set; }
     public IList<SimpleValue> SimpleValues { get; set; }
-
   }
 
   public class ComplexValue
