@@ -51,7 +51,10 @@
     <Compile Include="Api\Bindings\AnswerResultBindingTest.cs" />
     <Compile Include="Api\Endpoints\AnswerTest.cs" />
     <Compile Include="Api\Endpoints\QuestionnaireTest.cs" />
+    <Compile Include="Core\SimpleValueTest.cs" />
     <Compile Include="Data\InMemory\EntityGatewayTest.cs" />
+    <Compile Include="Data\InMemory\QuestionGatewayTest.cs" />
+    <Compile Include="Data\Mcm\DtuFormatConverterTest.cs" />
     <Compile Include="Main\CockpitModuleTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestBase.cs" />

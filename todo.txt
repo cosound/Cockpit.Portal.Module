@@ -1,0 +1,10 @@
+Engineering Tasks
+ * Decide on new structure
+ - Implement AnswerResult
+ - Implement QuestionResult
+ - Update inmemory database, to better reflect the fuctionality of a real database
+
+Features
+ * Update Api results to reflect the new features in the Data structure
+ - Validate the input from the client, based on the specification in the data structure
+ - Map data structure to and from in memory model

@@ -18,19 +18,19 @@ namespace Chaos.Cockpit.Core.Api.Result
     public string Type { get; set; }
 
     [Serialize]
-    public IDictionary<string, string> Data { get; set; }
+    public IDictionary<string, object> Data { get; set; }
 
-    private QuestionDto(string type)
+    public QuestionDto(string type)
     {
       Type = type;
-      Data = new Dictionary<string, string>();
+      Data = new Dictionary<string, object>();
     }
 
     public static QuestionDto CreateBooleanAnswer()
     {
       return new QuestionDto("BooleanQuestion, 1.0")
         {
-          Data = new Dictionary<string, string>
+          Data = new Dictionary<string, object>
             {
               {"Text",""}
             }
@@ -41,7 +41,7 @@ namespace Chaos.Cockpit.Core.Api.Result
     {
       return new QuestionDto("ABQuestion, 1.0")
       {
-        Data = new Dictionary<string, string>
+        Data = new Dictionary<string, object>
             {
               {"Text",""},
               {"Url1",""},
@@ -53,6 +53,20 @@ namespace Chaos.Cockpit.Core.Api.Result
     public string Fullname
     {
       get { return "Question, 1.0.0"; }
+    }
+
+    public static QuestionDto CreateStartDateTimeAnswer()
+    {
+      return new QuestionDto("Monitor:Event:StartAtDateTime")
+      {
+      };
+    }
+    
+    public static QuestionDto CreateEndDateTimeAnswer()
+    {
+      return new QuestionDto("Monitor:Event:EndAtDateTime")
+      {
+      };
     }
   }
 }

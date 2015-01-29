@@ -10,6 +10,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A0AA32CF-71A6-4407-91D0-CA9331F72523}"
 	ProjectSection(SolutionItems) = preProject
 		.gitignore = .gitignore
+		todo.txt = todo.txt
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chaos.Cockpit.Core.Test", "src\test\Chaos.Cockpit.Core.Test\Chaos.Cockpit.Core.Test.csproj", "{DD1517CF-A2F5-499B-BF27-EB77828B92AB}"

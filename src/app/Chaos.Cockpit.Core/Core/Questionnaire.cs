@@ -1,12 +1,10 @@
-﻿namespace Chaos.Cockpit.Core.Core
-{
-  using System.Collections.Generic;
-  using Api.Result;
-  using Data.InMemory;
+﻿using System.Collections.Generic;
 
-  public class Questionnaire : IEntity
+namespace Chaos.Cockpit.Core.Core
+{
+  public class Questionnaire : IKey
   {
-    public string Identifier { get; set; }
+    public string Id { get; set; }
     
     public string Name { get; set; }
 

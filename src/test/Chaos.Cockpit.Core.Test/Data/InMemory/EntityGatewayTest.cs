@@ -1,4 +1,6 @@
-﻿namespace Chaos.Cockpit.Core.Test.Data.InMemory
+﻿using Chaos.Cockpit.Core.Core;
+
+namespace Chaos.Cockpit.Core.Test.Data.InMemory
 {
   using Cockpit.Core.Data.InMemory;
   using NUnit.Framework;
@@ -12,26 +14,18 @@
        var entity = new DummyEntityGateway.DummyEntity();
        var gateway = new DummyEntityGateway();
 
-       var actual = gateway.Save(entity);
+       var actual = gateway.Set(entity);
 
-       Assert.That(gateway.WasCopied, Is.True);
-       Assert.That(actual.Identifier, Is.Not.EqualTo(entity.Identifier));
+       Assert.That(actual.Id, Is.Not.Null);
      }
 
-     public class DummyEntityGateway : EntityGateway<DummyEntityGateway.DummyEntity>
+     public class DummyEntityGateway : EntityRepository<DummyEntityGateway.DummyEntity>
      {
-       protected override DummyEntity Copy(DummyEntity entity)
-       {
-         WasCopied = true;
-
-         return new DummyEntity();
-       }
-
        public bool WasCopied { get; set; }
 
-       public class DummyEntity : IEntity
+       public class DummyEntity : IKey
        {
-         public string Identifier { get; set; }
+         public string Id { get; set; }
        }
      }
   }

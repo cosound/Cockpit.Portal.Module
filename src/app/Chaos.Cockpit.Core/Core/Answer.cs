@@ -1,30 +1,31 @@
-﻿namespace Chaos.Cockpit.Core.Core
-{
-  using System.Collections.Generic;
-  using Data.InMemory;
+﻿using System.Collections.Generic;
 
-  public class Answer : IEntity
+namespace Chaos.Cockpit.Core.Core
+{
+  public class Answer : IKey
   {
-    public string Identifier { get; set; }
+    public string Id { get; set; }
 
     public string Type { get; set; }
 
+    public IDictionary<string, Output> Output { get; set; }
     public IDictionary<string, string> Data { get; set; }
 
     public Answer(string type)
     {
+      Output = new Dictionary<string, Output>();
       Data = new Dictionary<string, string>();
       Type = type;
     }
+  }
 
-    public static Answer CreateBooleanAnswer()
-    {
-      return new Answer("BooleanAnswer, 1.0");
-    }
-
-    public static Answer CreateMultipleChoiceAnswer()
-    {
-      return new Answer("ABAnswer, 1.0");
-    }
+  public class Output
+  {
+    public string Identifier { get; set; }
+    public string Value { get; set; }
+    public string Type { get; set; }
+    public string ValueType { get; set; }
+    public uint MinNoOfValues { get; set; }
+    public uint MaxNoOfValues { get; set; }
   }
 }

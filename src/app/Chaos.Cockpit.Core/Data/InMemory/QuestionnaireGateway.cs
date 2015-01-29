@@ -1,34 +1,20 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
+using Chaos.Cockpit.Core.Core;
 
 namespace Chaos.Cockpit.Core.Data.InMemory
 {
-  using System;
-  using Core;
-
-  public class QuestionnaireGateway : EntityGateway<Questionnaire>
+  public class QuestionnaireGateway : EntityRepository<Questionnaire>
   {
     public Questionnaire Get(string id)
     {
-      if(!Data.ContainsKey(id))
-        throw new Exception("No data by the given Id");
-
-      return Copy(Data[id]);
-    }
-
-    protected override Questionnaire Copy(Questionnaire entity)
-    {
-      var copy = new Questionnaire();
-      copy.Identifier = entity.Identifier;
-      copy.Name = entity.Name;
-      copy.Slides = entity.Slides;
-
-      return copy;
+      return Retrieve(id);
     }
 
     public Questionnaire GetByQuestionId(string identifier)
     {
-      foreach (var questionnaire in Data.Values.Where(questionnaire => questionnaire.Slides.Any(slide => slide.Questions.Any(question => question.Identifier == identifier))))
-        return Copy(questionnaire);
+      foreach (var questionnaire in Retrieve().Where(questionnaire => questionnaire.Slides.Any(slide => slide.Questions.Any(question => question.Id == identifier))))
+        return questionnaire;
 
       throw new Exception("No data by the given Id");
     }

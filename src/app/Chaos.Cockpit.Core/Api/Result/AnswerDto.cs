@@ -17,19 +17,10 @@ namespace Chaos.Cockpit.Core.Api.Result
     [Serialize]
     public IDictionary<string, string> Data { get; set; }
 
-    private AnswerDto()
+    public AnswerDto(string type)
     {
+      Type = type;
       Data = new Dictionary<string, string>();
-    }
-
-    public static AnswerDto CreateBooleanAnswer()
-    {
-      return new AnswerDto { Type = "BooleanAnswer, 1.0" };
-    }
-    
-    public static AnswerDto CreateMultipleChoiceAnswer()
-    {
-      return new AnswerDto { Type = "MultipleChoiceAnswer, 1.0" };
     }
   }
 }

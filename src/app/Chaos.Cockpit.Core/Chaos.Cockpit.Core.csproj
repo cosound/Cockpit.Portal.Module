@@ -51,7 +51,7 @@
     <Compile Include="Api\AnswerDtoFactory.cs" />
     <Compile Include="Api\Binding\JsonBinding.cs" />
     <Compile Include="Api\Endpoints\AnswerExtension.cs" />
-    <Compile Include="Api\Endpoints\QuestionnaireExtension.cs" />
+    <Compile Include="Api\Endpoints\QuestionExtension.cs" />
     <Compile Include="Api\Experiment.cs" />
     <Compile Include="Api\Result\AnswerDto.cs" />
     <Compile Include="Api\Result\QuestionDto.cs" />
@@ -59,13 +59,16 @@
     <Compile Include="Api\Result\SlideDto.cs" />
     <Compile Include="Core\Answer.cs" />
     <Compile Include="Core\CockpitContext.cs" />
+    <Compile Include="Core\Exceptions\ValidationException.cs" />
+    <Compile Include="Core\IKey.cs" />
+    <Compile Include="Core\MultiValueValidation.cs" />
     <Compile Include="Core\Question.cs" />
     <Compile Include="Core\Questionnaire.cs" />
-    <Compile Include="Data\InMemory\IEntityGateway.cs" />
+    <Compile Include="Data\Exceptions\DataNotFoundException.cs" />
+    <Compile Include="Data\InMemory\EntityRepository.cs" />
     <Compile Include="Data\InMemory\QuestionGateway.cs" />
-    <Compile Include="Data\InMemory\EntityGateway.cs" />
-    <Compile Include="Data\InMemory\IEntity.cs" />
     <Compile Include="Data\InMemory\QuestionnaireGateway.cs" />
+    <Compile Include="Data\Mcm\DtuFormatConverter.cs" />
     <Compile Include="Main\CockpitModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
