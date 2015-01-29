@@ -11,10 +11,11 @@ namespace Chaos.Cockpit.Core.Core
     public uint Min { get; set; }
     public uint Max { get; set; }
 
-    public IList<SimpleValueValidation> SimpleValueValidators { get; set; }
+    public IList<ComplexValueValidator> ComplexValueValidators { get; set; }
+    public IList<SimpleValueValidator> SimpleValueValidators { get; set; }
   }
 
-  public class SimpleValueValidation
+  public class SimpleValueValidator
   {
     public string Id { get; set; }
     public string Validation { get; set; }
@@ -22,7 +23,12 @@ namespace Chaos.Cockpit.Core.Core
     public void Validate(SimpleValue value)
     {
       if(value == null || value.Value == null) throw new ValidationException();
-      if (!Regex.IsMatch(value.Value, Validation, RegexOptions.Singleline)) throw new ValidationException();
+      if(IsInvalid(value)) throw new ValidationException();
+    }
+
+    private bool IsInvalid(SimpleValue value)
+    {
+      return !Regex.IsMatch(value.Value, Validation, RegexOptions.Singleline);
     }
   }
 
@@ -30,18 +36,19 @@ namespace Chaos.Cockpit.Core.Core
   {
     public ComplexValueValidator()
     {
-      SimpleValueValidations = new List<SimpleValueValidation>();
+      SimpleValueValidators = new List<SimpleValueValidator>();
     }
 
     public string Id { get; set; }
 
-    public IList<SimpleValueValidation> SimpleValueValidations { get; set; }
+    public IList<SimpleValueValidator> SimpleValueValidators { get; set; }
 
     public void Validate(ComplexValue value)
     {
       if (value == null) throw new ValidationException();
 
-      SimpleValueValidations.First().Validate(value.SimpleValues.First());
+      foreach (var validator in SimpleValueValidators)
+        validator.Validate(value.GetValue(validator.Id));
     }
   }
 
@@ -53,6 +60,15 @@ namespace Chaos.Cockpit.Core.Core
     }
 
     public IList<SimpleValue> SimpleValues { get; set; }
+
+    public SimpleValue GetValue(string key)
+    {
+      var val = SimpleValues.FirstOrDefault(item => item.Key == key);
+
+      if (val == null) throw new ValidationException(string.Format("Value ({0}) is missing", key));
+
+      return val;
+    }
   }
 
   public class SimpleValue
