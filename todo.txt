@@ -1,8 +1,8 @@
 Engineering Tasks
- * Decide on new structure
- - Implement AnswerResult
+ + Update inmemory database, to better reflect the fuctionality of a real database
+ + Decide on new structure
  - Implement QuestionResult
- - Update inmemory database, to better reflect the fuctionality of a real database
+ - Implement AnswerResult
 
 Features
  * Update Api results to reflect the new features in the Data structure

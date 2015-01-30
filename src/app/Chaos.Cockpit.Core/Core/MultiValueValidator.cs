@@ -5,11 +5,6 @@ using Chaos.Cockpit.Core.Core.Exceptions;
 
 namespace Chaos.Cockpit.Core.Core
 {
-  public interface IValidator
-  {
-    
-  }
-
   public class MultiValueValidator
   {
     public MultiValueValidator()
