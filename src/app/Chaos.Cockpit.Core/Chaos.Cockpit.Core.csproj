@@ -53,9 +53,12 @@
     <Compile Include="Api\Endpoints\AnswerExtension.cs" />
     <Compile Include="Api\Endpoints\QuestionExtension.cs" />
     <Compile Include="Api\Experiment.cs" />
+    <Compile Include="Api\OutputConverter.cs" />
     <Compile Include="Api\Result\AnswerDto.cs" />
+    <Compile Include="Api\Result\Output.cs" />
     <Compile Include="Api\Result\QuestionDto.cs" />
     <Compile Include="Api\Result\QuestionnaireDto.cs" />
+    <Compile Include="Api\Result\QuestionResult.cs" />
     <Compile Include="Api\Result\SlideDto.cs" />
     <Compile Include="Core\Answer.cs" />
     <Compile Include="Core\CockpitContext.cs" />
