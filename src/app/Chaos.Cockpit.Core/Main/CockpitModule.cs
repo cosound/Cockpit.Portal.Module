@@ -1,4 +1,6 @@
-﻿namespace Chaos.Cockpit.Core.Main
+﻿using System.Xml.Linq;
+
+namespace Chaos.Cockpit.Core.Main
 {
   using System.Collections.Generic;
   using Api.Binding;
@@ -17,68 +19,27 @@
 
       var question = new Core.Questionnaire
         {
-          Id = "a12f", Name = "Sample QuestionnaireResult", Slides = new List<Slide>()
+          Id = "a12f",
+          Name = "Sample QuestionnaireResult",
+          Slides = new List<Slide>()
             {
               new Slide
                 {
                   Questions = new List<Question>()
                     {
-                      new Question("introductions_r001")
+                      new Question("Monitor")
                         {
-                          Id = "1234", Data = new Dictionary<string, object>
+                          Id = "1234",
+                          Input =
+                            XDocument.Parse(
+                              "<Inputs><Events><Event><Type>Start</Type><Id>.\\</Id><Method/><Data/></Event></Events><Contexts><Context><Type/><Data/></Context><Context><Type>IPaddress</Type><Data/></Context></Contexts></Inputs>")
+                                     .Root.Elements(),
+                          Output = new Output
                             {
-                              {"labelHeader", "Survey about life, the universe, and everything"}, {"textContent", "Please answer these 42 quick questions"}, {"imageObject", "http://upload.wikimedia.org/wikipedia/commons/5/56/Answer_to_Life.png"}
-                            }
-                        },
-                      new Question("Monitor:Event:StartAtDateTime")
-                        {
-                          Id = "12345"
-                        },
-                      new Question("Monitor:Event:EndAtDateTime")
-                        {
-                          Id = "123456"
-                        },
-                      new Question("Monitor:Event:EndAtDateTime")
-                        {
-                          Id = "123456"
-                        },
-                      new Question("RadioButtonGroup")
-                        {
-                          Id = "RadioButtonGroup0", Data = new Dictionary<string, object>
-                            {
-                              {"Url", "http://example.com/1.wav"}, {"Label", "How much do you like this survey?"}, {"Items", new[] {new JValue("a lot"), new JValue("kinda"), new JValue("not really")}}
-                            }
-                        },
-                      new Question("ContinousScale")
-                        {
-                          Id = "ContinousScale0", Data = new Dictionary<string, object>
-                            {
-                              {"Url", "http://example.com/1.wav"}, {"Label", "How much do you like this survey?"}, {"Items", new[] {"a lot", "kinda", "not really"}}
-                            }
-                        },
-                      new Question("DropDown")
-                        {
-                          Id = "DropDown0", Data = new Dictionary<string, object>
-                            {
-                              {"Url", "http://example.com/1.wav"}, {"Label", "Where do you think fish can survive"}, {"Items", new[] {"Water", "Land", "Space", "Fish are imaginary"}}, {"MinNoOfSelections", "1"}, {"MaxNoOfSelections", "3"}
-                            }
-                        },
-                      new Question("Response:Freetext")
-                        {
-                          Id = "1234567", Data = new Dictionary<string, object>
-                            {
-                              {"Value", "Very interesting text block"},
-                            }
-                        },
-                      new Question("BooleanQuestion, 1.0")
-                        {
-                          Id = "2345", Data = new Dictionary<string, object> {{"Text", "Do you have any friends?"}},
-                        },
-                      new Question("AbQuestion, 1.0")
-                        {
-                          Id = "3456", Data = new Dictionary<string, object>
-                            {
-                              {"Text", "Which is more peppy"}, {"Url1", "http://example.com/1.wav"}, {"Url2", "http://example.com/2.wav"}
+                              SingleValues = new Dictionary<string, string>()
+                                {
+                                  {"Key1", "Value1"}
+                                }
                             }
                         }
                     }
@@ -87,9 +48,105 @@
                 {
                   Questions = new List<Question>()
                     {
-                      new Question("BooleanQuestion, 1.0")
+                      new Question("Freetext")
                         {
-                          Id = "4567", Data = new Dictionary<string, object> {{"Text", "What if this was the last question?"}},
+                          Id = "12345",
+                          Input =
+                            XDocument.Parse(
+                              "<Inputs><Events><Event><Type>Start,Stop</Type><Id>.\\</Id><Method/><Data/></Event></Events><Instrument><Label>Please enter your Birthplace:</Label></Instrument></Inputs>")
+                                     .Root.Elements()
+                        },
+                      new Question("RadioButtonGroup")
+                        {
+                          Id = "123456",
+                          Input =
+                            XDocument.Parse(
+                              "<Inputs><Events><Event><Type>Start,Stop</Type><Id>.\\</Id><Method/><Data/></Event></Events><Instrument><HeaderLabel>Gender</HeaderLabel><Items><Item><Label>Male</Label><Selected>0</Selected><Id>M</Id></Item><Item><Label>Female</Label><Selected>0</Selected><Id>F</Id></Item><Item><Label>Other</Label><Selected>0</Selected><Id>O</Id></Item></Items><Stimulus/></Instrument></Inputs>")
+                                     .Root.Elements()
+                        }
+                    }
+                },
+              new Slide
+                {
+                  Questions = new List<Question>()
+                    {
+                      new Question("CheckBoxGroup")
+                        {
+                          Id = "123456",
+                          Input =
+                            XDocument.Parse(
+                              "<Inputs><Events><Event><Type>Start,Stop</Type><Id>.\\</Id><Method/><Data/></Event></Events><Instrument><HeaderLabel>Select the genres you prefer (0-2)</HeaderLabel><MinNoOfSelections>0</MinNoOfSelections><MaxNoOfSelections>2</MaxNoOfSelections><Items><Item><Label>Rock</Label><Selected>0</Selected><Id>1</Id></Item><Item><Label>Pop</Label><Selected>0</Selected><Id>2</Id></Item><Item><Label>Jazz</Label><Selected>0</Selected><Id>3</Id></Item><Item><Label>Other</Label><Selected>0</Selected><Id>4</Id></Item></Items><Stimulus/></Instrument></Inputs>")
+                                     .Root.Elements()
+                        }
+                    }
+                },
+              new Slide
+                {
+                  Questions = new List<Question>()
+                    {
+                      new Question("CheckBoxGroup")
+                        {
+                          Id = "RadioButtonGroup0",
+                          Input =
+                            XDocument.Parse(
+                              "<Inputs><Events><Event><Type>Start,Stop</Type><Id>.\\</Id><Method/><Data/></Event></Events><Instrument><HeaderLabel>Select the genres you prefer (0-2)</HeaderLabel><MinNoOfSelections>0</MinNoOfSelections><MaxNoOfSelections>2</MaxNoOfSelections><Items><Item><Label>Indie</Label><Selected>0</Selected><Id>1</Id></Item><Item><Label>Metal</Label><Selected>0</Selected><Id>2</Id></Item></Items><Stimulus/></Instrument></Inputs>")
+                                     .Root.Elements()
+                        }
+                    }
+                },
+              new Slide
+                {
+                  Questions = new List<Question>()
+                    {
+                      new Question("CheckBoxGroup")
+                        {
+                          Id = "ContinousScale0",
+                          Input =
+                            XDocument.Parse(
+                              "<Inputs><Events><Event><Type>Start,Stop</Type><Id>.\\</Id><Method/><Data/></Event></Events><Instrument><HeaderLabel>Select the genres you prefer (0-2)</HeaderLabel><MinNoOfSelections>0</MinNoOfSelections><MaxNoOfSelections>2</MaxNoOfSelections><Items><Item><Label>KPop</Label><Selected>0</Selected><Id>1</Id></Item><Item><Label>Classical</Label><Selected>0</Selected><Id>2</Id></Item><Item><Label>Latin</Label><Selected>0</Selected><Id>3</Id></Item></Items><Stimulus/></Instrument></Inputs>")
+                                     .Root.Elements()
+                        }
+                    }
+                },
+              new Slide
+                {
+                  Questions = new List<Question>()
+                    {
+                      new Question("OneDScale")
+                        {
+                          Id = "DropDown0",
+                          Input =
+                            XDocument.Parse(
+                              "<Inputs><Events/><Instrument><HeaderLabel>Rate Kevin Magnussens' performance in 2013 on a scale</HeaderLabel><Position/><X1AxisLabel>Arousal</X1AxisLabel><X2AxisLabel/><Y1AxisLabel>Valance</Y1AxisLabel><Y2AxisLabel/><X1AxisTicks><X1AxisTick><Label>+5</Label><Position>1</Position></X1AxisTick></X1AxisTicks><X2AxisTicks/><Y1AxisTicks/><Y2AxisTicks/><Stimulus/></Instrument></Inputs>")
+                                     .Root.Elements()
+                        }
+                    }
+                },
+              new Slide
+                {
+                  Questions = new List<Question>()
+                    {
+                      new Question("TwoDKScaleDD")
+                        {
+                          Id = "1234567",
+                          Input =
+                            XDocument.Parse(
+                              "<Inputs><Events><Event><Id>.\\</Id><Type>Start,Stop</Type><Method/><Data/></Event><Event><Id>.\\Instrument\\Items\\Stimulus</Id><Type>Start,Stop</Type><Method/><Data/></Event><Event><Id>.\\Instrument\\Items\\*,.\\Instrument\\Items\\List\\*</Id><Type>Select</Type><Method>*</Method><Data/></Event><Event><Id>.\\Instrument\\Items\\Scale\\*</Id><Type>Change</Type><Method>*</Method><Data/></Event></Events><Instrument><HeaderLabel>Rate the following colors by arousal and valance</HeaderLabel><MinNoOfScalings>2</MinNoOfScalings><X1AxisLabel>Arousal</X1AxisLabel><X2AxisLabel/><Y1AxisLabel>Valance</Y1AxisLabel><Y2AxisLabel/><X1AxisTicks><X1AxisTick><Label>Sad, Annoyed</Label><Position>0</Position></X1AxisTick></X1AxisTicks><X2AxisTicks><X2AxisTick><Label>Happy, Pleased</Label><Position>0</Position></X2AxisTick></X2AxisTicks><Y1AxisTicks><Y1AxisTick><Label>Excited, Aroused</Label><Position>0</Position></Y1AxisTick></Y1AxisTicks><Y2AxisTicks><Y2AxisTick><Label>Passive, Calm</Label><Position>0</Position></Y2AxisTick></Y2AxisTicks><Items><Item><Id>4121</Id><List><Label>Green</Label><Position>1</Position></List><Scale><Label>G</Label><Position/></Scale><Stimulus><Type>image/jpeg</Type><URI>http://www.americourtusa.com/images/mondoten-color-sample-light-green-large.jpg</URI></Stimulus></Item><Item><Id>1321</Id><List><Label>Red</Label><Position>2</Position></List><Scale><Label>R</Label><Position/></Scale><Stimulus><Type>image/jpeg</Type><Label/><URI>http://www.americourtusa.com/images/mondoten-color-sample-california-red.jpg</URI></Stimulus></Item><Item><Id>23431</Id><List><Label>Blue</Label><Position>3</Position></List><Scale><Label>G</Label><Position/></Scale><Stimulus><Type>image/jpeg</Type><Label/><URI>http://www.americourtusa.com/images/mondoten-color-sample-us-open-blue.jpg</URI></Stimulus></Item><Item><Id>433431</Id><List><Label>Purple</Label><Position>4</Position></List><Scale><Label>P</Label><Position/></Scale><Stimulus><Type>image/jpeg</Type><Label/><URI>http://www.americourtusa.com/images/mondoten-color-sample-pro-purple-large.jpg</URI></Stimulus></Item></Items></Instrument></Inputs>")
+                                     .Root.Elements()
+                        }
+                    }
+                },
+              new Slide
+                {
+                  Questions = new List<Question>()
+                    {
+                      new Question("Monitor")
+                        {
+                          Id = "123456723",
+                          Input =
+                            XDocument.Parse(
+                              "<Inputs><Events><Event><Type>Start</Type><Id>.\\</Id><Method/><Data/></Event></Events><Contexts/></Inputs>")
+                                     .Root.Elements()
                         }
                     }
                 }
@@ -97,10 +154,13 @@
         };
       CockpitContext.QuestionnaireGateway.Set(question);
 
-      portalApplication.AddBinding(typeof(AnswerDto), new JsonBinding<AnswerDto>());
+      portalApplication.AddBinding(typeof (AnswerDto),
+                                   new JsonBinding<AnswerDto>());
 
-      portalApplication.MapRoute("/v6/Question", () => new Api.Endpoints.QuestionExtension(portalApplication));
-      portalApplication.MapRoute("/v6/Answer", () => new Api.Endpoints.AnswerExtension(portalApplication));
+      portalApplication.MapRoute("/v6/Question",
+                                 () => new Api.Endpoints.QuestionExtension(portalApplication));
+      portalApplication.MapRoute("/v6/Answer",
+                                 () => new Api.Endpoints.AnswerExtension(portalApplication));
     }
   }
 }

@@ -59,10 +59,11 @@
       return new QuestionDto(question.Type)
         {
           Identifier = question.Id,
-          Data = question.Data,
           UserAnswer = question.UserAnswer == null
                          ? null
-                         : AnswerDtoFactory.Map(question.UserAnswer)
+                         : AnswerDtoFactory.Map(question.UserAnswer),
+          Input = question.Input,
+          Output = question.Output
         };
     }
   }

@@ -27,49 +27,63 @@ namespace Chaos.Cockpit.Core.Api
         }
 
         if (reader.TokenType == JsonToken.String)
-        {
-          var mv = new MultiValueResult
-            {
-              SimpleValues = new List<SimpleValueResult>()
-                {
-                  new SimpleValueResult(key, reader.Value.ToString())
-                }
-            };
-
-          output.Values.Add(mv);
-        }
+          output.SingleValues.Add(key, reader.Value.ToString());
 
         if (reader.TokenType == JsonToken.StartArray)
         {
-          var multiValue = new MultiValueResult { Key = key };
+          var multiValue = ReadArray(reader);
 
-          ReadArray(reader, multiValue);
-
-          output.Values.Add(multiValue);
+          output.MultiValues.Add(key, multiValue);
         }
       }
 
       return output;
     }
 
-    private void ReadArray(JsonReader reader, MultiValueResult multiValue)
+    private IMultiValueResult ReadArray(JsonReader reader)
     {
-      while (reader.Read())
+      reader.Read();
+
+      if (reader.TokenType == JsonToken.StartObject)
+        return ReadComplexArray(reader);
+
+      if (reader.TokenType == JsonToken.String)
+        return ReadSingleArray(reader);
+
+      return new MultiSingleValueResult();
+    }
+
+    private IMultiValueResult ReadComplexArray(JsonReader reader)
+    {
+      var complexArray = new MultiComplexValueResult();
+
+      while (true)
       {
-        if (reader.TokenType == JsonToken.StartObject)
-        {
-          var complex = new ComplexValueResult();
-
-          ReadObject(reader, complex);
-
-          multiValue.ComplexValues.Add(complex);
-        }
-
-        if(reader.TokenType == JsonToken.String)
-          multiValue.SimpleValues.Add(new SimpleValueResult(null, reader.Value.ToString()));
-
         if(reader.TokenType == JsonToken.EndArray)
-          break;
+          return complexArray;
+
+        var complex = new ComplexValueResult();
+
+        ReadObject(reader, complex);
+
+        complexArray.ComplexValues.Add(complex);
+
+        reader.Read();
+      }
+    }
+
+    private IMultiValueResult ReadSingleArray(JsonReader reader)
+    {
+      var singleArray = new MultiSingleValueResult();
+
+      while (true)
+      {
+        if(reader.TokenType == JsonToken.EndArray)
+          return singleArray;
+
+        singleArray.SingleValues.Add(reader.Value.ToString());
+
+        reader.Read();
       }
     }
 
@@ -87,10 +101,10 @@ namespace Chaos.Cockpit.Core.Api
         }
 
         if (reader.TokenType == JsonToken.Null)
-          value.SimpleValues.Add(new SimpleValueResult(key, null));
+          value.SingleValues.Add(key, null);
         
         if (reader.TokenType == JsonToken.String)
-          value.SimpleValues.Add(new SimpleValueResult(key, reader.Value.ToString()));
+          value.SingleValues.Add(key, reader.Value.ToString());
 
         if (reader.TokenType == JsonToken.EndObject)
           break;

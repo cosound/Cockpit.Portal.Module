@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Chaos.Cockpit.Core.Api.Result;
 
 namespace Chaos.Cockpit.Core.Core
 {
@@ -17,15 +18,5 @@ namespace Chaos.Cockpit.Core.Core
       Data = new Dictionary<string, string>();
       Type = type;
     }
-  }
-
-  public class Output
-  {
-    public string Identifier { get; set; }
-    public string Value { get; set; }
-    public string Type { get; set; }
-    public string ValueType { get; set; }
-    public uint MinNoOfValues { get; set; }
-    public uint MaxNoOfValues { get; set; }
   }
 }

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace Chaos.Cockpit.Core.Api.Result
 {
@@ -6,50 +7,120 @@ namespace Chaos.Cockpit.Core.Api.Result
   {
     public Output()
     {
-      Values = new List<MultiValueResult>();
+      ComplexValues = new Dictionary<string, ComplexValueResult>();
+      MultiValues = new Dictionary<string, IMultiValueResult>();
+      SingleValues = new Dictionary<string, string>();
     }
 
-    public List<MultiValueResult> Values { get; set; }
+    [JsonIgnore]
+    public IDictionary<string, ComplexValueResult> ComplexValues { get; set; }
+
+    [JsonIgnore]
+    public IDictionary<string, IMultiValueResult> MultiValues { get; set; }
+
+    [JsonIgnore]
+    public IDictionary<string, string> SingleValues { get; set; }
+
+    
   }
 
-  public class MultiValueResult
+  public interface IMultiValueResult
   {
-    public MultiValueResult()
+    IEnumerable<object> Values { get; }
+  }
+
+  public class MultiComplexValueResult : IMultiValueResult
+  {
+    public MultiComplexValueResult()
     {
       ComplexValues = new List<ComplexValueResult>();
-      SimpleValues = new List<SimpleValueResult>();
     }
 
-    public string Key { get; set; }
+    [JsonIgnore]
     public IList<ComplexValueResult> ComplexValues { get; set; }
-    public IList<SimpleValueResult> SimpleValues { get; set; }
+
+    public IEnumerable<object> Values
+    {
+      get
+      {
+        foreach (var complexValueResult in ComplexValues)
+        {
+          if (complexValueResult.SingleValues.Count != 0)
+            yield return complexValueResult.SingleValues;
+          
+          if (complexValueResult.ComplexValues.Count != 0)
+            yield return complexValueResult.ComplexValues;
+
+          if (complexValueResult.MultiValues.Count != 0)
+            yield return complexValueResult.MultiValues;
+        }
+      }
+    }
+  }
+
+  public class MultiSingleValueResult : IMultiValueResult
+  {
+    public MultiSingleValueResult()
+    {
+      SingleValues = new List<string>();
+    }
+
+    [JsonIgnore]
+    public IList<string> SingleValues { get; set; }
+
+    public IEnumerable<object> Values
+    {
+      get
+      {
+        foreach (var singleValue in SingleValues)
+        {
+          yield return singleValue;
+        }
+      }
+    }
   }
 
   public class ComplexValueResult
   {
     public ComplexValueResult()
     {
-      SimpleValues = new List<SimpleValueResult>();
+      ComplexValues = new Dictionary<string, ComplexValueResult>();
+      MultiValues = new Dictionary<string, MultiComplexValueResult>();
+      SingleValues = new Dictionary<string, string>();
     }
 
-    public string Key { get; set; }
-    public IList<SimpleValueResult> SimpleValues { get; set; }
-  }
+    [JsonIgnore]
+    public IDictionary<string, ComplexValueResult> ComplexValues { get; set; }
 
-  public class SimpleValueResult
-  {
-    public SimpleValueResult(string key, string value)
+    [JsonIgnore]
+    public IDictionary<string, MultiComplexValueResult> MultiValues { get; set; }
+
+    [JsonIgnore]
+    public IDictionary<string, string> SingleValues { get; set; }
+
+    public IDictionary<string, object> Values
     {
-      Key = key;
-      Value = value;
+      get
+      {
+        var dict = new Dictionary<string, object>();
+
+        foreach (var singleValue in SingleValues)
+        {
+          dict.Add(singleValue.Key, singleValue.Value);
+        }
+
+        foreach (var complexValueResult in ComplexValues)
+        {
+          dict.Add(complexValueResult.Key, complexValueResult.Value);
+        }
+
+        foreach (var multiValueResult in MultiValues)
+        {
+          dict.Add(multiValueResult.Key, multiValueResult.Value);
+        }
+
+        return dict;
+      }
     }
-
-    public string Key { get; set; }
-    public string Value { get; set; }
-  }
-
-  public interface IValue
-  {
-    string Key { get; set; }
   }
 }

@@ -1,10 +1,11 @@
+using System.Collections.Generic;
+using System.Xml.Linq;
+using CHAOS.Serialization;
+using Chaos.Portal.Core.Data.Model;
+using Newtonsoft.Json;
+
 namespace Chaos.Cockpit.Core.Api.Result
 {
-  using System.Collections.Generic;
-  using CHAOS.Serialization;
-  using Newtonsoft.Json;
-  using Portal.Core.Data.Model;
-
   [Serialize]
   public class QuestionDto : IResult
   {
@@ -17,37 +18,11 @@ namespace Chaos.Cockpit.Core.Api.Result
     [Serialize]
     public string Type { get; set; }
 
-    [Serialize]
-    public IDictionary<string, object> Data { get; set; }
-
     public QuestionDto(string type)
     {
       Type = type;
-      Data = new Dictionary<string, object>();
-    }
-
-    public static QuestionDto CreateBooleanAnswer()
-    {
-      return new QuestionDto("BooleanQuestion, 1.0")
-        {
-          Data = new Dictionary<string, object>
-            {
-              {"Text",""}
-            }
-        };
-    }
-
-    public static QuestionDto CreateMultipleChoiceAnswer()
-    {
-      return new QuestionDto("ABQuestion, 1.0")
-      {
-        Data = new Dictionary<string, object>
-            {
-              {"Text",""},
-              {"Url1",""},
-              {"Url2",""}
-            }
-      };
+      Input = new List<XElement>();
+      Output = new Output();
     }
 
     public string Fullname
@@ -57,16 +32,39 @@ namespace Chaos.Cockpit.Core.Api.Result
 
     public static QuestionDto CreateStartDateTimeAnswer()
     {
-      return new QuestionDto("Monitor:Event:StartAtDateTime")
-      {
-      };
+      return new QuestionDto("Monitor:Event:StartAtDateTime");
     }
     
     public static QuestionDto CreateEndDateTimeAnswer()
     {
-      return new QuestionDto("Monitor:Event:EndAtDateTime")
+      return new QuestionDto("Monitor:Event:EndAtDateTime");
+    }
+
+    
+    public IEnumerable<XElement> Input { get; set; }
+
+    [JsonIgnore]
+    public Output Output { get; set; }
+
+    [JsonProperty("Output")]
+    public IDictionary<string, object> Values
+    {
+      get
       {
-      };
+        var dict = new Dictionary<string, object>();
+
+        foreach (var singleValue in Output.SingleValues)
+        {
+          dict.Add(singleValue.Key, singleValue.Value);
+        }
+
+        foreach (var multiValueResult in Output.MultiValues)
+        {
+          dict.Add(multiValueResult.Key, multiValueResult.Value.Values);
+        }
+
+        return dict;
+      }
     }
   }
 }
