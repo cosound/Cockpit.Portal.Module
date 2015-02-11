@@ -21,6 +21,7 @@ namespace Chaos.Cockpit.Core.Data.Mcm
       foreach (var trial in trials)
       {
         var slide = new Slide();
+        result.AddSlide(slide);
 
         foreach (var questionElement in trial.Elements())
         {
@@ -34,8 +35,6 @@ namespace Chaos.Cockpit.Core.Data.Mcm
 
           slide.AddQuestion(question);
         }
-
-        result.AddSlide(slide);
       }
 
       return result;

@@ -50,7 +50,7 @@
                   <Events>
                      <Event>
                         <Id>.\</Id>
-                        <Type>Start<!----></Type>
+                        <Type>Start</Type>
                         <DateTime>2014-09-24T11:02:20.000Z</DateTime>
                         <Data/>
                         <Method/>
@@ -59,7 +59,7 @@
                   <Contexts>
                      <Context>
                         <DateTime>2014-09-24T11:02:20.000Z</DateTime>
-                        <Type>IPaddress<!----></Type>
+                        <Type>IPaddress</Type>
                         <Data>192.168.1.12</Data>
                      </Context>
                   </Contexts>
@@ -109,7 +109,7 @@
                      <Id>.\</Id>
                      <Method/>
                      <Data/>
-                  </Event><!--Example of how one could spec the Event info required-->
+                  </Event>
                </Events>
                <Instrument>
                   <HeaderLabel>Gender</HeaderLabel>
@@ -439,7 +439,7 @@
       <Trial TaskId="3">
          <TwoDKScaleDD Version="1">
             <Inputs>
-               <Events><!--Example of how one could spec the Event info required-->
+               <Events>
                   <Event>
                      <Id>.\</Id>
                      <Type>Start,Stop</Type>
@@ -598,21 +598,21 @@
                   <Events>
                      <Event>
                         <Id>.\</Id>
-                        <Type>Start<!--Means that the component was first engaged/shown at this point--></Type>
+                        <Type>Start/Type></Type>
                         <DateTime>2014-09-24T09:06:20.000Z</DateTime>
                         <Data/>
                         <Method/>
                      </Event>
                      <Event>
                         <Id>.\Instrument\Items\Item[Id=433431]\List</Id>
-                        <Type>Select<!--Means that the item was selected, in the list--></Type>
+                        <Type>Select</Type>
                         <DateTime>2014-09-24T09:06:20.000Z</DateTime>
                         <Data>[0]:[1]</Data>
                         <Method>Mouse\Left\Down\Double</Method>
                      </Event>
                      <Event>
                         <Id>.\Instrument\Items\Item[Id=433431]\Stimulus</Id>
-                        <Type>Start<!--Start: Means that the stimuli is presented e.g. image is first presented or audio starts playing--></Type>
+                        <Type>Start</Type>
                         <DateTime>2014-09-24T09:06:34.000Z</DateTime>
                         <Data/>
                         <Method>Screen</Method>
@@ -626,14 +626,14 @@
                      </Event>
                      <Event>
                         <Id>.\Instrument\Items\Item[Id=433431]\Stimulus</Id>
-                        <Type>Stop<!--Stop: Means that the associated stimuli was stopped e.g. stop showing image or stopped playing the audio--></Type>
+                        <Type>Stop</Type>
                         <DateTime>2014-09-24T09:07:34.000Z</DateTime>
-                        <Data>[1]:[234234]<!--The sample number played [FROM]-[TO]--></Data>
+                        <Data>[1]:[234234]</Data>
                         <Method>Screen</Method>
                      </Event>
                      <Event>
                         <Id>.\</Id>
-                        <Type>Stop<!--Means that the component was removed at this point--></Type>
+                        <Type>Stop</Type>
                         <DateTime>2014-09-24T09:06:20.000Z</DateTime>
                         <Data/>
                         <Method/>
@@ -672,7 +672,7 @@
                   <Events>
                      <Event>
                         <Id>.\</Id>
-                        <Type>Stop<!----></Type>
+                        <Type>Stop</Type>
                         <DateTime>2014-09-24T11:02:20.000Z</DateTime>
                         <Data/>
                         <Method/>

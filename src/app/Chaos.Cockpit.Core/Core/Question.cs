@@ -1,11 +1,9 @@
-﻿using System.Xml.Linq;
-using Chaos.Cockpit.Core.Api.Result;
+﻿using System.Collections.Generic;
+using System.Xml.Linq;
 using Chaos.Cockpit.Core.Core.Validation;
 
 namespace Chaos.Cockpit.Core.Core
 {
-  using System.Collections.Generic;
-
   public class Question : IKey
   {
     public string Id { get; set; }
