@@ -4,7 +4,6 @@ using Chaos.Cockpit.Core.Api;
 using Chaos.Cockpit.Core.Api.Result;
 using NUnit.Framework;
 using Newtonsoft.Json;
-using Output = Chaos.Cockpit.Core.Api.Result.Output;
 
 namespace Chaos.Cockpit.Core.Test.Api
 {
@@ -25,7 +24,7 @@ namespace Chaos.Cockpit.Core.Test.Api
                  "\"SimpleArray\":[" +
                  "\"type\",\"type2\"]}";
       
-      var output = JsonConvert.DeserializeObject<Output>(json, new OutputConverter());
+      var output = JsonConvert.DeserializeObject<OutputDto>(json, new OutputConverter());
 
       Func<string, int, string> singleArray = (key, i) => output.MultiValues.First(item => item.Key == key).Value.Values.Cast<string>().ToList()[i];
       Func<string, int, ComplexValueResult> complexArray = (key, i) => (output.MultiValues.First(item => item.Key == key).Value as MultiComplexValueResult).ComplexValues.ToList()[i];

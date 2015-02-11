@@ -56,9 +56,9 @@
     <Compile Include="Api\Endpoints\AnswerTest.cs" />
     <Compile Include="Api\Endpoints\QuestionnaireTest.cs" />
     <Compile Include="Api\OutputConverterTest.cs" />
-    <Compile Include="Core\ComplexValueValidatorTest.cs" />
-    <Compile Include="Core\MultiValueValidatorTest.cs" />
-    <Compile Include="Core\SimpleValueValidatorTest.cs" />
+    <Compile Include="Core\Validation\ComplexValueValidatorTest.cs" />
+    <Compile Include="Core\Validation\MultiValueValidatorTest.cs" />
+    <Compile Include="Core\Validation\SimpleValueValidatorTest.cs" />
     <Compile Include="Data\InMemory\EntityGatewayTest.cs" />
     <Compile Include="Data\InMemory\QuestionGatewayTest.cs" />
     <Compile Include="Data\Mcm\DtuFormatConverterTest.cs" />
@@ -74,6 +74,11 @@
       <Project>{F4D6C3D5-9666-4573-8B0E-FCF5B79C0E09}</Project>
       <Name>Chaos.Cockpit.Core</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Ressources\experiment.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

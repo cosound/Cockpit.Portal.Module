@@ -63,7 +63,7 @@
                          ? null
                          : AnswerDtoFactory.Map(question.UserAnswer),
           Input = question.Input,
-          Output = question.Output
+         // OutputDto = question.Output
         };
     }
   }

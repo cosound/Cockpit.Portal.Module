@@ -1,4 +1,5 @@
 ﻿using System.Xml.Linq;
+using Chaos.Cockpit.Core.Core.Validation;
 
 namespace Chaos.Cockpit.Core.Main
 {
@@ -6,7 +7,6 @@ namespace Chaos.Cockpit.Core.Main
   using Api.Binding;
   using Api.Result;
   using Core;
-  using Newtonsoft.Json.Linq;
   using Portal.Core;
   using Portal.Core.Module;
 
@@ -36,9 +36,9 @@ namespace Chaos.Cockpit.Core.Main
                                      .Root.Elements(),
                           Output = new Output
                             {
-                              SingleValues = new Dictionary<string, string>()
+                              SimpleValues = new []
                                 {
-                                  {"Key1", "Value1"}
+                                  new SimpleValue("Key1", "Value1")
                                 }
                             }
                         }

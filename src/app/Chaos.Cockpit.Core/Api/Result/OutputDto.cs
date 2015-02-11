@@ -3,9 +3,9 @@ using Newtonsoft.Json;
 
 namespace Chaos.Cockpit.Core.Api.Result
 {
-  public class Output
+  public class OutputDto
   {
-    public Output()
+    public OutputDto()
     {
       ComplexValues = new Dictionary<string, ComplexValueResult>();
       MultiValues = new Dictionary<string, IMultiValueResult>();

@@ -14,7 +14,7 @@ namespace Chaos.Cockpit.Core.Api
 
     public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
     {
-      var output = new Result.Output();
+      var output = new Result.OutputDto();
       
       while (reader.Read())
       {
@@ -113,7 +113,7 @@ namespace Chaos.Cockpit.Core.Api
 
     public override bool CanConvert(Type objectType)
     {
-      return objectType.IsAssignableFrom(typeof(Result.Output));
+      return objectType.IsAssignableFrom(typeof(Result.OutputDto));
     }
   }
 }

@@ -1,4 +1,7 @@
-﻿namespace Chaos.Cockpit.Core.Data.Mcm
+﻿using System.Collections.Generic;
+using Chaos.Cockpit.Core.Core.Validation;
+
+namespace Chaos.Cockpit.Core.Data.Mcm
 {
   using System.Linq;
   using System.Xml.Linq;
@@ -6,17 +9,85 @@
 
   public class DtuFormatConverter
   {
-    public Questionnaire Deserialize(string xml)
+    public Questionnaire Deserialize(XDocument xml)
     {
-      var doc = XDocument.Parse(xml);
-      var experiemnt = doc.Root.Element("Experiment");
-      var trial = doc.Descendants("Trial").Single();
+      var experiemnt = xml.Element("Experiment");
       
       var result = new Questionnaire();
-      result.Id = trial.Element("GUID").Value;
-      result.Name = experiemnt.Element("Id").Value;
+      result.Id = experiemnt.Element("Id").Value;
+      result.Name = experiemnt.Element("Name").Value;
+
+      var trials = xml.Descendants("Trial");
+      foreach (var trial in trials)
+      {
+        var slide = new Slide();
+
+        foreach (var questionElement in trial.Elements())
+        {
+          var type = questionElement.Name.LocalName;
+          var question = new Question(type);
+
+          question.Input = questionElement.Element("Inputs").Elements();
+
+          var validationElement = questionElement.Element("Outputs").Element("Validation");
+          question.Validation.MultiValueValidator = FindMultiValueValidators(validationElement).ToList();
+
+          slide.AddQuestion(question);
+        }
+
+        result.AddSlide(slide);
+      }
 
       return result;
+    }
+
+    private static IEnumerable<MultiValueValidator> FindMultiValueValidators(XContainer parent)
+    {
+      foreach (var multiElement in parent.Elements("MultiValue"))
+      {
+        var multi = new MultiValueValidator();
+        multi.Id = multiElement.Attribute("Id").Value;
+        multi.Min = StringToUint(multiElement.Attribute("Min").Value);
+        multi.Max = StringToUint(multiElement.Attribute("Max").Value);
+
+        multi.ComplexValueValidators = FindComplexValueValidators(multiElement).ToList();
+        multi.SimpleValueValidators = FindSimpleValueValidators(multiElement).ToList();
+
+        yield return multi;
+      }
+    }
+
+    private static IEnumerable<ComplexValueValidator> FindComplexValueValidators(XContainer parent)
+    {
+      foreach (var complexElement in parent.Elements("ComplexValue"))
+      {
+        var complex = new ComplexValueValidator();
+        complex.Id = complexElement.Attribute("Id").Value;
+
+        complex.SimpleValueValidators = FindSimpleValueValidators(complexElement).ToList();
+
+        yield return complex;
+      }
+    }
+
+    private static IEnumerable<SimpleValueValidator> FindSimpleValueValidators(XContainer parent)
+    {
+      foreach (var simpleElement in parent.Elements("SimpleValue"))
+      {
+        var simple = new SimpleValueValidator();
+        simple.Id = simpleElement.Attribute("Id").Value;
+        simple.Validation = simpleElement.Attribute("Validation").Value;
+
+        yield return simple;
+      }
+    }
+
+    private static uint StringToUint(string value)
+    {
+      if ("Inf".Equals(value))
+        return uint.MaxValue;
+
+      return uint.Parse(value);
     }
   }
 }

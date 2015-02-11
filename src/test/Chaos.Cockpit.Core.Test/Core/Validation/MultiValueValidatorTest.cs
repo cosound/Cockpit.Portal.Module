@@ -1,8 +1,8 @@
-﻿using Chaos.Cockpit.Core.Core;
 using Chaos.Cockpit.Core.Core.Exceptions;
+using Chaos.Cockpit.Core.Core.Validation;
 using NUnit.Framework;
 
-namespace Chaos.Cockpit.Core.Test.Core
+namespace Chaos.Cockpit.Core.Test.Core.Validation
 {
   [TestFixture]
   public class MultiValueValidatorTest

@@ -22,7 +22,7 @@ namespace Chaos.Cockpit.Core.Api.Result
     {
       Type = type;
       Input = new List<XElement>();
-      Output = new Output();
+      OutputDto = new OutputDto();
     }
 
     public string Fullname
@@ -44,21 +44,21 @@ namespace Chaos.Cockpit.Core.Api.Result
     public IEnumerable<XElement> Input { get; set; }
 
     [JsonIgnore]
-    public Output Output { get; set; }
+    public OutputDto OutputDto { get; set; }
 
-    [JsonProperty("Output")]
+    [JsonProperty("OutputDto")]
     public IDictionary<string, object> Values
     {
       get
       {
         var dict = new Dictionary<string, object>();
 
-        foreach (var singleValue in Output.SingleValues)
+        foreach (var singleValue in OutputDto.SingleValues)
         {
           dict.Add(singleValue.Key, singleValue.Value);
         }
 
-        foreach (var multiValueResult in Output.MultiValues)
+        foreach (var multiValueResult in OutputDto.MultiValues)
         {
           dict.Add(multiValueResult.Key, multiValueResult.Value.Values);
         }

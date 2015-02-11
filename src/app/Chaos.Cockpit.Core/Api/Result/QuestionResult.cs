@@ -11,7 +11,7 @@ namespace Chaos.Cockpit.Core.Api.Result
     public Input Inputs { get; set; }
 
     [Serialize]
-    public Output Outputs { get; set; }
+    public OutputDto OutputsDto { get; set; }
 
     public class Input
     {

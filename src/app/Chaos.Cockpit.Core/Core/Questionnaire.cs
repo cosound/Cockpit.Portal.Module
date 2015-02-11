@@ -14,6 +14,11 @@ namespace Chaos.Cockpit.Core.Core
     {
       Slides = new List<Slide>();
     }
+
+    public void AddSlide(Slide slide)
+    {
+      Slides.Add(slide);
+    }
   }
 
   public class Slide
@@ -23,6 +28,11 @@ namespace Chaos.Cockpit.Core.Core
     public Slide()
     {
       Questions = new List<Question>();
+    }
+
+    public void AddQuestion(Question question)
+    {
+      Questions.Add(question);
     }
   }
 }

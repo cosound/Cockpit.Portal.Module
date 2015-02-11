@@ -55,7 +55,7 @@
     <Compile Include="Api\Experiment.cs" />
     <Compile Include="Api\OutputConverter.cs" />
     <Compile Include="Api\Result\AnswerDto.cs" />
-    <Compile Include="Api\Result\Output.cs" />
+    <Compile Include="Api\Result\OutputDto.cs" />
     <Compile Include="Api\Result\QuestionDto.cs" />
     <Compile Include="Api\Result\QuestionnaireDto.cs" />
     <Compile Include="Api\Result\QuestionResult.cs" />
@@ -64,9 +64,14 @@
     <Compile Include="Core\CockpitContext.cs" />
     <Compile Include="Core\Exceptions\ValidationException.cs" />
     <Compile Include="Core\IKey.cs" />
-    <Compile Include="Core\MultiValueValidator.cs" />
     <Compile Include="Core\Question.cs" />
     <Compile Include="Core\Questionnaire.cs" />
+    <Compile Include="Core\Validation\ComplexValue.cs" />
+    <Compile Include="Core\Validation\ComplexValueValidator.cs" />
+    <Compile Include="Core\Validation\MultiValue.cs" />
+    <Compile Include="Core\Validation\MultiValueValidator.cs" />
+    <Compile Include="Core\Validation\SimpleValue.cs" />
+    <Compile Include="Core\Validation\SimpleValueValidator.cs" />
     <Compile Include="Data\Exceptions\DataNotFoundException.cs" />
     <Compile Include="Data\InMemory\EntityRepository.cs" />
     <Compile Include="Data\InMemory\QuestionGateway.cs" />
