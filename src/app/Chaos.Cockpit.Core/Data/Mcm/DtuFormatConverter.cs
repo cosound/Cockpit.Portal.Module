@@ -50,7 +50,7 @@ namespace Chaos.Cockpit.Core.Data.Mcm
         multi.Min = StringToUint(multiElement.Attribute("Min").Value);
         multi.Max = StringToUint(multiElement.Attribute("Max").Value);
 
-        multi.ComplexValueValidators = FindComplexValueValidators(multiElement).ToList();
+        multi.ComplexValueValidator = FindComplexValueValidators(multiElement).SingleOrDefault();
         multi.SimpleValueValidators = FindSimpleValueValidator(multiElement).SingleOrDefault();
 
         yield return multi;

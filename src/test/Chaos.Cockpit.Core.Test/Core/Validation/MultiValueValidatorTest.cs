@@ -62,10 +62,10 @@ namespace Chaos.Cockpit.Core.Test.Core.Validation
     public void Validate_GivenInvalidComplexValue()
     {
       var validator = new MultiValueValidator();
-      validator.ComplexValueValidators.Add(new ComplexValueValidator
+      validator.ComplexValueValidator = new ComplexValueValidator
         {
           SimpleValueValidators = new[] {SimpleValueValidator.Create("key", "expected value")}
-        });
+        };
       var multiValue = new MultiValue();
       multiValue.ComplexValues.Add(new ComplexValue
         {
@@ -79,10 +79,10 @@ namespace Chaos.Cockpit.Core.Test.Core.Validation
     public void Validate_GivenValidComplexValue()
     {
       var validator = new MultiValueValidator();
-      validator.ComplexValueValidators.Add(new ComplexValueValidator
+      validator.ComplexValueValidator = new ComplexValueValidator
         {
           SimpleValueValidators = new[] {SimpleValueValidator.Create("key", "value")}
-        });
+        };
       var multiValue = new MultiValue();
       multiValue.ComplexValues.Add(new ComplexValue
         {
@@ -96,10 +96,10 @@ namespace Chaos.Cockpit.Core.Test.Core.Validation
     public void Validate_GivenMultiplealidComplexValueWithOneInvalid_Throw()
     {
       var validator = new MultiValueValidator();
-      validator.ComplexValueValidators.Add(new ComplexValueValidator
+      validator.ComplexValueValidator = new ComplexValueValidator
         {
           SimpleValueValidators = new[] {SimpleValueValidator.Create("key", "value")}
-        });
+        };
       var multiValue = new MultiValue();
       multiValue.ComplexValues.Add(new ComplexValue
         {

@@ -27,9 +27,9 @@ namespace Chaos.Cockpit.Core.Test.Data.Mcm
        Assert.That(events.Id, Is.EqualTo("Events"));
        Assert.That(events.Min, Is.EqualTo(0));
        Assert.That(events.Max, Is.EqualTo(uint.MaxValue));
-       Assert.That(events.ComplexValueValidators[0].Id, Is.EqualTo("Event"));
-       Assert.That(events.ComplexValueValidators[0].SimpleValueValidators[0].Id, Is.EqualTo("DateTime"));
-       Assert.That(events.ComplexValueValidators[0].SimpleValueValidators[0].Validation, Is.EqualTo(@"(\d{4}-\d{2}-\d{2})T(\d{2}:\d{2}:\d{2}.\d{3})Z"));
+       Assert.That(events.ComplexValueValidator.Id, Is.EqualTo("Event"));
+       Assert.That(events.ComplexValueValidator.SimpleValueValidators[0].Id, Is.EqualTo("DateTime"));
+       Assert.That(events.ComplexValueValidator.SimpleValueValidators[0].Validation, Is.EqualTo(@"(\d{4}-\d{2}-\d{2})T(\d{2}:\d{2}:\d{2}.\d{3})Z"));
        Assert.That(result.Slides[1].Questions[0].Type, Is.EqualTo("Freetext"));
        Assert.That(result.Slides[1].Questions[1].Type, Is.EqualTo("RadioButtonGroup"));
        Assert.That(result.Slides[2].Questions[0].Type, Is.EqualTo("CheckBoxGroup"));
