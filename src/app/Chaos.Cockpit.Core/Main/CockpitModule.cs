@@ -1,10 +1,8 @@
 ﻿using System.Xml.Linq;
-using Chaos.Cockpit.Core.Core.Validation;
 using Chaos.Cockpit.Core.Data.Mcm;
 
 namespace Chaos.Cockpit.Core.Main
 {
-  using System.Collections.Generic;
   using Api.Binding;
   using Api.Result;
   using Core;
@@ -18,10 +16,8 @@ namespace Chaos.Cockpit.Core.Main
       CockpitContext.QuestionnaireGateway = new Data.InMemory.QuestionnaireGateway();
       CockpitContext.QuestionGateway = new Data.InMemory.QuestionGateway();
 
-      var xml = XDocument.Load(@"C:\inetpub\wwwroot\api.dev.cosound.dk\Modules\experiment.xml");
-      var question = new DtuFormatConverter().Deserialize(xml);
-
-      CockpitContext.QuestionnaireGateway.Set(question);
+      LoadExperiments();
+      
       portalApplication.AddBinding(typeof (AnswerDto),
                                    new JsonBinding<AnswerDto>());
 
@@ -29,6 +25,22 @@ namespace Chaos.Cockpit.Core.Main
                                  () => new Api.Endpoints.QuestionExtension(portalApplication));
       portalApplication.MapRoute("/v6/Answer",
                                  () => new Api.Endpoints.AnswerExtension(portalApplication));
+    }
+
+    private static void LoadExperiments()
+    {
+      try
+      {
+        foreach (var file in System.IO.Directory.GetFiles(@"C:\inetpub\wwwroot\api.dev.cosound.dk\experiments", "*.xml"))
+        {
+          var xml = XDocument.Load(file);
+          var question = new DtuFormatConverter().Deserialize(xml);
+          CockpitContext.QuestionnaireGateway.Set(question);
+        }
+      }
+      catch (System.IO.DirectoryNotFoundException)
+      {
+      }
     }
   }
 }
