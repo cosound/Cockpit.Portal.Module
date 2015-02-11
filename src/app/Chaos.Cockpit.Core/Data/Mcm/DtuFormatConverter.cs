@@ -51,7 +51,7 @@ namespace Chaos.Cockpit.Core.Data.Mcm
         multi.Max = StringToUint(multiElement.Attribute("Max").Value);
 
         multi.ComplexValueValidators = FindComplexValueValidators(multiElement).ToList();
-        multi.SimpleValueValidators = FindSimpleValueValidators(multiElement).ToList();
+        multi.SimpleValueValidators = FindSimpleValueValidator(multiElement).SingleOrDefault();
 
         yield return multi;
       }
@@ -64,13 +64,13 @@ namespace Chaos.Cockpit.Core.Data.Mcm
         var complex = new ComplexValueValidator();
         complex.Id = complexElement.Attribute("Id").Value;
 
-        complex.SimpleValueValidators = FindSimpleValueValidators(complexElement).ToList();
+        complex.SimpleValueValidators = FindSimpleValueValidator(complexElement).ToList();
 
         yield return complex;
       }
     }
 
-    private static IEnumerable<SimpleValueValidator> FindSimpleValueValidators(XContainer parent)
+    private static IEnumerable<SimpleValueValidator> FindSimpleValueValidator(XContainer parent)
     {
       foreach (var simpleElement in parent.Elements("SimpleValue"))
       {

@@ -1,4 +1,5 @@
-﻿using System.Xml.Linq;
+﻿using System.Linq;
+using System.Xml.Linq;
 
 namespace Chaos.Cockpit.Core.Test.Data.Mcm
 {
@@ -32,8 +33,8 @@ namespace Chaos.Cockpit.Core.Test.Data.Mcm
        Assert.That(result.Slides[1].Questions[0].Type, Is.EqualTo("Freetext"));
        Assert.That(result.Slides[1].Questions[1].Type, Is.EqualTo("RadioButtonGroup"));
        Assert.That(result.Slides[2].Questions[0].Type, Is.EqualTo("CheckBoxGroup"));
-       Assert.That(result.Slides[2].Questions[0].Validation.MultiValueValidator[0].SimpleValueValidators[0].Id, Is.EqualTo("Id"));
-       Assert.That(result.Slides[2].Questions[0].Validation.MultiValueValidator[0].SimpleValueValidators[0].Validation, Is.EqualTo(".+"));
+       Assert.That(result.Slides[2].Questions[0].Validation.MultiValueValidator[0].SimpleValueValidators.Id, Is.EqualTo("Id"));
+       Assert.That(result.Slides[2].Questions[0].Validation.MultiValueValidator[0].SimpleValueValidators.Validation, Is.EqualTo(".+"));
        Assert.That(result.Slides[3].Questions[0].Type, Is.EqualTo("CheckBoxGroup"));
        Assert.That(result.Slides[4].Questions[0].Type, Is.EqualTo("CheckBoxGroup"));
        Assert.That(result.Slides[5].Questions[0].Type, Is.EqualTo("OneDScale"));

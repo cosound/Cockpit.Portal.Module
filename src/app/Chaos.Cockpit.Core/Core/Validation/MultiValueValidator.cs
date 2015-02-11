@@ -9,7 +9,6 @@ namespace Chaos.Cockpit.Core.Core.Validation
     public MultiValueValidator()
     {
       ComplexValueValidators = new List<ComplexValueValidator>();
-      SimpleValueValidators = new List<SimpleValueValidator>();
     }
 
     public string Id { get; set; }
@@ -17,20 +16,20 @@ namespace Chaos.Cockpit.Core.Core.Validation
     public uint Max { get; set; }
 
     public IList<ComplexValueValidator> ComplexValueValidators { get; set; }
-    public IList<SimpleValueValidator> SimpleValueValidators { get; set; }
+    public SimpleValueValidator SimpleValueValidators { get; set; }
 
     public void Validate(MultiValue multiValue)
     {
       if(multiValue == null) throw new ValidationException();
 
-      foreach (var validator in SimpleValueValidators)
+      if (SimpleValueValidators != null)
       {
-        var vals = multiValue.SimpleValues.Where(item => item.Key == validator.Id);
+        var vals = multiValue.SimpleValues.Where(item => item.Key == SimpleValueValidators.Id);
 
-        if (!vals.Any()) throw new ValidationException(string.Format("Value ({0}) is missing", validator.Id));
+        if (!vals.Any()) throw new ValidationException(string.Format("Value ({0}) is missing", SimpleValueValidators.Id));
 
         foreach (var val in vals)
-          validator.Validate(val);
+          SimpleValueValidators.Validate(val);
       }
 
       foreach (var validator in ComplexValueValidators)
