@@ -10,14 +10,17 @@ namespace Chaos.Cockpit.Core.Core.Validation
 
     public void Validate(string value)
     {
+      if (".*".Equals(Validation)) return;
+
       if(value == null) throw new ValidationException();
       if(IsInvalid(value)) throw new ValidationException();
     }
     
     public void Validate(SimpleValue value)
     {
-      if(value == null || value.Value == null || value.Key == null) throw new ValidationException();
-      if(IsInvalid(value.Value)) throw new ValidationException();
+      if(value == null || value.Key == null) throw new ValidationException();
+
+      Validate(value.Value);
     }
 
     private bool IsInvalid(string value)

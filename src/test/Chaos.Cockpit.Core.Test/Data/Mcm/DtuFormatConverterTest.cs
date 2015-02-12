@@ -1,4 +1,7 @@
-﻿using System.Xml.Linq;
+﻿using System.Collections.Generic;
+using System.Xml.Linq;
+using Chaos.Cockpit.Core.Core;
+using Chaos.Cockpit.Core.Core.Validation;
 using Chaos.Cockpit.Core.Data.Mcm;
 using NUnit.Framework;
 
@@ -42,5 +45,59 @@ namespace Chaos.Cockpit.Core.Test.Data.Mcm
        Assert.That(result.Slides[7].Questions[0].Id, Is.EqualTo("ea3976c7-2d4a-4ef0-84a1-1d9e66f4a0e7:8"));
        Assert.That(result.Slides[7].Questions[0].Type, Is.EqualTo("Monitor"));
      }
+
+     [Test]
+     public void Validate()
+     {
+       var question = new Question("Monitor");
+       question.Validation.MultiValueValidator = new List<MultiValueValidator>()
+         {
+           new MultiValueValidator
+             {
+               Id = "Events",
+               Min = 0, Max = 10,
+               ComplexValueValidator = new ComplexValueValidator
+                 {
+                   Id = "Event",
+                   SimpleValueValidators = new List<SimpleValueValidator>()
+                     {
+                       new SimpleValueValidator
+                         {
+                           Id = "DateTime",
+                           Validation = @"(\d{4}-\d{2}-\d{2})T(\d{2}:\d{2}:\d{2}.\d{3})Z"
+                         },
+                       new SimpleValueValidator
+                         {
+                           Id = "Type",
+                           Validation = @".*"
+                         }
+                     }
+                 }
+             }
+         };
+       question.Output = new Output
+       {
+         MultiValues = new List<MultiValue>()
+             {
+               new MultiValue
+                 {
+                   Key = "Events",
+                   ComplexValues = new List<ComplexValue>()
+                     {
+                       new ComplexValue
+                         {
+                           Key = null,
+                           SimpleValues = new List<SimpleValue>()
+                             {
+                               new SimpleValue("DateTime", "2015-02-12T16:00:00.000Z"),
+                               new SimpleValue("Type", null)
+                             }
+                         }
+                     }
+                 }
+             }
+       };
+     }
+
   }
 }

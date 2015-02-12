@@ -27,11 +27,7 @@ namespace Chaos.Cockpit.Core.Core.Validation
       }
       else if (ComplexValueValidator != null)
       {
-        var vals = multiValue.ComplexValues.Where(item => item.Key == ComplexValueValidator.Id);
-
-        if (!vals.Any()) throw new ValidationException(string.Format("Value ({0}) is missing", ComplexValueValidator.Id));
-
-        foreach (var val in vals)
+        foreach (var val in multiValue.ComplexValues)
           ComplexValueValidator.Validate(val);
       }
     }

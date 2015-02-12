@@ -59,6 +59,7 @@
     <Compile Include="Api\OutputMapperTest.cs" />
     <Compile Include="Core\Validation\ComplexValueValidatorTest.cs" />
     <Compile Include="Core\Validation\MultiValueValidatorTest.cs" />
+    <Compile Include="Core\Validation\OutputValidationTest.cs" />
     <Compile Include="Core\Validation\SimpleValueValidatorTest.cs" />
     <Compile Include="Data\InMemory\EntityGatewayTest.cs" />
     <Compile Include="Data\InMemory\QuestionGatewayTest.cs" />
