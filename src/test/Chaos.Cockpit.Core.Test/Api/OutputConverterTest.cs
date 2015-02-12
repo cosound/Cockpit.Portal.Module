@@ -17,6 +17,7 @@ namespace Chaos.Cockpit.Core.Test.Api
                  "\"Events\":[{" +
                     "\"Id\":\".\\\\\", " +
                     "\"Type\":\"Start<!---->\"," +
+                    "\"DateTime\":\"2015-02-12T16:00:00.000Z\"," +
                     "\"Data\":null},{" +
                     "\"Id\":\"id 2\"}]," +
                  "\"Contexts\":[{" +
@@ -30,6 +31,7 @@ namespace Chaos.Cockpit.Core.Test.Api
       Func<string, int, ComplexValueResult> complexArray = (key, i) => (output.MultiValues.First(item => item.Key == key).Value as MultiComplexValueResult).ComplexValues.ToList()[i];
       Assert.That(complexArray("Events", 0).SingleValues["Id"], Is.EqualTo(".\\"));
       Assert.That(complexArray("Events", 0).SingleValues["Type"], Is.EqualTo("Start<!---->"));
+      Assert.That(complexArray("Events", 0).SingleValues["DateTime"], Is.EqualTo("2015-02-12T16:00:00.000Z"));
       Assert.That(complexArray("Events", 0).SingleValues["Data"], Is.Null);
       Assert.That(complexArray("Events", 1).SingleValues["Id"], Is.EqualTo("id 2"));
       Assert.That(complexArray("Contexts", 0).SingleValues["Type"], Is.EqualTo("IPaddress"));

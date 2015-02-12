@@ -51,6 +51,8 @@ namespace Chaos.Cockpit.Core.Api.Result
     {
       get
       {
+        if(Output == null) return null;
+
         var dict = new Dictionary<string, object>();
 
         foreach (var singleValue in Output.SingleValues)

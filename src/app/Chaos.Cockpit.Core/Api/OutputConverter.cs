@@ -29,6 +29,12 @@ namespace Chaos.Cockpit.Core.Api
         if (reader.TokenType == JsonToken.String)
           output.SingleValues.Add(key, reader.Value.ToString());
 
+        if (reader.TokenType == JsonToken.Date)
+        {
+          var datetime = (DateTime)reader.Value;
+          output.SingleValues.Add(key, datetime.ToString("yyyy-MM-dd'T'HH:mm:ss'.'fff'Z'"));
+        }
+
         if (reader.TokenType == JsonToken.StartArray)
         {
           var multiValue = ReadArray(reader);
@@ -105,6 +111,12 @@ namespace Chaos.Cockpit.Core.Api
         
         if (reader.TokenType == JsonToken.String)
           value.SingleValues.Add(key, reader.Value.ToString());
+        
+        if (reader.TokenType == JsonToken.Date)
+        {
+          var datetime = (DateTime) reader.Value;
+          value.SingleValues.Add(key, datetime.ToString("yyyy-MM-dd'T'HH:mm:ss'.'fff'Z'"));
+        }
 
         if (reader.TokenType == JsonToken.EndObject)
           break;

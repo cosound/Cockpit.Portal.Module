@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Xml.Linq;
 using Chaos.Cockpit.Core.Core.Validation;
 
@@ -6,12 +7,46 @@ namespace Chaos.Cockpit.Core.Core
 {
   public class Question : IKey
   {
+    private Output _output;
+    
     public string Id { get; set; }
     public Answer UserAnswer { get; set; }
     public string Type { get; set; }
     public IEnumerable<XElement> Input { get; set; }
-    public Output Output { get; set; }
     public OutputValidator Validation { get; set; }
+    
+    public Output Output
+    {
+      set
+      {
+        if (value != null)
+        {
+          foreach (var validator in Validation.ComplexValueValidator)
+          {
+            var complex = value.ComplexValues.Single(item => item.Key == validator.Id);
+
+            validator.Validate(complex);
+          }
+
+          foreach (var validator in Validation.MultiValueValidator)
+          {
+            var multi = value.MultiValues.Single(item => item.Key == validator.Id);
+
+            validator.Validate(multi);
+          }
+
+          foreach (var validator in Validation.SimpleValueValidator)
+          {
+            var simple = value.SimpleValues.Single(item => item.Key == validator.Id);
+
+            validator.Validate(simple);
+          }
+        }
+
+        _output = value;
+      }
+      get { return _output; }
+    }
 
     public Question(string type)
     {

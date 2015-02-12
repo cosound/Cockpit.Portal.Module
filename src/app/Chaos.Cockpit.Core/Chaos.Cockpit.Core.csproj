@@ -50,6 +50,7 @@
   <ItemGroup>
     <Compile Include="Api\AnswerDtoFactory.cs" />
     <Compile Include="Api\Binding\JsonBinding.cs" />
+    <Compile Include="Api\Binding\OutputBinding.cs" />
     <Compile Include="Api\Endpoints\AnswerExtension.cs" />
     <Compile Include="Api\Endpoints\QuestionExtension.cs" />
     <Compile Include="Api\Experiment.cs" />
