@@ -19,7 +19,7 @@ namespace Chaos.Cockpit.Core.Test.Core.Validation
     [Test, ExpectedException(typeof (ValidationException))]
     public void Validate_GivenNull_Throw()
     {
-      _validator.Validate(null);
+      _validator.Validate((SimpleValue) null);
     }
 
     [Test, ExpectedException(typeof (ValidationException))]

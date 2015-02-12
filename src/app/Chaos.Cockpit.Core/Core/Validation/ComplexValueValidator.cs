@@ -19,7 +19,7 @@ namespace Chaos.Cockpit.Core.Core.Validation
       if (value == null) throw new ValidationException();
 
       foreach (var validator in SimpleValueValidators)
-        validator.Validate(value.GetValue(validator.Id));
+        validator.Validate(value.GetValue(validator.Id).Value);
     }
   }
 }

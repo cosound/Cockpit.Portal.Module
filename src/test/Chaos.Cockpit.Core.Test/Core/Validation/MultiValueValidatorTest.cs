@@ -19,7 +19,7 @@ namespace Chaos.Cockpit.Core.Test.Core.Validation
     public void Validate_GivenInvalidSimpleValue_Throw()
     {
       var validator = new MultiValueValidator();
-      validator.SimpleValueValidators = new SimpleValueValidator();
+      validator.SimpleValueValidator = new SimpleValueValidator();
       var multiValue = new MultiValue();
 
       validator.Validate(multiValue);
@@ -29,9 +29,9 @@ namespace Chaos.Cockpit.Core.Test.Core.Validation
     public void Validate_GivenInvalidValue_Throw()
     {
       var validator = new MultiValueValidator();
-      validator.SimpleValueValidators = SimpleValueValidator.Create("key", "expected value");
+      validator.SimpleValueValidator = SimpleValueValidator.Create("key", "expected value");
       var multiValue = new MultiValue();
-      multiValue.SimpleValues.Add(new SimpleValue("key", "invalid value"));
+      multiValue.SimpleValues.Add("invalid value");
 
       validator.Validate(multiValue);
     }
@@ -40,9 +40,9 @@ namespace Chaos.Cockpit.Core.Test.Core.Validation
     public void Validate_GivenValidSimpleValue()
     {
       var validator = new MultiValueValidator();
-      validator.SimpleValueValidators = SimpleValueValidator.Create("key", "value");
+      validator.SimpleValueValidator = SimpleValueValidator.Create("key", "value");
       var multiValue = new MultiValue();
-      multiValue.SimpleValues.Add(new SimpleValue("key", "value"));
+      multiValue.SimpleValues.Add("value");
 
       validator.Validate(multiValue);
     }
@@ -51,11 +51,11 @@ namespace Chaos.Cockpit.Core.Test.Core.Validation
     public void Validate_GivenMultipleValidSimpleValue()
     {
       var validator = new MultiValueValidator();
-      validator.SimpleValueValidators = SimpleValueValidator.Create("key", "value");
+      validator.SimpleValueValidator = SimpleValueValidator.Create("key", "value");
       var multiValue = new MultiValue();
-      multiValue.SimpleValues.Add(new SimpleValue("key", "value1"));
-      multiValue.SimpleValues.Add(new SimpleValue("key", "value2"));
-      multiValue.SimpleValues.Add(new SimpleValue("key", "value3"));
+      multiValue.SimpleValues.Add("value1");
+      multiValue.SimpleValues.Add("value2");
+      multiValue.SimpleValues.Add("value3");
     }
 
     [Test, ExpectedException(typeof(ValidationException))]

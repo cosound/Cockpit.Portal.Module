@@ -50,7 +50,7 @@ namespace Chaos.Cockpit.Core.Data.Mcm
         multi.Max = StringToUint(multiElement.Attribute("Max").Value);
 
         multi.ComplexValueValidator = FindComplexValueValidators(multiElement).SingleOrDefault();
-        multi.SimpleValueValidators = FindSimpleValueValidator(multiElement).SingleOrDefault();
+        multi.SimpleValueValidator = FindSimpleValueValidator(multiElement).SingleOrDefault();
 
         yield return multi;
       }

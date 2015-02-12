@@ -8,15 +8,21 @@ namespace Chaos.Cockpit.Core.Core.Validation
     public string Id { get; set; }
     public string Validation { get; set; }
 
-    public void Validate(SimpleValue value)
+    public void Validate(string value)
     {
-      if(value == null || value.Value == null) throw new ValidationException();
+      if(value == null) throw new ValidationException();
       if(IsInvalid(value)) throw new ValidationException();
     }
-
-    private bool IsInvalid(SimpleValue value)
+    
+    public void Validate(SimpleValue value)
     {
-      return !Regex.IsMatch(value.Value, Validation, RegexOptions.Singleline);
+      if(value == null || value.Value == null || value.Key == null) throw new ValidationException();
+      if(IsInvalid(value.Value)) throw new ValidationException();
+    }
+
+    private bool IsInvalid(string value)
+    {
+      return !Regex.IsMatch(value, Validation, RegexOptions.Singleline);
     }
 
     public static SimpleValueValidator Create(string id, string validation)

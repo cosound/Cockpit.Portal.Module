@@ -22,5 +22,10 @@ namespace Chaos.Cockpit.Core.Core.Validation
 
       return val;
     }
+
+    public void Add(SimpleValue value)
+    {
+      SimpleValues.Add(value);
+    }
   }
 }

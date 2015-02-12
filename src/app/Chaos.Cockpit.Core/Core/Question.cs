@@ -17,7 +17,6 @@ namespace Chaos.Cockpit.Core.Core
     {
       Type = type;
       Input = new List<XElement>();
-      Output = new Output();
       Validation = new OutputValidator();
     }
   }
