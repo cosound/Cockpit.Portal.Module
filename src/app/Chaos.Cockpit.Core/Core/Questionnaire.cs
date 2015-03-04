@@ -7,6 +7,9 @@ namespace Chaos.Cockpit.Core.Core
   {
     public string Id { get; set; }
     public string Name { get; set; }
+    public string Version { get; set; }
+    public string TargetId { get; set; }
+    public string TargetName { get; set; }
     public IList<Slide> Slides { get; set; }
 
     public Questionnaire()
@@ -32,8 +35,8 @@ namespace Chaos.Cockpit.Core.Core
 
   public class Slide
   {
+    public string TaskId { get; set; }
     public IList<Question> Questions { get; set; }
-
     internal Questionnaire Parent { get; set; }
 
     public Slide()

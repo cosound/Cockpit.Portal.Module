@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Xml.Linq;
 using Chaos.Cockpit.Core.Core;
 using Chaos.Cockpit.Core.Core.Validation;
@@ -20,11 +22,17 @@ namespace Chaos.Cockpit.Core.Test.Data.Mcm
 
        Assert.That(result.Id, Is.EqualTo("ea3976c7-2d4a-4ef0-84a1-1d9e66f4a0e7"));
        Assert.That(result.Name, Is.EqualTo("DTU:Test:001"));
+       Assert.That(result.Version, Is.EqualTo("1"));
+       Assert.That(result.TargetId, Is.EqualTo("fba94e48-3c6d-4a2a-aef9-23108ee89ac0"));
+       Assert.That(result.TargetName, Is.EqualTo("Jens Jensen"));
        Assert.That(result.Slides.Count, Is.EqualTo(8));
+       Assert.That(result.Slides[0].TaskId, Is.EqualTo("0"));
        Assert.That(result.Slides[0].Questions.Count, Is.EqualTo(1));
        Assert.That(result.Slides[0].Questions[0].Id, Is.EqualTo("ea3976c7-2d4a-4ef0-84a1-1d9e66f4a0e7:0"));
+       Assert.That(result.Slides[0].Questions[0].Version, Is.EqualTo("1"));
        Assert.That(result.Slides[0].Questions[0].Type, Is.EqualTo("Monitor"));
        Assert.That(result.Slides[0].Questions[0].Input, Is.Not.Empty);
+       Assert.That(result.Slides[0].Questions[0].Output.MultiValues, Is.Not.Empty);
        var events = result.Slides[0].Questions[0].Validation.MultiValueValidator[0];
        Assert.That(events.Id, Is.EqualTo("Events"));
        Assert.That(events.Min, Is.EqualTo(0));
@@ -34,10 +42,11 @@ namespace Chaos.Cockpit.Core.Test.Data.Mcm
        Assert.That(events.ComplexValueValidator.SimpleValueValidators[0].Validation, Is.EqualTo(@"(\d{4}-\d{2}-\d{2})T(\d{2}:\d{2}:\d{2}.\d{3})Z"));
        Assert.That(result.Slides[1].Questions[0].Id, Is.EqualTo("ea3976c7-2d4a-4ef0-84a1-1d9e66f4a0e7:1"));
        Assert.That(result.Slides[1].Questions[0].Type, Is.EqualTo("Freetext"));
+       Assert.That(result.Slides[1].Questions[0].Validation.SimpleValueValidator, Is.Not.Empty);
        Assert.That(result.Slides[1].Questions[1].Type, Is.EqualTo("RadioButtonGroup"));
        Assert.That(result.Slides[2].Questions[0].Type, Is.EqualTo("CheckBoxGroup"));
        Assert.That(result.Slides[2].Questions[0].Validation.MultiValueValidator[0].SimpleValueValidator.Id, Is.EqualTo("Id"));
-       Assert.That(result.Slides[2].Questions[0].Validation.MultiValueValidator[0].SimpleValueValidator.Validation, Is.EqualTo(".+"));
+       Assert.That(result.Slides[2].Questions[0].Validation.MultiValueValidator[0].SimpleValueValidator.Validation, Is.EqualTo(".*"));
        Assert.That(result.Slides[3].Questions[0].Type, Is.EqualTo("CheckBoxGroup"));
        Assert.That(result.Slides[4].Questions[0].Type, Is.EqualTo("CheckBoxGroup"));
        Assert.That(result.Slides[5].Questions[0].Type, Is.EqualTo("OneDScale"));
@@ -99,5 +108,38 @@ namespace Chaos.Cockpit.Core.Test.Data.Mcm
        };
      }
 
+    [Test]
+    public void Serialize_GivenQuestionair_ReturnXml()
+    {
+      var converter = new DtuFormatConverter();
+      var xml = XDocument.Load("Ressources\\experiment.xml");
+      var expected = converter.Deserialize(xml);
+
+      var actual = converter.Serialize(expected);
+
+      var root = actual.Root;
+      Assert.That(root.Name.LocalName, Is.EqualTo("Experiment"));
+      Assert.That(root.Element("Id").Value, Is.EqualTo("ea3976c7-2d4a-4ef0-84a1-1d9e66f4a0e7"));
+      Assert.That(root.Element("Name").Value, Is.EqualTo("DTU:Test:001"));
+      Assert.That(root.Element("Version").Value, Is.EqualTo("1"));
+      Assert.That(root.Element("Target").Attribute("Id").Value, Is.EqualTo("fba94e48-3c6d-4a2a-aef9-23108ee89ac0"));
+      Assert.That(root.Element("Target").Attribute("Name").Value, Is.EqualTo("Jens Jensen"));
+      Assert.That(root.Element("Trials").HasElements, Is.True);
+      Func<int, XElement> trial = (index) => root.Element("Trials").Descendants("Trial").ToList()[index];
+      Assert.That(trial(0).Attribute("TaskId").Value, Is.EqualTo("0"));
+      Func<int, int, XElement> question = (trialIndex, questionIndex) => trial(trialIndex).Elements().ToList()[questionIndex];
+      Assert.That(question(0, 0).Attribute("Version").Value, Is.EqualTo("1"));
+      Assert.That(question(0, 0).Element("Input").HasElements, Is.True);
+      Func<int, int, string, XElement> validation = (trialIndex, questionIndex, id) => question(trialIndex, questionIndex).Element("Output").Element("Validation").Elements().Single(ele => ele.Attribute("Id").Value == id);
+      Assert.That(validation(0, 0, "Events").Attribute("Max").Value, Is.EqualTo("Inf"));
+      Assert.That(validation(0, 0, "Events").Attribute("Min").Value, Is.EqualTo("0"));
+      Assert.That(validation(0, 0, "Events").Element("ComplexValue").Attribute("Id").Value, Is.EqualTo("Event"));
+      Assert.That(validation(0, 0, "Events").Element("ComplexValue").Elements().First().Attribute("Id").Value, Is.EqualTo("DateTime"));
+      Assert.That(validation(1, 0, "Text").Attribute("Validation").Value, Is.EqualTo(".*"));
+      Func<int, int, string, XElement> value = (trialIndex, questionIndex, id) => question(trialIndex, questionIndex).Element("Output").Element("Value").Element(id);
+      Assert.That(value(0, 0, "Events").Elements("Event").First().Element("Id").Value, Is.EqualTo(".\\"));
+
+      System.Console.WriteLine(actual.ToString());
+    }
   }
 }

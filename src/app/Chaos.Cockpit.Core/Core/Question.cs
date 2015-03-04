@@ -8,7 +8,8 @@ namespace Chaos.Cockpit.Core.Core
   public class Question : IKey
   {
     private Output _output;
-    
+
+    public string Version { get; set; }
     public string Id { get; set; }
     public Answer UserAnswer { get; set; }
     public string Type { get; set; }
@@ -47,7 +48,7 @@ namespace Chaos.Cockpit.Core.Core
       }
       get { return _output; }
     }
-
+    
     public Question(string type)
     {
       Type = type;

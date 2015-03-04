@@ -4,7 +4,7 @@ using Chaos.Cockpit.Core.Core;
 
 namespace Chaos.Cockpit.Core.Data.InMemory
 {
-  public class QuestionnaireGateway : EntityRepository<Questionnaire>
+  public class QuestionnaireGateway : EntityRepository<Questionnaire>, IQuestionnaireGateway
   {
     public Questionnaire Get(string id)
     {

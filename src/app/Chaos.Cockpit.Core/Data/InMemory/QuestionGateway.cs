@@ -4,11 +4,11 @@ using Chaos.Cockpit.Core.Core;
 
 namespace Chaos.Cockpit.Core.Data.InMemory
 {
-  public class QuestionGateway : EntityRepository<Question>
+  public class QuestionGateway : EntityRepository<Question>, IQuestionGateway
   {
     public Question Save(Question entity)
     {
-      var questionnaire = CockpitContext.QuestionnaireGateway.GetByQuestionId(entity.Id);
+      var questionnaire = ((QuestionnaireGateway) CockpitContext.QuestionnaireGateway).GetByQuestionId(entity.Id);
       var question = entity;
 
       foreach (var slide in questionnaire.Slides)
@@ -28,7 +28,7 @@ namespace Chaos.Cockpit.Core.Data.InMemory
 
     private Question GetQuestionFromQuestionnaire(string id)
     {
-      var questionnaire = CockpitContext.QuestionnaireGateway.GetByQuestionId(id);
+      var questionnaire = ((QuestionnaireGateway) CockpitContext.QuestionnaireGateway).GetByQuestionId(id);
 
       foreach (var slide in questionnaire.Slides)
         foreach (var question in slide.Questions.Where(t => t.Id == id))
@@ -36,6 +36,5 @@ namespace Chaos.Cockpit.Core.Data.InMemory
 
       throw new Exception("No data by the given Id");
     }
-
   }
 }

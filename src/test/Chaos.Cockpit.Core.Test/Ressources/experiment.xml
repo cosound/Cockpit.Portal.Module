@@ -32,22 +32,29 @@
             <MultiValue Id="Events" Max="Inf" Min="0">
               <ComplexValue Id="Event">
                 <SimpleValue Id="DateTime" Validation="(\d{4}-\d{2}-\d{2})T(\d{2}:\d{2}:\d{2}.\d{3})Z"/>
-                <SimpleValue Id="Type" Validation=".+"/>
-                <SimpleValue Id="Id" Validation=".+"/>
-                <SimpleValue Id="Data" Validation=".+"/>
-                <SimpleValue Id="Method" Validation=".+"/>
+                <SimpleValue Id="Type" Validation=".*"/>
+                <SimpleValue Id="Id" Validation=".*"/>
+                <SimpleValue Id="Data" Validation=".*"/>
+                <SimpleValue Id="Method" Validation=".*"/>
               </ComplexValue>
             </MultiValue>
             <MultiValue Id="Contexts" Max="Inf" Min="0">
               <ComplexValue Id="Context">
                 <SimpleValue Id="DateTime" Validation="(\d{4}-\d{2}-\d{2})T(\d{2}:\d{2}:\d{2}.\d{3})Z"/>
-                <SimpleValue Id="Type" Validation=".+"/>
-                <SimpleValue Id="Data" Validation=".+"/>
+                <SimpleValue Id="Type" Validation=".*"/>
+                <SimpleValue Id="Data" Validation=".*"/>
               </ComplexValue>
             </MultiValue>
           </Validation>
           <Value>
             <Events>
+              <Event>
+                <Id>.\</Id>
+                <Type>Start</Type>
+                <DateTime>2014-09-24T11:02:20.000Z</DateTime>
+                <Data/>
+                <Method/>
+              </Event>
               <Event>
                 <Id>.\</Id>
                 <Type>Start</Type>
@@ -84,20 +91,18 @@
         </Inputs>
         <Outputs>
           <Validation>
-            <SimpleValue Id="Text" Validation=".+"/>
+            <SimpleValue Id="Text" Validation=".*"/>
             <MultiValue Id="Events" Max="Inf" Min="0">
               <ComplexValue Id="Event">
                 <SimpleValue Id="DateTime" Validation="(\d{4}-\d{2}-\d{2})T(\d{2}:\d{2}:\d{2}.\d{3})Z"/>
-                <SimpleValue Id="Type" Validation=".+"/>
-                <SimpleValue Id="Id" Validation=".+"/>
-                <SimpleValue Id="Data" Validation=".+"/>
-                <SimpleValue Id="Method" Validation=".+"/>
+                <SimpleValue Id="Type" Validation=".*"/>
+                <SimpleValue Id="Id" Validation=".*"/>
+                <SimpleValue Id="Data" Validation=".*"/>
+                <SimpleValue Id="Method" Validation=".*"/>
               </ComplexValue>
             </MultiValue>
           </Validation>
           <Value>
-            <Text>Et sygehus</Text>
-            <Events/>
           </Value>
         </Outputs>
       </Freetext>
@@ -139,10 +144,10 @@
             <MultiValue Id="Events" Max="Inf" Min="0">
               <ComplexValue Id="Event">
                 <SimpleValue Id="DateTime" Validation="(\d{4}-\d{2}-\d{2})T(\d{2}:\d{2}:\d{2}.\d{3})Z"/>
-                <SimpleValue Id="Type" Validation=".+"/>
-                <SimpleValue Id="Id" Validation=".+"/>
-                <SimpleValue Id="Data" Validation=".+"/>
-                <SimpleValue Id="Method" Validation=".+"/>
+                <SimpleValue Id="Type" Validation=".*"/>
+                <SimpleValue Id="Id" Validation=".*"/>
+                <SimpleValue Id="Data" Validation=".*"/>
+                <SimpleValue Id="Method" Validation=".*"/>
               </ComplexValue>
             </MultiValue>
           </Validation>
@@ -211,15 +216,15 @@
         <Outputs>
           <Validation>
             <MultiValue Id="Selections" Max="0" Min="2">
-              <SimpleValue Id="Id" Validation=".+"/>
+              <SimpleValue Id="Id" Validation=".*"/>
             </MultiValue>
             <MultiValue Id="Events" Max="Inf" Min="0">
               <ComplexValue Id="Event">
                 <SimpleValue Id="DateTime" Validation="(\d{4}-\d{2}-\d{2})T(\d{2}:\d{2}:\d{2}.\d{3})Z"/>
-                <SimpleValue Id="Type" Validation=".+"/>
-                <SimpleValue Id="Id" Validation=".+"/>
-                <SimpleValue Id="Data" Validation=".+"/>
-                <SimpleValue Id="Method" Validation=".+"/>
+                <SimpleValue Id="Type" Validation=".*"/>
+                <SimpleValue Id="Id" Validation=".*"/>
+                <SimpleValue Id="Data" Validation=".*"/>
+                <SimpleValue Id="Method" Validation=".*"/>
               </ComplexValue>
             </MultiValue>
           </Validation>
@@ -281,15 +286,15 @@
         <Outputs>
           <Validation>
             <MultiValue Id="Selections" Max="0" Min="2">
-              <SimpleValue Id="Id" Validation=".+"/>
+              <SimpleValue Id="Id" Validation=".*"/>
             </MultiValue>
             <MultiValue Id="Events" Max="Inf" Min="0">
               <ComplexValue Id="Event">
                 <SimpleValue Id="DateTime" Validation="(\d{4}-\d{2}-\d{2})T(\d{2}:\d{2}:\d{2}.\d{3})Z"/>
-                <SimpleValue Id="Type" Validation=".+"/>
-                <SimpleValue Id="Id" Validation=".+"/>
-                <SimpleValue Id="Data" Validation=".+"/>
-                <SimpleValue Id="Method" Validation=".+"/>
+                <SimpleValue Id="Type" Validation=".*"/>
+                <SimpleValue Id="Id" Validation=".*"/>
+                <SimpleValue Id="Data" Validation=".*"/>
+                <SimpleValue Id="Method" Validation=".*"/>
               </ComplexValue>
             </MultiValue>
           </Validation>
@@ -356,15 +361,15 @@
         <Outputs>
           <Validation>
             <MultiValue Id="Selections" Max="0" Min="2">
-              <SimpleValue Id="Id" Validation=".+"/>
+              <SimpleValue Id="Id" Validation=".*"/>
             </MultiValue>
             <MultiValue Id="Events" Max="Inf" Min="0">
               <ComplexValue Id="Event">
                 <SimpleValue Id="DateTime" Validation="(\d{4}-\d{2}-\d{2})T(\d{2}:\d{2}:\d{2}.\d{3})Z"/>
-                <SimpleValue Id="Type" Validation=".+"/>
-                <SimpleValue Id="Id" Validation=".+"/>
-                <SimpleValue Id="Data" Validation=".+"/>
-                <SimpleValue Id="Method" Validation=".+"/>
+                <SimpleValue Id="Type" Validation=".*"/>
+                <SimpleValue Id="Id" Validation=".*"/>
+                <SimpleValue Id="Data" Validation=".*"/>
+                <SimpleValue Id="Method" Validation=".*"/>
               </ComplexValue>
             </MultiValue>
           </Validation>
@@ -418,20 +423,18 @@
         </Inputs>
         <Outputs>
           <Validation>
-            <SimpleValue Id="Position" Validation=".+"/>
+            <SimpleValue Id="Position" Validation=".*"/>
             <MultiValue Id="Events" Max="Inf" Min="0">
               <ComplexValue Id="Event">
                 <SimpleValue Id="DateTime" Validation="(\d{4}-\d{2}-\d{2})T(\d{2}:\d{2}:\d{2}.\d{3})Z"/>
-                <SimpleValue Id="Type" Validation=".+"/>
-                <SimpleValue Id="Id" Validation=".+"/>
-                <SimpleValue Id="Data" Validation=".+"/>
-                <SimpleValue Id="Method" Validation=".+"/>
+                <SimpleValue Id="Type" Validation=".*"/>
+                <SimpleValue Id="Id" Validation=".*"/>
+                <SimpleValue Id="Data" Validation=".*"/>
+                <SimpleValue Id="Method" Validation=".*"/>
               </ComplexValue>
             </MultiValue>
           </Validation>
           <Value>
-            <Position>0.445</Position>
-            <Events/>
           </Value>
         </Outputs>
       </OneDScale>
@@ -567,16 +570,16 @@
           <Validation>
             <MultiValue Id="Scalings" Max="Inf" Min="2">
               <ComplexValue Id="Scaling">
-                <SimpleValue Id="Position" Validation=".+"/>
+                <SimpleValue Id="Position" Validation=".*"/>
               </ComplexValue>
             </MultiValue>
             <MultiValue Id="Events" Max="Inf" Min="0">
               <ComplexValue Id="Event">
                 <SimpleValue Id="DateTime" Validation="(\d{4}-\d{2}-\d{2})T(\d{2}:\d{2}:\d{2}.\d{3})Z"/>
-                <SimpleValue Id="Type" Validation=".+"/>
-                <SimpleValue Id="Id" Validation=".+"/>
-                <SimpleValue Id="Data" Validation=".+"/>
-                <SimpleValue Id="Method" Validation=".+"/>
+                <SimpleValue Id="Type" Validation=".*"/>
+                <SimpleValue Id="Id" Validation=".*"/>
+                <SimpleValue Id="Data" Validation=".*"/>
+                <SimpleValue Id="Method" Validation=".*"/>
               </ComplexValue>
             </MultiValue>
           </Validation>
@@ -661,10 +664,10 @@
             <MultiValue Id="Events" Max="Inf" Min="0">
               <ComplexValue Id="Event">
                 <SimpleValue Id="DateTime" Validation="(\d{4}-\d{2}-\d{2})T(\d{2}:\d{2}:\d{2}.\d{3})Z"/>
-                <SimpleValue Id="Type" Validation=".+"/>
-                <SimpleValue Id="Id" Validation=".+"/>
-                <SimpleValue Id="Data" Validation=".+"/>
-                <SimpleValue Id="Method" Validation=".+"/>
+                <SimpleValue Id="Type" Validation=".*"/>
+                <SimpleValue Id="Id" Validation=".*"/>
+                <SimpleValue Id="Data" Validation=".*"/>
+                <SimpleValue Id="Method" Validation=".*"/>
               </ComplexValue>
             </MultiValue>
           </Validation>

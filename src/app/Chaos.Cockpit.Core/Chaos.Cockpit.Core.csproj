@@ -33,6 +33,9 @@
     <Reference Include="CHAOS">
       <HintPath>..\..\..\lib\CHAOS.dll</HintPath>
     </Reference>
+    <Reference Include="Chaos.Mcm">
+      <HintPath>..\..\..\lib\Chaos.Mcm.dll</HintPath>
+    </Reference>
     <Reference Include="Chaos.Portal">
       <HintPath>..\..\..\lib\Chaos.Portal.dll</HintPath>
     </Reference>
@@ -78,7 +81,10 @@
     <Compile Include="Data\InMemory\EntityRepository.cs" />
     <Compile Include="Data\InMemory\QuestionGateway.cs" />
     <Compile Include="Data\InMemory\QuestionnaireGateway.cs" />
+    <Compile Include="Data\IQuestionGateway.cs" />
     <Compile Include="Data\Mcm\DtuFormatConverter.cs" />
+    <Compile Include="Data\IQuestionnaireGateway.cs" />
+    <Compile Include="Data\Mcm\McmQuestionnaireGateway.cs" />
     <Compile Include="Main\CockpitModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Xml.Linq;
-using Chaos.Cockpit.Core.Core.Validation;
+﻿using System.Xml.Linq;
 using Chaos.Cockpit.Core.Data.Mcm;
 
 namespace Chaos.Cockpit.Core.Main

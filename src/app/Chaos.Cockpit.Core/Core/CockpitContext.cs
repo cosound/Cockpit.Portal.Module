@@ -1,10 +1,10 @@
-﻿namespace Chaos.Cockpit.Core.Core
-{
-  using Data.InMemory;
+﻿using Chaos.Cockpit.Core.Data;
 
+namespace Chaos.Cockpit.Core.Core
+{
   public static class CockpitContext
   {
-    public static QuestionnaireGateway QuestionnaireGateway;
-    public static QuestionGateway QuestionGateway;
+    public static IQuestionnaireGateway QuestionnaireGateway;
+    public static IQuestionGateway QuestionGateway;
   }
 }
