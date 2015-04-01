@@ -1,10 +1,11 @@
-﻿using Chaos.Cockpit.Core.Core;
+﻿using System;
+using Chaos.Cockpit.Core.Core;
 
 namespace Chaos.Cockpit.Core.Data
 {
   public interface IQuestionnaireGateway
   {
     Questionnaire Set(Questionnaire entity);
-    Questionnaire Get(string id);
+    Questionnaire Get(Guid id);
   }
 }

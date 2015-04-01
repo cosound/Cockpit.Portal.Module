@@ -1,5 +1,6 @@
 ﻿using System.Xml.Linq;
 using Chaos.Cockpit.Core.Data.Mcm;
+using Chaos.Mcm;
 
 namespace Chaos.Cockpit.Core.Main
 {
@@ -17,7 +18,16 @@ namespace Chaos.Cockpit.Core.Main
       CockpitContext.QuestionGateway = new Data.InMemory.QuestionGateway();
 
       LoadExperiments();
-      
+
+      portalApplication.OnModuleLoaded += (sender, args) =>
+        {
+          var mcm = args.Module as IMcmModule;
+
+          if (mcm == null) return;
+
+          CockpitContext.QuestionnaireGateway = new McmQuestionnaireGateway(mcm.McmRepository);
+        };
+
       portalApplication.AddBinding(typeof (AnswerDto), new JsonBinding<AnswerDto>());
       portalApplication.AddBinding(typeof(OutputDto), new OutputBinding());
 

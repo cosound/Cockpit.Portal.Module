@@ -98,6 +98,7 @@ namespace Chaos.Cockpit.Core.Data.Mcm
       foreach (var multiElement in parent.Elements("MultiValue"))
       {
         var multi = new MultiValueValidator();
+
         multi.Id = multiElement.Attribute("Id").Value;
         multi.Min = StringToUint(multiElement.Attribute("Min").Value);
         multi.Max = StringToUint(multiElement.Attribute("Max").Value);

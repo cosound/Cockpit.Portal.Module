@@ -1,4 +1,6 @@
-﻿using Chaos.Cockpit.Core.Core;
+﻿using System;
+using System.Linq;
+using Chaos.Cockpit.Core.Core;
 using Chaos.Mcm.Data;
 
 namespace Chaos.Cockpit.Core.Data.Mcm
@@ -17,9 +19,19 @@ namespace Chaos.Cockpit.Core.Data.Mcm
       throw new System.NotImplementedException();
     }
 
-    public Questionnaire Get(string id)
+    public Questionnaire Get(Guid id)
     {
-      throw new System.NotImplementedException();
+      var obj = Repository.ObjectGet(id, true);
+      
+      if(obj == null || obj.ObjectTypeID != CockpitContext.Config.ExperimentObjectTypeId)
+        throw new ArgumentException("No Questionaire found by that Id");
+
+      var metadata = obj.Metadatas.SingleOrDefault(m => m.MetadataSchemaGuid == CockpitContext.Config.ExperimentMetadataSchemaId);
+      
+      if(metadata == null)
+        throw new Exception("Questionaire found, but data is corrupt");
+
+      return new DtuFormatConverter().Deserialize(metadata.MetadataXml);
     }
 
     public Questionnaire GetByQuestionId(string identifier)

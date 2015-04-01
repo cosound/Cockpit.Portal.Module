@@ -6,9 +6,9 @@ namespace Chaos.Cockpit.Core.Data.InMemory
 {
   public class QuestionnaireGateway : EntityRepository<Questionnaire>, IQuestionnaireGateway
   {
-    public Questionnaire Get(string id)
+    public Questionnaire Get(Guid id)
     {
-      return Retrieve(id);
+      return Retrieve(id.ToString());
     }
 
     public Questionnaire GetByQuestionId(string identifier)

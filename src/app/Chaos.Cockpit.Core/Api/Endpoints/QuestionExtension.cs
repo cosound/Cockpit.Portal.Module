@@ -1,4 +1,6 @@
-﻿namespace Chaos.Cockpit.Core.Api.Endpoints
+﻿using System;
+
+namespace Chaos.Cockpit.Core.Api.Endpoints
 {
   using System.Collections.Generic;
   using System.Linq;
@@ -16,7 +18,7 @@
 
     public IPagedResult<QuestionDto> Get(string id, uint index = 0u)
     {
-      var questionnaire = CockpitContext.QuestionnaireGateway.Get(id);
+      var questionnaire = CockpitContext.QuestionnaireGateway.Get(Guid.Parse(id));
       var questionnaireDto = QuestionnaireBuilder.MakeDto(questionnaire);
       var questions = questionnaireDto.Slides[(int) index].Questions;
 

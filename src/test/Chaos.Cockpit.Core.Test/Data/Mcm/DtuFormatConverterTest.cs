@@ -138,8 +138,6 @@ namespace Chaos.Cockpit.Core.Test.Data.Mcm
       Assert.That(validation(1, 0, "Text").Attribute("Validation").Value, Is.EqualTo(".*"));
       Func<int, int, string, XElement> value = (trialIndex, questionIndex, id) => question(trialIndex, questionIndex).Element("Output").Element("Value").Element(id);
       Assert.That(value(0, 0, "Events").Elements("Event").First().Element("Id").Value, Is.EqualTo(".\\"));
-
-      System.Console.WriteLine(actual.ToString());
     }
   }
 }
