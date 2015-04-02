@@ -39,7 +39,10 @@ namespace Chaos.Cockpit.Core.Test.Core.Validation
     [Test]
     public void Validate_GivenValidSimpleValue()
     {
-      var validator = new MultiValueValidator();
+      var validator = new MultiValueValidator
+        {
+          Max = 1
+        };
       validator.SimpleValueValidator = SimpleValueValidator.Create("key", "value");
       var multiValue = new MultiValue();
       multiValue.SimpleValues.Add("value");
@@ -50,12 +53,32 @@ namespace Chaos.Cockpit.Core.Test.Core.Validation
     [Test]
     public void Validate_GivenMultipleValidSimpleValue()
     {
-      var validator = new MultiValueValidator();
+      var validator = new MultiValueValidator
+        {
+          Min = 0,
+          Max = 3
+        };
       validator.SimpleValueValidator = SimpleValueValidator.Create("key", "value");
       var multiValue = new MultiValue();
       multiValue.SimpleValues.Add("value1");
       multiValue.SimpleValues.Add("value2");
       multiValue.SimpleValues.Add("value3");
+    }
+
+    [Test, ExpectedException(typeof(ValidationException))]
+    public void Validate_NumberOfSimpleValueSExeedMax_Throw()
+    {
+      var validator = new MultiValueValidator
+      {
+        Min = 0,
+        Max = 1
+      };
+      validator.SimpleValueValidator = SimpleValueValidator.Create("key", "value");
+      var multiValue = new MultiValue();
+      multiValue.SimpleValues.Add("value1");
+      multiValue.SimpleValues.Add("value2");
+
+      validator.Validate(multiValue);
     }
 
     [Test, ExpectedException(typeof(ValidationException))]
@@ -78,7 +101,10 @@ namespace Chaos.Cockpit.Core.Test.Core.Validation
     [Test]
     public void Validate_GivenValidComplexValue()
     {
-      var validator = new MultiValueValidator();
+      var validator = new MultiValueValidator
+        {
+          Max = 1
+        };
       validator.ComplexValueValidator = new ComplexValueValidator
         {
           SimpleValueValidators = new[] {SimpleValueValidator.Create("key", "value")}

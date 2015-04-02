@@ -215,7 +215,7 @@
         </Inputs>
         <Outputs>
           <Validation>
-            <MultiValue Id="Selections" Max="0" Min="2">
+            <MultiValue Id="Selections" Max="2" Min="0">
               <SimpleValue Id="Id" Validation=".*"/>
             </MultiValue>
             <MultiValue Id="Events" Max="Inf" Min="0">
@@ -285,7 +285,7 @@
         </Inputs>
         <Outputs>
           <Validation>
-            <MultiValue Id="Selections" Max="0" Min="2">
+            <MultiValue Id="Selections" Max="2" Min="0">
               <SimpleValue Id="Id" Validation=".*"/>
             </MultiValue>
             <MultiValue Id="Events" Max="Inf" Min="0">
@@ -360,7 +360,7 @@
         </Inputs>
         <Outputs>
           <Validation>
-            <MultiValue Id="Selections" Max="0" Min="2">
+            <MultiValue Id="Selections" Max="2" Min="0">
               <SimpleValue Id="Id" Validation=".*"/>
             </MultiValue>
             <MultiValue Id="Events" Max="Inf" Min="0">
