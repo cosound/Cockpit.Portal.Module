@@ -8,7 +8,7 @@ namespace Chaos.Cockpit.Core.Data.InMemory
   {
     public Question Save(Question entity)
     {
-      var questionnaire = ((QuestionnaireGateway) CockpitContext.QuestionnaireGateway).GetByQuestionId(entity.Id);
+      var questionnaire = ((QuestionnaireGateway) Context.QuestionnaireGateway).GetByQuestionId(entity.Id);
       var question = entity;
 
       foreach (var slide in questionnaire.Slides)
@@ -16,7 +16,7 @@ namespace Chaos.Cockpit.Core.Data.InMemory
           if (slide.Questions[i].Id == entity.Id)
             slide.Questions[i] = question;
 
-      CockpitContext.QuestionnaireGateway.Set(questionnaire);
+      Context.QuestionnaireGateway.Set(questionnaire);
 
       return question;
     }
@@ -28,7 +28,7 @@ namespace Chaos.Cockpit.Core.Data.InMemory
 
     private Question GetQuestionFromQuestionnaire(string id)
     {
-      var questionnaire = ((QuestionnaireGateway) CockpitContext.QuestionnaireGateway).GetByQuestionId(id);
+      var questionnaire = ((QuestionnaireGateway) Context.QuestionnaireGateway).GetByQuestionId(id);
 
       foreach (var slide in questionnaire.Slides)
         foreach (var question in slide.Questions.Where(t => t.Id == id))

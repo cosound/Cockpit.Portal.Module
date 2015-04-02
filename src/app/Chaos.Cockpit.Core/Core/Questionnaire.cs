@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace Chaos.Cockpit.Core.Core
@@ -30,6 +31,17 @@ namespace Chaos.Cockpit.Core.Core
 
       foreach (var question in Slides.SelectMany(slide => slide.Questions))
         question.Id = string.Format("{0}:{1}", Id, count++);
+    }
+
+    public Question GetQuestion(string id)
+    {
+      foreach (var question in Slides.SelectMany(slide => slide.Questions))
+      {
+        if (question.Id == id)
+          return question;
+      }
+
+      throw new ArgumentException("No question with Id found.");
     }
   }
 

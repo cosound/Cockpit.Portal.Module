@@ -14,8 +14,8 @@ namespace Chaos.Cockpit.Core.Main
   {
     public void Load(IPortalApplication portalApplication)
     {
-      CockpitContext.QuestionnaireGateway = new Data.InMemory.QuestionnaireGateway();
-      CockpitContext.QuestionGateway = new Data.InMemory.QuestionGateway();
+      Context.QuestionnaireGateway = new Data.InMemory.QuestionnaireGateway();
+      Context.QuestionGateway = new Data.InMemory.QuestionGateway();
 
       LoadExperiments();
 
@@ -25,7 +25,8 @@ namespace Chaos.Cockpit.Core.Main
 
           if (mcm == null) return;
 
-          CockpitContext.QuestionnaireGateway = new McmQuestionnaireGateway(mcm.McmRepository);
+          Context.QuestionnaireGateway = new McmQuestionnaireGateway(mcm.McmRepository);
+          Context.QuestionGateway = new McmQuestionGateway(mcm.McmRepository);
         };
 
       portalApplication.AddBinding(typeof (AnswerDto), new JsonBinding<AnswerDto>());
@@ -44,7 +45,7 @@ namespace Chaos.Cockpit.Core.Main
           var xml = XDocument.Load(file);
           var question = new DtuFormatConverter().Deserialize(xml);
           
-          CockpitContext.QuestionnaireGateway.Set(question);
+          Context.QuestionnaireGateway.Set(question);
         }
       }
       catch (System.IO.DirectoryNotFoundException)

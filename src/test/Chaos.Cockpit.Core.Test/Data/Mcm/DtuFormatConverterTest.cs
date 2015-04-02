@@ -16,7 +16,7 @@ namespace Chaos.Cockpit.Core.Test.Data.Mcm
      public void Deserialize_GivenExperimentWithOneTask_ParseRequiredFields()
      {
        var converter = new DtuFormatConverter();
-       var xml = XDocument.Load("Ressources\\experiment.xml");
+       var xml = XDocument.Load("Resources\\experiment.xml");
 
        var result = converter.Deserialize(xml);
 
@@ -112,7 +112,7 @@ namespace Chaos.Cockpit.Core.Test.Data.Mcm
     public void Serialize_GivenQuestionair_ReturnXml()
     {
       var converter = new DtuFormatConverter();
-      var xml = XDocument.Load("Ressources\\experiment.xml");
+      var xml = XDocument.Load("Resources\\experiment.xml");
       var expected = converter.Deserialize(xml);
 
       var actual = converter.Serialize(expected);
@@ -129,15 +129,34 @@ namespace Chaos.Cockpit.Core.Test.Data.Mcm
       Assert.That(trial(0).Attribute("TaskId").Value, Is.EqualTo("0"));
       Func<int, int, XElement> question = (trialIndex, questionIndex) => trial(trialIndex).Elements().ToList()[questionIndex];
       Assert.That(question(0, 0).Attribute("Version").Value, Is.EqualTo("1"));
-      Assert.That(question(0, 0).Element("Input").HasElements, Is.True);
-      Func<int, int, string, XElement> validation = (trialIndex, questionIndex, id) => question(trialIndex, questionIndex).Element("Output").Element("Validation").Elements().Single(ele => ele.Attribute("Id").Value == id);
+      Assert.That(question(0, 0).Element("Inputs").HasElements, Is.True);
+      Func<int, int, string, XElement> validation = (trialIndex, questionIndex, id) => question(trialIndex, questionIndex).Element("Outputs").Element("Validation").Elements().Single(ele => ele.Attribute("Id").Value == id);
       Assert.That(validation(0, 0, "Events").Attribute("Max").Value, Is.EqualTo("Inf"));
       Assert.That(validation(0, 0, "Events").Attribute("Min").Value, Is.EqualTo("0"));
       Assert.That(validation(0, 0, "Events").Element("ComplexValue").Attribute("Id").Value, Is.EqualTo("Event"));
       Assert.That(validation(0, 0, "Events").Element("ComplexValue").Elements().First().Attribute("Id").Value, Is.EqualTo("DateTime"));
       Assert.That(validation(1, 0, "Text").Attribute("Validation").Value, Is.EqualTo(".*"));
-      Func<int, int, string, XElement> value = (trialIndex, questionIndex, id) => question(trialIndex, questionIndex).Element("Output").Element("Value").Element(id);
+      Func<int, int, string, XElement> value = (trialIndex, questionIndex, id) => question(trialIndex, questionIndex).Element("Outputs").Element("Value").Element(id);
       Assert.That(value(0, 0, "Events").Elements("Event").First().Element("Id").Value, Is.EqualTo(".\\"));
+    }
+
+    [Test]
+    public void SerializeAfterDeserialize_XmlShouldStillBeValid()
+    {
+      var converter = new DtuFormatConverter();
+      var xml = XDocument.Load("Resources\\experiment2.xml");
+
+      var questionnaire = converter.Deserialize(xml);
+      questionnaire.GetQuestion("6a0fae3a-2ac0-477b-892a-b24433ff3bd2:4").Output = new Output
+        {
+          SimpleValues = new[] { new SimpleValue("Text", "Mars") }
+        };
+
+      var serialized = converter.Serialize(questionnaire);
+      var deserialized = converter.Deserialize(serialized);
+
+      Assert.That(serialized.ToString().Contains("Mars"), Is.True);
+      Assert.That(deserialized.GetQuestion("6a0fae3a-2ac0-477b-892a-b24433ff3bd2:4").Output.SimpleValues.First().Key, Is.EqualTo("Text"));
     }
   }
 }

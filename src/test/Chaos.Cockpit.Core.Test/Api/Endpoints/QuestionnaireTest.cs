@@ -11,7 +11,7 @@ namespace Chaos.Cockpit.Core.Test.Api.Endpoints
     public void Get_GivenOnlyId_ReturnFirstSlide()
     {
       var extension = new QuestionExtension(PortalApplication.Object);
-      var questionnaire = CockpitContext.QuestionnaireGateway.Set(new Questionnaire
+      var questionnaire = Context.QuestionnaireGateway.Set(new Questionnaire
           {
             Slides = new[] {new Slide {Questions = new[] {new Question("TestQuestion")}}}
           });

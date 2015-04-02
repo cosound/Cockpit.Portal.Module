@@ -24,21 +24,30 @@ namespace Chaos.Cockpit.Core.Core
         {
           foreach (var validator in Validation.ComplexValueValidator)
           {
-            var complex = value.ComplexValues.Single(item => item.Key == validator.Id);
+            var complex = value.ComplexValues.SingleOrDefault(item => item.Key == validator.Id);
+
+            if (complex == null)
+              continue;
 
             validator.Validate(complex);
           }
 
           foreach (var validator in Validation.MultiValueValidator)
           {
-            var multi = value.MultiValues.Single(item => item.Key == validator.Id);
+            var multi = value.MultiValues.SingleOrDefault(item => item.Key == validator.Id);
+
+            if(multi == null && validator.Min == 0)
+              continue;
 
             validator.Validate(multi);
           }
 
           foreach (var validator in Validation.SimpleValueValidator)
           {
-            var simple = value.SimpleValues.Single(item => item.Key == validator.Id);
+            var simple = value.SimpleValues.SingleOrDefault(item => item.Key == validator.Id);
+
+            if(simple == null)
+              continue;
 
             validator.Validate(simple);
           }

@@ -18,7 +18,7 @@ namespace Chaos.Cockpit.Core.Api.Endpoints
 
     public IPagedResult<QuestionDto> Get(string id, uint index = 0u)
     {
-      var questionnaire = CockpitContext.QuestionnaireGateway.Get(Guid.Parse(id));
+      var questionnaire = Context.QuestionnaireGateway.Get(Guid.Parse(id));
       var questionnaireDto = QuestionnaireBuilder.MakeDto(questionnaire);
       var questions = questionnaireDto.Slides[(int) index].Questions;
 

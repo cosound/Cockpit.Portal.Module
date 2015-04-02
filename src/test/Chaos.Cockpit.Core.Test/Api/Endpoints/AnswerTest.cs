@@ -74,7 +74,7 @@ namespace Chaos.Cockpit.Core.Test.Api.Endpoints
             }
         };
       var question = new Question("TestQuestion");
-      CockpitContext.QuestionnaireGateway.Set(new Questionnaire
+      Context.QuestionnaireGateway.Set(new Questionnaire
         {
           Name = "Test",
           Slides = new List<Slide>
@@ -91,7 +91,7 @@ namespace Chaos.Cockpit.Core.Test.Api.Endpoints
 
       extension.Set(question.Id, answer);
 
-      var actual = CockpitContext.QuestionGateway.Get(question.Id);
+      var actual = Context.QuestionGateway.Get(question.Id);
       Assert.That(actual.Output.ComplexValues[0].Key, Is.EqualTo("k1"));
       Assert.That(actual.Output.ComplexValues[0].SimpleValues[0].Key, Is.EqualTo("k2"));
       Assert.That(actual.Output.ComplexValues[0].SimpleValues[0].Value, Is.EqualTo("v2"));

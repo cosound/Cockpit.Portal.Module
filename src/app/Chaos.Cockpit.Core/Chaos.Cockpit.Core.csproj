@@ -66,7 +66,7 @@
     <Compile Include="Api\Result\QuestionResult.cs" />
     <Compile Include="Api\Result\SlideDto.cs" />
     <Compile Include="Core\Answer.cs" />
-    <Compile Include="Core\CockpitContext.cs" />
+    <Compile Include="Core\Context.cs" />
     <Compile Include="Core\Exceptions\ValidationException.cs" />
     <Compile Include="Core\IKey.cs" />
     <Compile Include="Core\Question.cs" />
@@ -84,6 +84,7 @@
     <Compile Include="Data\IQuestionGateway.cs" />
     <Compile Include="Data\Mcm\DtuFormatConverter.cs" />
     <Compile Include="Data\IQuestionnaireGateway.cs" />
+    <Compile Include="Data\Mcm\McmQuestionGateway.cs" />
     <Compile Include="Data\Mcm\McmQuestionnaireGateway.cs" />
     <Compile Include="Main\CockpitModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

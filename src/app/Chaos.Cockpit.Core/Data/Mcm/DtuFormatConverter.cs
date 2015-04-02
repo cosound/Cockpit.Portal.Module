@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Chaos.Cockpit.Core.Core.Validation;
 
 namespace Chaos.Cockpit.Core.Data.Mcm
@@ -22,50 +23,59 @@ namespace Chaos.Cockpit.Core.Data.Mcm
 
       var trials = xml.Descendants("Trial");
       foreach (var trial in trials)
-      {
-        var slide = new Slide();
-        slide.TaskId = trial.Attribute("TaskId").Value;
-        result.AddSlide(slide);
-
-        foreach (var questionElement in trial.Elements())
-        {
-          var type = questionElement.Name.LocalName;
-          var question = new Question(type);
-          question.Version = questionElement.Attribute("Version").Value;
-          question.Input = questionElement.Element("Inputs").Elements();
-
-          var validationElement = questionElement.Element("Outputs").Element("Validation");
-          question.Validation.MultiValueValidator = FindMultiValueValidators(validationElement).ToList();
-          question.Validation.SimpleValueValidator = FindSimpleValueValidator(validationElement).ToList();
-
-          var output = new Output();
-          var valueElements = questionElement.Element("Outputs").Element("Value").Elements();
-          foreach (var valueElement in valueElements)
-          {
-            if (valueElement.HasElements)
-            {
-              // simple or complex
-              var isMultiValue = valueElement.Elements().GroupBy(item => item.Name.LocalName).Count() == 1;
-              if (isMultiValue)
-                output.MultiValues.Add(DeserializeMultiValue(valueElement));
-              else
-              {
-                // is complex
-                var s = "";
-              }
-            }
-            else
-              output.SimpleValues.Add(new SimpleValue(valueElement.Name.LocalName, valueElement.Value));
-          }
-
-          if (valueElements.Any())
-            question.Output = output;
-
-          slide.AddQuestion(question);
-        }
-      }
+        DeserializeTrial(trial, result);
 
       return result;
+    }
+
+    private static void DeserializeTrial(XElement trial, Questionnaire result)
+    {
+      var slide = new Slide();
+      slide.TaskId = trial.Attribute("TaskId").Value;
+      result.AddSlide(slide);
+
+      foreach (var questionElement in trial.Elements())
+        DeserializeQuestion(questionElement, slide);
+    }
+
+    private static void DeserializeQuestion(XElement questionElement, Slide slide)
+    {
+      var type = questionElement.Name.LocalName;
+      var question = new Question(type);
+      question.Version = questionElement.Attribute("Version").Value;
+      question.Input = questionElement.Element("Inputs").Elements();
+
+      var validationElement = questionElement.Element("Outputs").Element("Validation");
+      question.Validation.MultiValueValidator = FindMultiValueValidators(validationElement).ToList();
+      question.Validation.SimpleValueValidator = FindSimpleValueValidator(validationElement).ToList();
+
+      var output = new Output();
+      var valueElements = questionElement.Element("Outputs").Element("Value").Elements();
+      foreach (var valueElement in valueElements)
+        DeserializeOutput(valueElement, output);
+
+      if (valueElements.Any())
+        question.Output = output;
+
+      slide.AddQuestion(question);
+    }
+
+    private static void DeserializeOutput(XElement valueElement, Output output)
+    {
+      if (valueElement.HasElements)
+      {
+        // simple or complex
+        var isMultiValue = valueElement.Elements().GroupBy(item => item.Name.LocalName).Count() == 1;
+        if (isMultiValue)
+          output.MultiValues.Add(DeserializeMultiValue(valueElement));
+        else
+        {
+          // is complex
+          var s = "";
+        }
+      }
+      else
+        output.SimpleValues.Add(new SimpleValue(valueElement.Name.LocalName, valueElement.Value));
     }
 
     private static MultiValue DeserializeMultiValue(XElement valueElement)
@@ -180,50 +190,83 @@ namespace Chaos.Cockpit.Core.Data.Mcm
       trial.Add(new XAttribute("TaskId", slide.TaskId));
 
       foreach (var question in slide.Questions)
-      {
-        var component = new XElement(question.Type);
-        component.Add(new XAttribute("Version", question.Version));
-
-        var input = new XElement("Input");
-        input.Add(question.Input);
-        component.Add(input);
-
-        var output = new XElement("Output");
-
-        var validation = new XElement("Validation");
-        validation.Add(SerializeSimpleValidators(question.Validation.SimpleValueValidator));
-        validation.Add(SerializeMultiValidators(question.Validation.MultiValueValidator));
-
-        var value = new XElement("Value");
-
-        if (question.Output != null)
-          foreach (var multiValue in question.Output.MultiValues)
-          {
-            var element = new XElement(multiValue.Key);
-
-            foreach (var simpleValue in multiValue.SimpleValues)
-              element.Add(new XElement("Item", simpleValue));
-
-            foreach (var complexValue in multiValue.ComplexValues)
-            {
-              var complexElement = new XElement(complexValue.Key);
-              foreach (var simpleValue in complexValue.SimpleValues)
-                complexElement.Add(new XElement(simpleValue.Key, simpleValue.Value));
-
-              element.Add(complexElement);
-            }
-
-            value.Add(element);
-          }
-
-        output.Add(validation);
-        output.Add(value);
-        component.Add(output);
-
-        trial.Add(component);
-      }
+        trial.Add(SerializeQuestion(question));
 
       return trial;
+    }
+
+    private static XElement SerializeQuestion(Question question)
+    {
+      var component = new XElement(question.Type);
+      component.Add(new XAttribute("Version", question.Version));
+
+      var input = new XElement("Inputs");
+      input.Add(question.Input);
+      component.Add(input);
+
+      var output = new XElement("Outputs");
+
+      var validation = new XElement("Validation");
+      validation.Add(SerializeSimpleValidators(question.Validation.SimpleValueValidator));
+      validation.Add(SerializeMultiValidators(question.Validation.MultiValueValidator));
+
+      var value = new XElement("Value");
+
+      if (question.Output != null)
+      {
+        foreach (var multiValue in question.Output.MultiValues)
+          value.Add(SerializeMultiValue(multiValue));
+
+        foreach (var complexValue in question.Output.ComplexValues)
+          value.Add(SerializeComplexValue(complexValue));
+
+        foreach (var simpleValue in question.Output.SimpleValues)
+          value.Add(SerializeSimpleValue(simpleValue));
+      }
+
+      output.Add(validation);
+      output.Add(value);
+      component.Add(output);
+
+      return component;
+    }
+
+    private static XElement SerializeMultiValue(MultiValue multiValue)
+    {
+      var element = new XElement(multiValue.Key);
+
+      foreach (var simpleValue in multiValue.SimpleValues)
+        element.Add(new XElement("Item", simpleValue));
+
+      foreach (var complexValue in multiValue.ComplexValues)
+      {
+        if (string.IsNullOrEmpty(complexValue.Key))
+          throw new ArgumentException("Complex Type Key cannot be null. Parent is: " + multiValue.Key);
+
+        var complexElement = new XElement(complexValue.Key);
+        foreach (var simpleValue in complexValue.SimpleValues)
+          complexElement.Add(new XElement(simpleValue.Key, simpleValue.Value));
+
+        element.Add(complexElement);
+      }
+      return element;
+    }
+
+    private static XElement SerializeComplexValue(ComplexValue complexValue)
+    {
+      if (string.IsNullOrEmpty(complexValue.Key))
+        throw new ArgumentException("Complex Type Key cannot be null.");
+
+      var complexElement = new XElement(complexValue.Key);
+
+      foreach (var simpleValue in complexValue.SimpleValues)
+        complexElement.Add(new XElement(simpleValue.Key, simpleValue.Value));
+      return complexElement;
+    }
+
+    private static XElement SerializeSimpleValue(SimpleValue simpleValue)
+    {
+      return new XElement(simpleValue.Key, simpleValue.Value);
     }
 
     private static IEnumerable<XElement> SerializeMultiValidators(IEnumerable<MultiValueValidator> multiValueValidators)

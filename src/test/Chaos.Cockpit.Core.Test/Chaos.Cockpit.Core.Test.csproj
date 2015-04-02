@@ -68,7 +68,9 @@
     <Compile Include="Data\InMemory\EntityGatewayTest.cs" />
     <Compile Include="Data\InMemory\QuestionGatewayTest.cs" />
     <Compile Include="Data\Mcm\DtuFormatConverterTest.cs" />
+    <Compile Include="Data\Mcm\McmQuestionGatewayTest.cs" />
     <Compile Include="Data\Mcm\McmQuestionnaireGatewayTest.cs" />
+    <Compile Include="Data\Mcm\TestResources.cs" />
     <Compile Include="Main\CockpitModuleTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestBase.cs" />
@@ -83,10 +85,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Ressources\experiment.xml">
+    <Content Include="Resources\experiment.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Ressources\experiment2.xml">
+    <Content Include="Resources\experiment2.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

@@ -14,11 +14,11 @@ namespace Chaos.Cockpit.Core.Api.Endpoints
 
     public EndpointResult Set(string questionId, OutputDto output)
     {
-      var question = CockpitContext.QuestionGateway.Get(questionId);
+      var question = Context.QuestionGateway.Get(questionId);
       
       question.Output = OutputMapper.Map(output);
 
-      CockpitContext.QuestionGateway.Save(question);
+      Context.QuestionGateway.Save(question);
 
       return EndpointResult.Success();
     }

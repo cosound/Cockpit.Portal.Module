@@ -15,8 +15,8 @@ namespace Chaos.Cockpit.Core.Test
     {
       PortalApplication = new Mock<IPortalApplication>();
 
-      CockpitContext.QuestionGateway = new QuestionGateway();
-      CockpitContext.QuestionnaireGateway = new QuestionnaireGateway();
+      Context.QuestionGateway = new QuestionGateway();
+      Context.QuestionnaireGateway = new QuestionnaireGateway();
     }
   }
 }
