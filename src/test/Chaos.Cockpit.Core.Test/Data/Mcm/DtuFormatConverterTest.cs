@@ -144,9 +144,7 @@ namespace Chaos.Cockpit.Core.Test.Data.Mcm
     public void SerializeAfterDeserialize_XmlShouldStillBeValid()
     {
       var converter = new DtuFormatConverter();
-      var xml = XDocument.Load("Resources\\experiment2.xml");
-
-      var questionnaire = converter.Deserialize(xml);
+      var questionnaire = TestResources.Make_Questionnaire();
       questionnaire.GetQuestion("6a0fae3a-2ac0-477b-892a-b24433ff3bd2:4").Output = new Output
         {
           SimpleValues = new[] { new SimpleValue("Text", "Mars") }
@@ -157,6 +155,76 @@ namespace Chaos.Cockpit.Core.Test.Data.Mcm
 
       Assert.That(serialized.ToString().Contains("Mars"), Is.True);
       Assert.That(deserialized.GetQuestion("6a0fae3a-2ac0-477b-892a-b24433ff3bd2:4").Output.SimpleValues.First().Key, Is.EqualTo("Text"));
+    }
+
+    [Test]
+    public void ComplexMultiValue_ValidateCorrectly()
+    {
+      var questionnaire = TestResources.Make_Questionnaire();
+
+      var question = questionnaire.GetQuestion("6a0fae3a-2ac0-477b-892a-b24433ff3bd2:0");
+
+      question.Output = new Output
+        {
+          MultiValues = new []
+            {
+              new MultiValue
+                {
+                  Key = "Events",
+                  ComplexValues = new []
+                    {
+                      new ComplexValue
+                        {
+                          SimpleValues = new []
+                            {
+                              new SimpleValue("Id", " "), 
+                              new SimpleValue("Type", "Trial Start"), 
+                              new SimpleValue("Method", " "), 
+                              new SimpleValue("Data", " "), 
+                              new SimpleValue("DateTime", "2015-04-03T08:37:27.805Z"), 
+                            }
+                        }
+                    }
+                }
+            }
+        };
+    }
+
+    [Test]
+    public void Serialize_MultiValueComplexValueDoesntHaveAKey_UseItemAsKey()
+    {
+      var questionnaire = TestResources.Make_Questionnaire();
+
+      var question = questionnaire.GetQuestion("6a0fae3a-2ac0-477b-892a-b24433ff3bd2:0");
+
+      question.Output = new Output
+        {
+          MultiValues = new[]
+            {
+              new MultiValue
+                {
+                  Key = "Events",
+                  ComplexValues = new[]
+                    {
+                      new ComplexValue
+                        {
+                          SimpleValues = new[]
+                            {
+                              new SimpleValue("Id", " "),
+                              new SimpleValue("Type", "Trial Start"),
+                              new SimpleValue("Method", " "),
+                              new SimpleValue("Data", " "),
+                              new SimpleValue("DateTime", "2015-04-03T08:37:27.805Z"),
+                            }
+                        }
+                    }
+                }
+            }
+        };
+
+      var result = new DtuFormatConverter().Serialize(questionnaire);
+
+      Assert.That(result.Descendants("Outputs").First().Descendants("Events").First().Elements().All(item => item.Name == "Item"), Is.True);
     }
   }
 }

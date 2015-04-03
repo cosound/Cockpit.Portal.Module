@@ -241,7 +241,7 @@ namespace Chaos.Cockpit.Core.Data.Mcm
       foreach (var complexValue in multiValue.ComplexValues)
       {
         if (string.IsNullOrEmpty(complexValue.Key))
-          throw new ArgumentException("Complex Type Key cannot be null. Parent is: " + multiValue.Key);
+          complexValue.Key = "Item";
 
         var complexElement = new XElement(complexValue.Key);
         foreach (var simpleValue in complexValue.SimpleValues)
