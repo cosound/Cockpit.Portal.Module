@@ -18,6 +18,7 @@ namespace Chaos.Cockpit.Core.Test.Main
 
       PortalApplication.Verify(m => m.MapRoute("/v6/Question", It.IsAny<Func<IExtension>>()));
       PortalApplication.Verify(m => m.MapRoute("/v6/Answer", It.IsAny<Func<IExtension>>()));
+      PortalApplication.Verify(m => m.MapRoute("/v6/Selection", It.IsAny<Func<IExtension>>()));
     }
   }
 }

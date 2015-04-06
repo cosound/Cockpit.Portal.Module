@@ -16,6 +16,7 @@ namespace Chaos.Cockpit.Core.Main
     {
       Context.QuestionnaireGateway = new Data.InMemory.QuestionnaireGateway();
       Context.QuestionGateway = new Data.InMemory.QuestionGateway();
+      Context.SelectionGateway = new Data.InMemory.SelectionGateway();
 
       LoadExperiments();
 
@@ -29,9 +30,11 @@ namespace Chaos.Cockpit.Core.Main
           Context.QuestionGateway = new McmQuestionGateway(mcm.McmRepository);
         };
 
-      portalApplication.AddBinding(typeof (AnswerDto), new JsonBinding<AnswerDto>());
+      portalApplication.AddBinding(typeof(AnswerDto), new JsonBinding<AnswerDto>());
+      portalApplication.AddBinding(typeof(SelectionResult), new JsonBinding<SelectionResult>());
       portalApplication.AddBinding(typeof(OutputDto), new OutputBinding());
 
+      portalApplication.MapRoute("/v6/Selection", () => new Api.Endpoints.SelectionExtension(portalApplication));
       portalApplication.MapRoute("/v6/Question", () => new Api.Endpoints.QuestionExtension(portalApplication));
       portalApplication.MapRoute("/v6/Answer", () => new Api.Endpoints.AnswerExtension(portalApplication));
     }
