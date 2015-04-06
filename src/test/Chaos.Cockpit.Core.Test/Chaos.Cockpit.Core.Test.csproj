@@ -30,12 +30,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Chaos.Mcm, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\lib\Chaos.Mcm.dll</HintPath>
-    </Reference>
     <Reference Include="Chaos.Portal">
       <HintPath>..\..\..\lib\Chaos.Portal.dll</HintPath>
+    </Reference>
+    <Reference Include="Chaos.Portal.Mcm">
+      <HintPath>..\..\..\lib\Chaos.Portal.Mcm.dll</HintPath>
     </Reference>
     <Reference Include="Moq">
       <HintPath>..\..\..\packages\Moq.4.2.1409.1722\lib\net40\Moq.dll</HintPath>

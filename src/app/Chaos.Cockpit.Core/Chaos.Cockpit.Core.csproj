@@ -33,11 +33,11 @@
     <Reference Include="CHAOS">
       <HintPath>..\..\..\lib\CHAOS.dll</HintPath>
     </Reference>
-    <Reference Include="Chaos.Mcm">
-      <HintPath>..\..\..\lib\Chaos.Mcm.dll</HintPath>
-    </Reference>
     <Reference Include="Chaos.Portal">
       <HintPath>..\..\..\lib\Chaos.Portal.dll</HintPath>
+    </Reference>
+    <Reference Include="Chaos.Portal.Mcm">
+      <HintPath>..\..\..\lib\Chaos.Portal.Mcm.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\..\..\packages\Newtonsoft.Json.6.0.5\lib\net45\Newtonsoft.Json.dll</HintPath>
