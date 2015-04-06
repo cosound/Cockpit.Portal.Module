@@ -16,6 +16,7 @@ namespace Chaos.Cockpit.Core.Core
 
     public static IQuestionnaireGateway QuestionnaireGateway;
     public static IQuestionGateway QuestionGateway;
+    public static ISelectionGateway SelectionGateway;
     public static Config Config { get; set; }
   }
 

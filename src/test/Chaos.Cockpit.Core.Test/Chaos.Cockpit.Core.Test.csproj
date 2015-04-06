@@ -59,6 +59,7 @@
     <Compile Include="Api\Bindings\AnswerResultBindingTest.cs" />
     <Compile Include="Api\Endpoints\AnswerTest.cs" />
     <Compile Include="Api\Endpoints\QuestionnaireTest.cs" />
+    <Compile Include="Api\Endpoints\SelectionExtensionTest.cs" />
     <Compile Include="Api\OutputConverterTest.cs" />
     <Compile Include="Api\OutputMapperTest.cs" />
     <Compile Include="Core\Validation\ComplexValueValidatorTest.cs" />

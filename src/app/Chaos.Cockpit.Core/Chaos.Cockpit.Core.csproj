@@ -56,6 +56,7 @@
     <Compile Include="Api\Binding\OutputBinding.cs" />
     <Compile Include="Api\Endpoints\AnswerExtension.cs" />
     <Compile Include="Api\Endpoints\QuestionExtension.cs" />
+    <Compile Include="Api\Endpoints\SelectionExtension.cs" />
     <Compile Include="Api\Experiment.cs" />
     <Compile Include="Api\OutputConverter.cs" />
     <Compile Include="Api\OutputMapper.cs" />
@@ -64,13 +65,16 @@
     <Compile Include="Api\Result\QuestionDto.cs" />
     <Compile Include="Api\Result\QuestionnaireDto.cs" />
     <Compile Include="Api\Result\QuestionResult.cs" />
+    <Compile Include="Api\Result\SelectionResult.cs" />
     <Compile Include="Api\Result\SlideDto.cs" />
+    <Compile Include="Api\SelectionMapper.cs" />
     <Compile Include="Core\Answer.cs" />
     <Compile Include="Core\Context.cs" />
     <Compile Include="Core\Exceptions\ValidationException.cs" />
     <Compile Include="Core\IKey.cs" />
     <Compile Include="Core\Question.cs" />
     <Compile Include="Core\Questionnaire.cs" />
+    <Compile Include="Core\Selection.cs" />
     <Compile Include="Core\Validation\ComplexValue.cs" />
     <Compile Include="Core\Validation\ComplexValueValidator.cs" />
     <Compile Include="Core\Validation\MultiValue.cs" />
@@ -81,7 +85,9 @@
     <Compile Include="Data\InMemory\EntityRepository.cs" />
     <Compile Include="Data\InMemory\QuestionGateway.cs" />
     <Compile Include="Data\InMemory\QuestionnaireGateway.cs" />
+    <Compile Include="Data\InMemory\SelectionGateway.cs" />
     <Compile Include="Data\IQuestionGateway.cs" />
+    <Compile Include="Data\ISelectionGateway.cs" />
     <Compile Include="Data\Mcm\DtuFormatConverter.cs" />
     <Compile Include="Data\IQuestionnaireGateway.cs" />
     <Compile Include="Data\Mcm\McmQuestionGateway.cs" />
