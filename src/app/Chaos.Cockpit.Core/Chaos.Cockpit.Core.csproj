@@ -70,6 +70,7 @@
     <Compile Include="Api\SelectionMapper.cs" />
     <Compile Include="Core\Answer.cs" />
     <Compile Include="Core\Context.cs" />
+    <Compile Include="Core\Exceptions\DataNotFoundException.cs" />
     <Compile Include="Core\Exceptions\ValidationException.cs" />
     <Compile Include="Core\IKey.cs" />
     <Compile Include="Core\Question.cs" />
@@ -81,7 +82,6 @@
     <Compile Include="Core\Validation\MultiValueValidator.cs" />
     <Compile Include="Core\Validation\SimpleValue.cs" />
     <Compile Include="Core\Validation\SimpleValueValidator.cs" />
-    <Compile Include="Data\Exceptions\DataNotFoundException.cs" />
     <Compile Include="Data\InMemory\EntityRepository.cs" />
     <Compile Include="Data\InMemory\QuestionGateway.cs" />
     <Compile Include="Data\InMemory\QuestionnaireGateway.cs" />
@@ -97,6 +97,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Data\Exceptions\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

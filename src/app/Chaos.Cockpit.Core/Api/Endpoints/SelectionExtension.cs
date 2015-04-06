@@ -1,6 +1,7 @@
 ﻿using System;
 using Chaos.Cockpit.Core.Api.Result;
 using Chaos.Cockpit.Core.Core;
+using Chaos.Cockpit.Core.Core.Exceptions;
 using Chaos.Portal.Core;
 using Chaos.Portal.Core.Exceptions;
 using Chaos.Portal.Core.Extension;
@@ -23,6 +24,16 @@ namespace Chaos.Cockpit.Core.Api.Endpoints
         selection.Identifier = Guid.NewGuid().ToString();
 
       var result = Context.SelectionGateway.Set(SelectionMapper.Map(selection));
+
+      return SelectionMapper.Map(result);
+    }
+
+    public SelectionResult Get(string id)
+    {
+      if (Request.IsAnonymousUser)
+        throw new InsufficientPermissionsException("User is not authenticated");
+
+      var result = Context.SelectionGateway.Get(id);
 
       return SelectionMapper.Map(result);
     }

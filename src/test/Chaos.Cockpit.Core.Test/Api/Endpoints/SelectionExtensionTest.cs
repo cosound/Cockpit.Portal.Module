@@ -49,6 +49,36 @@ namespace Chaos.Cockpit.Core.Test.Api.Endpoints
       Assert.That(result.Items.First().Identifier, Is.EqualTo(result.Items.First().Identifier));
     }
 
+    [Test, ExpectedException(ExpectedExceptionName = "Chaos.Portal.Core.Exceptions.InsufficientPermissionsException")]
+    public void Get_AnonymousUser_Throw()
+    {
+      PortalRequest.Setup(p => p.IsAnonymousUser).Returns(true);
+      var extension = Make_SelectionExtension();
+
+      extension.Get(null);
+    }
+
+    [Test, ExpectedException(ExpectedExceptionName = "Chaos.Cockpit.Core.Core.Exceptions.DataNotFoundException")]
+    public void Get_SelectionDoesntExist_Throw()
+    {
+      var extension = Make_SelectionExtension();
+
+      extension.Get("Missing");
+    }
+
+    [Test]
+    public void Get_SelectionExist_ReturnSelectionResult()
+    {
+      var selection = new Selection{Id = "id", Name = "name"};
+      Context.SelectionGateway.Set(selection);
+      var extension = Make_SelectionExtension();
+
+      var result = extension.Get("id");
+
+      Assert.That(result.Identifier, Is.EqualTo(selection.Id));
+      Assert.That(result.Name, Is.EqualTo(selection.Name));
+    }
+
     private SelectionExtension Make_SelectionExtension()
     {
       return (SelectionExtension) new SelectionExtension(PortalApplication.Object).WithPortalRequest(PortalRequest.Object);

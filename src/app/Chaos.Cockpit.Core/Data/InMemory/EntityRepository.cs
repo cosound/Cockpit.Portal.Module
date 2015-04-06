@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Chaos.Cockpit.Core.Core;
-using Chaos.Cockpit.Core.Data.Exceptions;
+using Chaos.Cockpit.Core.Core.Exceptions;
 using Newtonsoft.Json;
 
 namespace Chaos.Cockpit.Core.Data.InMemory
@@ -29,7 +29,7 @@ namespace Chaos.Cockpit.Core.Data.InMemory
     public T Retrieve(string id)
     {
       if (id == null || !DataStore.ContainsKey(id))
-        throw new DataNotFoundException(typeof(T).Name + " not found, index: " + id);
+        throw new DataNotFoundException(typeof(T).Name + " not found, index: " + id, "");
 
       var json = DataStore[id];
 
