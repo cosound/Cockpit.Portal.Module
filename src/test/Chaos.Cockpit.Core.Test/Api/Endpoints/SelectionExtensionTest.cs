@@ -1,7 +1,9 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using Chaos.Cockpit.Core.Api.Endpoints;
 using Chaos.Cockpit.Core.Api.Result;
 using Chaos.Cockpit.Core.Core;
+using Chaos.Cockpit.Core.Core.Exceptions;
 using Chaos.Cockpit.Core.Data.InMemory;
 using NUnit.Framework;
 using Item = Chaos.Cockpit.Core.Api.Result.Item;
@@ -77,6 +79,45 @@ namespace Chaos.Cockpit.Core.Test.Api.Endpoints
 
       Assert.That(result.Identifier, Is.EqualTo(selection.Id));
       Assert.That(result.Name, Is.EqualTo(selection.Name));
+    }
+
+    [Test, ExpectedException(ExpectedExceptionName = "Chaos.Portal.Core.Exceptions.InsufficientPermissionsException")]
+    public void Delete_AnonymousUser_Throw()
+    {
+      PortalRequest.Setup(p => p.IsAnonymousUser).Returns(true);
+      var extension = Make_SelectionExtension();
+
+      extension.Delete(null);
+    }
+
+    [Test]
+    public void Delete_SelectionExist_DeleteOnGateway()
+    {
+      var selection = new Selection { Id = "id", Name = "name" };
+      Context.SelectionGateway.Set(selection);
+      var extension = Make_SelectionExtension();
+
+      var result = extension.Delete("id");
+
+      Assert.That(result.WasSuccess, Is.True);
+      try
+      {
+        Context.SelectionGateway.Get("id");
+        Assert.Fail();
+      }
+      catch (DataNotFoundException)
+      {
+      }
+    }
+
+    [Test]
+    public void Delete_SelectionDoesntExist_ReturnFailed()
+    {
+      var extension = Make_SelectionExtension();
+
+      var result = extension.Delete("missing");
+
+      Assert.That(result.WasSuccess, Is.False);
     }
 
     private SelectionExtension Make_SelectionExtension()

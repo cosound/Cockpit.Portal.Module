@@ -4,6 +4,7 @@ using Chaos.Cockpit.Core.Core;
 using Chaos.Portal.Core;
 using Chaos.Portal.Core.Exceptions;
 using Chaos.Portal.Core.Extension;
+using Chaos.Portal.v5.Extension.Result;
 
 namespace Chaos.Cockpit.Core.Api.Endpoints
 {
@@ -12,7 +13,6 @@ namespace Chaos.Cockpit.Core.Api.Endpoints
     public SelectionExtension(IPortalApplication portalApplication) : base(portalApplication)
     {
     }
-
 
     public SelectionResult Set(SelectionResult selection)
     {
@@ -35,6 +35,14 @@ namespace Chaos.Cockpit.Core.Api.Endpoints
       var result = Context.SelectionGateway.Get(id);
 
       return SelectionMapper.Map(result);
+    }
+
+    public EndpointResult Delete(string id)
+    {
+      if (Request.IsAnonymousUser)
+        throw new InsufficientPermissionsException("User is not authenticated");
+
+      return new EndpointResult { WasSuccess = Context.SelectionGateway.Delete(id) };
     }
   }
 }

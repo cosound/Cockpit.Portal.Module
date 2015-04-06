@@ -6,5 +6,6 @@ namespace Chaos.Cockpit.Core.Data
   {
     Selection Set(Selection selection);
     Selection Get(string id);
+    bool Delete(string id);
   }
 }
