@@ -148,7 +148,7 @@ namespace Chaos.Cockpit.Core.Test.Api.Endpoints
 
       Assert.That(result.WasSuccess, Is.True);
       var selectionFromDatabase = Context.SelectionGateway.Get(selection.Id);
-      Assert.That(selectionFromDatabase.Items.First().Identifier, Is.EqualTo("item.id"));
+      Assert.That(selectionFromDatabase.Items.First().Id, Is.EqualTo("item.id"));
     }
 
     [Test, ExpectedException(ExpectedExceptionName = "Chaos.Portal.Core.Exceptions.InsufficientPermissionsException")]
@@ -171,7 +171,7 @@ namespace Chaos.Cockpit.Core.Test.Api.Endpoints
     [Test]
     public void DeleteItems_SelectionExists_DeletedFromSelection()
     {
-      var selection = new Selection { Id = "id", Name = "name", Items = new[] { new Chaos.Cockpit.Core.Core.Item { Identifier = "item.id" } } };
+      var selection = new Selection { Id = "id", Name = "name", Items = new[] { new Chaos.Cockpit.Core.Core.Item { Id = "item.id" } } };
       Context.SelectionGateway.Set(selection);
       var extension = Make_SelectionExtension();
 

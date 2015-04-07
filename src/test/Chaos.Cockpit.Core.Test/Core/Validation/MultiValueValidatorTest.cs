@@ -16,16 +16,6 @@ namespace Chaos.Cockpit.Core.Test.Core.Validation
     }
 
     [Test, ExpectedException(typeof (ValidationException))]
-    public void Validate_GivenInvalidSimpleValue_Throw()
-    {
-      var validator = new MultiValueValidator();
-      validator.SimpleValueValidator = new SimpleValueValidator();
-      var multiValue = new MultiValue();
-
-      validator.Validate(multiValue);
-    }
-
-    [Test, ExpectedException(typeof (ValidationException))]
     public void Validate_GivenInvalidValue_Throw()
     {
       var validator = new MultiValueValidator();
@@ -63,6 +53,22 @@ namespace Chaos.Cockpit.Core.Test.Core.Validation
       multiValue.SimpleValues.Add("value1");
       multiValue.SimpleValues.Add("value2");
       multiValue.SimpleValues.Add("value3");
+
+      validator.Validate(multiValue);
+    }
+
+    [Test]
+    public void Validate_GivenZeroValues()
+    {
+      var validator = new MultiValueValidator
+      {
+        Min = 0,
+        Max = 3
+      };
+      validator.SimpleValueValidator = SimpleValueValidator.Create("key", "value");
+      var multiValue = new MultiValue();
+
+      validator.Validate(multiValue);
     }
 
     [Test, ExpectedException(typeof(ValidationException))]

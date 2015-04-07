@@ -52,7 +52,7 @@ namespace Chaos.Cockpit.Core.Api.Endpoints
       var result = Context.SelectionGateway.Get(id);
 
       foreach (var item in items)
-        result.Items.Add(new Item { Identifier = item });
+        result.Items.Add(new Item { Id = item });
 
       Context.SelectionGateway.Set(result);
 
@@ -67,7 +67,7 @@ namespace Chaos.Cockpit.Core.Api.Endpoints
 
       foreach (var item in items)
       {
-        var itemToDelete = result.Items.FirstOrDefault(i => i.Identifier == item);
+        var itemToDelete = result.Items.FirstOrDefault(i => i.Id == item);
 
         if(itemToDelete == null) continue;
 

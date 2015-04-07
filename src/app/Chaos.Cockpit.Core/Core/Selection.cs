@@ -18,6 +18,6 @@ namespace Chaos.Cockpit.Core.Core
 
   public class Item
   {
-    public string Identifier { get; set; }
+    public string Id { get; set; }
   }
 }

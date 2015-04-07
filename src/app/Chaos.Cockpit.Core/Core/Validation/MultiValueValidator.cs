@@ -20,7 +20,6 @@ namespace Chaos.Cockpit.Core.Core.Validation
       {
         var vals = multiValue.SimpleValues;
 
-        if (!vals.Any()) throw new ValidationException(string.Format("Value ({0}) is missing", SimpleValueValidator.Id));
         if(vals.Count < Min || vals.Count > Max) throw new ValidationException("Incorrect number of values.");
 
         foreach (var val in vals)

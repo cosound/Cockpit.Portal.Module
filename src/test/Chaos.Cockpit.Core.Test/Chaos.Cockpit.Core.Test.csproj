@@ -30,6 +30,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CHAOS, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\lib\CHAOS.dll</HintPath>
+    </Reference>
     <Reference Include="Chaos.Portal">
       <HintPath>..\..\..\lib\Chaos.Portal.dll</HintPath>
     </Reference>
@@ -70,6 +74,7 @@
     <Compile Include="Data\Mcm\DtuFormatConverterTest.cs" />
     <Compile Include="Data\Mcm\McmQuestionGatewayTest.cs" />
     <Compile Include="Data\Mcm\McmQuestionnaireGatewayTest.cs" />
+    <Compile Include="Data\Mcm\McmSelectionGatewayTest.cs" />
     <Compile Include="Data\Mcm\TestResources.cs" />
     <Compile Include="Main\CockpitModuleTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

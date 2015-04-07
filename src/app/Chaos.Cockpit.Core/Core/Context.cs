@@ -10,7 +10,8 @@ namespace Chaos.Cockpit.Core.Core
       Config = new Config
         {
           ExperimentObjectTypeId = 775,
-          ExperimentMetadataSchemaId = Guid.Parse("ffffffff-ffff-ffff-ffff-fff775000001")
+          ExperimentMetadataSchemaId = Guid.Parse("ffffffff-ffff-ffff-ffff-fff775000001"),
+          SelectionMetadataSchemaId = Guid.Parse("1fffffff-ffff-ffff-ffff-fff775000001")
         };
     }
 
@@ -25,5 +26,11 @@ namespace Chaos.Cockpit.Core.Core
     public uint ExperimentObjectTypeId { get; set; }
 
     public Guid ExperimentMetadataSchemaId { get; set; }
+
+    public Guid SelectionMetadataSchemaId { get; set; }
+
+    public uint SelectionObjectTypeId { get; set; }
+
+    public uint SelectionFolderId { get; set; }
   }
 }

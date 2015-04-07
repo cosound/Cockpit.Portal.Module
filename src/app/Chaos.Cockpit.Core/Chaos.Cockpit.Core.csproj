@@ -92,6 +92,7 @@
     <Compile Include="Data\IQuestionnaireGateway.cs" />
     <Compile Include="Data\Mcm\McmQuestionGateway.cs" />
     <Compile Include="Data\Mcm\McmQuestionnaireGateway.cs" />
+    <Compile Include="Data\Mcm\McmSelectionGateway.cs" />
     <Compile Include="Main\CockpitModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

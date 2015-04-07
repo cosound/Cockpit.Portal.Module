@@ -12,7 +12,7 @@ namespace Chaos.Cockpit.Core.Api
         {
           Identifier = selection.Id,
           Name = selection.Name,
-          Items = selection.Items.Select(item => new Chaos.Cockpit.Core.Api.Result.Item { Identifier = item.Identifier }).ToList()
+          Items = selection.Items.Select(item => new Chaos.Cockpit.Core.Api.Result.Item { Identifier = item.Id }).ToList()
         };
     }
 
@@ -22,7 +22,7 @@ namespace Chaos.Cockpit.Core.Api
         {
           Id = selection.Identifier,
           Name = selection.Name,
-          Items = selection.Items.Select(item => new Chaos.Cockpit.Core.Core.Item { Identifier = item.Identifier }).ToList()
+          Items = selection.Items.Select(item => new Chaos.Cockpit.Core.Core.Item { Id = item.Identifier }).ToList()
         };
     }
   }
