@@ -120,6 +120,68 @@ namespace Chaos.Cockpit.Core.Test.Api.Endpoints
       Assert.That(result.WasSuccess, Is.False);
     }
 
+    [Test, ExpectedException(ExpectedExceptionName = "Chaos.Portal.Core.Exceptions.InsufficientPermissionsException")]
+    public void AddItems_AnonymousUser_Throw()
+    {
+      PortalRequest.Setup(p => p.IsAnonymousUser).Returns(true);
+      var extension = Make_SelectionExtension();
+
+      extension.AddItems(null, null);
+    }
+
+    [Test, ExpectedException(ExpectedExceptionName = "Chaos.Cockpit.Core.Core.Exceptions.DataNotFoundException")]
+    public void AddItems_SelectionDoesntExist_Throw()
+    {
+      var extension = Make_SelectionExtension();
+
+      extension.AddItems(null, null);
+    }
+
+    [Test]
+    public void AddItems_SelectionExists_AddToSelection()
+    {
+      var selection = new Selection { Id = "id", Name = "name" };
+      Context.SelectionGateway.Set(selection);
+      var extension = Make_SelectionExtension();
+
+      var result = extension.AddItems(selection.Id, new []{"item.id"});
+
+      Assert.That(result.WasSuccess, Is.True);
+      var selectionFromDatabase = Context.SelectionGateway.Get(selection.Id);
+      Assert.That(selectionFromDatabase.Items.First().Identifier, Is.EqualTo("item.id"));
+    }
+
+    [Test, ExpectedException(ExpectedExceptionName = "Chaos.Portal.Core.Exceptions.InsufficientPermissionsException")]
+    public void DeleteItems_AnonymousUser_Throw()
+    {
+      PortalRequest.Setup(p => p.IsAnonymousUser).Returns(true);
+      var extension = Make_SelectionExtension();
+
+      extension.DeleteItems(null, null);
+    }
+
+    [Test, ExpectedException(ExpectedExceptionName = "Chaos.Cockpit.Core.Core.Exceptions.DataNotFoundException")]
+    public void DeleteItems_SelectionDoesntExist_Throw()
+    {
+      var extension = Make_SelectionExtension();
+
+      extension.DeleteItems(null, null);
+    }
+
+    [Test]
+    public void DeleteItems_SelectionExists_DeletedFromSelection()
+    {
+      var selection = new Selection { Id = "id", Name = "name", Items = new[] { new Chaos.Cockpit.Core.Core.Item { Identifier = "item.id" } } };
+      Context.SelectionGateway.Set(selection);
+      var extension = Make_SelectionExtension();
+
+      var result = extension.DeleteItems(selection.Id, new[] { "item.id" });
+
+      Assert.That(result.WasSuccess, Is.True);
+      var selectionFromDatabase = Context.SelectionGateway.Get(selection.Id);
+      Assert.That(selectionFromDatabase.Items, Is.Empty);
+    }
+
     private SelectionExtension Make_SelectionExtension()
     {
       return (SelectionExtension) new SelectionExtension(PortalApplication.Object).WithPortalRequest(PortalRequest.Object);
