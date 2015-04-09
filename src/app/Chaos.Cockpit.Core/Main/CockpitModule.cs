@@ -37,6 +37,7 @@ namespace Chaos.Cockpit.Core.Main
       portalApplication.MapRoute("/v6/Selection", () => new Api.Endpoints.SelectionExtension(portalApplication));
       portalApplication.MapRoute("/v6/Question", () => new Api.Endpoints.QuestionExtension(portalApplication));
       portalApplication.MapRoute("/v6/Answer", () => new Api.Endpoints.AnswerExtension(portalApplication));
+      portalApplication.MapRoute("/v6/Search", () => new Api.Endpoints.SearchExtension(portalApplication));
     }
 
     private static void LoadExperiments()

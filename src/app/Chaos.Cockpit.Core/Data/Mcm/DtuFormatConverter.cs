@@ -19,9 +19,11 @@ namespace Chaos.Cockpit.Core.Data.Mcm
       result.Name = experiemnt.Element("Name").Value;
       result.Version = experiemnt.Element("Version").Value;
       result.TargetId = experiemnt.Element("Target").Attribute("Id").Value;
+      // todo better error messages
+
       result.TargetName = experiemnt.Element("Target").Attribute("Name").Value;
 
-      var trials = xml.Descendants("Trial");
+      var trials = experiemnt.Element("Trials").Elements("Trial");
       foreach (var trial in trials)
         DeserializeTrial(trial, result);
 
@@ -50,12 +52,17 @@ namespace Chaos.Cockpit.Core.Data.Mcm
       question.Validation.SimpleValueValidator = FindSimpleValueValidator(validationElement).ToList();
 
       var output = new Output();
-      var valueElements = questionElement.Element("Outputs").Element("Value").Elements();
-      foreach (var valueElement in valueElements)
-        DeserializeOutput(valueElement, output);
+      var value = questionElement.Element("Outputs").Element("Value");
 
-      if (valueElements.Any())
-        question.Output = output;
+      if(value != null)
+      {
+        var valueElements = value.Elements();
+        foreach (var valueElement in valueElements)
+          DeserializeOutput(valueElement, output);
+
+        if (valueElements.Any())
+          question.Output = output;
+      }
 
       slide.AddQuestion(question);
     }

@@ -44,6 +44,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -56,6 +57,7 @@
     <Compile Include="Api\Binding\OutputBinding.cs" />
     <Compile Include="Api\Endpoints\AnswerExtension.cs" />
     <Compile Include="Api\Endpoints\QuestionExtension.cs" />
+    <Compile Include="Api\Endpoints\SearchExtension.cs" />
     <Compile Include="Api\Endpoints\SelectionExtension.cs" />
     <Compile Include="Api\Experiment.cs" />
     <Compile Include="Api\OutputConverter.cs" />
@@ -65,6 +67,7 @@
     <Compile Include="Api\Result\QuestionDto.cs" />
     <Compile Include="Api\Result\QuestionnaireDto.cs" />
     <Compile Include="Api\Result\QuestionResult.cs" />
+    <Compile Include="Api\Result\SearchResult.cs" />
     <Compile Include="Api\Result\SelectionResult.cs" />
     <Compile Include="Api\Result\SlideDto.cs" />
     <Compile Include="Api\SelectionMapper.cs" />
