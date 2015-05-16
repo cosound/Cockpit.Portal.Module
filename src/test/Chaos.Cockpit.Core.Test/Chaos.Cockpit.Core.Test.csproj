@@ -61,6 +61,7 @@
   <ItemGroup>
     <Compile Include="Api\Bindings\AnswerResultBindingTest.cs" />
     <Compile Include="Api\Endpoints\AnswerTest.cs" />
+    <Compile Include="Api\Endpoints\ExperimentExtensionTest.cs" />
     <Compile Include="Api\Endpoints\QuestionnaireTest.cs" />
     <Compile Include="Api\Endpoints\SelectionExtensionTest.cs" />
     <Compile Include="Api\Endpoints\SlideExtensionTest.cs" />

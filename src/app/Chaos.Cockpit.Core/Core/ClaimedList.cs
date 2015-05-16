@@ -1,0 +1,43 @@
+﻿using System;
+using System.Xml.Linq;
+using Chaos.Cockpit.Core.Api.Result;
+using Chaos.Portal.Core.Exceptions;
+
+namespace Chaos.Cockpit.Core.Core
+{
+  public class ClaimedList
+  {
+    private XDocument Xml { get; set; }
+
+    public ClaimedList(XDocument xml)
+    {
+      Xml = xml;
+    }
+
+    public ExperimentResult Next()
+    {
+      foreach (var experiment in Xml.Root.Elements("Item"))
+      {
+        if (experiment.Attribute("ClaimedOnDate").Value == "")
+        {
+          var datetime = DateTime.UtcNow.ToString("yyyy-MM-dd'T'HH:mm:ss'Z'");
+
+          experiment.Attribute("ClaimedOnDate").Value = datetime;
+          
+          return new ExperimentResult
+          {
+            Id = experiment.Attribute("Id").Value,
+            ClaimedOnDate = datetime
+          };
+        }
+      }
+
+      throw new ServerException("No more unclaimed experiments", "No Experiments are currently available, sorry for the inconvinience.");
+    }
+
+    public XDocument ToXml()
+    {
+      return XDocument.Parse(Xml.ToString());
+    }
+  }
+}

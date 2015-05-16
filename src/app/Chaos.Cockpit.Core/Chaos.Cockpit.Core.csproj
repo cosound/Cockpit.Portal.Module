@@ -56,6 +56,7 @@
     <Compile Include="Api\Binding\JsonBinding.cs" />
     <Compile Include="Api\Binding\OutputBinding.cs" />
     <Compile Include="Api\Endpoints\AnswerExtension.cs" />
+    <Compile Include="Api\Endpoints\ExperimentExtension.cs" />
     <Compile Include="Api\Endpoints\QuestionExtension.cs" />
     <Compile Include="Api\Endpoints\SearchExtension.cs" />
     <Compile Include="Api\Endpoints\SelectionExtension.cs" />
@@ -64,6 +65,7 @@
     <Compile Include="Api\OutputConverter.cs" />
     <Compile Include="Api\OutputMapper.cs" />
     <Compile Include="Api\Result\AnswerDto.cs" />
+    <Compile Include="Api\Result\ExperimentResult.cs" />
     <Compile Include="Api\Result\OutputDto.cs" />
     <Compile Include="Api\Result\QuestionDto.cs" />
     <Compile Include="Api\Result\QuestionnaireDto.cs" />
@@ -73,6 +75,7 @@
     <Compile Include="Api\Result\SlideDto.cs" />
     <Compile Include="Api\SelectionMapper.cs" />
     <Compile Include="Core\Answer.cs" />
+    <Compile Include="Core\ClaimedList.cs" />
     <Compile Include="Core\Context.cs" />
     <Compile Include="Core\Exceptions\DataNotFoundException.cs" />
     <Compile Include="Core\Exceptions\SlideClosedException.cs" />
