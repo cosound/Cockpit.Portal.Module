@@ -63,6 +63,7 @@
     <Compile Include="Api\Endpoints\AnswerTest.cs" />
     <Compile Include="Api\Endpoints\QuestionnaireTest.cs" />
     <Compile Include="Api\Endpoints\SelectionExtensionTest.cs" />
+    <Compile Include="Api\Endpoints\SlideExtensionTest.cs" />
     <Compile Include="Api\OutputConverterTest.cs" />
     <Compile Include="Api\OutputMapperTest.cs" />
     <Compile Include="Core\Validation\ComplexValueValidatorTest.cs" />
@@ -90,6 +91,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\experiment3.xml">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Resources\experiment.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <SubType>Designer</SubType>

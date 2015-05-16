@@ -50,6 +50,7 @@ namespace Chaos.Cockpit.Core.Core
     public string TaskId { get; set; }
     public IList<Question> Questions { get; set; }
     internal Questionnaire Parent { get; set; }
+    public bool IsClosed { get; set; }
 
     public Slide()
     {

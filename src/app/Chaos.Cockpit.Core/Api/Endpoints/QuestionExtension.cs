@@ -1,4 +1,5 @@
 ﻿using System;
+using Chaos.Cockpit.Core.Core.Exceptions;
 
 namespace Chaos.Cockpit.Core.Api.Endpoints
 {
@@ -16,13 +17,17 @@ namespace Chaos.Cockpit.Core.Api.Endpoints
     {
     }
 
-    public IPagedResult<QuestionDto> Get(string id, uint index = 0u)
+    public IPagedResult<QuestionDto> Get(string id, int index = 0)
     {
       var questionnaire = Context.QuestionnaireGateway.Get(Guid.Parse(id));
-      var questionnaireDto = QuestionnaireBuilder.MakeDto(questionnaire);
-      var questions = questionnaireDto.Slides[(int) index].Questions;
 
-      return new PagedResult<QuestionDto>((uint) questionnaireDto.Slides.Count, index, questions);
+      if(Request.IsAnonymousUser && questionnaire.Slides[index].IsClosed) 
+        throw new SlideClosedException("Slide has been closed by calling Slide/Close", "The requested slide is not available for viewing");
+
+      var questionnaireDto = QuestionnaireBuilder.MakeDto(questionnaire);
+      var questions = questionnaireDto.Slides[index].Questions;
+
+      return new PagedResult<QuestionDto>((uint) questionnaireDto.Slides.Count, (uint) index, questions);
     }
   }
 

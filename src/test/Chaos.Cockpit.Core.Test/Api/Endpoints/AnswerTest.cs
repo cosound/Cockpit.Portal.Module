@@ -2,6 +2,7 @@
 using Chaos.Cockpit.Core.Api.Endpoints;
 using Chaos.Cockpit.Core.Api.Result;
 using Chaos.Cockpit.Core.Core;
+using Chaos.Cockpit.Core.Core.Exceptions;
 using NUnit.Framework;
 
 namespace Chaos.Cockpit.Core.Test.Api.Endpoints
@@ -12,7 +13,7 @@ namespace Chaos.Cockpit.Core.Test.Api.Endpoints
     [Test]
     public void Set_GivenNewAnswer_SetAnswerOnQuestion()
     {
-      var extension = new AnswerExtension(PortalApplication.Object);
+      var extension = Make_AnswerExtension();
       var answer = new OutputDto
         {
           ComplexValues = new Dictionary<string, ComplexValueResult>()
@@ -73,9 +74,13 @@ namespace Chaos.Cockpit.Core.Test.Api.Endpoints
               }
             }
         };
-      var question = new Question("TestQuestion");
+      var question = new Question("TestQuestion")
+        {
+          Id = "00000000-0000-0000-0000-000000000001:0"
+        };
       Context.QuestionnaireGateway.Set(new Questionnaire
         {
+          Id = "00000000-0000-0000-0000-000000000001",
           Name = "Test",
           Slides = new List<Slide>
             {
@@ -108,6 +113,37 @@ namespace Chaos.Cockpit.Core.Test.Api.Endpoints
       Assert.That(actual.Output.MultiValues[1].Key, Is.EqualTo("k8"));
       Assert.That(actual.Output.MultiValues[1].ComplexValues[0].SimpleValues[0].Key, Is.EqualTo("k8.1"));
       Assert.That(actual.Output.MultiValues[1].ComplexValues[0].SimpleValues[1].Key, Is.EqualTo("k8.2"));
+    }
+
+    [Test, ExpectedException(typeof(SlideClosedException))]
+    public void Set_GivenAnonymousUserAndSlideIsClosed_Throw()
+    {
+      PortalRequest.Setup(p => p.IsAnonymousUser).Returns(true);
+      var extension = Make_AnswerExtension();
+      var question = new Question("TestQuestion");
+      Context.QuestionnaireGateway.Set(new Questionnaire
+      {
+        Id = "00000000-0000-0000-0000-000000000001",
+        Name = "Test",
+        Slides = new List<Slide>
+            {
+              new Slide
+                {
+                  IsClosed = true,
+                  Questions = new List<Question>
+                    {
+                      question
+                    }
+                }
+            }
+      });
+
+      extension.Set("00000000-0000-0000-0000-000000000001:0", null);
+    }
+
+    private AnswerExtension Make_AnswerExtension()
+    {
+      return (AnswerExtension) new AnswerExtension(PortalApplication.Object).WithPortalRequest(PortalRequest.Object);
     }
   }
 }

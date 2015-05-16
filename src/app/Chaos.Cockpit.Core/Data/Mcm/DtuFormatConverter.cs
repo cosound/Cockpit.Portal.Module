@@ -34,10 +34,18 @@ namespace Chaos.Cockpit.Core.Data.Mcm
     {
       var slide = new Slide();
       slide.TaskId = trial.Attribute("TaskId").Value;
+      slide.IsClosed = IsClosed(trial);
       result.AddSlide(slide);
 
       foreach (var questionElement in trial.Elements())
         DeserializeQuestion(questionElement, slide);
+    }
+
+    private static bool IsClosed(XElement trial)
+    {
+      var attribute = trial.Attribute("IsClosed");
+
+      return attribute != null && bool.Parse(attribute.Value);
     }
 
     private static void DeserializeQuestion(XElement questionElement, Slide slide)
@@ -195,6 +203,7 @@ namespace Chaos.Cockpit.Core.Data.Mcm
     {
       var trial = new XElement("Trial");
       trial.Add(new XAttribute("TaskId", slide.TaskId));
+      trial.Add(new XAttribute("IsClosed", slide.IsClosed));
 
       foreach (var question in slide.Questions)
         trial.Add(SerializeQuestion(question));

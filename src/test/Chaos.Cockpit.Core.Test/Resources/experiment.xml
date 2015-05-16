@@ -5,7 +5,7 @@
   <Version>1</Version>
   <Target Id="fba94e48-3c6d-4a2a-aef9-23108ee89ac0" Name="Jens Jensen"/>
   <Trials>
-    <Trial TaskId="0">
+    <Trial TaskId="0" IsClosed="True">
       <Monitor Version="1">
         <Inputs>
           <Events>

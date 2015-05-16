@@ -27,6 +27,7 @@ namespace Chaos.Cockpit.Core.Test.Data.Mcm
        Assert.That(result.TargetName, Is.EqualTo("Jens Jensen"));
        Assert.That(result.Slides.Count, Is.EqualTo(8));
        Assert.That(result.Slides[0].TaskId, Is.EqualTo("0"));
+       Assert.That(result.Slides[0].IsClosed, Is.True);
        Assert.That(result.Slides[0].Questions.Count, Is.EqualTo(1));
        Assert.That(result.Slides[0].Questions[0].Id, Is.EqualTo("ea3976c7-2d4a-4ef0-84a1-1d9e66f4a0e7:0"));
        Assert.That(result.Slides[0].Questions[0].Version, Is.EqualTo("1"));
@@ -40,6 +41,7 @@ namespace Chaos.Cockpit.Core.Test.Data.Mcm
        Assert.That(events.ComplexValueValidator.Id, Is.EqualTo("Event"));
        Assert.That(events.ComplexValueValidator.SimpleValueValidators[0].Id, Is.EqualTo("DateTime"));
        Assert.That(events.ComplexValueValidator.SimpleValueValidators[0].Validation, Is.EqualTo(@"(\d{4}-\d{2}-\d{2})T(\d{2}:\d{2}:\d{2}.\d{3})Z"));
+       Assert.That(result.Slides[1].IsClosed, Is.False);
        Assert.That(result.Slides[1].Questions[0].Id, Is.EqualTo("ea3976c7-2d4a-4ef0-84a1-1d9e66f4a0e7:1"));
        Assert.That(result.Slides[1].Questions[0].Type, Is.EqualTo("Freetext"));
        Assert.That(result.Slides[1].Questions[0].Validation.SimpleValueValidator, Is.Not.Empty);
@@ -127,6 +129,8 @@ namespace Chaos.Cockpit.Core.Test.Data.Mcm
       Assert.That(root.Element("Trials").HasElements, Is.True);
       Func<int, XElement> trial = (index) => root.Element("Trials").Descendants("Trial").ToList()[index];
       Assert.That(trial(0).Attribute("TaskId").Value, Is.EqualTo("0"));
+      Assert.That(trial(0).Attribute("IsClosed").Value, Is.EqualTo("true"));
+      Assert.That(trial(1).Attribute("IsClosed").Value, Is.EqualTo("false"));
       Func<int, int, XElement> question = (trialIndex, questionIndex) => trial(trialIndex).Elements().ToList()[questionIndex];
       Assert.That(question(0, 0).Attribute("Version").Value, Is.EqualTo("1"));
       Assert.That(question(0, 0).Element("Inputs").HasElements, Is.True);
