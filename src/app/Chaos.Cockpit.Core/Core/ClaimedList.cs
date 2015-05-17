@@ -5,12 +5,14 @@ using Chaos.Portal.Core.Exceptions;
 
 namespace Chaos.Cockpit.Core.Core
 {
-  public class ClaimedList
+  public class ClaimedList : IKey
   {
-    private XDocument Xml { get; set; }
+    public string Id { get; set; }
+    public XDocument Xml { get; set; }
 
-    public ClaimedList(XDocument xml)
+    public ClaimedList(string id, XDocument xml)
     {
+      Id = id;
       Xml = xml;
     }
 

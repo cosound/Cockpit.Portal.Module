@@ -1,4 +1,5 @@
 ﻿using System.Xml.Linq;
+using Chaos.Cockpit.Core.Data.InMemory;
 using Chaos.Cockpit.Core.Data.Mcm;
 using Chaos.Mcm;
 
@@ -17,6 +18,7 @@ namespace Chaos.Cockpit.Core.Main
       Context.QuestionnaireGateway = new Data.InMemory.QuestionnaireGateway();
       Context.QuestionGateway = new Data.InMemory.QuestionGateway();
       Context.SelectionGateway = new Data.InMemory.SelectionGateway();
+      Context.ExperimentGateway = new Data.InMemory.ExperimentGateway();
 
       LoadExperiments();
 
@@ -28,6 +30,7 @@ namespace Chaos.Cockpit.Core.Main
 
           Context.QuestionnaireGateway = new McmQuestionnaireGateway(mcm.McmRepository);
           Context.QuestionGateway = new McmQuestionGateway(mcm.McmRepository);
+          Context.ExperimentGateway = new McmExperimentGateway(mcm.McmRepository);
         };
 
       portalApplication.AddBinding(typeof(AnswerDto), new JsonBinding<AnswerDto>());
@@ -39,6 +42,7 @@ namespace Chaos.Cockpit.Core.Main
       portalApplication.MapRoute("/v6/Answer", () => new Api.Endpoints.AnswerExtension(portalApplication));
       portalApplication.MapRoute("/v6/Search", () => new Api.Endpoints.SearchExtension(portalApplication));
       portalApplication.MapRoute("/v6/Slide", () => new Api.Endpoints.SlideExtension(portalApplication));
+      portalApplication.MapRoute("/v6/Experiment", () => new Api.Endpoints.ExperimentExtension(portalApplication));
     }
 
     private static void LoadExperiments()

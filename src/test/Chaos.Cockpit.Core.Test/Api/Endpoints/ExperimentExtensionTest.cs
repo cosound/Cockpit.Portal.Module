@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Xml.Linq;
 using Chaos.Cockpit.Core.Api.Endpoints;
 using Chaos.Cockpit.Core.Core;
@@ -13,13 +14,12 @@ namespace Chaos.Cockpit.Core.Test.Api.Endpoints
     public void Next_()
     {
       var ext = new ExperimentExtension(PortalApplication.Object);
-      var claimedList = Make_ClaimedList();
+      Context.ExperimentGateway.Save(Make_ClaimedList());
 
-      var next = claimedList.Next();
+      var result = ext.Next(Guid.Parse("00000000-0000-0000-0000-000000000001"));
 
-      Assert.That(next.Id, Is.EqualTo("00000000-0000-0000-0000-000000000001"));
-      Assert.That(next.ClaimedOnDate, Is.Not.Null);
-      Assert.That(next.ClaimedOnDate, Is.Not.Empty);
+      Assert.That(result.Id, Is.EqualTo("00000000-0000-0000-0000-000000000001"));
+      Assert.That(result.ClaimedOnDate, Is.Not.Empty);
     }
 
     [Test]
@@ -30,7 +30,6 @@ namespace Chaos.Cockpit.Core.Test.Api.Endpoints
       var next = claimedList.Next();
 
       Assert.That(next.Id, Is.EqualTo("00000000-0000-0000-0000-000000000001"));
-      Assert.That(next.ClaimedOnDate, Is.Not.Null);
       Assert.That(next.ClaimedOnDate, Is.Not.Empty);
     }
 
@@ -43,7 +42,6 @@ namespace Chaos.Cockpit.Core.Test.Api.Endpoints
       var next = claimedList.Next();
 
       Assert.That(next.Id, Is.EqualTo("00000000-0000-0000-0000-000000000002"));
-      Assert.That(next.ClaimedOnDate, Is.Not.Null);
       Assert.That(next.ClaimedOnDate, Is.Not.Empty);
     }
 
@@ -64,7 +62,7 @@ namespace Chaos.Cockpit.Core.Test.Api.Endpoints
       var xml =
         XDocument.Parse(
           "<Experiments><Item Id='00000000-0000-0000-0000-000000000001' ClaimedOnDate='' /><Item Id='00000000-0000-0000-0000-000000000002' ClaimedOnDate='' /></Experiments>");
-      var claimedList = new ClaimedList(xml);
+      var claimedList = new ClaimedList("00000000-0000-0000-0000-000000000001", xml);
       return claimedList;
     }
   }

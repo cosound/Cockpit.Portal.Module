@@ -20,6 +20,7 @@ namespace Chaos.Cockpit.Core.Test
 
       Context.QuestionGateway = new QuestionGateway();
       Context.QuestionnaireGateway = new QuestionnaireGateway();
+      Context.ExperimentGateway = new ExperimentGateway();
     }
   }
 }

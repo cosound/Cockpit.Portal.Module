@@ -91,6 +91,7 @@
     <Compile Include="Core\Validation\SimpleValue.cs" />
     <Compile Include="Core\Validation\SimpleValueValidator.cs" />
     <Compile Include="Data\InMemory\EntityRepository.cs" />
+    <Compile Include="Data\InMemory\ExperimentGateway.cs" />
     <Compile Include="Data\InMemory\QuestionGateway.cs" />
     <Compile Include="Data\InMemory\QuestionnaireGateway.cs" />
     <Compile Include="Data\InMemory\SelectionGateway.cs" />
@@ -98,6 +99,7 @@
     <Compile Include="Data\ISelectionGateway.cs" />
     <Compile Include="Data\Mcm\DtuFormatConverter.cs" />
     <Compile Include="Data\IQuestionnaireGateway.cs" />
+    <Compile Include="Data\Mcm\McmExperimentGateway.cs" />
     <Compile Include="Data\Mcm\McmQuestionGateway.cs" />
     <Compile Include="Data\Mcm\McmQuestionnaireGateway.cs" />
     <Compile Include="Data\Mcm\McmSelectionGateway.cs" />
