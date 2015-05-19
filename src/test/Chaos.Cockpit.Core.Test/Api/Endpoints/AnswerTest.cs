@@ -120,7 +120,10 @@ namespace Chaos.Cockpit.Core.Test.Api.Endpoints
     {
       PortalRequest.Setup(p => p.IsAnonymousUser).Returns(true);
       var extension = Make_AnswerExtension();
-      var question = new Question("TestQuestion");
+      var question = new Question("TestQuestion")
+        {
+          Id = "00000000-0000-0000-0000-000000000001:0"
+        };
       Context.QuestionnaireGateway.Set(new Questionnaire
       {
         Id = "00000000-0000-0000-0000-000000000001",

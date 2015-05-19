@@ -35,11 +35,16 @@ namespace Chaos.Cockpit.Core.Core
 
     public Question GetQuestion(string id)
     {
-      foreach (var question in Slides.SelectMany(slide => slide.Questions))
-      {
-        if (question.Id == id)
-          return question;
-      }
+      foreach (var question in Slides.SelectMany(slide => slide.Questions).Where(question => question.Id == id))
+        return question;
+
+      throw new ArgumentException("No question with Id found.");
+    }
+
+    public Slide GetSlide(string id)
+    {
+      foreach (var slide in Slides.Where(slide => slide.Questions.Any(question => question.Id == id)))
+        return slide;
 
       throw new ArgumentException("No question with Id found.");
     }

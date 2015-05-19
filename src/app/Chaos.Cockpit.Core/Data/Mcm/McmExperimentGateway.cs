@@ -29,8 +29,7 @@ namespace Chaos.Cockpit.Core.Data.Mcm
     private Metadata Metadata(Guid objectGuid)
     {
       var result = _repo.ObjectGet(objectGuid, includeMetadata: true);
-
-      var metadata = result.Metadatas.FirstOrDefault(m => m.MetadataSchemaGuid == Guid.Parse("00000000-0000-0000-0000-000000000111"));
+      var metadata = result.Metadatas.FirstOrDefault(m => m.MetadataSchemaGuid == Context.Config.ClaimListMetadataSchemaGuid);
 
       if (metadata == null)
         throw new ServerException("Id does not match a valid List object",

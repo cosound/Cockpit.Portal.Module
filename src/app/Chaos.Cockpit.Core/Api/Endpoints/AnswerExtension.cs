@@ -16,12 +16,10 @@ namespace Chaos.Cockpit.Core.Api.Endpoints
 
     public EndpointResult Set(string questionId, OutputDto output)
     {
-      var idSplit = questionId.Split(':');
-      var questionaireId = Guid.Parse(idSplit[0]);
-      var index = int.Parse(idSplit[1]);
-      var questionaire = Context.QuestionnaireGateway.Get(questionaireId);
+      var id = new QuestionId(questionId);
+      var questionaire = Context.QuestionnaireGateway.Get(id.QuestionaireId);
 
-      if (Request.IsAnonymousUser && questionaire.Slides[index].IsClosed)
+      if (Request.IsAnonymousUser && questionaire.GetSlide(questionId).IsClosed)
         throw new SlideClosedException("Slide has been closed by calling Slide/Close", "The requested slide is not available for editing");
 
       var question = questionaire.GetQuestion(questionId);
@@ -30,6 +28,19 @@ namespace Chaos.Cockpit.Core.Api.Endpoints
       Context.QuestionGateway.Save(question);
 
       return EndpointResult.Success();
+    }
+
+    private class QuestionId
+    {
+      public QuestionId(string id)
+      {
+        var idSplit = id.Split(':');
+        QuestionaireId = Guid.Parse(idSplit[0]);
+        Index = int.Parse(idSplit[1]);
+      }
+
+      public Guid QuestionaireId { get; private set; }
+      public int Index { get; private set; }
     }
   }
 }
