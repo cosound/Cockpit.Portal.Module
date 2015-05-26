@@ -58,6 +58,7 @@ namespace Chaos.Cockpit.Core.Data.Mcm
       var validationElement = questionElement.Element("Outputs").Element("Validation");
       question.Validation.MultiValueValidator = FindMultiValueValidators(validationElement).ToList();
       question.Validation.SimpleValueValidator = FindSimpleValueValidator(validationElement).ToList();
+      question.Validation.ComplexValueValidator = FindComplexValueValidators(validationElement).ToList();
 
       var output = new Output();
       var value = questionElement.Element("Outputs").Element("Value");
@@ -85,8 +86,7 @@ namespace Chaos.Cockpit.Core.Data.Mcm
           output.MultiValues.Add(DeserializeMultiValue(valueElement));
         else
         {
-          // is complex
-          var s = "";
+          output.ComplexValues.Add(DeserializeComplexValue(valueElement));
         }
       }
       else
@@ -101,21 +101,24 @@ namespace Chaos.Cockpit.Core.Data.Mcm
       foreach (var element in valueElement.Elements())
       {
         if (element.HasElements)
-        {
-          var complexValue = new ComplexValue();
-          complexValue.Key = element.Name.LocalName;
-
-          foreach (var field in element.Elements())
-            complexValue.Add(new SimpleValue(field.Name.LocalName, field.Value));
-
-          multiValue.ComplexValues.Add(complexValue);
-        }
+          multiValue.ComplexValues.Add(DeserializeComplexValue(element));
         else
         {
           multiValue.SimpleValues.Add(element.Value);
         }
       }
       return multiValue;
+    }
+
+    private static ComplexValue DeserializeComplexValue(XElement element)
+    {
+      var complexValue = new ComplexValue();
+      complexValue.Key = element.Name.LocalName;
+
+      foreach (var field in element.Elements())
+        complexValue.Add(new SimpleValue(field.Name.LocalName, field.Value));
+
+      return complexValue;
     }
 
     private static IEnumerable<MultiValueValidator> FindMultiValueValidators(XContainer parent)
@@ -225,6 +228,7 @@ namespace Chaos.Cockpit.Core.Data.Mcm
       var validation = new XElement("Validation");
       validation.Add(SerializeSimpleValidators(question.Validation.SimpleValueValidator));
       validation.Add(SerializeMultiValidators(question.Validation.MultiValueValidator));
+      validation.Add(SerializeComplexValidators(question.Validation.ComplexValueValidator));
 
       var value = new XElement("Value");
 
@@ -285,6 +289,11 @@ namespace Chaos.Cockpit.Core.Data.Mcm
       return new XElement(simpleValue.Key, simpleValue.Value);
     }
 
+    private static IEnumerable<XElement> SerializeComplexValidators(IEnumerable<ComplexValueValidator> complexValueValidator)
+    {
+      return complexValueValidator.Select(SerializeComplexValidator);
+    }
+
     private static IEnumerable<XElement> SerializeMultiValidators(IEnumerable<MultiValueValidator> multiValueValidators)
     {
       foreach (var validator in multiValueValidators)
@@ -294,19 +303,24 @@ namespace Chaos.Cockpit.Core.Data.Mcm
         multi.Add(new XAttribute("Max", ConvertToString(validator.Max)));
         multi.Add(new XAttribute("Min", ConvertToString(validator.Min)));
 
-        if (validator.ComplexValueValidator != null)
-        {
-          var complex = new XElement("ComplexValue");
-          complex.Add(new XAttribute("Id", validator.ComplexValueValidator.Id));
-          complex.Add(SerializeSimpleValidators(validator.ComplexValueValidator.SimpleValueValidators));
-          multi.Add(complex);
-        }
+        var complexValueValidator = validator.ComplexValueValidator;
+        if (complexValueValidator != null)
+          multi.Add(SerializeComplexValidator(complexValueValidator));
 
         if (validator.SimpleValueValidator != null)
           multi.Add(SerializeSimpleValidators(new[] {validator.SimpleValueValidator}));
 
         yield return multi;
       }
+    }
+
+    private static XElement SerializeComplexValidator(ComplexValueValidator complexValueValidator)
+    {
+      var complex = new XElement("ComplexValue");
+      complex.Add(new XAttribute("Id", complexValueValidator.Id));
+      complex.Add(SerializeSimpleValidators(complexValueValidator.SimpleValueValidators));
+
+      return complex;
     }
 
     private static IEnumerable<XElement> SerializeSimpleValidators(

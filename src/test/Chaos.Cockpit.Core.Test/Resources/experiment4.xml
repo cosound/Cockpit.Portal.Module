@@ -1,251 +1,10 @@
 ﻿<Experiment>
+  <Id>de4ccbbf2d971efeea73a19bf2c57eaa</Id>
+  <Name>CoSound:DR:Crowdsourcing:Core</Name>
+  <Version>1</Version>
+  <Target Id="6b454b7e-2477-459f-8ef7-483950a66a9b" Name="UNKNOWN" />
   <Trials>
-    <Trial TaskId="1">
-      <DRQuestionInfo Version="1">
-        <Inputs>
-          <Basic>
-            <ClientUserGuid>3a00d580-a0a0-4b84-bb8f-e4e819bbceeb</ClientUserGuid>
-          </Basic>
-          <CheckSum>26aeacf7c035ab3b7b432ad22013228b</CheckSum>
-          <Level>
-            <Id>2</Id>
-            <Count>5</Count>
-            <Progression>
-              <PointMin>1500</PointMin>
-              <PointMax>15000</PointMax>
-            </Progression>
-            <Repetition>3</Repetition>
-          </Level>
-          <Grading>
-            <PointsMaxPerf>4782</PointsMaxPerf>
-            <PointsOffset>573</PointsOffset>
-            <ICorrectness>1</ICorrectness>
-            <WDifficulty>0.17</WDifficulty>
-            <LambdaTimeDifficulty>0.26</LambdaTimeDifficulty>
-            <AlphaCorrectness>0.25</AlphaCorrectness>
-          </Grading>
-        </Inputs>
-        <Outputs>
-          <Validation />
-          <Value />
-        </Outputs>
-      </DRQuestionInfo>
-      <DRQuestionCore Version="1">
-        <Inputs>
-          <CheckSum>76ce17f27b0b902ff89f2f74f7c16e48</CheckSum>
-          <Stimulus>
-            <Type>audio/mpeg</Type>
-            <Label>DR Radio P3</Label>
-            <URI>https://s3-eu-west-1.amazonaws.com/ac0926766ce9afd07d63b7c8a5896b0c/system/140_item/resources/set1/360.mp3</URI>
-            <Validation>
-              <Items>
-                <Item>
-                  <Guid>17c1235d-01dd-42e0-8cf6-cb00adb03db9</Guid>
-                  <Correctness>0.52</Correctness>
-                  <Labels>
-                    <Label>
-                      <Text>Jesper Baehrenz</Text>
-                      <Correctness>0.99</Correctness>
-                    </Label>
-                    <Label>
-                      <Text>Jesper</Text>
-                      <Correctness>0.12</Correctness>
-                    </Label>
-                    <Label>
-                      <Text>znerheaB repseJ</Text>
-                      <Correctness>0.00</Correctness>
-                    </Label>
-                  </Labels>
-                  <VoiceDifficulty>0.90</VoiceDifficulty>
-                  <PersonDifficulty>0.88</PersonDifficulty>
-                </Item>
-                <Item>
-                  <Guid>8321916f-0dd9-4678-b5a3-b6768516a313</Guid>
-                  <Correctness>0.15</Correctness>
-                  <Labels>
-                    <Label>
-                      <Text>Kjeld Koplev</Text>
-                      <Correctness>0.99</Correctness>
-                    </Label>
-                    <Label>
-                      <Text>Kjeld</Text>
-                      <Correctness>0.25</Correctness>
-                    </Label>
-                    <Label>
-                      <Text>velpoK dlejK</Text>
-                      <Correctness>0.00</Correctness>
-                    </Label>
-                  </Labels>
-                  <VoiceDifficulty>0.26</VoiceDifficulty>
-                  <PersonDifficulty>0.45</PersonDifficulty>
-                </Item>
-                <Item>
-                  <Guid>f98c6e48-ff9f-4e22-b52a-224d07f56d96</Guid>
-                  <Correctness>0.30</Correctness>
-                  <Labels>
-                    <Label>
-                      <Text>Phillip Marco Vallentin</Text>
-                      <Correctness>0.99</Correctness>
-                    </Label>
-                    <Label>
-                      <Text>Phillip</Text>
-                      <Correctness>0.22</Correctness>
-                    </Label>
-                    <Label>
-                      <Text>nitnellaV ocraM pillihP</Text>
-                      <Correctness>0.00</Correctness>
-                    </Label>
-                  </Labels>
-                  <VoiceDifficulty>0.34</VoiceDifficulty>
-                  <PersonDifficulty>0.80</PersonDifficulty>
-                </Item>
-                <Item>
-                  <Guid>5e2acf59-bed0-4907-86d7-7d00a35b8474</Guid>
-                  <Correctness>0.24</Correctness>
-                  <Labels>
-                    <Label>
-                      <Text>Ole Aaby</Text>
-                      <Correctness>0.99</Correctness>
-                    </Label>
-                    <Label>
-                      <Text>Ole</Text>
-                      <Correctness>0.28</Correctness>
-                    </Label>
-                    <Label>
-                      <Text>ybaA elO</Text>
-                      <Correctness>0.00</Correctness>
-                    </Label>
-                  </Labels>
-                  <VoiceDifficulty>0.38</VoiceDifficulty>
-                  <PersonDifficulty>0.97</PersonDifficulty>
-                </Item>
-                <Item>
-                  <Guid>03c5a168-3d81-4636-bb96-790867d99def</Guid>
-                  <Correctness>0.86</Correctness>
-                  <Labels>
-                    <Label>
-                      <Text>Iben Maria Zeuthen</Text>
-                      <Correctness>0.99</Correctness>
-                    </Label>
-                    <Label>
-                      <Text>Iben</Text>
-                      <Correctness>0.20</Correctness>
-                    </Label>
-                    <Label>
-                      <Text>nehtueZ airaM nebI</Text>
-                      <Correctness>0.00</Correctness>
-                    </Label>
-                  </Labels>
-                  <VoiceDifficulty>0.63</VoiceDifficulty>
-                  <PersonDifficulty>0.99</PersonDifficulty>
-                </Item>
-                <Item>
-                  <Guid>24c02aa0-80b4-49a0-9f59-1c51cf456216</Guid>
-                  <Correctness>0.72</Correctness>
-                  <Labels>
-                    <Label>
-                      <Text>Ole Mortensen</Text>
-                      <Correctness>0.99</Correctness>
-                    </Label>
-                    <Label>
-                      <Text>Ole</Text>
-                      <Correctness>0.22</Correctness>
-                    </Label>
-                    <Label>
-                      <Text>nesnetroM elO</Text>
-                      <Correctness>0.00</Correctness>
-                    </Label>
-                  </Labels>
-                  <VoiceDifficulty>0.64</VoiceDifficulty>
-                  <PersonDifficulty>0.89</PersonDifficulty>
-                </Item>
-                <Item>
-                  <Guid>c5a48abe-50ff-4a4d-a0a5-56900308f902</Guid>
-                  <Correctness>0.99</Correctness>
-                  <Labels>
-                    <Label>
-                      <Text>Jens Fink-Jensen</Text>
-                      <Correctness>0.99</Correctness>
-                    </Label>
-                    <Label>
-                      <Text>Jens</Text>
-                      <Correctness>0.20</Correctness>
-                    </Label>
-                    <Label>
-                      <Text>nesneJ-kniF sneJ</Text>
-                      <Correctness>0.00</Correctness>
-                    </Label>
-                  </Labels>
-                  <VoiceDifficulty>0.66</VoiceDifficulty>
-                  <PersonDifficulty>0.90</PersonDifficulty>
-                </Item>
-                <Item>
-                  <Guid>6f12f9dd-4cf0-4b83-8c48-371d5399374e</Guid>
-                  <Correctness>0.11</Correctness>
-                  <Labels>
-                    <Label>
-                      <Text>Palle Aarslev-Nielsen</Text>
-                      <Correctness>0.99</Correctness>
-                    </Label>
-                    <Label>
-                      <Text>Palle</Text>
-                      <Correctness>0.11</Correctness>
-                    </Label>
-                    <Label>
-                      <Text>nesleiN-velsraA ellaP</Text>
-                      <Correctness>0.00</Correctness>
-                    </Label>
-                  </Labels>
-                  <VoiceDifficulty>0.62</VoiceDifficulty>
-                  <PersonDifficulty>0.57</PersonDifficulty>
-                </Item>
-              </Items>
-            </Validation>
-          </Stimulus>
-          <RadioButtonGroup>
-            <Items>
-              <Item>
-                <Guid>54cec7c4-eb6e-4d11-a5a5-167c3cab7aa5</Guid>
-                <Text>Leif Wivelsted</Text>
-              </Item>
-              <Item>
-                <Guid>6c14ad94-5ca0-43cf-96aa-d6d068317288</Guid>
-                <Text>Susanna Sommer</Text>
-              </Item>
-              <Item>
-                <Guid>22354142-dd21-4299-8ab6-e4631c31de55</Guid>
-                <Text>Ole Emil Riisager</Text>
-              </Item>
-              <Item>
-                <Guid>a3720513-2b96-45c2-a9d3-9fc6637a6634</Guid>
-                <Text>Niels Lindvig</Text>
-              </Item>
-            </Items>
-          </RadioButtonGroup>
-        </Inputs>
-        <Outputs>
-          <Validation>
-            <SimpleValue Id="CheckSumAsHash" Validation=".*" />
-            <SimpleValue Id="ClientUserGuid" Validation=".+" />
-            <SimpleValue Id="ClientBrowserUserAgent" Validation=".*" />
-            <SimpleValue Id="ClientDeviceIPAddressAsHash" Validation=".*" />
-            <SimpleValue Id="Log" Validation=".*" />
-            <ComplexValue Id="Response">
-              <SimpleValue Id="DontknowSelection" Validation=".*" />
-              <SimpleValue Id="RadioButtonSelection" Validation=".*" />
-              <SimpleValue Id="FreeText" Validation=".*" />
-              <SimpleValue Id="Grading" Validation=".*" />
-            </ComplexValue>
-            <MultiValue Id="Events" Max="Inf" Min="0">
-              <ComplexValue Id="Event">
-                <SimpleValue Id="Type" Validation=".*" />
-                <SimpleValue Id="DateTime" Validation=".*" />
-              </ComplexValue>
-            </MultiValue>
-          </Validation>
-          <Value />
-        </Outputs>
-      </DRQuestionCore>
+    <Trial TaskId="1" IsClosed="false">
       <DRQuestionCore Version="1">
         <Inputs>
           <CheckSum>4ad7a50f799a3421d11004bb12f66512</CheckSum>
@@ -256,64 +15,64 @@
             <Validation>
               <Items>
                 <Item>
-                  <Guid>afde0b8c-daf6-4e7c-9882-f0213dc205c0</Guid>
-                  <Correctness>0.03</Correctness>
+                  <Guid>044782b1-7378-446b-93e1-7bb195d876c5</Guid>
+                  <Correctness>0.16</Correctness>
                   <Labels>
                     <Label>
-                      <Text>Leif Wivelsted</Text>
+                      <Text>Henrik Milling</Text>
                       <Correctness>0.99</Correctness>
                     </Label>
                     <Label>
-                      <Text>Leif</Text>
-                      <Correctness>0.27</Correctness>
-                    </Label>
-                    <Label>
-                      <Text>detsleviW fieL</Text>
-                      <Correctness>0.00</Correctness>
-                    </Label>
-                  </Labels>
-                  <VoiceDifficulty>0.52</VoiceDifficulty>
-                  <PersonDifficulty>0.06</PersonDifficulty>
-                </Item>
-                <Item>
-                  <Guid>281c0e00-7298-40cf-870c-2a8f768115ba</Guid>
-                  <Correctness>0.23</Correctness>
-                  <Labels>
-                    <Label>
-                      <Text>Pierre Vendelboe</Text>
-                      <Correctness>0.99</Correctness>
-                    </Label>
-                    <Label>
-                      <Text>Pierre</Text>
+                      <Text>Henrik</Text>
                       <Correctness>0.13</Correctness>
                     </Label>
                     <Label>
-                      <Text>eobledneV erreiP</Text>
+                      <Text>gnilliM kirneH</Text>
                       <Correctness>0.00</Correctness>
                     </Label>
                   </Labels>
-                  <VoiceDifficulty>0.31</VoiceDifficulty>
-                  <PersonDifficulty>0.23</PersonDifficulty>
+                  <VoiceDifficulty>0.40</VoiceDifficulty>
+                  <PersonDifficulty>0.83</PersonDifficulty>
                 </Item>
                 <Item>
-                  <Guid>5aff4da2-6627-4a1a-8195-b8fa433a6c1a</Guid>
-                  <Correctness>0.28</Correctness>
+                  <Guid>e22fd440-571e-4263-9452-070cc30183c0</Guid>
+                  <Correctness>0.13</Correctness>
                   <Labels>
                     <Label>
-                      <Text>Dennis Ravn</Text>
+                      <Text>Soeren Fauli</Text>
                       <Correctness>0.99</Correctness>
                     </Label>
                     <Label>
-                      <Text>Dennis</Text>
-                      <Correctness>0.17</Correctness>
+                      <Text>Soeren</Text>
+                      <Correctness>0.32</Correctness>
                     </Label>
                     <Label>
-                      <Text>nvaR sinneD</Text>
+                      <Text>iluaF nereoS</Text>
                       <Correctness>0.00</Correctness>
                     </Label>
                   </Labels>
-                  <VoiceDifficulty>0.88</VoiceDifficulty>
-                  <PersonDifficulty>0.44</PersonDifficulty>
+                  <VoiceDifficulty>0.77</VoiceDifficulty>
+                  <PersonDifficulty>0.56</PersonDifficulty>
+                </Item>
+                <Item>
+                  <Guid>a433410c-dab2-4fd7-b6db-68c904637c82</Guid>
+                  <Correctness>0.89</Correctness>
+                  <Labels>
+                    <Label>
+                      <Text>J.P. Jespersen</Text>
+                      <Correctness>0.99</Correctness>
+                    </Label>
+                    <Label>
+                      <Text>J.P.</Text>
+                      <Correctness>0.33</Correctness>
+                    </Label>
+                    <Label>
+                      <Text>nesrepseJ .P.J</Text>
+                      <Correctness>0.00</Correctness>
+                    </Label>
+                  </Labels>
+                  <VoiceDifficulty>0.50</VoiceDifficulty>
+                  <PersonDifficulty>0.53</PersonDifficulty>
                 </Item>
               </Items>
             </Validation>
@@ -321,20 +80,20 @@
           <RadioButtonGroup>
             <Items>
               <Item>
-                <Guid>1682e8a4-a941-485c-9104-470f04bbc84c</Guid>
-                <Text>Karlo Staunskaer</Text>
+                <Guid>a49543e0-5d93-41fb-9b62-d7706ac27567</Guid>
+                <Text>Charlotte Vigel</Text>
               </Item>
               <Item>
-                <Guid>b1080fb1-6bb9-49f3-95f6-2a95e9d0841f</Guid>
-                <Text>Claus Hagen Petersen</Text>
+                <Guid>9c53d717-880e-409e-a48b-389f2f47cfb8</Guid>
+                <Text>Alex Nyborg Madsen</Text>
               </Item>
               <Item>
-                <Guid>ca8bd31d-473c-485e-b6e5-46e414644d51</Guid>
+                <Guid>b904f34f-a5b9-460c-b2e3-d225f418a2c3</Guid>
                 <Text>Steffen Stenbaek</Text>
               </Item>
               <Item>
-                <Guid>1340f334-37de-488d-a3d7-3e0b17348b67</Guid>
-                <Text>Viggo Clausen (journalist)</Text>
+                <Guid>91522537-e0eb-44e4-86f2-f84d5dda66c2</Guid>
+                <Text>Ole Emil Riisager</Text>
               </Item>
             </Items>
           </RadioButtonGroup>
@@ -346,20 +105,54 @@
             <SimpleValue Id="ClientBrowserUserAgent" Validation=".*" />
             <SimpleValue Id="ClientDeviceIPAddressAsHash" Validation=".*" />
             <SimpleValue Id="Log" Validation=".*" />
-            <ComplexValue Id="Response">
-              <SimpleValue Id="DontknowSelection" Validation=".*" />
-              <SimpleValue Id="RadioButtonSelection" Validation=".*" />
-              <SimpleValue Id="FreeText" Validation=".*" />
-              <SimpleValue Id="Grading" Validation=".*" />
-            </ComplexValue>
             <MultiValue Id="Events" Max="Inf" Min="0">
               <ComplexValue Id="Event">
                 <SimpleValue Id="Type" Validation=".*" />
                 <SimpleValue Id="DateTime" Validation=".*" />
               </ComplexValue>
             </MultiValue>
+            <ComplexValue Id="Response">
+              <SimpleValue Id="DontknowSelection" Validation=".*" />
+              <SimpleValue Id="RadioButtonSelection" Validation=".*" />
+              <SimpleValue Id="FreeText" Validation=".*" />
+              <SimpleValue Id="Grading" Validation=".*" />
+            </ComplexValue>
           </Validation>
-          <Value />
+          <Value>
+            <Events>
+              <Item>
+                <DateTime>2015-01-07T07:06.560Z</DateTime>
+                <Type>TrialStart</Type>
+              </Item>
+              <Item>
+                <DateTime>2015-01-07T07:08.560Z</DateTime>
+                <Type>StimulusStart</Type>
+              </Item>
+              <Item>
+                <DateTime>2015-01-07T08:09.560Z</DateTime>
+                <Type>ReponseStart</Type>
+              </Item>
+              <Item>
+                <DateTime>2015-01-07T08:12.560Z</DateTime>
+                <Type>ResponseStop</Type>
+              </Item>
+              <Item>
+                <DateTime>2015-01-07T07:56.560Z</DateTime>
+                <Type>TrialStop</Type>
+              </Item>
+            </Events>
+            <Response>
+              <RadioButtonSelection>0</RadioButtonSelection>
+              <DontknowSelection>0</DontknowSelection>
+              <FreeText>Helle Helle</FreeText>
+              <Grading>20</Grading>
+            </Response>
+            <CheckSumAsHash>97c5288c8c8843c52f00cfd55269e2eb</CheckSumAsHash>
+            <ClientUserGuid>3a00d580-a0a0-4b84-bb8f-e4e819bbceeb</ClientUserGuid>
+            <ClientBrowserUserAgent>Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.90 Safari/537.36</ClientBrowserUserAgent>
+            <ClientDeviceIPAddressAsHash>f6c28486c968d4582bd488ca2d67b50d</ClientDeviceIPAddressAsHash>
+            <Log>Any debug info you may need, e.g. streaming issues etc</Log>
+          </Value>
         </Outputs>
       </DRQuestionCore>
       <DRQuestionCore Version="1">
@@ -372,164 +165,84 @@
             <Validation>
               <Items>
                 <Item>
-                  <Guid>11e4666a-c283-40be-b21a-4ca7be1b2a76</Guid>
-                  <Correctness>0.47</Correctness>
+                  <Guid>24053693-1baf-4445-9c0b-5fa21e483921</Guid>
+                  <Correctness>0.18</Correctness>
                   <Labels>
                     <Label>
-                      <Text>Phillip Marco Vallentin</Text>
+                      <Text>Le Gammeltoft</Text>
                       <Correctness>0.99</Correctness>
                     </Label>
                     <Label>
-                      <Text>Phillip</Text>
-                      <Correctness>0.18</Correctness>
-                    </Label>
-                    <Label>
-                      <Text>nitnellaV ocraM pillihP</Text>
-                      <Correctness>0.00</Correctness>
-                    </Label>
-                  </Labels>
-                  <VoiceDifficulty>0.63</VoiceDifficulty>
-                  <PersonDifficulty>0.23</PersonDifficulty>
-                </Item>
-                <Item>
-                  <Guid>580fdeb4-172e-4da9-ae0d-943913725239</Guid>
-                  <Correctness>0.60</Correctness>
-                  <Labels>
-                    <Label>
-                      <Text>Alex Nyborg Madsen</Text>
-                      <Correctness>0.99</Correctness>
-                    </Label>
-                    <Label>
-                      <Text>Alex</Text>
-                      <Correctness>0.21</Correctness>
-                    </Label>
-                    <Label>
-                      <Text>nesdaM grobyN xelA</Text>
-                      <Correctness>0.00</Correctness>
-                    </Label>
-                  </Labels>
-                  <VoiceDifficulty>0.04</VoiceDifficulty>
-                  <PersonDifficulty>0.51</PersonDifficulty>
-                </Item>
-                <Item>
-                  <Guid>25088b59-c367-4a74-b66d-75367ad244b0</Guid>
-                  <Correctness>0.46</Correctness>
-                  <Labels>
-                    <Label>
-                      <Text>Lars Johansson</Text>
-                      <Correctness>0.99</Correctness>
-                    </Label>
-                    <Label>
-                      <Text>Lars</Text>
-                      <Correctness>0.21</Correctness>
-                    </Label>
-                    <Label>
-                      <Text>nossnahoJ sraL</Text>
-                      <Correctness>0.00</Correctness>
-                    </Label>
-                  </Labels>
-                  <VoiceDifficulty>0.55</VoiceDifficulty>
-                  <PersonDifficulty>0.81</PersonDifficulty>
-                </Item>
-                <Item>
-                  <Guid>6bf96e90-81ec-47b8-924b-eaa416552adb</Guid>
-                  <Correctness>0.05</Correctness>
-                  <Labels>
-                    <Label>
-                      <Text>Kim Schumacher</Text>
-                      <Correctness>0.99</Correctness>
-                    </Label>
-                    <Label>
-                      <Text>Kim</Text>
+                      <Text>Le</Text>
                       <Correctness>0.15</Correctness>
                     </Label>
                     <Label>
-                      <Text>rehcamuhcS miK</Text>
+                      <Text>tfotlemmaG eL</Text>
                       <Correctness>0.00</Correctness>
                     </Label>
                   </Labels>
-                  <VoiceDifficulty>0.46</VoiceDifficulty>
-                  <PersonDifficulty>0.96</PersonDifficulty>
+                  <VoiceDifficulty>0.86</VoiceDifficulty>
+                  <PersonDifficulty>0.13</PersonDifficulty>
                 </Item>
                 <Item>
-                  <Guid>55b6c5ec-3ddd-4b2b-b030-fa7744bf1033</Guid>
-                  <Correctness>0.33</Correctness>
+                  <Guid>055a975a-df56-4832-ac2e-67425ec3dd01</Guid>
+                  <Correctness>0.61</Correctness>
                   <Labels>
                     <Label>
-                      <Text>Soeren Soendergaard (radiovaert)</Text>
+                      <Text>Dennis Ravn</Text>
                       <Correctness>0.99</Correctness>
                     </Label>
                     <Label>
-                      <Text>Soeren</Text>
-                      <Correctness>0.11</Correctness>
+                      <Text>Dennis</Text>
+                      <Correctness>0.28</Correctness>
                     </Label>
                     <Label>
-                      <Text>)treavoidar( draagredneoS nereoS</Text>
+                      <Text>nvaR sinneD</Text>
                       <Correctness>0.00</Correctness>
                     </Label>
                   </Labels>
-                  <VoiceDifficulty>0.74</VoiceDifficulty>
-                  <PersonDifficulty>0.51</PersonDifficulty>
+                  <VoiceDifficulty>0.30</VoiceDifficulty>
+                  <PersonDifficulty>0.04</PersonDifficulty>
                 </Item>
                 <Item>
-                  <Guid>a66afd21-faed-483e-b741-13a8393239ca</Guid>
-                  <Correctness>0.17</Correctness>
+                  <Guid>d70c09ca-e52f-456d-99dd-021dc5f49088</Guid>
+                  <Correctness>0.66</Correctness>
                   <Labels>
                     <Label>
-                      <Text>Jens Fink-Jensen</Text>
+                      <Text>Ole Toepholm</Text>
                       <Correctness>0.99</Correctness>
                     </Label>
                     <Label>
-                      <Text>Jens</Text>
-                      <Correctness>0.29</Correctness>
+                      <Text>Ole</Text>
+                      <Correctness>0.32</Correctness>
                     </Label>
                     <Label>
-                      <Text>nesneJ-kniF sneJ</Text>
+                      <Text>mlohpeoT elO</Text>
                       <Correctness>0.00</Correctness>
                     </Label>
                   </Labels>
-                  <VoiceDifficulty>0.37</VoiceDifficulty>
-                  <PersonDifficulty>0.94</PersonDifficulty>
+                  <VoiceDifficulty>0.27</VoiceDifficulty>
+                  <PersonDifficulty>1.00</PersonDifficulty>
                 </Item>
                 <Item>
-                  <Guid>df96ff81-d996-459a-908a-b8617fd7a6b2</Guid>
-                  <Correctness>0.63</Correctness>
+                  <Guid>bbb5647a-ebaa-4176-8b28-d36b96294ff2</Guid>
+                  <Correctness>0.66</Correctness>
                   <Labels>
                     <Label>
-                      <Text>Huxi Bach</Text>
+                      <Text>Ole Toepholm</Text>
                       <Correctness>0.99</Correctness>
                     </Label>
                     <Label>
-                      <Text>Huxi</Text>
-                      <Correctness>0.23</Correctness>
+                      <Text>Ole</Text>
+                      <Correctness>0.24</Correctness>
                     </Label>
                     <Label>
-                      <Text>hcaB ixuH</Text>
+                      <Text>mlohpeoT elO</Text>
                       <Correctness>0.00</Correctness>
                     </Label>
                   </Labels>
-                  <VoiceDifficulty>0.65</VoiceDifficulty>
-                  <PersonDifficulty>0.73</PersonDifficulty>
-                </Item>
-                <Item>
-                  <Guid>ea4f2dd2-2266-4830-bf12-3dd0d73719b8</Guid>
-                  <Correctness>0.01</Correctness>
-                  <Labels>
-                    <Label>
-                      <Text>Lars E. Christiansen</Text>
-                      <Correctness>0.99</Correctness>
-                    </Label>
-                    <Label>
-                      <Text>Lars</Text>
-                      <Correctness>0.17</Correctness>
-                    </Label>
-                    <Label>
-                      <Text>nesnaitsirhC .E sraL</Text>
-                      <Correctness>0.00</Correctness>
-                    </Label>
-                  </Labels>
-                  <VoiceDifficulty>0.18</VoiceDifficulty>
-                  <PersonDifficulty>0.93</PersonDifficulty>
+                  <VoiceDifficulty>0.39</VoiceDifficulty>
+                  <PersonDifficulty>0.82</PersonDifficulty>
                 </Item>
               </Items>
             </Validation>
@@ -537,20 +250,20 @@
           <RadioButtonGroup>
             <Items>
               <Item>
-                <Guid>6f04d060-42b5-4395-9c13-5effb79bb2b6</Guid>
-                <Text>Tine Bryld</Text>
+                <Guid>599757de-6428-4070-9d6f-f20da2272334</Guid>
+                <Text>Carsten Overskov</Text>
               </Item>
               <Item>
-                <Guid>52f8c5cd-068c-4110-8f3b-15bae34c360d</Guid>
-                <Text>Emil Noerlund</Text>
+                <Guid>b904f34f-a5b9-460c-b2e3-d225f418a2c3</Guid>
+                <Text>Steffen Stenbaek</Text>
               </Item>
               <Item>
-                <Guid>0ecefb57-0993-43ad-8528-c5299caad586</Guid>
-                <Text>Rolf Rasmussen</Text>
+                <Guid>f59dc020-9b69-4634-92bc-e11c2cd86934</Guid>
+                <Text>Ole Aaby</Text>
               </Item>
               <Item>
-                <Guid>22492d64-6992-4e88-8b97-194ce5a2505e</Guid>
-                <Text>Dennis Ravn</Text>
+                <Guid>e9836ea4-695c-4f64-b070-c74171c0a718</Guid>
+                <Text>Soeren Soendergaard (radiovaert)</Text>
               </Item>
             </Items>
           </RadioButtonGroup>
@@ -562,18 +275,18 @@
             <SimpleValue Id="ClientBrowserUserAgent" Validation=".*" />
             <SimpleValue Id="ClientDeviceIPAddressAsHash" Validation=".*" />
             <SimpleValue Id="Log" Validation=".*" />
-            <ComplexValue Id="Response">
-              <SimpleValue Id="DontknowSelection" Validation=".*" />
-              <SimpleValue Id="RadioButtonSelection" Validation=".*" />
-              <SimpleValue Id="FreeText" Validation=".*" />
-              <SimpleValue Id="Grading" Validation=".*" />
-            </ComplexValue>
             <MultiValue Id="Events" Max="Inf" Min="0">
               <ComplexValue Id="Event">
                 <SimpleValue Id="Type" Validation=".*" />
                 <SimpleValue Id="DateTime" Validation=".*" />
               </ComplexValue>
             </MultiValue>
+            <ComplexValue Id="Response">
+              <SimpleValue Id="DontknowSelection" Validation=".*" />
+              <SimpleValue Id="RadioButtonSelection" Validation=".*" />
+              <SimpleValue Id="FreeText" Validation=".*" />
+              <SimpleValue Id="Grading" Validation=".*" />
+            </ComplexValue>
           </Validation>
           <Value />
         </Outputs>
@@ -588,144 +301,144 @@
             <Validation>
               <Items>
                 <Item>
-                  <Guid>6b586b14-dad5-48e0-b019-7911bd8ebe83</Guid>
-                  <Correctness>0.53</Correctness>
+                  <Guid>d7fad02a-5f6f-4df4-8221-05b85b43b990</Guid>
+                  <Correctness>0.33</Correctness>
                   <Labels>
                     <Label>
-                      <Text>Anders Bonde</Text>
+                      <Text>Mogens Landsvig</Text>
                       <Correctness>0.99</Correctness>
                     </Label>
                     <Label>
-                      <Text>Anders</Text>
-                      <Correctness>0.27</Correctness>
+                      <Text>Mogens</Text>
+                      <Correctness>0.15</Correctness>
                     </Label>
                     <Label>
-                      <Text>ednoB srednA</Text>
+                      <Text>givsdnaL snegoM</Text>
+                      <Correctness>0.00</Correctness>
+                    </Label>
+                  </Labels>
+                  <VoiceDifficulty>0.49</VoiceDifficulty>
+                  <PersonDifficulty>0.03</PersonDifficulty>
+                </Item>
+                <Item>
+                  <Guid>f0d1359c-746a-458a-8756-b8056106e193</Guid>
+                  <Correctness>0.68</Correctness>
+                  <Labels>
+                    <Label>
+                      <Text>Kjeld Tolstrup</Text>
+                      <Correctness>0.99</Correctness>
+                    </Label>
+                    <Label>
+                      <Text>Kjeld</Text>
+                      <Correctness>0.30</Correctness>
+                    </Label>
+                    <Label>
+                      <Text>purtsloT dlejK</Text>
+                      <Correctness>0.00</Correctness>
+                    </Label>
+                  </Labels>
+                  <VoiceDifficulty>0.68</VoiceDifficulty>
+                  <PersonDifficulty>0.65</PersonDifficulty>
+                </Item>
+                <Item>
+                  <Guid>5f43971d-d7e2-4902-b9bc-73d9c0c5dcb1</Guid>
+                  <Correctness>0.94</Correctness>
+                  <Labels>
+                    <Label>
+                      <Text>Henrik Hannibal</Text>
+                      <Correctness>0.99</Correctness>
+                    </Label>
+                    <Label>
+                      <Text>Henrik</Text>
+                      <Correctness>0.16</Correctness>
+                    </Label>
+                    <Label>
+                      <Text>labinnaH kirneH</Text>
                       <Correctness>0.00</Correctness>
                     </Label>
                   </Labels>
                   <VoiceDifficulty>0.21</VoiceDifficulty>
-                  <PersonDifficulty>0.54</PersonDifficulty>
+                  <PersonDifficulty>0.27</PersonDifficulty>
                 </Item>
                 <Item>
-                  <Guid>8bc51e47-79d4-4ebd-b8d5-87501732be0b</Guid>
-                  <Correctness>0.44</Correctness>
+                  <Guid>9945da90-3106-4910-a3ba-1ee55b41ff18</Guid>
+                  <Correctness>0.60</Correctness>
                   <Labels>
                     <Label>
-                      <Text>Kim Schumacher</Text>
+                      <Text>Steffen Stenbaek</Text>
                       <Correctness>0.99</Correctness>
                     </Label>
                     <Label>
-                      <Text>Kim</Text>
-                      <Correctness>0.12</Correctness>
+                      <Text>Steffen</Text>
+                      <Correctness>0.15</Correctness>
                     </Label>
                     <Label>
-                      <Text>rehcamuhcS miK</Text>
+                      <Text>keabnetS neffetS</Text>
                       <Correctness>0.00</Correctness>
                     </Label>
                   </Labels>
-                  <VoiceDifficulty>0.06</VoiceDifficulty>
-                  <PersonDifficulty>0.63</PersonDifficulty>
+                  <VoiceDifficulty>0.09</VoiceDifficulty>
+                  <PersonDifficulty>0.31</PersonDifficulty>
                 </Item>
                 <Item>
-                  <Guid>7afa332c-c344-423d-b767-4312138ebe6f</Guid>
-                  <Correctness>0.35</Correctness>
+                  <Guid>a3d4fa92-99b6-49ac-a45b-3290c28e6989</Guid>
+                  <Correctness>0.94</Correctness>
                   <Labels>
                     <Label>
-                      <Text>Karen Thisted</Text>
+                      <Text>Lars Hall</Text>
                       <Correctness>0.99</Correctness>
                     </Label>
                     <Label>
-                      <Text>Karen</Text>
-                      <Correctness>0.34</Correctness>
+                      <Text>Lars</Text>
+                      <Correctness>0.11</Correctness>
                     </Label>
                     <Label>
-                      <Text>detsihT neraK</Text>
+                      <Text>llaH sraL</Text>
                       <Correctness>0.00</Correctness>
                     </Label>
                   </Labels>
-                  <VoiceDifficulty>0.52</VoiceDifficulty>
-                  <PersonDifficulty>0.95</PersonDifficulty>
+                  <VoiceDifficulty>0.59</VoiceDifficulty>
+                  <PersonDifficulty>0.04</PersonDifficulty>
                 </Item>
                 <Item>
-                  <Guid>066f732b-3efa-4ddf-be39-cb00e943aec5</Guid>
-                  <Correctness>0.78</Correctness>
+                  <Guid>89e51c49-9901-4548-9ad7-6f3d89753227</Guid>
+                  <Correctness>0.84</Correctness>
                   <Labels>
                     <Label>
-                      <Text>Tine Bryld</Text>
+                      <Text>Kanonkongen</Text>
                       <Correctness>0.99</Correctness>
                     </Label>
                     <Label>
-                      <Text>Tine</Text>
-                      <Correctness>0.33</Correctness>
+                      <Text>Kanonkongen</Text>
+                      <Correctness>0.26</Correctness>
                     </Label>
                     <Label>
-                      <Text>dlyrB eniT</Text>
+                      <Text>negnoknonaK</Text>
                       <Correctness>0.00</Correctness>
                     </Label>
                   </Labels>
-                  <VoiceDifficulty>0.78</VoiceDifficulty>
-                  <PersonDifficulty>0.30</PersonDifficulty>
+                  <VoiceDifficulty>0.26</VoiceDifficulty>
+                  <PersonDifficulty>0.90</PersonDifficulty>
                 </Item>
                 <Item>
-                  <Guid>880cfeec-0306-4724-b15d-2b6a2632bd19</Guid>
-                  <Correctness>0.78</Correctness>
+                  <Guid>63dbf210-8a2b-4cbf-ac40-88c785c945c9</Guid>
+                  <Correctness>0.90</Correctness>
                   <Labels>
                     <Label>
-                      <Text>Carsten Eskelund</Text>
+                      <Text>Mads Steffensen</Text>
                       <Correctness>0.99</Correctness>
                     </Label>
                     <Label>
-                      <Text>Carsten</Text>
-                      <Correctness>0.17</Correctness>
+                      <Text>Mads</Text>
+                      <Correctness>0.19</Correctness>
                     </Label>
                     <Label>
-                      <Text>dnuleksE netsraC</Text>
+                      <Text>nesneffetS sdaM</Text>
                       <Correctness>0.00</Correctness>
                     </Label>
                   </Labels>
-                  <VoiceDifficulty>0.23</VoiceDifficulty>
-                  <PersonDifficulty>0.32</PersonDifficulty>
-                </Item>
-                <Item>
-                  <Guid>1bc69011-3033-4e00-a28f-9c342c5a14dc</Guid>
-                  <Correctness>0.57</Correctness>
-                  <Labels>
-                    <Label>
-                      <Text>Ole Toepholm</Text>
-                      <Correctness>0.99</Correctness>
-                    </Label>
-                    <Label>
-                      <Text>Ole</Text>
-                      <Correctness>0.24</Correctness>
-                    </Label>
-                    <Label>
-                      <Text>mlohpeoT elO</Text>
-                      <Correctness>0.00</Correctness>
-                    </Label>
-                  </Labels>
-                  <VoiceDifficulty>0.29</VoiceDifficulty>
-                  <PersonDifficulty>0.70</PersonDifficulty>
-                </Item>
-                <Item>
-                  <Guid>ae20d835-ec73-4cfd-828c-43cc2c6a41fe</Guid>
-                  <Correctness>0.45</Correctness>
-                  <Labels>
-                    <Label>
-                      <Text>Karen Thisted</Text>
-                      <Correctness>0.99</Correctness>
-                    </Label>
-                    <Label>
-                      <Text>Karen</Text>
-                      <Correctness>0.22</Correctness>
-                    </Label>
-                    <Label>
-                      <Text>detsihT neraK</Text>
-                      <Correctness>0.00</Correctness>
-                    </Label>
-                  </Labels>
-                  <VoiceDifficulty>0.28</VoiceDifficulty>
-                  <PersonDifficulty>0.68</PersonDifficulty>
+                  <VoiceDifficulty>0.34</VoiceDifficulty>
+                  <PersonDifficulty>0.62</PersonDifficulty>
                 </Item>
               </Items>
             </Validation>
@@ -733,20 +446,20 @@
           <RadioButtonGroup>
             <Items>
               <Item>
-                <Guid>5c553ced-d6e9-4245-b9ec-51efa9bb7901</Guid>
-                <Text>Charlotte Vigel</Text>
+                <Guid>6fa1c502-6429-49d2-ae83-b76de6ff646c</Guid>
+                <Text>Lars E. Christiansen</Text>
               </Item>
               <Item>
-                <Guid>5c553ced-d6e9-4245-b9ec-51efa9bb7901</Guid>
-                <Text>Charlotte Vigel</Text>
+                <Guid>242af4c1-706c-445d-b9bd-b168a205e201</Guid>
+                <Text>Vagn Jensen</Text>
               </Item>
               <Item>
-                <Guid>6c14ad94-5ca0-43cf-96aa-d6d068317288</Guid>
-                <Text>Susanna Sommer</Text>
+                <Guid>b9eb1643-2d24-472d-a876-7d6e88d3c80b</Guid>
+                <Text>Soeren Fauli</Text>
               </Item>
               <Item>
-                <Guid>fcdea922-dc0d-419f-84b2-0702c1ac5994</Guid>
-                <Text>Gunnar Nu Hansen</Text>
+                <Guid>a1603484-34d1-4793-ac6a-52c58bb31704</Guid>
+                <Text>Sandi Toksvig</Text>
               </Item>
             </Items>
           </RadioButtonGroup>
@@ -758,18 +471,18 @@
             <SimpleValue Id="ClientBrowserUserAgent" Validation=".*" />
             <SimpleValue Id="ClientDeviceIPAddressAsHash" Validation=".*" />
             <SimpleValue Id="Log" Validation=".*" />
-            <ComplexValue Id="Response">
-              <SimpleValue Id="DontknowSelection" Validation=".*" />
-              <SimpleValue Id="RadioButtonSelection" Validation=".*" />
-              <SimpleValue Id="FreeText" Validation=".*" />
-              <SimpleValue Id="Grading" Validation=".*" />
-            </ComplexValue>
             <MultiValue Id="Events" Max="Inf" Min="0">
               <ComplexValue Id="Event">
                 <SimpleValue Id="Type" Validation=".*" />
                 <SimpleValue Id="DateTime" Validation=".*" />
               </ComplexValue>
             </MultiValue>
+            <ComplexValue Id="Response">
+              <SimpleValue Id="DontknowSelection" Validation=".*" />
+              <SimpleValue Id="RadioButtonSelection" Validation=".*" />
+              <SimpleValue Id="FreeText" Validation=".*" />
+              <SimpleValue Id="Grading" Validation=".*" />
+            </ComplexValue>
           </Validation>
           <Value />
         </Outputs>
@@ -784,124 +497,124 @@
             <Validation>
               <Items>
                 <Item>
-                  <Guid>47878db6-ab38-4a69-afe8-fae7641417ad</Guid>
-                  <Correctness>0.19</Correctness>
+                  <Guid>d0ca5d6d-6f84-48b6-8bd1-d9b7cb4bfbf0</Guid>
+                  <Correctness>0.82</Correctness>
                   <Labels>
                     <Label>
-                      <Text>Jonas Beha Erichsen</Text>
+                      <Text>Boerge Roger-Henrichsen</Text>
                       <Correctness>0.99</Correctness>
                     </Label>
                     <Label>
-                      <Text>Jonas</Text>
-                      <Correctness>0.14</Correctness>
+                      <Text>Boerge</Text>
+                      <Correctness>0.24</Correctness>
                     </Label>
                     <Label>
-                      <Text>neshcirE aheB sanoJ</Text>
+                      <Text>neshcirneH-regoR egreoB</Text>
+                      <Correctness>0.00</Correctness>
+                    </Label>
+                  </Labels>
+                  <VoiceDifficulty>0.02</VoiceDifficulty>
+                  <PersonDifficulty>0.09</PersonDifficulty>
+                </Item>
+                <Item>
+                  <Guid>aca769f4-9d0d-4b59-baef-4bcfec1f16a7</Guid>
+                  <Correctness>0.84</Correctness>
+                  <Labels>
+                    <Label>
+                      <Text>Margaret Lindhardt</Text>
+                      <Correctness>0.99</Correctness>
+                    </Label>
+                    <Label>
+                      <Text>Margaret</Text>
+                      <Correctness>0.33</Correctness>
+                    </Label>
+                    <Label>
+                      <Text>tdrahdniL teragraM</Text>
+                      <Correctness>0.00</Correctness>
+                    </Label>
+                  </Labels>
+                  <VoiceDifficulty>0.97</VoiceDifficulty>
+                  <PersonDifficulty>0.37</PersonDifficulty>
+                </Item>
+                <Item>
+                  <Guid>b42ded50-866b-41eb-9d3a-855ba62f0708</Guid>
+                  <Correctness>0.21</Correctness>
+                  <Labels>
+                    <Label>
+                      <Text>Anders Hoeeg Nissen</Text>
+                      <Correctness>0.99</Correctness>
+                    </Label>
+                    <Label>
+                      <Text>Anders</Text>
+                      <Correctness>0.34</Correctness>
+                    </Label>
+                    <Label>
+                      <Text>nessiN geeoH srednA</Text>
+                      <Correctness>0.00</Correctness>
+                    </Label>
+                  </Labels>
+                  <VoiceDifficulty>0.93</VoiceDifficulty>
+                  <PersonDifficulty>0.37</PersonDifficulty>
+                </Item>
+                <Item>
+                  <Guid>dd88b0d9-9c75-4244-8c01-c6754592f049</Guid>
+                  <Correctness>0.72</Correctness>
+                  <Labels>
+                    <Label>
+                      <Text>Ole Jacobsen</Text>
+                      <Correctness>0.99</Correctness>
+                    </Label>
+                    <Label>
+                      <Text>Ole</Text>
+                      <Correctness>0.30</Correctness>
+                    </Label>
+                    <Label>
+                      <Text>nesbocaJ elO</Text>
                       <Correctness>0.00</Correctness>
                     </Label>
                   </Labels>
                   <VoiceDifficulty>0.59</VoiceDifficulty>
-                  <PersonDifficulty>0.07</PersonDifficulty>
+                  <PersonDifficulty>0.10</PersonDifficulty>
                 </Item>
                 <Item>
-                  <Guid>78dba3d4-c02e-4dad-b710-320ea78b1312</Guid>
-                  <Correctness>0.93</Correctness>
+                  <Guid>a235a527-2fb6-437e-a660-829d5c79e060</Guid>
+                  <Correctness>0.76</Correctness>
                   <Labels>
                     <Label>
-                      <Text>Kjeld Tolstrup</Text>
+                      <Text>Ole Mortensen</Text>
                       <Correctness>0.99</Correctness>
                     </Label>
                     <Label>
-                      <Text>Kjeld</Text>
-                      <Correctness>0.22</Correctness>
+                      <Text>Ole</Text>
+                      <Correctness>0.26</Correctness>
                     </Label>
                     <Label>
-                      <Text>purtsloT dlejK</Text>
+                      <Text>nesnetroM elO</Text>
                       <Correctness>0.00</Correctness>
                     </Label>
                   </Labels>
-                  <VoiceDifficulty>0.65</VoiceDifficulty>
-                  <PersonDifficulty>0.89</PersonDifficulty>
+                  <VoiceDifficulty>0.60</VoiceDifficulty>
+                  <PersonDifficulty>0.23</PersonDifficulty>
                 </Item>
                 <Item>
-                  <Guid>a930b189-792d-4628-b94f-51ba98c4feba</Guid>
-                  <Correctness>0.98</Correctness>
+                  <Guid>74bf930d-2e62-4e0f-8fdc-03f76ab6c53f</Guid>
+                  <Correctness>0.34</Correctness>
                   <Labels>
                     <Label>
-                      <Text>Ann-Britt Mathisen</Text>
+                      <Text>Claus Seiden</Text>
                       <Correctness>0.99</Correctness>
                     </Label>
                     <Label>
-                      <Text>Ann-Britt</Text>
+                      <Text>Claus</Text>
                       <Correctness>0.11</Correctness>
                     </Label>
                     <Label>
-                      <Text>nesihtaM ttirB-nnA</Text>
+                      <Text>nedieS sualC</Text>
                       <Correctness>0.00</Correctness>
                     </Label>
                   </Labels>
-                  <VoiceDifficulty>0.33</VoiceDifficulty>
-                  <PersonDifficulty>0.97</PersonDifficulty>
-                </Item>
-                <Item>
-                  <Guid>7068fb71-7c12-4962-b8fe-08eae658571c</Guid>
-                  <Correctness>0.12</Correctness>
-                  <Labels>
-                    <Label>
-                      <Text>Andrew Jensen</Text>
-                      <Correctness>0.99</Correctness>
-                    </Label>
-                    <Label>
-                      <Text>Andrew</Text>
-                      <Correctness>0.33</Correctness>
-                    </Label>
-                    <Label>
-                      <Text>nesneJ werdnA</Text>
-                      <Correctness>0.00</Correctness>
-                    </Label>
-                  </Labels>
-                  <VoiceDifficulty>0.14</VoiceDifficulty>
-                  <PersonDifficulty>0.33</PersonDifficulty>
-                </Item>
-                <Item>
-                  <Guid>ca5a0fbc-4acc-4bcf-b424-445defbfb1b5</Guid>
-                  <Correctness>0.62</Correctness>
-                  <Labels>
-                    <Label>
-                      <Text>Evanthore Vestergaard</Text>
-                      <Correctness>0.99</Correctness>
-                    </Label>
-                    <Label>
-                      <Text>Evanthore</Text>
-                      <Correctness>0.25</Correctness>
-                    </Label>
-                    <Label>
-                      <Text>draagretseV erohtnavE</Text>
-                      <Correctness>0.00</Correctness>
-                    </Label>
-                  </Labels>
-                  <VoiceDifficulty>0.70</VoiceDifficulty>
-                  <PersonDifficulty>0.03</PersonDifficulty>
-                </Item>
-                <Item>
-                  <Guid>6fab2249-51af-424c-86c4-f3baf864bccc</Guid>
-                  <Correctness>0.83</Correctness>
-                  <Labels>
-                    <Label>
-                      <Text>Mia Lyhne</Text>
-                      <Correctness>0.99</Correctness>
-                    </Label>
-                    <Label>
-                      <Text>Mia</Text>
-                      <Correctness>0.18</Correctness>
-                    </Label>
-                    <Label>
-                      <Text>enhyL aiM</Text>
-                      <Correctness>0.00</Correctness>
-                    </Label>
-                  </Labels>
-                  <VoiceDifficulty>0.85</VoiceDifficulty>
-                  <PersonDifficulty>0.25</PersonDifficulty>
+                  <VoiceDifficulty>0.84</VoiceDifficulty>
+                  <PersonDifficulty>0.77</PersonDifficulty>
                 </Item>
               </Items>
             </Validation>
@@ -909,20 +622,20 @@
           <RadioButtonGroup>
             <Items>
               <Item>
-                <Guid>52f8c5cd-068c-4110-8f3b-15bae34c360d</Guid>
-                <Text>Emil Noerlund</Text>
+                <Guid>dddec9da-201e-4c62-80b4-14ff47f78a83</Guid>
+                <Text>Margaret Lindhardt</Text>
               </Item>
               <Item>
-                <Guid>9c861ee4-a51d-4a98-93eb-586321b3d953</Guid>
-                <Text>Erik Wiedemann</Text>
+                <Guid>17cae3c1-49b0-46ec-b5cb-fa7a7674b188</Guid>
+                <Text>Kim Schumacher</Text>
               </Item>
               <Item>
-                <Guid>05871ce2-1ff7-4576-879d-17432880543a</Guid>
-                <Text>Nis Boesdal</Text>
+                <Guid>e9836ea4-695c-4f64-b070-c74171c0a718</Guid>
+                <Text>Soeren Soendergaard (radiovaert)</Text>
               </Item>
               <Item>
-                <Guid>152e486e-c05a-4716-a456-033128148419</Guid>
-                <Text>Anders Bonde</Text>
+                <Guid>ce08b499-d6f7-4517-8514-8f0699f588b1</Guid>
+                <Text>Gertrud Thisted Hoejlund</Text>
               </Item>
             </Items>
           </RadioButtonGroup>
@@ -934,18 +647,18 @@
             <SimpleValue Id="ClientBrowserUserAgent" Validation=".*" />
             <SimpleValue Id="ClientDeviceIPAddressAsHash" Validation=".*" />
             <SimpleValue Id="Log" Validation=".*" />
-            <ComplexValue Id="Response">
-              <SimpleValue Id="DontknowSelection" Validation=".*" />
-              <SimpleValue Id="RadioButtonSelection" Validation=".*" />
-              <SimpleValue Id="FreeText" Validation=".*" />
-              <SimpleValue Id="Grading" Validation=".*" />
-            </ComplexValue>
             <MultiValue Id="Events" Max="Inf" Min="0">
               <ComplexValue Id="Event">
                 <SimpleValue Id="Type" Validation=".*" />
                 <SimpleValue Id="DateTime" Validation=".*" />
               </ComplexValue>
             </MultiValue>
+            <ComplexValue Id="Response">
+              <SimpleValue Id="DontknowSelection" Validation=".*" />
+              <SimpleValue Id="RadioButtonSelection" Validation=".*" />
+              <SimpleValue Id="FreeText" Validation=".*" />
+              <SimpleValue Id="Grading" Validation=".*" />
+            </ComplexValue>
           </Validation>
           <Value />
         </Outputs>
@@ -960,24 +673,164 @@
             <Validation>
               <Items>
                 <Item>
-                  <Guid>d41cb67f-c550-45aa-bd76-938943d072d7</Guid>
-                  <Correctness>0.11</Correctness>
+                  <Guid>44e7139c-52c5-4085-a3bf-64445d8959b1</Guid>
+                  <Correctness>0.27</Correctness>
                   <Labels>
                     <Label>
-                      <Text>Torben Sangild</Text>
+                      <Text>Alex Nyborg Madsen</Text>
                       <Correctness>0.99</Correctness>
                     </Label>
                     <Label>
-                      <Text>Torben</Text>
-                      <Correctness>0.30</Correctness>
+                      <Text>Alex</Text>
+                      <Correctness>0.32</Correctness>
                     </Label>
                     <Label>
-                      <Text>dlignaS nebroT</Text>
+                      <Text>nesdaM grobyN xelA</Text>
                       <Correctness>0.00</Correctness>
                     </Label>
                   </Labels>
-                  <VoiceDifficulty>0.62</VoiceDifficulty>
-                  <PersonDifficulty>0.07</PersonDifficulty>
+                  <VoiceDifficulty>0.37</VoiceDifficulty>
+                  <PersonDifficulty>0.15</PersonDifficulty>
+                </Item>
+                <Item>
+                  <Guid>9099b624-8cb4-4e7b-8dfb-036ce6fc0912</Guid>
+                  <Correctness>0.98</Correctness>
+                  <Labels>
+                    <Label>
+                      <Text>Jacob Wilson</Text>
+                      <Correctness>0.99</Correctness>
+                    </Label>
+                    <Label>
+                      <Text>Jacob</Text>
+                      <Correctness>0.15</Correctness>
+                    </Label>
+                    <Label>
+                      <Text>nosliW bocaJ</Text>
+                      <Correctness>0.00</Correctness>
+                    </Label>
+                  </Labels>
+                  <VoiceDifficulty>0.83</VoiceDifficulty>
+                  <PersonDifficulty>0.49</PersonDifficulty>
+                </Item>
+                <Item>
+                  <Guid>d1a9c983-5de3-44f8-9924-e11285120bdc</Guid>
+                  <Correctness>0.56</Correctness>
+                  <Labels>
+                    <Label>
+                      <Text>Emil Noerlund</Text>
+                      <Correctness>0.99</Correctness>
+                    </Label>
+                    <Label>
+                      <Text>Emil</Text>
+                      <Correctness>0.26</Correctness>
+                    </Label>
+                    <Label>
+                      <Text>dnulreoN limE</Text>
+                      <Correctness>0.00</Correctness>
+                    </Label>
+                  </Labels>
+                  <VoiceDifficulty>0.50</VoiceDifficulty>
+                  <PersonDifficulty>0.06</PersonDifficulty>
+                </Item>
+                <Item>
+                  <Guid>685f1d69-1906-4b25-b8aa-2f3f85ea540b</Guid>
+                  <Correctness>0.84</Correctness>
+                  <Labels>
+                    <Label>
+                      <Text>Margaret Lindhardt</Text>
+                      <Correctness>0.99</Correctness>
+                    </Label>
+                    <Label>
+                      <Text>Margaret</Text>
+                      <Correctness>0.25</Correctness>
+                    </Label>
+                    <Label>
+                      <Text>tdrahdniL teragraM</Text>
+                      <Correctness>0.00</Correctness>
+                    </Label>
+                  </Labels>
+                  <VoiceDifficulty>0.69</VoiceDifficulty>
+                  <PersonDifficulty>0.65</PersonDifficulty>
+                </Item>
+                <Item>
+                  <Guid>bfe1bd06-c036-4539-b9fa-5e22ee9bab68</Guid>
+                  <Correctness>0.18</Correctness>
+                  <Labels>
+                    <Label>
+                      <Text>Karsten Pharao</Text>
+                      <Correctness>0.99</Correctness>
+                    </Label>
+                    <Label>
+                      <Text>Karsten</Text>
+                      <Correctness>0.22</Correctness>
+                    </Label>
+                    <Label>
+                      <Text>oarahP netsraK</Text>
+                      <Correctness>0.00</Correctness>
+                    </Label>
+                  </Labels>
+                  <VoiceDifficulty>0.84</VoiceDifficulty>
+                  <PersonDifficulty>0.50</PersonDifficulty>
+                </Item>
+                <Item>
+                  <Guid>18dbc8a1-d3b3-4284-93df-25bc4c38227d</Guid>
+                  <Correctness>0.69</Correctness>
+                  <Labels>
+                    <Label>
+                      <Text>Karlo Staunskaer</Text>
+                      <Correctness>0.99</Correctness>
+                    </Label>
+                    <Label>
+                      <Text>Karlo</Text>
+                      <Correctness>0.33</Correctness>
+                    </Label>
+                    <Label>
+                      <Text>reaksnuatS olraK</Text>
+                      <Correctness>0.00</Correctness>
+                    </Label>
+                  </Labels>
+                  <VoiceDifficulty>0.16</VoiceDifficulty>
+                  <PersonDifficulty>0.43</PersonDifficulty>
+                </Item>
+                <Item>
+                  <Guid>227ef2df-fd89-4d60-8718-1daa8e488982</Guid>
+                  <Correctness>0.67</Correctness>
+                  <Labels>
+                    <Label>
+                      <Text>Palle Bo</Text>
+                      <Correctness>0.99</Correctness>
+                    </Label>
+                    <Label>
+                      <Text>Palle</Text>
+                      <Correctness>0.32</Correctness>
+                    </Label>
+                    <Label>
+                      <Text>oB ellaP</Text>
+                      <Correctness>0.00</Correctness>
+                    </Label>
+                  </Labels>
+                  <VoiceDifficulty>0.34</VoiceDifficulty>
+                  <PersonDifficulty>0.03</PersonDifficulty>
+                </Item>
+                <Item>
+                  <Guid>ceebfa22-1d19-4346-8d50-86c31fcf4b3b</Guid>
+                  <Correctness>0.91</Correctness>
+                  <Labels>
+                    <Label>
+                      <Text>Charlotte Vigel</Text>
+                      <Correctness>0.99</Correctness>
+                    </Label>
+                    <Label>
+                      <Text>Charlotte</Text>
+                      <Correctness>0.18</Correctness>
+                    </Label>
+                    <Label>
+                      <Text>legiV ettolrahC</Text>
+                      <Correctness>0.00</Correctness>
+                    </Label>
+                  </Labels>
+                  <VoiceDifficulty>0.69</VoiceDifficulty>
+                  <PersonDifficulty>0.02</PersonDifficulty>
                 </Item>
               </Items>
             </Validation>
@@ -985,20 +838,20 @@
           <RadioButtonGroup>
             <Items>
               <Item>
-                <Guid>6f04d060-42b5-4395-9c13-5effb79bb2b6</Guid>
-                <Text>Tine Bryld</Text>
+                <Guid>dddec9da-201e-4c62-80b4-14ff47f78a83</Guid>
+                <Text>Margaret Lindhardt</Text>
               </Item>
               <Item>
-                <Guid>29a02f5b-b9fd-44ad-9ab9-a0468eff9da1</Guid>
-                <Text>Jonas Beha Erichsen</Text>
+                <Guid>ce08b499-d6f7-4517-8514-8f0699f588b1</Guid>
+                <Text>Gertrud Thisted Hoejlund</Text>
               </Item>
               <Item>
-                <Guid>5e447646-d5c4-4f92-9fca-3829b744bdb2</Guid>
-                <Text>Soeren Soendergaard (radiovaert)</Text>
+                <Guid>70afedda-4cd6-4577-b148-a67a14a0f039</Guid>
+                <Text>Nikolaj Ifversen</Text>
               </Item>
               <Item>
-                <Guid>7df242c0-8bc2-4581-8df8-c5e8142b0b35</Guid>
-                <Text>Lars E. Christiansen</Text>
+                <Guid>ce6210e4-6009-47ec-912f-dc555529b41f</Guid>
+                <Text>Jacob Wilson</Text>
               </Item>
             </Items>
           </RadioButtonGroup>
@@ -1010,18 +863,18 @@
             <SimpleValue Id="ClientBrowserUserAgent" Validation=".*" />
             <SimpleValue Id="ClientDeviceIPAddressAsHash" Validation=".*" />
             <SimpleValue Id="Log" Validation=".*" />
-            <ComplexValue Id="Response">
-              <SimpleValue Id="DontknowSelection" Validation=".*" />
-              <SimpleValue Id="RadioButtonSelection" Validation=".*" />
-              <SimpleValue Id="FreeText" Validation=".*" />
-              <SimpleValue Id="Grading" Validation=".*" />
-            </ComplexValue>
             <MultiValue Id="Events" Max="Inf" Min="0">
               <ComplexValue Id="Event">
                 <SimpleValue Id="Type" Validation=".*" />
                 <SimpleValue Id="DateTime" Validation=".*" />
               </ComplexValue>
             </MultiValue>
+            <ComplexValue Id="Response">
+              <SimpleValue Id="DontknowSelection" Validation=".*" />
+              <SimpleValue Id="RadioButtonSelection" Validation=".*" />
+              <SimpleValue Id="FreeText" Validation=".*" />
+              <SimpleValue Id="Grading" Validation=".*" />
+            </ComplexValue>
           </Validation>
           <Value />
         </Outputs>
@@ -1036,44 +889,144 @@
             <Validation>
               <Items>
                 <Item>
-                  <Guid>63bd6b42-ce6a-4a22-8161-58ace8fc1e27</Guid>
-                  <Correctness>0.86</Correctness>
+                  <Guid>dcfae5c2-6693-4b93-9ce5-5c688927359c</Guid>
+                  <Correctness>0.42</Correctness>
                   <Labels>
                     <Label>
-                      <Text>Henrik Hannibal</Text>
+                      <Text>Nikolaj Ifversen</Text>
                       <Correctness>0.99</Correctness>
                     </Label>
                     <Label>
-                      <Text>Henrik</Text>
-                      <Correctness>0.27</Correctness>
+                      <Text>Nikolaj</Text>
+                      <Correctness>0.24</Correctness>
                     </Label>
                     <Label>
-                      <Text>labinnaH kirneH</Text>
+                      <Text>nesrevfI jalokiN</Text>
                       <Correctness>0.00</Correctness>
                     </Label>
                   </Labels>
-                  <VoiceDifficulty>0.73</VoiceDifficulty>
-                  <PersonDifficulty>0.65</PersonDifficulty>
+                  <VoiceDifficulty>0.96</VoiceDifficulty>
+                  <PersonDifficulty>0.62</PersonDifficulty>
                 </Item>
                 <Item>
-                  <Guid>e06c89b8-4138-4221-9b98-0c04492f7479</Guid>
-                  <Correctness>0.66</Correctness>
+                  <Guid>95f9c80a-a2a4-4c2a-bec6-217b5e706767</Guid>
+                  <Correctness>0.73</Correctness>
                   <Labels>
                     <Label>
-                      <Text>Niels Lindvig</Text>
+                      <Text>Carsten Eskelund</Text>
                       <Correctness>0.99</Correctness>
                     </Label>
                     <Label>
-                      <Text>Niels</Text>
+                      <Text>Carsten</Text>
                       <Correctness>0.13</Correctness>
                     </Label>
                     <Label>
-                      <Text>givdniL sleiN</Text>
+                      <Text>dnuleksE netsraC</Text>
                       <Correctness>0.00</Correctness>
                     </Label>
                   </Labels>
-                  <VoiceDifficulty>0.15</VoiceDifficulty>
-                  <PersonDifficulty>0.02</PersonDifficulty>
+                  <VoiceDifficulty>0.16</VoiceDifficulty>
+                  <PersonDifficulty>0.30</PersonDifficulty>
+                </Item>
+                <Item>
+                  <Guid>d4f57b6c-82a3-4b9e-b766-86da4a9dd5e4</Guid>
+                  <Correctness>0.28</Correctness>
+                  <Labels>
+                    <Label>
+                      <Text>Kanonkongen</Text>
+                      <Correctness>0.99</Correctness>
+                    </Label>
+                    <Label>
+                      <Text>Kanonkongen</Text>
+                      <Correctness>0.31</Correctness>
+                    </Label>
+                    <Label>
+                      <Text>negnoknonaK</Text>
+                      <Correctness>0.00</Correctness>
+                    </Label>
+                  </Labels>
+                  <VoiceDifficulty>0.79</VoiceDifficulty>
+                  <PersonDifficulty>0.27</PersonDifficulty>
+                </Item>
+                <Item>
+                  <Guid>77f6212f-09d2-47a8-ba18-30a8c8dc96ec</Guid>
+                  <Correctness>0.67</Correctness>
+                  <Labels>
+                    <Label>
+                      <Text>Karsten Pharao</Text>
+                      <Correctness>0.99</Correctness>
+                    </Label>
+                    <Label>
+                      <Text>Karsten</Text>
+                      <Correctness>0.19</Correctness>
+                    </Label>
+                    <Label>
+                      <Text>oarahP netsraK</Text>
+                      <Correctness>0.00</Correctness>
+                    </Label>
+                  </Labels>
+                  <VoiceDifficulty>0.67</VoiceDifficulty>
+                  <PersonDifficulty>0.30</PersonDifficulty>
+                </Item>
+                <Item>
+                  <Guid>07f44f38-ddd5-43f9-8321-4d8586ddf3b7</Guid>
+                  <Correctness>0.39</Correctness>
+                  <Labels>
+                    <Label>
+                      <Text>Torben Sangild</Text>
+                      <Correctness>0.99</Correctness>
+                    </Label>
+                    <Label>
+                      <Text>Torben</Text>
+                      <Correctness>0.15</Correctness>
+                    </Label>
+                    <Label>
+                      <Text>dlignaS nebroT</Text>
+                      <Correctness>0.00</Correctness>
+                    </Label>
+                  </Labels>
+                  <VoiceDifficulty>0.72</VoiceDifficulty>
+                  <PersonDifficulty>0.82</PersonDifficulty>
+                </Item>
+                <Item>
+                  <Guid>79877248-d700-4be5-99b1-3364acf6bb50</Guid>
+                  <Correctness>0.19</Correctness>
+                  <Labels>
+                    <Label>
+                      <Text>Marlene Weyboell</Text>
+                      <Correctness>0.99</Correctness>
+                    </Label>
+                    <Label>
+                      <Text>Marlene</Text>
+                      <Correctness>0.25</Correctness>
+                    </Label>
+                    <Label>
+                      <Text>lleobyeW enelraM</Text>
+                      <Correctness>0.00</Correctness>
+                    </Label>
+                  </Labels>
+                  <VoiceDifficulty>0.20</VoiceDifficulty>
+                  <PersonDifficulty>0.41</PersonDifficulty>
+                </Item>
+                <Item>
+                  <Guid>4548a71e-6ded-438c-8703-404772884cff</Guid>
+                  <Correctness>0.93</Correctness>
+                  <Labels>
+                    <Label>
+                      <Text>Mascha Vang</Text>
+                      <Correctness>0.99</Correctness>
+                    </Label>
+                    <Label>
+                      <Text>Mascha</Text>
+                      <Correctness>0.19</Correctness>
+                    </Label>
+                    <Label>
+                      <Text>gnaV ahcsaM</Text>
+                      <Correctness>0.00</Correctness>
+                    </Label>
+                  </Labels>
+                  <VoiceDifficulty>0.70</VoiceDifficulty>
+                  <PersonDifficulty>0.59</PersonDifficulty>
                 </Item>
               </Items>
             </Validation>
@@ -1081,20 +1034,20 @@
           <RadioButtonGroup>
             <Items>
               <Item>
-                <Guid>54cec7c4-eb6e-4d11-a5a5-167c3cab7aa5</Guid>
-                <Text>Leif Wivelsted</Text>
+                <Guid>951ef01b-ed49-41d5-aea5-9ddd3ce9c583</Guid>
+                <Text>Egon Clausen</Text>
               </Item>
               <Item>
-                <Guid>19871214-28fd-4fd7-91c8-74bdf2c4dc7a</Guid>
-                <Text>Iben Maria Zeuthen</Text>
+                <Guid>ee6df1ad-a33b-47d6-9699-dbc8ec9856df</Guid>
+                <Text>Poul Pilgaard Johnsen</Text>
               </Item>
               <Item>
-                <Guid>871c4a0d-0855-490e-afa1-93fa977f83d5</Guid>
-                <Text>Soeren Dahl (radiovaert)</Text>
+                <Guid>1e4b686f-02e6-4ca9-ad80-af1ec421e4e9</Guid>
+                <Text>Henrik Wacher</Text>
               </Item>
               <Item>
-                <Guid>113c53eb-3664-4027-9528-75c87800c1e3</Guid>
-                <Text>Kasper Krüger</Text>
+                <Guid>385ea468-71d4-4daa-9dc8-4defc5812793</Guid>
+                <Text>Anders Bonde</Text>
               </Item>
             </Items>
           </RadioButtonGroup>
@@ -1106,18 +1059,18 @@
             <SimpleValue Id="ClientBrowserUserAgent" Validation=".*" />
             <SimpleValue Id="ClientDeviceIPAddressAsHash" Validation=".*" />
             <SimpleValue Id="Log" Validation=".*" />
-            <ComplexValue Id="Response">
-              <SimpleValue Id="DontknowSelection" Validation=".*" />
-              <SimpleValue Id="RadioButtonSelection" Validation=".*" />
-              <SimpleValue Id="FreeText" Validation=".*" />
-              <SimpleValue Id="Grading" Validation=".*" />
-            </ComplexValue>
             <MultiValue Id="Events" Max="Inf" Min="0">
               <ComplexValue Id="Event">
                 <SimpleValue Id="Type" Validation=".*" />
                 <SimpleValue Id="DateTime" Validation=".*" />
               </ComplexValue>
             </MultiValue>
+            <ComplexValue Id="Response">
+              <SimpleValue Id="DontknowSelection" Validation=".*" />
+              <SimpleValue Id="RadioButtonSelection" Validation=".*" />
+              <SimpleValue Id="FreeText" Validation=".*" />
+              <SimpleValue Id="Grading" Validation=".*" />
+            </ComplexValue>
           </Validation>
           <Value />
         </Outputs>
@@ -1132,124 +1085,84 @@
             <Validation>
               <Items>
                 <Item>
-                  <Guid>3ecc0f6d-b3d0-4c33-8d66-ed020d0ec9fc</Guid>
-                  <Correctness>0.56</Correctness>
+                  <Guid>368270ad-8992-4681-8672-4e1deb9a0919</Guid>
+                  <Correctness>0.36</Correctness>
                   <Labels>
                     <Label>
-                      <Text>Joern Hjorting</Text>
-                      <Correctness>0.99</Correctness>
-                    </Label>
-                    <Label>
-                      <Text>Joern</Text>
-                      <Correctness>0.21</Correctness>
-                    </Label>
-                    <Label>
-                      <Text>gnitrojH nreoJ</Text>
-                      <Correctness>0.00</Correctness>
-                    </Label>
-                  </Labels>
-                  <VoiceDifficulty>0.27</VoiceDifficulty>
-                  <PersonDifficulty>0.75</PersonDifficulty>
-                </Item>
-                <Item>
-                  <Guid>38a92b36-19cf-4589-8b20-6fbc7fd165eb</Guid>
-                  <Correctness>0.41</Correctness>
-                  <Labels>
-                    <Label>
-                      <Text>Evanthore Vestergaard</Text>
-                      <Correctness>0.99</Correctness>
-                    </Label>
-                    <Label>
-                      <Text>Evanthore</Text>
-                      <Correctness>0.33</Correctness>
-                    </Label>
-                    <Label>
-                      <Text>draagretseV erohtnavE</Text>
-                      <Correctness>0.00</Correctness>
-                    </Label>
-                  </Labels>
-                  <VoiceDifficulty>0.26</VoiceDifficulty>
-                  <PersonDifficulty>0.53</PersonDifficulty>
-                </Item>
-                <Item>
-                  <Guid>e88a9961-dcb2-4ea1-859b-710e03a56f3e</Guid>
-                  <Correctness>0.25</Correctness>
-                  <Labels>
-                    <Label>
-                      <Text>Jacob Wilson</Text>
-                      <Correctness>0.99</Correctness>
-                    </Label>
-                    <Label>
-                      <Text>Jacob</Text>
-                      <Correctness>0.33</Correctness>
-                    </Label>
-                    <Label>
-                      <Text>nosliW bocaJ</Text>
-                      <Correctness>0.00</Correctness>
-                    </Label>
-                  </Labels>
-                  <VoiceDifficulty>0.07</VoiceDifficulty>
-                  <PersonDifficulty>0.30</PersonDifficulty>
-                </Item>
-                <Item>
-                  <Guid>6fa3e03b-8028-4af1-be62-06d9e30c4336</Guid>
-                  <Correctness>0.64</Correctness>
-                  <Labels>
-                    <Label>
-                      <Text>Carsten Overskov</Text>
-                      <Correctness>0.99</Correctness>
-                    </Label>
-                    <Label>
-                      <Text>Carsten</Text>
-                      <Correctness>0.30</Correctness>
-                    </Label>
-                    <Label>
-                      <Text>voksrevO netsraC</Text>
-                      <Correctness>0.00</Correctness>
-                    </Label>
-                  </Labels>
-                  <VoiceDifficulty>0.50</VoiceDifficulty>
-                  <PersonDifficulty>0.65</PersonDifficulty>
-                </Item>
-                <Item>
-                  <Guid>77ce1679-210a-4b70-b978-b0464b7a8b68</Guid>
-                  <Correctness>0.60</Correctness>
-                  <Labels>
-                    <Label>
-                      <Text>Karen Thisted</Text>
-                      <Correctness>0.99</Correctness>
-                    </Label>
-                    <Label>
-                      <Text>Karen</Text>
-                      <Correctness>0.13</Correctness>
-                    </Label>
-                    <Label>
-                      <Text>detsihT neraK</Text>
-                      <Correctness>0.00</Correctness>
-                    </Label>
-                  </Labels>
-                  <VoiceDifficulty>0.52</VoiceDifficulty>
-                  <PersonDifficulty>0.84</PersonDifficulty>
-                </Item>
-                <Item>
-                  <Guid>5fde58c5-e7ac-4fb5-89cd-151b4339b271</Guid>
-                  <Correctness>0.28</Correctness>
-                  <Labels>
-                    <Label>
-                      <Text>Henrik Wacher</Text>
+                      <Text>Henrik Hannibal</Text>
                       <Correctness>0.99</Correctness>
                     </Label>
                     <Label>
                       <Text>Henrik</Text>
-                      <Correctness>0.26</Correctness>
+                      <Correctness>0.33</Correctness>
                     </Label>
                     <Label>
-                      <Text>rehcaW kirneH</Text>
+                      <Text>labinnaH kirneH</Text>
                       <Correctness>0.00</Correctness>
                     </Label>
                   </Labels>
-                  <VoiceDifficulty>0.92</VoiceDifficulty>
-                  <PersonDifficulty>0.51</PersonDifficulty>
+                  <VoiceDifficulty>0.50</VoiceDifficulty>
+                  <PersonDifficulty>0.80</PersonDifficulty>
+                </Item>
+                <Item>
+                  <Guid>306e41fe-3194-4328-b073-2559c4339b8d</Guid>
+                  <Correctness>0.95</Correctness>
+                  <Labels>
+                    <Label>
+                      <Text>Ole Jacobsen</Text>
+                      <Correctness>0.99</Correctness>
+                    </Label>
+                    <Label>
+                      <Text>Ole</Text>
+                      <Correctness>0.13</Correctness>
+                    </Label>
+                    <Label>
+                      <Text>nesbocaJ elO</Text>
+                      <Correctness>0.00</Correctness>
+                    </Label>
+                  </Labels>
+                  <VoiceDifficulty>0.07</VoiceDifficulty>
+                  <PersonDifficulty>0.71</PersonDifficulty>
+                </Item>
+                <Item>
+                  <Guid>693c53b5-a579-4e61-961d-18f130ead680</Guid>
+                  <Correctness>0.65</Correctness>
+                  <Labels>
+                    <Label>
+                      <Text>Marlene Weyboell</Text>
+                      <Correctness>0.99</Correctness>
+                    </Label>
+                    <Label>
+                      <Text>Marlene</Text>
+                      <Correctness>0.14</Correctness>
+                    </Label>
+                    <Label>
+                      <Text>lleobyeW enelraM</Text>
+                      <Correctness>0.00</Correctness>
+                    </Label>
+                  </Labels>
+                  <VoiceDifficulty>0.69</VoiceDifficulty>
+                  <PersonDifficulty>0.63</PersonDifficulty>
+                </Item>
+                <Item>
+                  <Guid>5bf9abc3-88f1-4030-8068-ae9dbbee5d0d</Guid>
+                  <Correctness>0.99</Correctness>
+                  <Labels>
+                    <Label>
+                      <Text>Nis Boesdal</Text>
+                      <Correctness>0.99</Correctness>
+                    </Label>
+                    <Label>
+                      <Text>Nis</Text>
+                      <Correctness>0.21</Correctness>
+                    </Label>
+                    <Label>
+                      <Text>ladseoB siN</Text>
+                      <Correctness>0.00</Correctness>
+                    </Label>
+                  </Labels>
+                  <VoiceDifficulty>0.34</VoiceDifficulty>
+                  <PersonDifficulty>0.05</PersonDifficulty>
                 </Item>
               </Items>
             </Validation>
@@ -1257,20 +1170,20 @@
           <RadioButtonGroup>
             <Items>
               <Item>
-                <Guid>19871214-28fd-4fd7-91c8-74bdf2c4dc7a</Guid>
-                <Text>Iben Maria Zeuthen</Text>
+                <Guid>f06cf647-573f-4f05-b459-42811f4f65c3</Guid>
+                <Text>Le Gammeltoft</Text>
               </Item>
               <Item>
-                <Guid>fedf63df-4b69-4dfc-943b-2319b6e580ca</Guid>
-                <Text>Jens Fink-Jensen</Text>
+                <Guid>d1bda197-71db-4587-b830-c1e9c3fdcde1</Guid>
+                <Text>Emil Noerlund</Text>
               </Item>
               <Item>
-                <Guid>1340f334-37de-488d-a3d7-3e0b17348b67</Guid>
-                <Text>Viggo Clausen (journalist)</Text>
+                <Guid>599757de-6428-4070-9d6f-f20da2272334</Guid>
+                <Text>Carsten Overskov</Text>
               </Item>
               <Item>
-                <Guid>8325c6ef-b298-4403-9bfa-33efcb109247</Guid>
-                <Text>Karen Hjulmand</Text>
+                <Guid>9de107ef-74dd-4c1b-acbe-2866eacbf429</Guid>
+                <Text>Esben Bjerre Hansen</Text>
               </Item>
             </Items>
           </RadioButtonGroup>
@@ -1282,18 +1195,18 @@
             <SimpleValue Id="ClientBrowserUserAgent" Validation=".*" />
             <SimpleValue Id="ClientDeviceIPAddressAsHash" Validation=".*" />
             <SimpleValue Id="Log" Validation=".*" />
-            <ComplexValue Id="Response">
-              <SimpleValue Id="DontknowSelection" Validation=".*" />
-              <SimpleValue Id="RadioButtonSelection" Validation=".*" />
-              <SimpleValue Id="FreeText" Validation=".*" />
-              <SimpleValue Id="Grading" Validation=".*" />
-            </ComplexValue>
             <MultiValue Id="Events" Max="Inf" Min="0">
               <ComplexValue Id="Event">
                 <SimpleValue Id="Type" Validation=".*" />
                 <SimpleValue Id="DateTime" Validation=".*" />
               </ComplexValue>
             </MultiValue>
+            <ComplexValue Id="Response">
+              <SimpleValue Id="DontknowSelection" Validation=".*" />
+              <SimpleValue Id="RadioButtonSelection" Validation=".*" />
+              <SimpleValue Id="FreeText" Validation=".*" />
+              <SimpleValue Id="Grading" Validation=".*" />
+            </ComplexValue>
           </Validation>
           <Value />
         </Outputs>
@@ -1308,84 +1221,124 @@
             <Validation>
               <Items>
                 <Item>
-                  <Guid>d2bb9037-fd49-4e01-9913-9ce62a1e21de</Guid>
-                  <Correctness>0.69</Correctness>
+                  <Guid>fc7c05e3-62e1-445e-a189-dd0fb51514fd</Guid>
+                  <Correctness>0.09</Correctness>
                   <Labels>
                     <Label>
-                      <Text>Kanonkongen</Text>
+                      <Text>Anders Bonde</Text>
                       <Correctness>0.99</Correctness>
                     </Label>
                     <Label>
-                      <Text>Kanonkongen</Text>
-                      <Correctness>0.12</Correctness>
+                      <Text>Anders</Text>
+                      <Correctness>0.18</Correctness>
                     </Label>
                     <Label>
-                      <Text>negnoknonaK</Text>
+                      <Text>ednoB srednA</Text>
                       <Correctness>0.00</Correctness>
                     </Label>
                   </Labels>
-                  <VoiceDifficulty>0.40</VoiceDifficulty>
-                  <PersonDifficulty>0.30</PersonDifficulty>
+                  <VoiceDifficulty>0.65</VoiceDifficulty>
+                  <PersonDifficulty>0.50</PersonDifficulty>
                 </Item>
                 <Item>
-                  <Guid>3cf68b5d-e736-4b6b-9cf4-bb407e4df21b</Guid>
-                  <Correctness>0.59</Correctness>
+                  <Guid>7d4916fc-6646-46bf-bb09-a19033d5ef3f</Guid>
+                  <Correctness>0.77</Correctness>
                   <Labels>
                     <Label>
-                      <Text>Mads Holger</Text>
+                      <Text>Mia Lyhne</Text>
                       <Correctness>0.99</Correctness>
                     </Label>
                     <Label>
-                      <Text>Mads</Text>
+                      <Text>Mia</Text>
                       <Correctness>0.17</Correctness>
                     </Label>
                     <Label>
-                      <Text>regloH sdaM</Text>
+                      <Text>enhyL aiM</Text>
+                      <Correctness>0.00</Correctness>
+                    </Label>
+                  </Labels>
+                  <VoiceDifficulty>0.65</VoiceDifficulty>
+                  <PersonDifficulty>0.92</PersonDifficulty>
+                </Item>
+                <Item>
+                  <Guid>6ad9c11d-278e-4edf-b532-3d331f68b1c3</Guid>
+                  <Correctness>0.79</Correctness>
+                  <Labels>
+                    <Label>
+                      <Text>Gertrud Thisted Hoejlund</Text>
+                      <Correctness>0.99</Correctness>
+                    </Label>
+                    <Label>
+                      <Text>Gertrud</Text>
+                      <Correctness>0.13</Correctness>
+                    </Label>
+                    <Label>
+                      <Text>dnuljeoH detsihT durtreG</Text>
                       <Correctness>0.00</Correctness>
                     </Label>
                   </Labels>
                   <VoiceDifficulty>0.16</VoiceDifficulty>
-                  <PersonDifficulty>0.00</PersonDifficulty>
+                  <PersonDifficulty>0.41</PersonDifficulty>
                 </Item>
                 <Item>
-                  <Guid>60f29210-d150-4ee6-9df1-ccff996add96</Guid>
-                  <Correctness>0.87</Correctness>
+                  <Guid>64d82f2f-e2a2-42a3-8254-46a50edac0a8</Guid>
+                  <Correctness>0.68</Correctness>
                   <Labels>
                     <Label>
-                      <Text>Joern Hjorting</Text>
+                      <Text>Torben Sangild</Text>
                       <Correctness>0.99</Correctness>
                     </Label>
                     <Label>
-                      <Text>Joern</Text>
-                      <Correctness>0.11</Correctness>
+                      <Text>Torben</Text>
+                      <Correctness>0.10</Correctness>
                     </Label>
                     <Label>
-                      <Text>gnitrojH nreoJ</Text>
+                      <Text>dlignaS nebroT</Text>
                       <Correctness>0.00</Correctness>
                     </Label>
                   </Labels>
-                  <VoiceDifficulty>0.90</VoiceDifficulty>
-                  <PersonDifficulty>0.13</PersonDifficulty>
+                  <VoiceDifficulty>0.13</VoiceDifficulty>
+                  <PersonDifficulty>0.76</PersonDifficulty>
                 </Item>
                 <Item>
-                  <Guid>89c109a3-4d4b-4604-bf85-0675a71049a6</Guid>
-                  <Correctness>0.92</Correctness>
+                  <Guid>4d3e8c9b-30e5-44dc-9512-5656059326ad</Guid>
+                  <Correctness>0.94</Correctness>
                   <Labels>
                     <Label>
-                      <Text>Ole Toepholm</Text>
+                      <Text>Phillip Marco Vallentin</Text>
                       <Correctness>0.99</Correctness>
                     </Label>
                     <Label>
-                      <Text>Ole</Text>
-                      <Correctness>0.13</Correctness>
+                      <Text>Phillip</Text>
+                      <Correctness>0.33</Correctness>
                     </Label>
                     <Label>
-                      <Text>mlohpeoT elO</Text>
+                      <Text>nitnellaV ocraM pillihP</Text>
                       <Correctness>0.00</Correctness>
                     </Label>
                   </Labels>
-                  <VoiceDifficulty>0.50</VoiceDifficulty>
-                  <PersonDifficulty>0.40</PersonDifficulty>
+                  <VoiceDifficulty>0.22</VoiceDifficulty>
+                  <PersonDifficulty>0.51</PersonDifficulty>
+                </Item>
+                <Item>
+                  <Guid>b277f8e1-7cf7-4a28-9335-28d3a413a980</Guid>
+                  <Correctness>0.62</Correctness>
+                  <Labels>
+                    <Label>
+                      <Text>Soeren Soendergaard (radiovaert)</Text>
+                      <Correctness>0.99</Correctness>
+                    </Label>
+                    <Label>
+                      <Text>Soeren</Text>
+                      <Correctness>0.24</Correctness>
+                    </Label>
+                    <Label>
+                      <Text>)treavoidar( draagredneoS nereoS</Text>
+                      <Correctness>0.00</Correctness>
+                    </Label>
+                  </Labels>
+                  <VoiceDifficulty>0.73</VoiceDifficulty>
+                  <PersonDifficulty>0.06</PersonDifficulty>
                 </Item>
               </Items>
             </Validation>
@@ -1393,20 +1346,20 @@
           <RadioButtonGroup>
             <Items>
               <Item>
-                <Guid>6ced3186-d6ab-4b09-a5ac-1a8b0f92e576</Guid>
-                <Text>Florian Fastina</Text>
+                <Guid>563f4976-5c93-4423-98ae-75f1c10a70a0</Guid>
+                <Text>Mogens Landsvig</Text>
               </Item>
               <Item>
-                <Guid>8cec247d-48df-4d22-947f-5525d87a59f4</Guid>
-                <Text>Alex Nyborg Madsen</Text>
+                <Guid>ed19aca9-c023-4b1d-9e7a-64d9212eb294</Guid>
+                <Text>Lars Hall</Text>
               </Item>
               <Item>
-                <Guid>b1080fb1-6bb9-49f3-95f6-2a95e9d0841f</Guid>
-                <Text>Claus Hagen Petersen</Text>
+                <Guid>70afedda-4cd6-4577-b148-a67a14a0f039</Guid>
+                <Text>Nikolaj Ifversen</Text>
               </Item>
               <Item>
-                <Guid>64163a3f-dfb3-40a5-81ac-06bddc031d6d</Guid>
-                <Text>Christian Flagstad</Text>
+                <Guid>e5bf1113-725b-47ff-afca-b1f0e62b4e36</Guid>
+                <Text>Henrik Milling</Text>
               </Item>
             </Items>
           </RadioButtonGroup>
@@ -1418,18 +1371,18 @@
             <SimpleValue Id="ClientBrowserUserAgent" Validation=".*" />
             <SimpleValue Id="ClientDeviceIPAddressAsHash" Validation=".*" />
             <SimpleValue Id="Log" Validation=".*" />
-            <ComplexValue Id="Response">
-              <SimpleValue Id="DontknowSelection" Validation=".*" />
-              <SimpleValue Id="RadioButtonSelection" Validation=".*" />
-              <SimpleValue Id="FreeText" Validation=".*" />
-              <SimpleValue Id="Grading" Validation=".*" />
-            </ComplexValue>
             <MultiValue Id="Events" Max="Inf" Min="0">
               <ComplexValue Id="Event">
                 <SimpleValue Id="Type" Validation=".*" />
                 <SimpleValue Id="DateTime" Validation=".*" />
               </ComplexValue>
             </MultiValue>
+            <ComplexValue Id="Response">
+              <SimpleValue Id="DontknowSelection" Validation=".*" />
+              <SimpleValue Id="RadioButtonSelection" Validation=".*" />
+              <SimpleValue Id="FreeText" Validation=".*" />
+              <SimpleValue Id="Grading" Validation=".*" />
+            </ComplexValue>
           </Validation>
           <Value />
         </Outputs>
@@ -1444,104 +1397,124 @@
             <Validation>
               <Items>
                 <Item>
-                  <Guid>6870e598-6cf7-40f3-ba46-e5c1427a5f82</Guid>
-                  <Correctness>0.69</Correctness>
+                  <Guid>6afb685d-569e-420f-aa61-049c6461ca0f</Guid>
+                  <Correctness>0.13</Correctness>
                   <Labels>
                     <Label>
-                      <Text>Ole Aaby</Text>
+                      <Text>Poul Pilgaard Johnsen</Text>
                       <Correctness>0.99</Correctness>
                     </Label>
                     <Label>
-                      <Text>Ole</Text>
-                      <Correctness>0.20</Correctness>
-                    </Label>
-                    <Label>
-                      <Text>ybaA elO</Text>
-                      <Correctness>0.00</Correctness>
-                    </Label>
-                  </Labels>
-                  <VoiceDifficulty>0.03</VoiceDifficulty>
-                  <PersonDifficulty>0.29</PersonDifficulty>
-                </Item>
-                <Item>
-                  <Guid>4f215ab7-7a42-467c-ba33-70c711513bc5</Guid>
-                  <Correctness>0.08</Correctness>
-                  <Labels>
-                    <Label>
-                      <Text>Karen Thisted</Text>
-                      <Correctness>0.99</Correctness>
-                    </Label>
-                    <Label>
-                      <Text>Karen</Text>
-                      <Correctness>0.23</Correctness>
-                    </Label>
-                    <Label>
-                      <Text>detsihT neraK</Text>
-                      <Correctness>0.00</Correctness>
-                    </Label>
-                  </Labels>
-                  <VoiceDifficulty>0.37</VoiceDifficulty>
-                  <PersonDifficulty>0.74</PersonDifficulty>
-                </Item>
-                <Item>
-                  <Guid>dcedda42-ae28-4b27-97af-7e672ff9d3c0</Guid>
-                  <Correctness>0.82</Correctness>
-                  <Labels>
-                    <Label>
-                      <Text>Niels Lindvig</Text>
-                      <Correctness>0.99</Correctness>
-                    </Label>
-                    <Label>
-                      <Text>Niels</Text>
+                      <Text>Poul</Text>
                       <Correctness>0.15</Correctness>
                     </Label>
                     <Label>
-                      <Text>givdniL sleiN</Text>
+                      <Text>nesnhoJ draagliP luoP</Text>
                       <Correctness>0.00</Correctness>
                     </Label>
                   </Labels>
-                  <VoiceDifficulty>0.12</VoiceDifficulty>
-                  <PersonDifficulty>0.82</PersonDifficulty>
+                  <VoiceDifficulty>0.29</VoiceDifficulty>
+                  <PersonDifficulty>0.45</PersonDifficulty>
                 </Item>
                 <Item>
-                  <Guid>9a61e132-4b73-4f6f-a827-43bc98e03cd6</Guid>
-                  <Correctness>0.90</Correctness>
+                  <Guid>757a26a0-dbc4-4aa3-b91b-9f6347099d5e</Guid>
+                  <Correctness>0.89</Correctness>
                   <Labels>
                     <Label>
-                      <Text>Rolf Rasmussen</Text>
+                      <Text>Henrik Hannibal</Text>
                       <Correctness>0.99</Correctness>
                     </Label>
                     <Label>
-                      <Text>Rolf</Text>
-                      <Correctness>0.23</Correctness>
+                      <Text>Henrik</Text>
+                      <Correctness>0.25</Correctness>
                     </Label>
                     <Label>
-                      <Text>nessumsaR floR</Text>
+                      <Text>labinnaH kirneH</Text>
                       <Correctness>0.00</Correctness>
                     </Label>
                   </Labels>
-                  <VoiceDifficulty>0.54</VoiceDifficulty>
-                  <PersonDifficulty>0.61</PersonDifficulty>
+                  <VoiceDifficulty>0.94</VoiceDifficulty>
+                  <PersonDifficulty>0.62</PersonDifficulty>
                 </Item>
                 <Item>
-                  <Guid>a0ba1f45-e5de-4e33-a0d8-ebbb2d1555d3</Guid>
-                  <Correctness>0.38</Correctness>
+                  <Guid>696ba4bd-6153-475b-8f9d-f3c81527815b</Guid>
+                  <Correctness>0.55</Correctness>
                   <Labels>
                     <Label>
-                      <Text>Karlo Staunskaer</Text>
+                      <Text>Esben Bjerre Hansen</Text>
                       <Correctness>0.99</Correctness>
                     </Label>
                     <Label>
-                      <Text>Karlo</Text>
-                      <Correctness>0.12</Correctness>
+                      <Text>Esben</Text>
+                      <Correctness>0.21</Correctness>
                     </Label>
                     <Label>
-                      <Text>reaksnuatS olraK</Text>
+                      <Text>nesnaH errejB nebsE</Text>
                       <Correctness>0.00</Correctness>
                     </Label>
                   </Labels>
-                  <VoiceDifficulty>0.73</VoiceDifficulty>
-                  <PersonDifficulty>0.33</PersonDifficulty>
+                  <VoiceDifficulty>0.69</VoiceDifficulty>
+                  <PersonDifficulty>0.76</PersonDifficulty>
+                </Item>
+                <Item>
+                  <Guid>c18d2bf3-beb3-4281-89e9-96ce08f02799</Guid>
+                  <Correctness>0.21</Correctness>
+                  <Labels>
+                    <Label>
+                      <Text>Lars Johansson</Text>
+                      <Correctness>0.99</Correctness>
+                    </Label>
+                    <Label>
+                      <Text>Lars</Text>
+                      <Correctness>0.34</Correctness>
+                    </Label>
+                    <Label>
+                      <Text>nossnahoJ sraL</Text>
+                      <Correctness>0.00</Correctness>
+                    </Label>
+                  </Labels>
+                  <VoiceDifficulty>0.51</VoiceDifficulty>
+                  <PersonDifficulty>0.28</PersonDifficulty>
+                </Item>
+                <Item>
+                  <Guid>19a24ddc-4e31-4362-a263-685ad4b4d915</Guid>
+                  <Correctness>0.69</Correctness>
+                  <Labels>
+                    <Label>
+                      <Text>Lars Hall</Text>
+                      <Correctness>0.99</Correctness>
+                    </Label>
+                    <Label>
+                      <Text>Lars</Text>
+                      <Correctness>0.28</Correctness>
+                    </Label>
+                    <Label>
+                      <Text>llaH sraL</Text>
+                      <Correctness>0.00</Correctness>
+                    </Label>
+                  </Labels>
+                  <VoiceDifficulty>0.66</VoiceDifficulty>
+                  <PersonDifficulty>0.78</PersonDifficulty>
+                </Item>
+                <Item>
+                  <Guid>def3ec82-6bc6-42d2-9041-1b11bab3a067</Guid>
+                  <Correctness>0.88</Correctness>
+                  <Labels>
+                    <Label>
+                      <Text>Alex Nyborg Madsen</Text>
+                      <Correctness>0.99</Correctness>
+                    </Label>
+                    <Label>
+                      <Text>Alex</Text>
+                      <Correctness>0.20</Correctness>
+                    </Label>
+                    <Label>
+                      <Text>nesdaM grobyN xelA</Text>
+                      <Correctness>0.00</Correctness>
+                    </Label>
+                  </Labels>
+                  <VoiceDifficulty>0.24</VoiceDifficulty>
+                  <PersonDifficulty>0.28</PersonDifficulty>
                 </Item>
               </Items>
             </Validation>
@@ -1549,20 +1522,20 @@
           <RadioButtonGroup>
             <Items>
               <Item>
-                <Guid>262ec251-dd74-46a8-92fa-03c043886af9</Guid>
-                <Text>Phillip Marco Vallentin</Text>
+                <Guid>a49543e0-5d93-41fb-9b62-d7706ac27567</Guid>
+                <Text>Charlotte Vigel</Text>
               </Item>
               <Item>
-                <Guid>cea194b8-e46c-476d-b11f-a8a9c8776c71</Guid>
-                <Text>Vagn Jensen</Text>
+                <Guid>17cae3c1-49b0-46ec-b5cb-fa7a7674b188</Guid>
+                <Text>Kim Schumacher</Text>
               </Item>
               <Item>
-                <Guid>dc130b7b-e446-4c0e-8fcc-217e03133aba</Guid>
-                <Text>Ole Toepholm</Text>
+                <Guid>5f594411-2b06-4124-815a-adcc75bfb87b</Guid>
+                <Text>Mascha Vang</Text>
               </Item>
               <Item>
-                <Guid>6ced3186-d6ab-4b09-a5ac-1a8b0f92e576</Guid>
-                <Text>Florian Fastina</Text>
+                <Guid>c7038ec4-afe2-4de5-ae95-09df08662caf</Guid>
+                <Text>Anne Jerichow</Text>
               </Item>
             </Items>
           </RadioButtonGroup>
@@ -1574,18 +1547,18 @@
             <SimpleValue Id="ClientBrowserUserAgent" Validation=".*" />
             <SimpleValue Id="ClientDeviceIPAddressAsHash" Validation=".*" />
             <SimpleValue Id="Log" Validation=".*" />
-            <ComplexValue Id="Response">
-              <SimpleValue Id="DontknowSelection" Validation=".*" />
-              <SimpleValue Id="RadioButtonSelection" Validation=".*" />
-              <SimpleValue Id="FreeText" Validation=".*" />
-              <SimpleValue Id="Grading" Validation=".*" />
-            </ComplexValue>
             <MultiValue Id="Events" Max="Inf" Min="0">
               <ComplexValue Id="Event">
                 <SimpleValue Id="Type" Validation=".*" />
                 <SimpleValue Id="DateTime" Validation=".*" />
               </ComplexValue>
             </MultiValue>
+            <ComplexValue Id="Response">
+              <SimpleValue Id="DontknowSelection" Validation=".*" />
+              <SimpleValue Id="RadioButtonSelection" Validation=".*" />
+              <SimpleValue Id="FreeText" Validation=".*" />
+              <SimpleValue Id="Grading" Validation=".*" />
+            </ComplexValue>
           </Validation>
           <Value />
         </Outputs>
@@ -1600,44 +1573,124 @@
             <Validation>
               <Items>
                 <Item>
-                  <Guid>c6638d4c-f013-4967-99ad-635a0dcdd3bd</Guid>
-                  <Correctness>0.69</Correctness>
+                  <Guid>a2c6f111-e0e4-409e-94fd-6b28aab1efa4</Guid>
+                  <Correctness>0.47</Correctness>
                   <Labels>
                     <Label>
-                      <Text>Martin Veltz</Text>
+                      <Text>Christina Bjoern</Text>
                       <Correctness>0.99</Correctness>
                     </Label>
                     <Label>
-                      <Text>Martin</Text>
-                      <Correctness>0.28</Correctness>
+                      <Text>Christina</Text>
+                      <Correctness>0.23</Correctness>
                     </Label>
                     <Label>
-                      <Text>ztleV nitraM</Text>
+                      <Text>nreojB anitsirhC</Text>
                       <Correctness>0.00</Correctness>
                     </Label>
                   </Labels>
-                  <VoiceDifficulty>0.44</VoiceDifficulty>
-                  <PersonDifficulty>0.38</PersonDifficulty>
+                  <VoiceDifficulty>0.77</VoiceDifficulty>
+                  <PersonDifficulty>0.34</PersonDifficulty>
                 </Item>
                 <Item>
-                  <Guid>0b8a1cb6-d49f-4171-9907-d4e81d5825b9</Guid>
-                  <Correctness>0.44</Correctness>
+                  <Guid>fc40b63c-3f40-4611-b76a-daa733f76f81</Guid>
+                  <Correctness>0.31</Correctness>
                   <Labels>
                     <Label>
-                      <Text>Ole Aaby</Text>
+                      <Text>Thomas Qvortrup</Text>
                       <Correctness>0.99</Correctness>
                     </Label>
                     <Label>
-                      <Text>Ole</Text>
-                      <Correctness>0.14</Correctness>
+                      <Text>Thomas</Text>
+                      <Correctness>0.26</Correctness>
                     </Label>
                     <Label>
-                      <Text>ybaA elO</Text>
+                      <Text>purtrovQ samohT</Text>
+                      <Correctness>0.00</Correctness>
+                    </Label>
+                  </Labels>
+                  <VoiceDifficulty>0.43</VoiceDifficulty>
+                  <PersonDifficulty>0.10</PersonDifficulty>
+                </Item>
+                <Item>
+                  <Guid>34d4025f-448e-44de-9b5c-d484145a6bf6</Guid>
+                  <Correctness>0.70</Correctness>
+                  <Labels>
+                    <Label>
+                      <Text>Lars Hall</Text>
+                      <Correctness>0.99</Correctness>
+                    </Label>
+                    <Label>
+                      <Text>Lars</Text>
+                      <Correctness>0.26</Correctness>
+                    </Label>
+                    <Label>
+                      <Text>llaH sraL</Text>
                       <Correctness>0.00</Correctness>
                     </Label>
                   </Labels>
                   <VoiceDifficulty>0.33</VoiceDifficulty>
-                  <PersonDifficulty>0.31</PersonDifficulty>
+                  <PersonDifficulty>0.02</PersonDifficulty>
+                </Item>
+                <Item>
+                  <Guid>2dba0fca-c188-4460-8cb2-cca1c30ce49b</Guid>
+                  <Correctness>0.26</Correctness>
+                  <Labels>
+                    <Label>
+                      <Text>Alex Nyborg Madsen</Text>
+                      <Correctness>0.99</Correctness>
+                    </Label>
+                    <Label>
+                      <Text>Alex</Text>
+                      <Correctness>0.15</Correctness>
+                    </Label>
+                    <Label>
+                      <Text>nesdaM grobyN xelA</Text>
+                      <Correctness>0.00</Correctness>
+                    </Label>
+                  </Labels>
+                  <VoiceDifficulty>0.45</VoiceDifficulty>
+                  <PersonDifficulty>0.77</PersonDifficulty>
+                </Item>
+                <Item>
+                  <Guid>f8c1bf15-1a69-4ac4-ade5-e3dc8499861c</Guid>
+                  <Correctness>0.29</Correctness>
+                  <Labels>
+                    <Label>
+                      <Text>Thomas Qvortrup</Text>
+                      <Correctness>0.99</Correctness>
+                    </Label>
+                    <Label>
+                      <Text>Thomas</Text>
+                      <Correctness>0.12</Correctness>
+                    </Label>
+                    <Label>
+                      <Text>purtrovQ samohT</Text>
+                      <Correctness>0.00</Correctness>
+                    </Label>
+                  </Labels>
+                  <VoiceDifficulty>0.17</VoiceDifficulty>
+                  <PersonDifficulty>0.72</PersonDifficulty>
+                </Item>
+                <Item>
+                  <Guid>0f0cc45f-1cac-4b8a-913c-ad9a921eed30</Guid>
+                  <Correctness>0.43</Correctness>
+                  <Labels>
+                    <Label>
+                      <Text>Lars E. Christiansen</Text>
+                      <Correctness>0.99</Correctness>
+                    </Label>
+                    <Label>
+                      <Text>Lars</Text>
+                      <Correctness>0.12</Correctness>
+                    </Label>
+                    <Label>
+                      <Text>nesnaitsirhC .E sraL</Text>
+                      <Correctness>0.00</Correctness>
+                    </Label>
+                  </Labels>
+                  <VoiceDifficulty>0.57</VoiceDifficulty>
+                  <PersonDifficulty>0.83</PersonDifficulty>
                 </Item>
               </Items>
             </Validation>
@@ -1645,20 +1698,20 @@
           <RadioButtonGroup>
             <Items>
               <Item>
-                <Guid>b716bd02-30b9-4ba5-b20d-7c6c5624b361</Guid>
-                <Text>Evanthore Vestergaard</Text>
+                <Guid>effa118d-c8ba-4c27-8795-792864138b27</Guid>
+                <Text>Ole Jacobsen</Text>
               </Item>
               <Item>
-                <Guid>561bf2dc-ae19-4384-b079-e9943c9378fc</Guid>
-                <Text>Henrik Hannibal</Text>
+                <Guid>b904f34f-a5b9-460c-b2e3-d225f418a2c3</Guid>
+                <Text>Steffen Stenbaek</Text>
               </Item>
               <Item>
-                <Guid>773c36f3-c99e-4e71-b3bf-a74b5c0e361e</Guid>
-                <Text>Mads Holger</Text>
+                <Guid>17cae3c1-49b0-46ec-b5cb-fa7a7674b188</Guid>
+                <Text>Kim Schumacher</Text>
               </Item>
               <Item>
-                <Guid>daf63044-d852-4e6b-88ba-5157189f2a2a</Guid>
-                <Text>Poul Pilgaard Johnsen</Text>
+                <Guid>d1bda197-71db-4587-b830-c1e9c3fdcde1</Guid>
+                <Text>Emil Noerlund</Text>
               </Item>
             </Items>
           </RadioButtonGroup>
@@ -1670,18 +1723,18 @@
             <SimpleValue Id="ClientBrowserUserAgent" Validation=".*" />
             <SimpleValue Id="ClientDeviceIPAddressAsHash" Validation=".*" />
             <SimpleValue Id="Log" Validation=".*" />
-            <ComplexValue Id="Response">
-              <SimpleValue Id="DontknowSelection" Validation=".*" />
-              <SimpleValue Id="RadioButtonSelection" Validation=".*" />
-              <SimpleValue Id="FreeText" Validation=".*" />
-              <SimpleValue Id="Grading" Validation=".*" />
-            </ComplexValue>
             <MultiValue Id="Events" Max="Inf" Min="0">
               <ComplexValue Id="Event">
                 <SimpleValue Id="Type" Validation=".*" />
                 <SimpleValue Id="DateTime" Validation=".*" />
               </ComplexValue>
             </MultiValue>
+            <ComplexValue Id="Response">
+              <SimpleValue Id="DontknowSelection" Validation=".*" />
+              <SimpleValue Id="RadioButtonSelection" Validation=".*" />
+              <SimpleValue Id="FreeText" Validation=".*" />
+              <SimpleValue Id="Grading" Validation=".*" />
+            </ComplexValue>
           </Validation>
           <Value />
         </Outputs>
@@ -1696,124 +1749,84 @@
             <Validation>
               <Items>
                 <Item>
-                  <Guid>7a3ffdf8-9804-40ec-9705-2b34d886eb88</Guid>
-                  <Correctness>0.08</Correctness>
+                  <Guid>507318f4-a968-4bb4-94a0-8e0bc25e9558</Guid>
+                  <Correctness>0.42</Correctness>
                   <Labels>
                     <Label>
-                      <Text>Poul Birch Eriksen</Text>
+                      <Text>J.P. Jespersen</Text>
                       <Correctness>0.99</Correctness>
                     </Label>
                     <Label>
-                      <Text>Poul</Text>
-                      <Correctness>0.22</Correctness>
+                      <Text>J.P.</Text>
+                      <Correctness>0.15</Correctness>
                     </Label>
                     <Label>
-                      <Text>neskirE hcriB luoP</Text>
+                      <Text>nesrepseJ .P.J</Text>
                       <Correctness>0.00</Correctness>
                     </Label>
                   </Labels>
-                  <VoiceDifficulty>0.03</VoiceDifficulty>
-                  <PersonDifficulty>0.75</PersonDifficulty>
+                  <VoiceDifficulty>0.50</VoiceDifficulty>
+                  <PersonDifficulty>0.04</PersonDifficulty>
                 </Item>
                 <Item>
-                  <Guid>d4c05db6-10a6-49d6-91fd-d5ed3e598947</Guid>
-                  <Correctness>0.68</Correctness>
+                  <Guid>26bcd3d3-cab3-4a44-ad2a-02d666cf5d00</Guid>
+                  <Correctness>0.87</Correctness>
                   <Labels>
                     <Label>
-                      <Text>Kim Schumacher</Text>
+                      <Text>Ole Mortensen</Text>
                       <Correctness>0.99</Correctness>
                     </Label>
                     <Label>
-                      <Text>Kim</Text>
-                      <Correctness>0.24</Correctness>
+                      <Text>Ole</Text>
+                      <Correctness>0.32</Correctness>
                     </Label>
                     <Label>
-                      <Text>rehcamuhcS miK</Text>
+                      <Text>nesnetroM elO</Text>
                       <Correctness>0.00</Correctness>
                     </Label>
                   </Labels>
-                  <VoiceDifficulty>0.85</VoiceDifficulty>
-                  <PersonDifficulty>0.56</PersonDifficulty>
+                  <VoiceDifficulty>0.34</VoiceDifficulty>
+                  <PersonDifficulty>0.97</PersonDifficulty>
                 </Item>
                 <Item>
-                  <Guid>3315f215-8e15-40d3-bd3f-44829b2613a9</Guid>
-                  <Correctness>0.36</Correctness>
+                  <Guid>cdb992f4-f6ed-4546-8e98-bfd2f1130b3c</Guid>
+                  <Correctness>0.16</Correctness>
                   <Labels>
                     <Label>
-                      <Text>Evanthore Vestergaard</Text>
+                      <Text>Jacob Wilson</Text>
                       <Correctness>0.99</Correctness>
                     </Label>
                     <Label>
-                      <Text>Evanthore</Text>
-                      <Correctness>0.22</Correctness>
+                      <Text>Jacob</Text>
+                      <Correctness>0.10</Correctness>
                     </Label>
                     <Label>
-                      <Text>draagretseV erohtnavE</Text>
+                      <Text>nosliW bocaJ</Text>
+                      <Correctness>0.00</Correctness>
+                    </Label>
+                  </Labels>
+                  <VoiceDifficulty>0.25</VoiceDifficulty>
+                  <PersonDifficulty>0.35</PersonDifficulty>
+                </Item>
+                <Item>
+                  <Guid>566294f0-bd89-4e79-8efa-42482bdfcde6</Guid>
+                  <Correctness>0.23</Correctness>
+                  <Labels>
+                    <Label>
+                      <Text>Lars Hall</Text>
+                      <Correctness>0.99</Correctness>
+                    </Label>
+                    <Label>
+                      <Text>Lars</Text>
+                      <Correctness>0.21</Correctness>
+                    </Label>
+                    <Label>
+                      <Text>llaH sraL</Text>
                       <Correctness>0.00</Correctness>
                     </Label>
                   </Labels>
                   <VoiceDifficulty>0.26</VoiceDifficulty>
-                  <PersonDifficulty>0.93</PersonDifficulty>
-                </Item>
-                <Item>
-                  <Guid>19b620e9-e350-43c4-952e-8241c4ed3382</Guid>
-                  <Correctness>0.43</Correctness>
-                  <Labels>
-                    <Label>
-                      <Text>Kasper Krüger</Text>
-                      <Correctness>0.99</Correctness>
-                    </Label>
-                    <Label>
-                      <Text>Kasper</Text>
-                      <Correctness>0.28</Correctness>
-                    </Label>
-                    <Label>
-                      <Text>regürK repsaK</Text>
-                      <Correctness>0.00</Correctness>
-                    </Label>
-                  </Labels>
-                  <VoiceDifficulty>0.40</VoiceDifficulty>
-                  <PersonDifficulty>0.18</PersonDifficulty>
-                </Item>
-                <Item>
-                  <Guid>72e65ef0-9f7e-474c-ad03-265ac9c75104</Guid>
-                  <Correctness>0.37</Correctness>
-                  <Labels>
-                    <Label>
-                      <Text>Mascha Vang</Text>
-                      <Correctness>0.99</Correctness>
-                    </Label>
-                    <Label>
-                      <Text>Mascha</Text>
-                      <Correctness>0.16</Correctness>
-                    </Label>
-                    <Label>
-                      <Text>gnaV ahcsaM</Text>
-                      <Correctness>0.00</Correctness>
-                    </Label>
-                  </Labels>
-                  <VoiceDifficulty>0.22</VoiceDifficulty>
-                  <PersonDifficulty>0.52</PersonDifficulty>
-                </Item>
-                <Item>
-                  <Guid>eb24ff16-add0-4797-9ac3-9d6d78e811df</Guid>
-                  <Correctness>0.07</Correctness>
-                  <Labels>
-                    <Label>
-                      <Text>Kjeld Koplev</Text>
-                      <Correctness>0.99</Correctness>
-                    </Label>
-                    <Label>
-                      <Text>Kjeld</Text>
-                      <Correctness>0.31</Correctness>
-                    </Label>
-                    <Label>
-                      <Text>velpoK dlejK</Text>
-                      <Correctness>0.00</Correctness>
-                    </Label>
-                  </Labels>
-                  <VoiceDifficulty>0.68</VoiceDifficulty>
-                  <PersonDifficulty>0.14</PersonDifficulty>
+                  <PersonDifficulty>0.35</PersonDifficulty>
                 </Item>
               </Items>
             </Validation>
@@ -1821,20 +1834,20 @@
           <RadioButtonGroup>
             <Items>
               <Item>
-                <Guid>edbb8aaa-d2a7-4635-aeac-12da2e8644f4</Guid>
-                <Text>Mascha Vang</Text>
+                <Guid>6a39af7d-c766-47b6-b786-1d0fab2138be</Guid>
+                <Text>Evanthore Vestergaard</Text>
               </Item>
               <Item>
-                <Guid>fedf63df-4b69-4dfc-943b-2319b6e580ca</Guid>
-                <Text>Jens Fink-Jensen</Text>
+                <Guid>24d52ea7-69b2-4461-9ea0-bd31e4080d95</Guid>
+                <Text>Huxi Bach</Text>
               </Item>
               <Item>
-                <Guid>b1080fb1-6bb9-49f3-95f6-2a95e9d0841f</Guid>
-                <Text>Claus Hagen Petersen</Text>
+                <Guid>21e12e50-ed97-4d70-9215-4308e2dfc730</Guid>
+                <Text>Jonas Beha Erichsen</Text>
               </Item>
               <Item>
-                <Guid>3e229517-f759-4524-a700-96a6495163bd</Guid>
-                <Text>Ann-Britt Mathisen</Text>
+                <Guid>25a36635-5c07-407b-93da-a5b3c8171c4d</Guid>
+                <Text>J.P. Jespersen</Text>
               </Item>
             </Items>
           </RadioButtonGroup>
@@ -1846,26 +1859,22 @@
             <SimpleValue Id="ClientBrowserUserAgent" Validation=".*" />
             <SimpleValue Id="ClientDeviceIPAddressAsHash" Validation=".*" />
             <SimpleValue Id="Log" Validation=".*" />
-            <ComplexValue Id="Response">
-              <SimpleValue Id="DontknowSelection" Validation=".*" />
-              <SimpleValue Id="RadioButtonSelection" Validation=".*" />
-              <SimpleValue Id="FreeText" Validation=".*" />
-              <SimpleValue Id="Grading" Validation=".*" />
-            </ComplexValue>
             <MultiValue Id="Events" Max="Inf" Min="0">
               <ComplexValue Id="Event">
                 <SimpleValue Id="Type" Validation=".*" />
                 <SimpleValue Id="DateTime" Validation=".*" />
               </ComplexValue>
             </MultiValue>
+            <ComplexValue Id="Response">
+              <SimpleValue Id="DontknowSelection" Validation=".*" />
+              <SimpleValue Id="RadioButtonSelection" Validation=".*" />
+              <SimpleValue Id="FreeText" Validation=".*" />
+              <SimpleValue Id="Grading" Validation=".*" />
+            </ComplexValue>
           </Validation>
           <Value />
         </Outputs>
       </DRQuestionCore>
     </Trial>
   </Trials>
-  <Id>de4ccbbf2d971efeea73a19bf2c57eaa</Id>
-  <Name>CoSound:DR:Crowdsourcing:Core</Name>
-  <Version>1</Version>
-  <Target Id="a8b82075-adfe-4d4a-8baa-9982cdfaeb7d" Name="UNKNOWN" />
 </Experiment>

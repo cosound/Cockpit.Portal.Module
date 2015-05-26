@@ -2,10 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Xml.Linq;
+using Chaos.Cockpit.Core.Api;
+using Chaos.Cockpit.Core.Api.Endpoints;
 using Chaos.Cockpit.Core.Core;
 using Chaos.Cockpit.Core.Core.Validation;
 using Chaos.Cockpit.Core.Data.Mcm;
 using NUnit.Framework;
+using Newtonsoft.Json;
 
 namespace Chaos.Cockpit.Core.Test.Data.Mcm
 {
@@ -61,35 +64,33 @@ namespace Chaos.Cockpit.Core.Test.Data.Mcm
     }
 
     [Test]
-    public void Deserialize_GivenExperimentWithOneTask_ParseRequiredFields2()
+    public void Deserialize_GivenQuestionWithComplexValue_ValueAndValidationShouldBeParsed()
     {
       var converter = new DtuFormatConverter();
-      var xml = XDocument.Load("Resources\\experiment4.xml");
+      var xml = XDocument.Load("Resources\\experiment5.xml");
 
       var result = converter.Deserialize(xml);
-      result.Slides[0].Questions[1].Output = new Output
-        {
-          ComplexValues = new []
-            {
-              new ComplexValue
-                {
-                  Key = "Response",
-                  SimpleValues = new []
-                    {
-                      new SimpleValue("RadioButtonSelection", "0"), 
-                      new SimpleValue("DontknowSelection", "0"), 
-                      new SimpleValue("FreeText", "Helle Helle"), 
-                      new SimpleValue("Grading", "30"), 
-                      new SimpleValue("Log", "Any debug info you may need, e.g. streaming issues etc"), 
-                    }
-                },
-                new ComplexValue
-                {
-                  Key = "Events"
-                }
-            }
-        };
+      
+      Assert.That(result.Slides[0].Questions[0].Validation.ComplexValueValidator.Count, Is.EqualTo(1));
+      Assert.That(result.Slides[0].Questions[0].Output.ComplexValues.Count, Is.EqualTo(1));
+
+      var q = QuestionnaireBuilder.MakeDto(result);
+      Assert.That(q.Slides[0].Questions[0].Values.Any(item => item.Key == "Response"), Is.True);
+    }
+
+    [Test]
+    public void Serialize_GivenQuestionWithComplexValue_SerializeComplexTypesToo()
+    {
+      var converter = new DtuFormatConverter();
+      var xml = XDocument.Load("Resources\\experiment5.xml");
+
+      var result = converter.Deserialize(xml);
       var result2 = converter.Serialize(result);
+
+      Assert.That(result2.Descendants("DRQuestionCore").First().Element("Outputs").Element("Validation").Element("ComplexValue"), Is.Not.Null);
+      Assert.That(result2.Descendants("DRQuestionCore").First().Element("Outputs").Element("Value").Element("Response"), Is.Not.Null);
+      Assert.That(result2.Descendants("DRQuestionCore").First().Element("Outputs").Element("Value").Element("Response").Element("FreeText"), Is.Not.Null);
+      Assert.That(result2.Descendants("DRQuestionCore").First().Element("Outputs").Element("Value").Element("Response").Element("Grading"), Is.Not.Null);
     }
 
     [Test]

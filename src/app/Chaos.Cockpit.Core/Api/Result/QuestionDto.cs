@@ -56,14 +56,13 @@ namespace Chaos.Cockpit.Core.Api.Result
         var dict = new Dictionary<string, object>();
 
         foreach (var singleValue in Output.SingleValues)
-        {
           dict.Add(singleValue.Key, singleValue.Value);
-        }
 
         foreach (var multiValueResult in Output.MultiValues)
-        {
           dict.Add(multiValueResult.Key, multiValueResult.Value.Values);
-        }
+
+        foreach (var complexValueResult in Output.ComplexValues)
+          dict.Add(complexValueResult.Key, complexValueResult.Value);
 
         return dict;
       }

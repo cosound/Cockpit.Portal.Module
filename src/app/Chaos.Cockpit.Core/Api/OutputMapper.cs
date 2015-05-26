@@ -1,4 +1,5 @@
-﻿using Chaos.Cockpit.Core.Api.Result;
+﻿using System.Linq;
+using Chaos.Cockpit.Core.Api.Result;
 using Chaos.Cockpit.Core.Core;
 using Chaos.Cockpit.Core.Core.Validation;
 
@@ -68,32 +69,28 @@ namespace Chaos.Cockpit.Core.Api
     {
       var output = new OutputDto();
 
-      foreach (var value in arg.SimpleValues)
-        output.SingleValues.Add(value.Key, value.Value);
+      MapSimple(arg, output);
+      MapComplex(arg, output);
+      MapMulti(arg, output);
 
-      foreach (var value in arg.ComplexValues)
-      {
-        var vals = new ComplexValueResult();
+      return output;
+    }
 
-        foreach (var simpleValue in value.SimpleValues)
-          vals.SingleValues.Add(simpleValue.Key, simpleValue.Value);
-
-        output.ComplexValues.Add(value.Key, vals);
-      }
-
+    private static void MapMulti(Output arg, OutputDto output)
+    {
       foreach (var value in arg.MultiValues)
       {
-        if (value.SimpleValues.Count > 0)
+        if (value.SimpleValues.Any())
         {
           var multi = new MultiSingleValueResult();
-        
+
           foreach (var simpleValue in value.SimpleValues)
             multi.SingleValues.Add(simpleValue);
 
           output.MultiValues.Add(value.Key, multi);
         }
 
-        if (value.ComplexValues.Count > 0)
+        if (value.ComplexValues.Any())
         {
           var multi = new MultiComplexValueResult();
 
@@ -110,8 +107,25 @@ namespace Chaos.Cockpit.Core.Api
           output.MultiValues.Add(value.Key, multi);
         }
       }
+    }
 
-      return output;
+    private static void MapSimple(Output arg, OutputDto output)
+    {
+      foreach (var value in arg.SimpleValues)
+        output.SingleValues.Add(value.Key, value.Value);
+    }
+
+    private static void MapComplex(Output arg, OutputDto output)
+    {
+      foreach (var value in arg.ComplexValues)
+      {
+        var vals = new ComplexValueResult();
+
+        foreach (var simpleValue in value.SimpleValues)
+          vals.SingleValues.Add(simpleValue.Key, simpleValue.Value);
+
+        output.ComplexValues.Add(value.Key, vals);
+      }
     }
   }
 }
