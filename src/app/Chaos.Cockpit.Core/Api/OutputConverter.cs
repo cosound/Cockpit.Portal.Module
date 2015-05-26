@@ -15,24 +15,34 @@ namespace Chaos.Cockpit.Core.Api
     public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
     {
       var output = new Result.OutputDto();
-      
+      var key = "";
+
       while (reader.Read())
       {
-        var key = "";
-
         if (reader.TokenType == JsonToken.PropertyName)
-        {
           key = reader.Value.ToString();
-          reader.Read();
-        }
 
-        if (reader.TokenType == JsonToken.String)
-          output.SingleValues.Add(key, reader.Value.ToString());
+        if (reader.TokenType == JsonToken.Date || reader.TokenType == JsonToken.String)
+          output.SingleValues.Add(ReadProperty(reader, key));
 
-        if (reader.TokenType == JsonToken.Date)
+        if (reader.TokenType == JsonToken.StartObject)
         {
-          var datetime = (DateTime)reader.Value;
-          output.SingleValues.Add(key, datetime.ToString("yyyy-MM-dd'T'HH:mm:ss'.'fff'Z'"));
+          var complex = new ComplexValueResult();
+          string currentKey = null;
+
+          while (reader.Read())
+          {
+            if (reader.TokenType == JsonToken.EndObject)
+              break;
+
+            if (reader.TokenType == JsonToken.PropertyName)
+              currentKey = reader.Value.ToString();
+
+            if (reader.TokenType == JsonToken.String)
+              complex.SingleValues.Add(ReadProperty(reader, currentKey));
+          }
+
+          output.ComplexValues.Add(key, complex);
         }
 
         if (reader.TokenType == JsonToken.StartArray)
@@ -44,6 +54,17 @@ namespace Chaos.Cockpit.Core.Api
       }
 
       return output;
+    }
+
+    private KeyValuePair<string, string> ReadProperty(JsonReader reader, string key)
+    {
+      if (reader.TokenType == JsonToken.String)
+        return new KeyValuePair<string, string>(key, reader.Value.ToString());
+
+      if (reader.TokenType == JsonToken.Date)
+        return new KeyValuePair<string, string>(key, ((DateTime)reader.Value).ToString("yyyy-MM-dd'T'HH:mm:ss'.'fff'Z'"));
+
+      throw new Exception("Unknown TokenType: " + reader.TokenType);
     }
 
     private IMultiValueResult ReadArray(JsonReader reader)

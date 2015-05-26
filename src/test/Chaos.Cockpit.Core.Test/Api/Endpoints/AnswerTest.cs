@@ -1,8 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Chaos.Cockpit.Core.Api.Endpoints;
 using Chaos.Cockpit.Core.Api.Result;
 using Chaos.Cockpit.Core.Core;
 using Chaos.Cockpit.Core.Core.Exceptions;
+using Chaos.Cockpit.Core.Core.Validation;
+using Chaos.Cockpit.Core.Data.Mcm;
 using NUnit.Framework;
 
 namespace Chaos.Cockpit.Core.Test.Api.Endpoints
@@ -76,16 +79,38 @@ namespace Chaos.Cockpit.Core.Test.Api.Endpoints
         };
       var question = new Question("TestQuestion")
         {
-          Id = "00000000-0000-0000-0000-000000000001:0"
+          Id = "00000000-0000-0000-0000-000000000001:0",
+          Version = "",
+          Validation = new OutputValidator
+            {
+              ComplexValueValidator = new []
+                {
+                  new ComplexValueValidator
+                    {
+                      Id = "k1",
+                      SimpleValueValidators = new []
+                        {
+                          new SimpleValueValidator
+                            {
+                              Id = "k2",
+                              Validation = ".*"
+                            }
+                        }
+                    }
+                }
+            }
         };
       Context.QuestionnaireGateway.Set(new Questionnaire
         {
           Id = "00000000-0000-0000-0000-000000000001",
           Name = "Test",
+          TargetId = "",
+          TargetName = "1",
           Slides = new List<Slide>
             {
               new Slide
                 {
+                  TaskId = "1",
                   Questions = new List<Question>
                     {
                       question
