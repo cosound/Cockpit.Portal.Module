@@ -62,7 +62,7 @@ namespace Chaos.Cockpit.Core.Api.Result
           dict.Add(multiValueResult.Key, multiValueResult.Value.Values);
 
         foreach (var complexValueResult in Output.ComplexValues)
-          dict.Add(complexValueResult.Key, complexValueResult.Value);
+          dict.Add(complexValueResult.Key, complexValueResult.Value.Values);
 
         return dict;
       }

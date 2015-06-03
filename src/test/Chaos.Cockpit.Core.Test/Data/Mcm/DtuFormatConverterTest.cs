@@ -64,6 +64,15 @@ namespace Chaos.Cockpit.Core.Test.Data.Mcm
     }
 
     [Test]
+    public void Deserialize_GivenQuestionWithoutValidation_()
+    {
+      var converter = new DtuFormatConverter();
+      var xml = XDocument.Load("Resources\\experiment6.xml");
+
+      var result = converter.Deserialize(xml);
+    }
+
+    [Test]
     public void Deserialize_GivenQuestionWithComplexValue_ValueAndValidationShouldBeParsed()
     {
       var converter = new DtuFormatConverter();

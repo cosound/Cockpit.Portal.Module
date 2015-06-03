@@ -54,23 +54,23 @@ namespace Chaos.Cockpit.Core.Data.Mcm
       var question = new Question(type);
       question.Version = questionElement.Attribute("Version").Value;
       question.Input = questionElement.Element("Inputs").Elements();
+      question.Output = new Output();
 
       var validationElement = questionElement.Element("Outputs").Element("Validation");
-      question.Validation.MultiValueValidator = FindMultiValueValidators(validationElement).ToList();
-      question.Validation.SimpleValueValidator = FindSimpleValueValidator(validationElement).ToList();
-      question.Validation.ComplexValueValidator = FindComplexValueValidators(validationElement).ToList();
-
-      var output = new Output();
-      var value = questionElement.Element("Outputs").Element("Value");
-
-      if(value != null)
+      if (validationElement != null)
       {
-        var valueElements = value.Elements();
-        foreach (var valueElement in valueElements)
-          DeserializeOutput(valueElement, output);
+        question.Validation.MultiValueValidator = FindMultiValueValidators(validationElement).ToList();
+        question.Validation.SimpleValueValidator = FindSimpleValueValidator(validationElement).ToList();
+        question.Validation.ComplexValueValidator = FindComplexValueValidators(validationElement).ToList();
 
-        if (valueElements.Any())
-          question.Output = output;
+        var value = questionElement.Element("Outputs").Element("Value");
+
+        if (value != null)
+        {
+          var valueElements = value.Elements();
+          foreach (var valueElement in valueElements)
+            DeserializeOutput(valueElement, question.Output);
+        }
       }
 
       slide.AddQuestion(question);
