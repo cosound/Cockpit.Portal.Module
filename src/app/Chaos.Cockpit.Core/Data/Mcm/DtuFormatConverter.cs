@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Chaos.Cockpit.Core.Core.Validation;
+using Chaos.Portal.Core.Exceptions;
 
 namespace Chaos.Cockpit.Core.Data.Mcm
 {
@@ -15,12 +16,14 @@ namespace Chaos.Cockpit.Core.Data.Mcm
       var experiemnt = xml.Element("Experiment");
 
       var result = new Questionnaire();
-      result.Id = experiemnt.Element("Id").Value;
-      result.Name = experiemnt.Element("Name").Value;
-      result.Version = experiemnt.Element("Version").Value;
+      result.Id = GetElement(experiemnt, "Id");
+      result.Name = GetElement(experiemnt, "Name");
+      result.Version = GetElement(experiemnt, "Version");
+      result.Css = GetElement(experiemnt, "CSS", null);
+      result.LockQuestion = StringToBoolean(GetElement(experiemnt, "LockQuestion", "0"));
+      result.EnablePrevious = StringToBoolean(GetElement(experiemnt, "EnablePrevious", "0"));
+      result.FooterLabel = GetElement(experiemnt, "FooterLabel", null);
       result.TargetId = experiemnt.Element("Target").Attribute("Id").Value;
-      // todo better error messages
-
       result.TargetName = experiemnt.Element("Target").Attribute("Name").Value;
 
       var trials = experiemnt.Element("Trials").Elements("Trial");
@@ -29,6 +32,29 @@ namespace Chaos.Cockpit.Core.Data.Mcm
 
       return result;
     }
+
+    private bool StringToBoolean(string value)
+    {
+      return value == "1" || value.ToLower() == "true";
+    }
+
+    private static string GetElement(XContainer experiemnt, string name, string defaultValue)
+    {
+      var xElement = experiemnt.Element(name);
+
+      return xElement == null ? defaultValue : xElement.Value;
+    }
+    
+    private static string GetElement(XElement experiemnt, string name)
+    {
+      var val = GetElement(experiemnt, name, null);
+
+      if (val == null)
+        throw new ServerException(string.Format("The element: {0} inside: {1} was not found", name, experiemnt.Name),"500");
+
+      return val;
+    }
+
 
     private static void DeserializeTrial(XElement trial, Questionnaire result)
     {

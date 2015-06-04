@@ -2,7 +2,7 @@
   <Id>017241c8-b83f-4845-9106-d4d19e700040</Id>
   <Name>DTU:Test:007f</Name>
   <Version>1</Version>
-  <CSS />
+  <CSS>url</CSS>
   <LockQuestion>1</LockQuestion>
   <EnablePrevious>1</EnablePrevious>
   <FooterLabel>No.: 7 - an {{b|TEST}} experiment by {{link|http://www.dtu.dk|DTU}}. Privacy etc can be located at bla bla</FooterLabel>

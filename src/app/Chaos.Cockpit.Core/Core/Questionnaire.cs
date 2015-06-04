@@ -9,6 +9,10 @@ namespace Chaos.Cockpit.Core.Core
     public string Id { get; set; }
     public string Name { get; set; }
     public string Version { get; set; }
+    public string Css { get; set; }
+    public bool LockQuestion { get; set; }
+    public bool EnablePrevious { get; set; }
+    public string FooterLabel { get; set; }
     public string TargetId { get; set; }
     public string TargetName { get; set; }
     public IList<Slide> Slides { get; set; }

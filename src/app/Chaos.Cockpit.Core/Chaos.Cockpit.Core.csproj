@@ -64,6 +64,8 @@
     <Compile Include="Api\Experiment.cs" />
     <Compile Include="Api\OutputConverter.cs" />
     <Compile Include="Api\OutputMapper.cs" />
+    <Compile Include="Api\QuestionBuilder.cs" />
+    <Compile Include="Api\QuestionnaireBuilder.cs" />
     <Compile Include="Api\Result\AnswerDto.cs" />
     <Compile Include="Api\Result\ExperimentResult.cs" />
     <Compile Include="Api\Result\OutputDto.cs" />

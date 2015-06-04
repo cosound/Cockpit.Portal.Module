@@ -4,6 +4,7 @@ using System.Linq;
 using System.Xml.Linq;
 using Chaos.Cockpit.Core.Api;
 using Chaos.Cockpit.Core.Api.Endpoints;
+using Chaos.Cockpit.Core.Api.Result;
 using Chaos.Cockpit.Core.Core;
 using Chaos.Cockpit.Core.Core.Validation;
 using Chaos.Cockpit.Core.Data.Mcm;
@@ -70,6 +71,11 @@ namespace Chaos.Cockpit.Core.Test.Data.Mcm
       var xml = XDocument.Load("Resources\\experiment6.xml");
 
       var result = converter.Deserialize(xml);
+
+      Assert.That(result.Css, Is.EqualTo("url"));
+      Assert.That(result.LockQuestion, Is.True);
+      Assert.That(result.EnablePrevious, Is.True);
+      Assert.That(result.FooterLabel, Is.EqualTo("No.: 7 - an {{b|TEST}} experiment by {{link|http://www.dtu.dk|DTU}}. Privacy etc can be located at bla bla"));
     }
 
     [Test]

@@ -22,5 +22,12 @@ namespace Chaos.Cockpit.Core.Api.Endpoints
 
       return result;
     }
+
+    public QuestionnaireDto Get(Guid id)
+    {
+      var result = Context.QuestionnaireGateway.Get(id);
+
+      return QuestionnaireBuilder.MakeDto(result);
+    }
   }
 }

@@ -13,7 +13,21 @@
     [Serialize("Name")]
     public string Name { get; set; }
 
-    [Serialize("Slides")]
+    [Serialize]
+    public string Css { get; set; }
+
+    [Serialize]
+    public string Version { get; set; }
+
+    [Serialize]
+    public bool LockQuestion { get; set; }
+
+    [Serialize]
+    public bool EnablePrevious { get; set; }
+
+    [Serialize]
+    public string FooterLabel { get; set; }
+
     public IList<SlideDto> Slides { get; set; }
 
     public QuestionnaireDto()
