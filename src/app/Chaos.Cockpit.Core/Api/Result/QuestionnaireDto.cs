@@ -28,6 +28,10 @@
     [Serialize]
     public string FooterLabel { get; set; }
 
+    [Serialize]
+    public uint CurrentSlideIndex { get; set; }
+
+    [JsonIgnore]
     public IList<SlideDto> Slides { get; set; }
 
     public QuestionnaireDto()

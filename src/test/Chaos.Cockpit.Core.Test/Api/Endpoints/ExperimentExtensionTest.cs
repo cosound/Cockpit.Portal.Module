@@ -86,7 +86,8 @@ namespace Chaos.Cockpit.Core.Test.Api.Endpoints
           Css = "url",
           LockQuestion = true,
           EnablePrevious = false,
-          FooterLabel = "footer"
+          FooterLabel = "footer",
+          Slides = new [] { new Slide() }
         };
       Context.QuestionnaireGateway.Set(questionaire);
 
@@ -98,6 +99,7 @@ namespace Chaos.Cockpit.Core.Test.Api.Endpoints
       Assert.That(result.LockQuestion, Is.EqualTo(questionaire.LockQuestion));
       Assert.That(result.EnablePrevious, Is.EqualTo(questionaire.EnablePrevious));
       Assert.That(result.FooterLabel, Is.EqualTo(questionaire.FooterLabel));
+      Assert.That(result.CurrentSlideIndex, Is.EqualTo(0));
     }
   }
 }

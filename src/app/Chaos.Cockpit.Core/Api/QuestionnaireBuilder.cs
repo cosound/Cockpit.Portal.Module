@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using System.Linq;
-using Chaos.Cockpit.Core.Api.Endpoints;
 using Chaos.Cockpit.Core.Api.Result;
 using Chaos.Cockpit.Core.Core;
 
@@ -19,6 +18,7 @@ namespace Chaos.Cockpit.Core.Api
       dto.EnablePrevious = questionnaire.EnablePrevious;
       dto.FooterLabel = questionnaire.FooterLabel;
       dto.Slides = CreateSlides(questionnaire.Slides).ToList();
+      dto.CurrentSlideIndex = questionnaire.NextSlide();
 
       return dto;
     }
