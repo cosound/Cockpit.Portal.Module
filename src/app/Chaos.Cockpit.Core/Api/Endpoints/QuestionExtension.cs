@@ -19,8 +19,8 @@ namespace Chaos.Cockpit.Core.Api.Endpoints
     {
       var questionnaire = Context.QuestionnaireGateway.Get(Guid.Parse(id));
 
-      if(Request.IsAnonymousUser && questionnaire.Slides[index].IsClosed) 
-        throw new SlideClosedException("Slide has been closed by calling Slide/Close", "The requested slide is not available for viewing");
+      if (questionnaire.LockQuestion && Request.IsAnonymousUser && questionnaire.Slides[index].IsCompleted)
+        throw new SlideLockedException("Slide has been locked by calling Slide/Complete while LockQuestion is specified on the experiment", "The requested slide is not available for viewing");
 
       var questionnaireDto = QuestionnaireBuilder.MakeDto(questionnaire);
       var questions = questionnaireDto.Slides[index].Questions;

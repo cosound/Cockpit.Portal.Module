@@ -29,7 +29,7 @@ namespace Chaos.Cockpit.Core.Test.Api.Endpoints
       var extension = Make_QuestionExtension();
       var questionnaire = Context.QuestionnaireGateway.Set(new Questionnaire
       {
-        Slides = new[] { new Slide { IsClosed = true, Questions = new[] { new Question("TestQuestion") } } }
+        Slides = new[] { new Slide { IsCompleted = true, Questions = new[] { new Question("TestQuestion") } } }
       });
 
       var page = extension.Get(questionnaire.Id);
@@ -37,14 +37,15 @@ namespace Chaos.Cockpit.Core.Test.Api.Endpoints
       Assert.That(page.Results, Is.Not.Empty);
     }
     
-    [Test, ExpectedException(typeof(SlideClosedException))]
+    [Test, ExpectedException(typeof(SlideLockedException))]
     public void Get_GivenAnonymousUserAndSlideIsClosed_Throw()
     {
       PortalRequest.Setup(p => p.IsAnonymousUser).Returns(true);
       var extension = Make_QuestionExtension();
       var questionnaire = Context.QuestionnaireGateway.Set(new Questionnaire
           {
-            Slides = new[] {new Slide { IsClosed = true, Questions = new[] {new Question("TestQuestion")}}}
+            LockQuestion = true,
+            Slides = new[] {new Slide { IsCompleted = true, Questions = new[] {new Question("TestQuestion")}}}
           });
 
       extension.Get(questionnaire.Id);

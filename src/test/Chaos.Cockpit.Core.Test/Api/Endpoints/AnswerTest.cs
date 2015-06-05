@@ -140,7 +140,7 @@ namespace Chaos.Cockpit.Core.Test.Api.Endpoints
       Assert.That(actual.Output.MultiValues[1].ComplexValues[0].SimpleValues[1].Key, Is.EqualTo("k8.2"));
     }
 
-    [Test, ExpectedException(typeof(SlideClosedException))]
+    [Test, ExpectedException(typeof(SlideLockedException))]
     public void Set_GivenAnonymousUserAndSlideIsClosed_Throw()
     {
       PortalRequest.Setup(p => p.IsAnonymousUser).Returns(true);
@@ -153,11 +153,12 @@ namespace Chaos.Cockpit.Core.Test.Api.Endpoints
       {
         Id = "00000000-0000-0000-0000-000000000001",
         Name = "Test",
+        LockQuestion = true,
         Slides = new List<Slide>
             {
               new Slide
                 {
-                  IsClosed = true,
+                  IsCompleted = true,
                   Questions = new List<Question>
                     {
                       question

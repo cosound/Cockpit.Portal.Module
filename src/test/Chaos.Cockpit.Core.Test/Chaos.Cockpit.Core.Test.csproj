@@ -68,6 +68,7 @@
     <Compile Include="Api\Endpoints\SlideExtensionTest.cs" />
     <Compile Include="Api\OutputConverterTest.cs" />
     <Compile Include="Api\OutputMapperTest.cs" />
+    <Compile Include="Core\QuestionnaireTest.cs" />
     <Compile Include="Core\Validation\ComplexValueValidatorTest.cs" />
     <Compile Include="Core\Validation\MultiValueValidatorTest.cs" />
     <Compile Include="Core\Validation\OutputValidationTest.cs" />

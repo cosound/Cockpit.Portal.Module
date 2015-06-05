@@ -10,10 +10,10 @@ namespace Chaos.Cockpit.Core.Api.Endpoints
   {
     public SlideExtension(IPortalApplication portalApplication) : base(portalApplication) {}
 
-    public EndpointResult Close(Guid questionaireId, int slideIndex)
+    public EndpointResult Completed(Guid questionaireId, int slideIndex)
     {
       var questionaire = Context.QuestionnaireGateway.Get(questionaireId);
-      questionaire.Slides[slideIndex].IsClosed = true;
+      questionaire.Slides[slideIndex].IsCompleted = true;
 
       Context.QuestionnaireGateway.Set(questionaire);
 

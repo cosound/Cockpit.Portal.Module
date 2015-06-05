@@ -80,7 +80,7 @@
     <Compile Include="Core\ClaimedList.cs" />
     <Compile Include="Core\Context.cs" />
     <Compile Include="Core\Exceptions\DataNotFoundException.cs" />
-    <Compile Include="Core\Exceptions\SlideClosedException.cs" />
+    <Compile Include="Core\Exceptions\SlideLockedException.cs" />
     <Compile Include="Core\Exceptions\ValidationException.cs" />
     <Compile Include="Core\IKey.cs" />
     <Compile Include="Core\Question.cs" />

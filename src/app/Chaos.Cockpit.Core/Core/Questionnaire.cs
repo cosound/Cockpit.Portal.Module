@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Chaos.Cockpit.Core.Core.Exceptions;
 
 namespace Chaos.Cockpit.Core.Core
 {
@@ -52,6 +53,22 @@ namespace Chaos.Cockpit.Core.Core
 
       throw new ArgumentException("No question with Id found.");
     }
+
+    public uint NextSlide()
+    {
+      if (!Slides.Any())
+        throw new DataNotFoundException();
+
+      for(var i = 0; i < Slides.Count; i++)
+      {
+        var slide = Slides[i];
+
+        if (!slide.IsCompleted)
+          return (uint) i;
+      }
+
+      return 0;
+    }
   }
 
   public class Slide
@@ -59,7 +76,7 @@ namespace Chaos.Cockpit.Core.Core
     public string TaskId { get; set; }
     public IList<Question> Questions { get; set; }
     internal Questionnaire Parent { get; set; }
-    public bool IsClosed { get; set; }
+    public bool IsCompleted { get; set; }
 
     public Slide()
     {

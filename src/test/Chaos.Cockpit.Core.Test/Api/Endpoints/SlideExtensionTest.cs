@@ -22,15 +22,15 @@ namespace Chaos.Cockpit.Core.Test.Api.Endpoints
             {
               new Slide
                 {
-                  IsClosed = false
+                  IsCompleted = false
                 }
             }
       });
 
-      ext.Close(id, 0);
+      ext.Completed(id, 0);
 
       var actual = Context.QuestionnaireGateway.Get(id);
-      Assert.That(actual.Slides[0].IsClosed, Is.True);
+      Assert.That(actual.Slides[0].IsCompleted, Is.True);
     }
   }
 }

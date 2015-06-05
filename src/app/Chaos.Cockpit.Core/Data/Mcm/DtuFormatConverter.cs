@@ -60,7 +60,7 @@ namespace Chaos.Cockpit.Core.Data.Mcm
     {
       var slide = new Slide();
       slide.TaskId = trial.Attribute("TaskId").Value;
-      slide.IsClosed = IsClosed(trial);
+      slide.IsCompleted = IsClosed(trial);
       result.AddSlide(slide);
 
       foreach (var questionElement in trial.Elements())
@@ -232,7 +232,7 @@ namespace Chaos.Cockpit.Core.Data.Mcm
     {
       var trial = new XElement("Trial");
       trial.Add(new XAttribute("TaskId", slide.TaskId));
-      trial.Add(new XAttribute("IsClosed", slide.IsClosed));
+      trial.Add(new XAttribute("IsClosed", slide.IsCompleted));
 
       foreach (var question in slide.Questions)
         trial.Add(SerializeQuestion(question));
