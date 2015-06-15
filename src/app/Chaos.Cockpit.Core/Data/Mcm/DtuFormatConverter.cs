@@ -205,6 +205,11 @@ namespace Chaos.Cockpit.Core.Data.Mcm
       xml.Root.Add(new XElement("Id", questionnaire.Id));
       xml.Root.Add(new XElement("Name", questionnaire.Name));
       xml.Root.Add(new XElement("Version", questionnaire.Version));
+      xml.Root.Add(new XElement("CSS", questionnaire.Css));
+      xml.Root.Add(new XElement("LockQuestion", questionnaire.LockQuestion ? "1":"0"));
+      xml.Root.Add(new XElement("EnablePrevious", questionnaire.EnablePrevious ? "1" : "0"));
+      xml.Root.Add(new XElement("FooterLabel", questionnaire.FooterLabel));
+      xml.Root.Add(new XElement("RedirectOnCloseUrl", questionnaire.RedirectOnCloseUrl));
       xml.Root.Add(SerializeTarget(questionnaire));
       xml.Root.Add(SerializeTrials(questionnaire));
 

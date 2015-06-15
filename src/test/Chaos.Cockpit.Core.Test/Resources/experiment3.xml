@@ -1,281 +1,149 @@
 ﻿<Experiment>
+  <Id>017241c8-b83f-4845-9106-d4d19e700002</Id>
+  <Name>DTU:Test:007f</Name>
+  <Version>1</Version>
+  <CSS />
+  <LockQuestion>1</LockQuestion>
+  <EnablePrevious>1</EnablePrevious>
+  <RedirctOnExit />
+  <FooterLabel>No.: 2 - an {{b|TEST}} experiment by {{link|http://www.dtu.dk|DTU}}. Privacy etc can be located at bla bla</FooterLabel>
+  <Target Id="cf3cb7e6-1355-4684-90ae-ef77a3462e78" Name="Jens Jensen" />
+  <RedirectOnCloseUrl>http://www.dtu.dk</RedirectOnCloseUrl>
   <Trials>
     <Trial TaskId="1">
-      <DRInfo Version="1">
+      <Header Version="1">
         <Inputs>
-          <ClientInterfaceGuid>aa947cf3-a5b2-4c12-a2eb-1d85947ee002</ClientInterfaceGuid>
-          <Level>
-            <Id>1</Id>
-            <Count>5</Count>
-            <Progression>
-              <PointMin>1500</PointMin>
-              <PointMax>15000</PointMax>
-            </Progression>
-            <Repetition>1</Repetition>
-          </Level>
-          <Grading>
-            <PointsMax>3634</PointsMax>
-            <PointsOffset>530</PointsOffset>
-            <WCorrectness>1</WCorrectness>
-            <WDifficulty>0.31</WDifficulty>
-            <WPerformance>0.23</WPerformance>
-            <WOffset>0.24</WOffset>
-          </Grading>
+          <HeaderLabel>{{image|https://s3-eu-west-1.amazonaws.com/bjje/temp/logo_dtu.gif|30|30|left}}MyExperiment - TextBlock</HeaderLabel>
         </Inputs>
         <Outputs>
           <Validation />
           <Value />
         </Outputs>
-      </DRInfo>
-      <DRCore Version="1">
+      </Header>
+      <TextBlock Version="1">
         <Inputs>
+          <Events />
           <Instrument>
-            <Stimulus>
-              <Type>audio/mpeg</Type>
-              <Label>DR Radio P3</Label>
-              <URI>https://s3-eu-west-1.amazonaws.com/ac0926766ce9afd07d63b7c8a5896b0c/system/140_item/resources/set1/360.mp3</URI>
-              <Validation>
-                <Items>
-                  <Item>
-                    <Guid>2ce4d3d2-30cc-483c-ba5d-6f1cd924b936</Guid>
-                    <Correctness>0.05</Correctness>
-                    <Labels>
-                      <Label>
-                        <Text>Emil Noerlund</Text>
-                        <Correctness>0.99</Correctness>
-                      </Label>
-                      <Label>
-                        <Text>Emil</Text>
-                        <Correctness>0.27</Correctness>
-                      </Label>
-                      <Label>
-                        <Text>dnulreoN limE</Text>
-                        <Correctness>0.00</Correctness>
-                      </Label>
-                    </Labels>
-                    <VoiceDifficulty>0.61</VoiceDifficulty>
-                    <PersonDifficulty>0.22</PersonDifficulty>
-                  </Item>
-                  <Item>
-                    <Guid>07a854b0-2d90-4f6e-8a3f-6ac1338bb2bf</Guid>
-                    <Correctness>0.56</Correctness>
-                    <Labels>
-                      <Label>
-                        <Text>Lars Johansson</Text>
-                        <Correctness>0.99</Correctness>
-                      </Label>
-                      <Label>
-                        <Text>Lars</Text>
-                        <Correctness>0.13</Correctness>
-                      </Label>
-                      <Label>
-                        <Text>nossnahoJ sraL</Text>
-                        <Correctness>0.00</Correctness>
-                      </Label>
-                    </Labels>
-                    <VoiceDifficulty>0.17</VoiceDifficulty>
-                    <PersonDifficulty>0.00</PersonDifficulty>
-                  </Item>
-                </Items>
-              </Validation>
-            </Stimulus>
-            <RadioButtonGroup>
-              <Items>
-                <Item>
-                  <Guid>52057ec0-f722-4adb-84c0-cbe3618ec747</Guid>
-                  <Text>Poul Pilgaard Johnsen</Text>
-                </Item>
-                <Item>
-                  <Guid>1dcc442d-9455-4992-8570-3ce6dee10bea</Guid>
-                  <Text>Mogens Landsvig</Text>
-                </Item>
-                <Item>
-                  <Guid>0892c05e-fc9b-49ef-ad66-ecdd229b76c6</Guid>
-                  <Text>Carsten Eskelund</Text>
-                </Item>
-                <Item>
-                  <Guid>cab1f13c-3497-45d2-976d-79b602b37efa</Guid>
-                  <Text>Boerge Roger-Henrichsen</Text>
-                </Item>
-              </Items>
-            </RadioButtonGroup>
+            <ForceLowerCase>1</ForceLowerCase>
+            <Text>(Textblock 1) This is an experiment which focuses on</Text>
           </Instrument>
         </Inputs>
         <Outputs>
           <Validation>
-            <SimpleValue Id="ClientUserGuid" Validation=".*" />
-            <SimpleValue Id="ClientDeviceBrowserIdAsHash" Validation=".*" />
-            <SimpleValue Id="ClientDeviceIPAddressAsHash" Validation=".*" />
-            <ComplexValue Id="Response">
-              <SimpleValue Id="DontknowSelection" Validation="\b(1|0)" />
-              <SimpleValue Id="RadioButtonSelection" Validation="\b(52057ec0-f722-4adb-84c0-cbe3618ec747|1dcc442d-9455-4992-8570-3ce6dee10bea|0892c05e-fc9b-49ef-ad66-ecdd229b76c6|cab1f13c-3497-45d2-976d-79b602b37efa|0)" />
-              <SimpleValue Id="FreeText" Validation="\b(1|0)" />
-              <SimpleValue Id="Grading" Validation="\d*" />
-              <MultiValue Id="Events" Max="Inf" Min="0">
-                <ComplexValue Id="Event">
-                  <SimpleValue Id="Type" Validation=".*" />
-                  <SimpleValue Id="DateTime" Validation=".*" />
-                </ComplexValue>
-              </MultiValue>
-            </ComplexValue>
+            <MultiValue Id="Events" Max="Inf" Min="0">
+              <ComplexValue Id="Event">
+                <SimpleValue Id="DateTime" Validation="(\d{4}-\d{2}-\d{2})T(\d{2}:\d{2}:\d{2}.\d{3})Z" />
+                <SimpleValue Id="Type" Validation=".*" />
+                <SimpleValue Id="Id" Validation=".*" />
+                <SimpleValue Id="Data" Validation=".*" />
+                <SimpleValue Id="Method" Validation=".*" />
+              </ComplexValue>
+            </MultiValue>
           </Validation>
           <Value />
         </Outputs>
-      </DRCore>
-      <DRCore Version="1">
+      </TextBlock>
+      <TextBlock Version="1">
         <Inputs>
+          <Events />
           <Instrument>
-            <Stimulus>
-              <Type>audio/mpeg</Type>
-              <Label>DR Radio P3</Label>
-              <URI>https://s3-eu-west-1.amazonaws.com/ac0926766ce9afd07d63b7c8a5896b0c/system/140_item/resources/set1/360.mp3</URI>
-              <Validation>
-                <Items>
-                  <Item>
-                    <Guid>fdc38032-705c-4acd-8a86-3b3585df011b</Guid>
-                    <Correctness>0.98</Correctness>
-                    <Labels>
-                      <Label>
-                        <Text>Soeren Dahl (radiovaert)</Text>
-                        <Correctness>0.99</Correctness>
-                      </Label>
-                      <Label>
-                        <Text>Soeren</Text>
-                        <Correctness>0.11</Correctness>
-                      </Label>
-                      <Label>
-                        <Text>)treavoidar( lhaD nereoS</Text>
-                        <Correctness>0.00</Correctness>
-                      </Label>
-                    </Labels>
-                    <VoiceDifficulty>0.49</VoiceDifficulty>
-                    <PersonDifficulty>0.86</PersonDifficulty>
-                  </Item>
-                </Items>
-              </Validation>
-            </Stimulus>
-            <RadioButtonGroup>
-              <Items>
-                <Item>
-                  <Guid>2873776f-2241-4535-8342-70bc75c76d6b</Guid>
-                  <Text>Henrik Hannibal</Text>
-                </Item>
-                <Item>
-                  <Guid>f1d9d9bc-3209-47d3-9108-e425230c94a4</Guid>
-                  <Text>Ole Toepholm</Text>
-                </Item>
-                <Item>
-                  <Guid>a6fb8188-2943-4a69-867f-52179750bcb9</Guid>
-                  <Text>Sandi Toksvig</Text>
-                </Item>
-                <Item>
-                  <Guid>f5d9178f-7d11-4767-9bbf-6668ee6f4775</Guid>
-                  <Text>Thomas Qvortrup</Text>
-                </Item>
-              </Items>
-            </RadioButtonGroup>
+            <Text>(Textblock 2) ...which focuse on bla bla</Text>
           </Instrument>
         </Inputs>
         <Outputs>
           <Validation>
-            <SimpleValue Id="ClientUserGuid" Validation=".*" />
-            <SimpleValue Id="ClientDeviceBrowserIdAsHash" Validation=".*" />
-            <SimpleValue Id="ClientDeviceIPAddressAsHash" Validation=".*" />
-            <ComplexValue Id="Response">
-              <SimpleValue Id="DontknowSelection" Validation="\b(1|0)" />
-              <SimpleValue Id="RadioButtonSelection" Validation="\b(2873776f-2241-4535-8342-70bc75c76d6b|f1d9d9bc-3209-47d3-9108-e425230c94a4|a6fb8188-2943-4a69-867f-52179750bcb9|f5d9178f-7d11-4767-9bbf-6668ee6f4775|0)" />
-              <SimpleValue Id="FreeText" Validation="\b(1|0)" />
-              <SimpleValue Id="Grading" Validation="\d*" />
-              <MultiValue Id="Events" Max="Inf" Min="0">
-                <ComplexValue Id="Event">
-                  <SimpleValue Id="Type" Validation=".*" />
-                  <SimpleValue Id="DateTime" Validation=".*" />
-                </ComplexValue>
-              </MultiValue>
-            </ComplexValue>
+            <MultiValue Id="Events" Max="Inf" Min="0">
+              <ComplexValue Id="Event">
+                <SimpleValue Id="DateTime" Validation="(\d{4}-\d{2}-\d{2})T(\d{2}:\d{2}:\d{2}.\d{3})Z" />
+                <SimpleValue Id="Type" Validation=".*" />
+                <SimpleValue Id="Id" Validation=".*" />
+                <SimpleValue Id="Data" Validation=".*" />
+                <SimpleValue Id="Method" Validation=".*" />
+              </ComplexValue>
+            </MultiValue>
           </Validation>
           <Value />
         </Outputs>
-      </DRCore>
-      <DRCore Version="1">
+      </TextBlock>
+    </Trial>
+    <Trial TaskId="1">
+      <TextBlock Version="1">
         <Inputs>
+          <Events />
           <Instrument>
-            <Stimulus>
-              <Type>audio/mpeg</Type>
-              <Label>DR Radio P3</Label>
-              <URI>https://s3-eu-west-1.amazonaws.com/ac0926766ce9afd07d63b7c8a5896b0c/system/140_item/resources/set1/360.mp3</URI>
-              <Validation>
-                <Items>
-                  <Item>
-                    <Guid>cc151610-d9c1-4065-9704-4efb3beae904</Guid>
-                    <Correctness>0.68</Correctness>
-                    <Labels>
-                      <Label>
-                        <Text>Anne Jerichow</Text>
-                        <Correctness>0.99</Correctness>
-                      </Label>
-                      <Label>
-                        <Text>Anne</Text>
-                        <Correctness>0.19</Correctness>
-                      </Label>
-                      <Label>
-                        <Text>wohcireJ ennA</Text>
-                        <Correctness>0.00</Correctness>
-                      </Label>
-                    </Labels>
-                    <VoiceDifficulty>0.63</VoiceDifficulty>
-                    <PersonDifficulty>0.24</PersonDifficulty>
-                  </Item>
-                </Items>
-              </Validation>
-            </Stimulus>
-            <RadioButtonGroup>
-              <Items>
-                <Item>
-                  <Guid>33d13fd3-36fc-4f6a-aa6c-0b7863b42d95</Guid>
-                  <Text>Alex Nyborg Madsen</Text>
-                </Item>
-                <Item>
-                  <Guid>f75cdcea-3f22-4e6e-8fba-8197cf8ce83f</Guid>
-                  <Text>Ole Aaby</Text>
-                </Item>
-                <Item>
-                  <Guid>17df8e83-f96b-4ef1-ba4b-7016331087ee</Guid>
-                  <Text>Mascha Vang</Text>
-                </Item>
-                <Item>
-                  <Guid>2ee0249d-5b7c-4331-b6a3-cd965fc6e0cd</Guid>
-                  <Text>Joern Hjorting</Text>
-                </Item>
-              </Items>
-            </RadioButtonGroup>
+            <Text>In this part of the experiment you need to enter your Birthplace !</Text>
           </Instrument>
         </Inputs>
         <Outputs>
           <Validation>
-            <SimpleValue Id="ClientUserGuid" Validation=".*" />
-            <SimpleValue Id="ClientDeviceBrowserIdAsHash" Validation=".*" />
-            <SimpleValue Id="ClientDeviceIPAddressAsHash" Validation=".*" />
-            <ComplexValue Id="Response">
-              <SimpleValue Id="DontknowSelection" Validation="\b(1|0)" />
-              <SimpleValue Id="RadioButtonSelection" Validation="\b(33d13fd3-36fc-4f6a-aa6c-0b7863b42d95|f75cdcea-3f22-4e6e-8fba-8197cf8ce83f|17df8e83-f96b-4ef1-ba4b-7016331087ee|2ee0249d-5b7c-4331-b6a3-cd965fc6e0cd|0)" />
-              <SimpleValue Id="FreeText" Validation="\b(1|0)" />
-              <SimpleValue Id="Grading" Validation="\d*" />
-              <MultiValue Id="Events" Max="Inf" Min="0">
-                <ComplexValue Id="Event">
-                  <SimpleValue Id="Type" Validation=".*" />
-                  <SimpleValue Id="DateTime" Validation=".*" />
-                </ComplexValue>
-              </MultiValue>
-            </ComplexValue>
+            <MultiValue Id="Events" Max="Inf" Min="0">
+              <ComplexValue Id="Event">
+                <SimpleValue Id="DateTime" Validation="(\d{4}-\d{2}-\d{2})T(\d{2}:\d{2}:\d{2}.\d{3})Z" />
+                <SimpleValue Id="Type" Validation=".*" />
+                <SimpleValue Id="Id" Validation=".*" />
+                <SimpleValue Id="Data" Validation=".*" />
+                <SimpleValue Id="Method" Validation=".*" />
+              </ComplexValue>
+            </MultiValue>
           </Validation>
           <Value />
         </Outputs>
-      </DRCore>
+      </TextBlock>
+    </Trial>
+    <Trial TaskId="1">
+      <TextBlock Version="1">
+        <Inputs>
+          <Events />
+          <Instrument>
+            <Text>Thank you for completing this experiment... bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla</Text>
+          </Instrument>
+        </Inputs>
+        <Outputs>
+          <Validation>
+            <MultiValue Id="Events" Max="Inf" Min="0">
+              <ComplexValue Id="Event">
+                <SimpleValue Id="DateTime" Validation="(\d{4}-\d{2}-\d{2})T(\d{2}:\d{2}:\d{2}.\d{3})Z" />
+                <SimpleValue Id="Type" Validation=".*" />
+                <SimpleValue Id="Id" Validation=".*" />
+                <SimpleValue Id="Data" Validation=".*" />
+                <SimpleValue Id="Method" Validation=".*" />
+              </ComplexValue>
+            </MultiValue>
+          </Validation>
+          <Value />
+        </Outputs>
+      </TextBlock>
+    </Trial>
+    <Trial TaskId="1">
+      <TextBlock Version="1">
+        <Inputs>
+          <Events />
+          <Instrument>
+            <Text>(Textblock 2) ...which focuse on bla bla</Text>
+          </Instrument>
+        </Inputs>
+        <Outputs>
+          <Validation>
+            <MultiValue Id="Events" Max="Inf" Min="0">
+              <ComplexValue Id="Event">
+                <SimpleValue Id="DateTime" Validation="(\d{4}-\d{2}-\d{2})T(\d{2}:\d{2}:\d{2}.\d{3})Z" />
+                <SimpleValue Id="Type" Validation=".*" />
+                <SimpleValue Id="Id" Validation=".*" />
+                <SimpleValue Id="Data" Validation=".*" />
+                <SimpleValue Id="Method" Validation=".*" />
+              </ComplexValue>
+            </MultiValue>
+          </Validation>
+          <Value />
+        </Outputs>
+      </TextBlock>
+      <EndOfExperiment Version="1">
+        <Inputs />
+        <Outputs>
+          <Validation />
+          <Value />
+        </Outputs>
+      </EndOfExperiment>
     </Trial>
   </Trials>
-  <Id>ffa8cec6-0d73-ea01-bf01-000000000001</Id>
-  <Name>CoSound:DR:Crowdsourcing:1</Name>
-  <Version>1</Version>
-  <Target Id="bf920812-fec3-4015-a9d0-556adec050a6" Name="UNKNOWN1" />
 </Experiment>

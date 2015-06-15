@@ -110,6 +110,22 @@ namespace Chaos.Cockpit.Core.Test.Data.Mcm
     }
 
     [Test]
+    public void Serialize_GivenQuestion_SerializeHeaders()
+    {
+      var converter = new DtuFormatConverter();
+      var xml = XDocument.Load("Resources\\experiment6.xml");
+      var questionnaire = converter.Deserialize(xml);
+
+      var result = converter.Serialize(questionnaire);
+
+      Assert.That(result.Root.Element("CSS").Value, Is.EqualTo("url"));
+      Assert.That(result.Root.Element("LockQuestion").Value, Is.EqualTo("1"));
+      Assert.That(result.Root.Element("EnablePrevious").Value, Is.EqualTo("1"));
+      Assert.That(result.Root.Element("FooterLabel").Value, Is.EqualTo("No.: 7 - an {{b|TEST}} experiment by {{link|http://www.dtu.dk|DTU}}. Privacy etc can be located at bla bla"));
+      Assert.That(result.Root.Element("RedirectOnCloseUrl").Value, Is.EqualTo("http://www.dtu.dk"));
+    }
+
+    [Test]
     public void Validate()
     {
       var question = new Question("Monitor");
