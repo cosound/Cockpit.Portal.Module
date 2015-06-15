@@ -29,6 +29,9 @@
     public string FooterLabel { get; set; }
 
     [Serialize]
+    public string RedirectOnCloseUrl { get; set; }
+
+    [Serialize]
     public uint CurrentSlideIndex { get; set; }
 
     [JsonIgnore]

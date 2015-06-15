@@ -6,6 +6,7 @@
   <LockQuestion>1</LockQuestion>
   <EnablePrevious>1</EnablePrevious>
   <FooterLabel>No.: 7 - an {{b|TEST}} experiment by {{link|http://www.dtu.dk|DTU}}. Privacy etc can be located at bla bla</FooterLabel>
+  <RedirectOnCloseUrl>http://www.dtu.dk</RedirectOnCloseUrl>
   <Target Id="c0d4489d-7be0-40a6-921e-e11ff073610c" Name="Jens Jensen" />
   <Trials>
     <Trial TaskId="2">

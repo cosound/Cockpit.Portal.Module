@@ -17,6 +17,7 @@ namespace Chaos.Cockpit.Core.Api
       dto.LockQuestion = questionnaire.LockQuestion;
       dto.EnablePrevious = questionnaire.EnablePrevious;
       dto.FooterLabel = questionnaire.FooterLabel;
+      dto.RedirectOnCloseUrl = questionnaire.RedirectOnCloseUrl;
       dto.Slides = CreateSlides(questionnaire.Slides).ToList();
       dto.CurrentSlideIndex = questionnaire.NextSlide();
 
@@ -25,17 +26,7 @@ namespace Chaos.Cockpit.Core.Api
 
     private static IEnumerable<SlideDto> CreateSlides(IEnumerable<Slide> slides)
     {
-      foreach (var slide in slides)
-      {
-        var s = new SlideDto();
-
-        foreach (var question in slide.Questions)
-        {
-          s.Questions.Add(QuestionBuilder.MakeDto(question));
-        }
-
-        yield return s;
-      }
+      return slides.Select(slide => new SlideDto {Questions = slide.Questions.Select(QuestionBuilder.MakeDto).ToList()});
     }
   }
 }

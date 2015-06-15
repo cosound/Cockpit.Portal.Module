@@ -65,7 +65,7 @@ namespace Chaos.Cockpit.Core.Test.Data.Mcm
     }
 
     [Test]
-    public void Deserialize_GivenQuestionWithoutValidation_()
+    public void Deserialize_ExperimentWithHeaders_Return()
     {
       var converter = new DtuFormatConverter();
       var xml = XDocument.Load("Resources\\experiment6.xml");
@@ -74,6 +74,7 @@ namespace Chaos.Cockpit.Core.Test.Data.Mcm
 
       Assert.That(result.Css, Is.EqualTo("url"));
       Assert.That(result.LockQuestion, Is.True);
+      Assert.That(result.RedirectOnCloseUrl, Is.EqualTo("http://www.dtu.dk"));
       Assert.That(result.EnablePrevious, Is.True);
       Assert.That(result.FooterLabel, Is.EqualTo("No.: 7 - an {{b|TEST}} experiment by {{link|http://www.dtu.dk|DTU}}. Privacy etc can be located at bla bla"));
     }

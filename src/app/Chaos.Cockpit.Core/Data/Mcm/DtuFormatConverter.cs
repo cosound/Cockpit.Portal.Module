@@ -23,6 +23,7 @@ namespace Chaos.Cockpit.Core.Data.Mcm
       result.LockQuestion = StringToBoolean(GetElement(experiemnt, "LockQuestion", "0"));
       result.EnablePrevious = StringToBoolean(GetElement(experiemnt, "EnablePrevious", "0"));
       result.FooterLabel = GetElement(experiemnt, "FooterLabel", null);
+      result.RedirectOnCloseUrl = GetElement(experiemnt, "RedirectOnCloseUrl", null);
       result.TargetId = experiemnt.Element("Target").Attribute("Id").Value;
       result.TargetName = experiemnt.Element("Target").Attribute("Name").Value;
 

@@ -24,5 +24,19 @@ namespace Chaos.Cockpit.Core.Test.Api
 
       Assert.That(result.CurrentSlideIndex, Is.EqualTo(1));
     }
+    
+    [Test]
+    public void MakeDto_GivenQuestionnaireWithHeaders_SetHeadersOnDto()
+    {
+      var q = new Questionnaire
+        {
+          RedirectOnCloseUrl = "some url",
+          Slides = new List<Slide>{new Slide()}
+        };
+
+      var result = QuestionnaireBuilder.MakeDto(q);
+
+      Assert.That(result.RedirectOnCloseUrl, Is.EqualTo(q.RedirectOnCloseUrl));
+    }
   }
 }
