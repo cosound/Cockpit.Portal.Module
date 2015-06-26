@@ -90,5 +90,11 @@ namespace Chaos.Cockpit.Core.Core
 
       Parent.UpdateIds();
     }
+
+    public void Validate()
+    {
+      foreach (var question in Questions)
+        question.Validate();
+    }
   }
 }

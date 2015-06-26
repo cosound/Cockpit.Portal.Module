@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Xml.Linq;
+using Chaos.Cockpit.Core.Core.Exceptions;
 using Chaos.Cockpit.Core.Core.Validation;
 
 namespace Chaos.Cockpit.Core.Core
@@ -21,43 +22,59 @@ namespace Chaos.Cockpit.Core.Core
       set
       {
         if (value != null)
-        {
-          foreach (var validator in Validation.ComplexValueValidator)
-          {
-            var complex = value.ComplexValues.SingleOrDefault(item => item.Key == validator.Id);
-
-            if (complex == null)
-              continue;
-
-            validator.Validate(complex);
-          }
-
-          foreach (var validator in Validation.MultiValueValidator)
-          {
-            var multi = value.MultiValues.SingleOrDefault(item => item.Key == validator.Id);
-
-            if(multi == null && validator.Min == 0)
-              continue;
-
-            validator.Validate(multi);
-          }
-
-          foreach (var validator in Validation.SimpleValueValidator)
-          {
-            var simple = value.SimpleValues.SingleOrDefault(item => item.Key == validator.Id);
-
-            if(simple == null)
-              continue;
-
-            validator.Validate(simple);
-          }
-        }
+          Validate(value);
 
         _output = value;
       }
       get { return _output; }
     }
-    
+
+    public void Validate()
+    {
+      if (Output != null)
+        Validate(Output);
+    }
+
+    private void Validate(Output value)
+    {
+      try
+      {
+        foreach (var validator in Validation.ComplexValueValidator)
+        {
+          var complex = value.ComplexValues.SingleOrDefault(item => item.Key == validator.Id);
+
+          if (complex == null)
+            continue;
+
+          validator.Validate(complex);
+        }
+
+        foreach (var validator in Validation.MultiValueValidator)
+        {
+          var multi = value.MultiValues.SingleOrDefault(item => item.Key == validator.Id);
+
+          if (multi == null && validator.Min == 0)
+            continue;
+
+          validator.Validate(multi);
+        }
+
+        foreach (var validator in Validation.SimpleValueValidator)
+        {
+          var simple = value.SimpleValues.SingleOrDefault(item => item.Key == validator.Id);
+
+          if (simple == null)
+            continue;
+
+          validator.Validate(simple);
+        }
+      }
+      catch (ValidationException e)
+      {
+        throw new ValidationException("QuestionId: " + Id + ": " + e.Message, e);
+      }
+    }
+
     public Question(string type)
     {
       Type = type;

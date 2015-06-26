@@ -13,7 +13,10 @@ namespace Chaos.Cockpit.Core.Api.Endpoints
     public EndpointResult Completed(Guid questionaireId, int slideIndex)
     {
       var questionaire = Context.QuestionnaireGateway.Get(questionaireId);
-      questionaire.Slides[slideIndex].IsCompleted = true;
+      var slide = questionaire.Slides[slideIndex];
+      
+      slide.Validate();
+      slide.IsCompleted = true;
 
       Context.QuestionnaireGateway.Set(questionaire);
 
