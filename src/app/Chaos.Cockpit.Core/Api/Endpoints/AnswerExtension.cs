@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 using Chaos.Cockpit.Core.Api.Result;
 using Chaos.Cockpit.Core.Core;
 using Chaos.Cockpit.Core.Core.Exceptions;
@@ -25,7 +26,7 @@ namespace Chaos.Cockpit.Core.Api.Endpoints
       return EndpointResult.Success();
     }
 
-    private void TrySaveAnswer(OutputDto output, QuestionId id, uint retries = 10)
+    private void TrySaveAnswer(OutputDto output, QuestionId id, uint retries = 25)
     {
       try
       {
@@ -44,8 +45,8 @@ namespace Chaos.Cockpit.Core.Api.Endpoints
       {
         if (retries > 0)
           TrySaveAnswer(output, id, retries - 1);
-
-        throw new UnhandledException("Failed to save answer", e);
+        else
+          throw new ServerException("Failed to save answer", "Your answer wasn't saved, try again.", e);
       }
     }
 
