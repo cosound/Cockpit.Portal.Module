@@ -23,7 +23,7 @@ namespace Chaos.Cockpit.Core.Data.Mcm
 
       var xml = new DtuFormatConverter().Serialize(entity);
 
-      Repository.MetadataSet(id, metadata.Guid, metadata.MetadataSchemaGuid, metadata.LanguageCode, 0, xml, metadata.EditingUserGuid);
+      Repository.MetadataSet(id, metadata.Guid, metadata.MetadataSchemaGuid, metadata.LanguageCode, metadata.RevisionID, xml, metadata.EditingUserGuid);
 
       return Get(id);
     }
