@@ -41,6 +41,8 @@ namespace Chaos.Cockpit.Core.Data.Mcm
       }
 
       var xml = SerializerFactory.XMLSerializer.Serialize(selection);
+
+      // todo fix revisionid 0
       McmRepository.MetadataSet(Guid.Parse(selection.Id), metadataGuid, Context.Config.SelectionMetadataSchemaId, null, 0, xml, Guid.Empty);
 
       return selection;

@@ -21,7 +21,7 @@ namespace Chaos.Cockpit.Core.Data.Mcm
       var objectGuid = Guid.Parse(entity.Id);
       var metadata = Metadata(objectGuid);
 
-      _repo.MetadataSet(objectGuid, metadata.Guid, metadata.MetadataSchemaGuid, metadata.LanguageCode, 0, entity.ToXml(), metadata.EditingUserGuid);
+      _repo.MetadataSet(objectGuid, metadata.Guid, metadata.MetadataSchemaGuid, metadata.LanguageCode, metadata.RevisionID, entity.ToXml(), metadata.EditingUserGuid);
 
       return entity;
     }
