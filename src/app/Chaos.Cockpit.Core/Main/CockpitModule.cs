@@ -1,16 +1,14 @@
 ﻿using System.Xml.Linq;
-using Chaos.Cockpit.Core.Data.InMemory;
+using Chaos.Cockpit.Core.Api.Binding;
+using Chaos.Cockpit.Core.Api.Result;
+using Chaos.Cockpit.Core.Core;
 using Chaos.Cockpit.Core.Data.Mcm;
 using Chaos.Mcm;
+using Chaos.Portal.Core;
+using Chaos.Portal.Core.Module;
 
 namespace Chaos.Cockpit.Core.Main
 {
-  using Api.Binding;
-  using Api.Result;
-  using Core;
-  using Portal.Core;
-  using Portal.Core.Module;
-
   public class CockpitModule : IModuleConfig
   {
     public void Load(IPortalApplication portalApplication)
@@ -37,12 +35,13 @@ namespace Chaos.Cockpit.Core.Main
       portalApplication.AddBinding(typeof(SelectionResult), new JsonBinding<SelectionResult>());
       portalApplication.AddBinding(typeof(OutputDto), new OutputBinding());
 
+      portalApplication.MapRoute("/v6/AudioInformation", () => new Api.Endpoints.AudioInformation(portalApplication));
+      portalApplication.MapRoute("/v6/Experiment", () => new Api.Endpoints.ExperimentExtension(portalApplication));
       portalApplication.MapRoute("/v6/Selection", () => new Api.Endpoints.SelectionExtension(portalApplication));
       portalApplication.MapRoute("/v6/Question", () => new Api.Endpoints.QuestionExtension(portalApplication));
       portalApplication.MapRoute("/v6/Answer", () => new Api.Endpoints.AnswerExtension(portalApplication));
       portalApplication.MapRoute("/v6/Search", () => new Api.Endpoints.SearchExtension(portalApplication));
       portalApplication.MapRoute("/v6/Slide", () => new Api.Endpoints.SlideExtension(portalApplication));
-      portalApplication.MapRoute("/v6/Experiment", () => new Api.Endpoints.ExperimentExtension(portalApplication));
     }
 
     private static void LoadExperiments()

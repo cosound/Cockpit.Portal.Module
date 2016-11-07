@@ -103,7 +103,7 @@ namespace Chaos.Cockpit.Core.Data.Mcm
       slide.AddQuestion(question);
     }
 
-    private static void DeserializeOutput(XElement valueElement, Output output)
+	  private static void DeserializeOutput(XElement valueElement, Output output)
     {
       if (valueElement.HasElements)
       {

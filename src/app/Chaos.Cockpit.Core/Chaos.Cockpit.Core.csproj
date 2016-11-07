@@ -61,12 +61,14 @@
     <Compile Include="Api\Endpoints\SearchExtension.cs" />
     <Compile Include="Api\Endpoints\SelectionExtension.cs" />
     <Compile Include="Api\Endpoints\SlideExtension.cs" />
+    <Compile Include="Api\Endpoints\AudioInformation.cs" />
     <Compile Include="Api\Experiment.cs" />
     <Compile Include="Api\OutputConverter.cs" />
     <Compile Include="Api\OutputMapper.cs" />
     <Compile Include="Api\QuestionBuilder.cs" />
     <Compile Include="Api\QuestionnaireBuilder.cs" />
     <Compile Include="Api\Result\AnswerDto.cs" />
+    <Compile Include="Api\Result\AudioInformationResult.cs" />
     <Compile Include="Api\Result\ExperimentResult.cs" />
     <Compile Include="Api\Result\OutputDto.cs" />
     <Compile Include="Api\Result\QuestionDto.cs" />
@@ -112,6 +114,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Api" />
     <Folder Include="Data\Exceptions\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
