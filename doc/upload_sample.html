@@ -1,0 +1,11 @@
+<html>
+	<body>
+		<form method="post" enctype="multipart/form-data" action="https://prod-api.cosound.dk/v6/Upload/Upload">
+			<input type="hidden" name="format" value="json2">
+			SessionGuid: <input type="text" name="sessionGUID"><br /><br />
+			Key: https://s3-eu-west-1.amazonaws.com/cockpit-upload/<input type="text" name="key" value=""><br /><br />
+			<input type="file" name="file"><br /><br />
+			<input type="submit" name="submit" value="Submit">
+		</form>
+	</body>
+</html>
