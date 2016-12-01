@@ -22,7 +22,7 @@ namespace Chaos.Cockpit.Core.Api.Endpoints
 
 		public IEnumerable<AudioInformationResult> Search(string function, string arguments)
 		{
-			var result = HttpGet.Get("");
+			var result = HttpGet.Get("http://52.212.183.101:40000/Job/Enqueue?wait=false&job={}");
 			var deserializeObject = JObject.Parse(result) as dynamic;
 			var output = HttpUtility.HtmlDecode(deserializeObject.Results[0].steps[0].tasks[0].output.ToString() as string);
 

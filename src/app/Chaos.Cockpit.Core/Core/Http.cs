@@ -1,5 +1,4 @@
-﻿using System;
-using System.Net;
+﻿using System.Net;
 using System.Text;
 
 namespace Chaos.Cockpit.Core.Core
@@ -13,7 +12,7 @@ namespace Chaos.Cockpit.Core.Core
 
 			using (var response = req.GetResponse())
 			{
-				var buffer = new Byte[1024 * 1024];
+				var buffer = new byte[1024 * 1024];
 				var result = "";
 				int read;
 
