@@ -30,6 +30,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AWSSDK, Version=2.3.55.2, Culture=neutral, PublicKeyToken=9f476d3089b52be3">
+      <HintPath>..\..\..\packages\AWSSDK.2.3.55.2\lib\net45\AWSSDK.dll</HintPath>
+    </Reference>
     <Reference Include="CHAOS">
       <HintPath>..\..\..\lib\CHAOS.dll</HintPath>
     </Reference>
@@ -45,6 +48,7 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -62,6 +66,7 @@
     <Compile Include="Api\Endpoints\SelectionExtension.cs" />
     <Compile Include="Api\Endpoints\SlideExtension.cs" />
     <Compile Include="Api\Endpoints\AudioInformation.cs" />
+    <Compile Include="Api\Endpoints\UploadExtension.cs" />
     <Compile Include="Api\Experiment.cs" />
     <Compile Include="Api\OutputConverter.cs" />
     <Compile Include="Api\OutputMapper.cs" />
@@ -77,13 +82,17 @@
     <Compile Include="Api\Result\SearchResult.cs" />
     <Compile Include="Api\Result\SelectionResult.cs" />
     <Compile Include="Api\Result\SlideDto.cs" />
+    <Compile Include="Api\Result\StringResult.cs" />
     <Compile Include="Api\SelectionMapper.cs" />
     <Compile Include="Core\Answer.cs" />
     <Compile Include="Core\ClaimedList.cs" />
     <Compile Include="Core\Context.cs" />
     <Compile Include="Core\Exceptions\DataNotFoundException.cs" />
+    <Compile Include="Core\Exceptions\FileParameterMissingException.cs" />
     <Compile Include="Core\Exceptions\SlideLockedException.cs" />
     <Compile Include="Core\Exceptions\ValidationException.cs" />
+    <Compile Include="Core\Http.cs" />
+    <Compile Include="Core\IHttpGet.cs" />
     <Compile Include="Core\IKey.cs" />
     <Compile Include="Core\Question.cs" />
     <Compile Include="Core\Questionnaire.cs" />

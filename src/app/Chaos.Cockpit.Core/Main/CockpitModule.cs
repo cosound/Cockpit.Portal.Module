@@ -29,13 +29,15 @@ namespace Chaos.Cockpit.Core.Main
           Context.QuestionnaireGateway = new McmQuestionnaireGateway(mcm.McmRepository);
           Context.QuestionGateway = new McmQuestionGateway(mcm.McmRepository);
           Context.ExperimentGateway = new McmExperimentGateway(mcm.McmRepository);
+
+	        portalApplication.MapRoute("/v6/Upload", () => new Api.Endpoints.UploadExtension(portalApplication, mcm.Configuration.Aws));
         };
 
       portalApplication.AddBinding(typeof(AnswerDto), new JsonBinding<AnswerDto>());
       portalApplication.AddBinding(typeof(SelectionResult), new JsonBinding<SelectionResult>());
       portalApplication.AddBinding(typeof(OutputDto), new OutputBinding());
 
-      portalApplication.MapRoute("/v6/AudioInformation", () => new Api.Endpoints.AudioInformation(portalApplication));
+      portalApplication.MapRoute("/v6/AudioInformation", () => new Api.Endpoints.AudioInformation(portalApplication, new Http()));
       portalApplication.MapRoute("/v6/Experiment", () => new Api.Endpoints.ExperimentExtension(portalApplication));
       portalApplication.MapRoute("/v6/Selection", () => new Api.Endpoints.SelectionExtension(portalApplication));
       portalApplication.MapRoute("/v6/Question", () => new Api.Endpoints.QuestionExtension(portalApplication));
