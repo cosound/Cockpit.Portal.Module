@@ -22,10 +22,12 @@ namespace Chaos.Cockpit.Core.Api.Endpoints
 
 		public IEnumerable<AudioInformationResult> Search(string function, string arguments)
 		{
-			var result = HttpGet.Get("http://52.212.183.101:40000/Job/Enqueue?wait=false&job={}");
+			var job = HttpUtility.UrlEncode(
+				"{\"steps\": [{\"tasks\": [{\"pluginId\": \"com.chaos.octopus.CommandLinePlugin, 1.0.0\",\"properties\": {\"commandline\": \"/home/ubuntu/wp0x-store/00001_cosound/01000_custom/01010_speechtranscription/system/740_plugin/source/asrindexquery/published/31a13888-bc05-4a6f-aec5-36dab32ea576/query.sh def\"} } ] } ]}");
+			var result = HttpGet.Get("http://54.72.165.54:40000/Job/Enqueue?wait=true&job=" + job);
 			var deserializeObject = JObject.Parse(result) as dynamic;
 			var output = HttpUtility.HtmlDecode(deserializeObject.Results[0].steps[0].tasks[0].output.ToString() as string);
-
+			
 			var xml = XDocument.Parse(output);
 			var aiResult = Parse(xml).ToList();
 
@@ -34,7 +36,7 @@ namespace Chaos.Cockpit.Core.Api.Endpoints
 
 		private IEnumerable<AudioInformationResult> Parse(XDocument xml)
 		{
-			foreach (var item in xml.Root.Elements("Item"))
+			foreach (var item in xml.Root.Element("Items").Elements("Item"))
 			{
 				var aiResult = new AudioInformationResult();
 				aiResult.Id = item.Element("Id").Value;

@@ -15,7 +15,7 @@ namespace Chaos.Cockpit.Core.Test.Api.Endpoints
 		public void Search()
 		{
 			var httpGet = new Mock<IHttpGet>();
-			var aiExt = new AudioInformation(PortalApplication.Object, httpGet.Object);
+			var aiExt = new AudioInformation(PortalApplication.Object, new Http());
 			httpGet.Setup(m => m.Get(It.IsAny<string>())).Returns(QueryOctopus());
 
 			var result = aiExt.Search("", "").First();
