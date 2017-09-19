@@ -30,17 +30,13 @@ namespace Chaos.Cockpit.Core.Test.Api.Endpoints
 			Assert.That(result.Stimulus.EndOffset, Is.EqualTo("00:00:31.2325435"));
 			Assert.That(result.Stimulus.Duration, Is.EqualTo("00:00:01.2325435"));
 			Assert.That(result.Metadata.SchemaId, Is.EqualTo("ItemType1"));
-			Assert.That(result.Metadata.ProgrammeName.Value, Is.EqualTo("Radio Avisen"));
-			Assert.That(result.Metadata.ChannelHeaderLabel.Value, Is.EqualTo("DR-P3"));
-			Assert.That(result.Metadata.PublicationStartTime.Value, Is.EqualTo("00:00:30.232"));
-			Assert.That(result.Metadata.PublicationEndTime.Value, Is.EqualTo("00:00:32.232"));
 			Assert.That(result.Segments.First().CaterogyId, Is.EqualTo("1"));
 			Assert.That(result.Segments.First().StartTime, Is.EqualTo("00:21:21.454322"));
 			Assert.That(result.Segments.First().EndTime, Is.EqualTo("00:21:25.454222"));
 			Assert.That(result.Segments.First().Duration, Is.EqualTo("00:01:25.454222"));
 			Assert.That(result.Segments.First().Index, Is.EqualTo("1"));
 			Assert.That(result.Segments.First().Editable, Is.EqualTo("true"));
-			Assert.That(result.Segments.First().Deleteable, Is.EqualTo("true"));
+			Assert.That(result.Segments.First().Deletable, Is.EqualTo("true"));
 			Assert.That(result.Segments.First().ColorGroup, Is.EqualTo("1"));
 			Assert.That(result.Segments.First().Metadata.SchemaId, Is.EqualTo("SegmentType1"));
 			Assert.That(result.Segments.First().Metadata.Fields["TranscriptionAsString"].Value, Is.EqualTo("Der er ikke fejet noget ind under gulvtæppet sagde Poul Schluter i dagens..."));
@@ -85,7 +81,7 @@ namespace Chaos.Cockpit.Core.Test.Api.Endpoints
 				"			<EndOffset>00:00:31.2325435</EndOffset>" +
 				"			<Duration>00:00:01.2325435</Duration>" +
 				"		</Stimulus>" +
-				"		<Metadata SchemaId=\"ItemType1\">	<!-- Type defined above, this correponds to the out from a standard experiemnt-->" +
+				"		<Metadata MetadataSchemaId=\"ItemType1\">	<!-- Type defined above, this correponds to the out from a standard experiemnt-->" +
 				"			<ProgrammeName   	  Editable=\"false\">Radio Avisen</ProgrammeName>" +
 				"			<ChannelHeaderLabel   Editable=\"false\">DR-P3</ChannelHeaderLabel>" +
 				"			<PublicationStartTime Editable=\"false\">00:00:30.232</PublicationStartTime>" +
@@ -101,7 +97,7 @@ namespace Chaos.Cockpit.Core.Test.Api.Endpoints
 				"				<Editable>true</Editable>" +
 				"				<Deleteable>true</Deleteable>" +
 				"				<ColorGroup>1</ColorGroup>  <!-- Color group used for visualizaiton, color -->" +
-				"				<Metadata SchemaId=\"SegmentType1\">" +
+				"				<Metadata MetadataSchemaId=\"SegmentType1\">" +
 				"					<TranscriptionAsString Editable=\"true\">Der er ikke fejet noget ind under gulvtæppet sagde Poul Schluter i dagens...</TranscriptionAsString>" +
 				"				</Metadata>" +
 				"			</Segment>" +
@@ -114,7 +110,7 @@ namespace Chaos.Cockpit.Core.Test.Api.Endpoints
 				"				<Editable>false</Editable>" +
 				"				<Deleteable>false</Deleteable>" +
 				"				<ColorGroup>1</ColorGroup>  <!-- Color group used for visualizaiton, color -->" +
-				"				<Metadata SchemaId=\"SegmentType2\">" +
+				"				<Metadata MetadataSchemaId=\"SegmentType2\">" +
 				"					<TranscriptionAsWordListWithTimeline Editable=\"False\">{0,Der} {0.341,er} {0.76,ikke} {2.341,fejet} {4.141,noget} {5.341,ind} {6.341,under} {7.341,gulvtæppet} {8.341,sagde} {9.341,Poul} 	{10.341,Schluter} {0.341,i} {0.341,dagens}..." +
 				"					</TranscriptionAsWordListWithTimeline>" +
 				"				</Metadata>" +
@@ -128,7 +124,7 @@ namespace Chaos.Cockpit.Core.Test.Api.Endpoints
 				"				<Editable>false</Editable>" +
 				"				<Deleteable>false</Deleteable>" +
 				"				<ColorGroup>2</ColorGroup>  <!-- Color group used for visualizaiton, color -->" +
-				"				<Metadata SchemaId=\"SegmentType3\">" +
+				"				<Metadata MetadataSchemaId=\"SegmentType3\">" +
 				"					<UserRankingAsNummericList Editable=\"true\"></UserRankingAsNummericList> <!-- Note no data entered apriori, expectred to be filled by User and returned by the component-->" +
 				"					<CustomRankingAsDecimal    Editable=\"true\"></CustomRankingAsDecimal>" +
 				"					<AudioQualityAsDropbown    Editable=\"true\"></AudioQualityAsDropbown>" +
@@ -144,7 +140,7 @@ namespace Chaos.Cockpit.Core.Test.Api.Endpoints
 				"				<Editable>false</Editable>" +
 				"				<Deleteable>false</Deleteable>" +
 				"				<ColorGroup>2</ColorGroup>  <!-- Color group used for visualizaiton, color -->" +
-				"				<Metadata SchemaId=\"SegmentType4\">" +
+				"				<Metadata MetadataSchemaId=\"SegmentType4\">" +
 				"					<Word Editable=\"true\">Der</Word>" +
 				"				</Metadata>" +
 				"			</Segment>" +
@@ -157,7 +153,7 @@ namespace Chaos.Cockpit.Core.Test.Api.Endpoints
 				"				<Editable>false</Editable>" +
 				"				<Deleteable>false</Deleteable>" +
 				"				<ColorGroup>2</ColorGroup>  <!-- Color group used for visualizaiton, color -->" +
-				"				<Metadata SchemaId=\"SegmentType4\">" +
+				"				<Metadata MetadataSchemaId=\"SegmentType4\">" +
 				"					<Word Editable=\"true\">er</Word>" +
 				"				</Metadata>" +
 				"			</Segment>" +
@@ -170,7 +166,7 @@ namespace Chaos.Cockpit.Core.Test.Api.Endpoints
 				"				<Editable>false</Editable>" +
 				"				<Deleteable>false</Deleteable>" +
 				"				<ColorGroup>2</ColorGroup>  <!-- Color group used for visualizaiton, color -->" +
-				"				<Metadata SchemaId=\"SegmentType4\">" +
+				"				<Metadata MetadataSchemaId=\"SegmentType4\">" +
 				"					<Word Editable=\"true\">ikke</Word>" +
 				"				</Metadata>" +
 				"			</Segment>" +

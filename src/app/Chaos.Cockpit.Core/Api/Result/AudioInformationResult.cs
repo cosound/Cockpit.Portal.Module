@@ -31,6 +31,9 @@ namespace Chaos.Cockpit.Core.Api.Result
 		public class SegmentResult
 		{
 			[Serialize]
+			public string Id { get; set; }
+			
+			[Serialize]
 			public string CaterogyId { get; set; }
 
 			[Serialize]
@@ -49,7 +52,7 @@ namespace Chaos.Cockpit.Core.Api.Result
 			public string Editable { get; set; }
 
 			[Serialize]
-			public string Deleteable { get; set; }
+			public string Deletable { get; set; }
 
 			[Serialize]
 			public string ColorGroup { get; set; }
@@ -81,21 +84,15 @@ namespace Chaos.Cockpit.Core.Api.Result
 		{
 			[Serialize]
 			public string SchemaId { get; set; }
-
+			
 			[Serialize]
-			public EditableValueResult ProgrammeName { get; set; }
+			public Dictionary<string, EditableValueResult> Fields { get; set; }
 
-			[Serialize]
-			public EditableValueResult ChannelHeaderLabel { get; set; }
-
-			[Serialize]
-			public EditableValueResult PublicationStartTime { get; set; }
-
-			[Serialize]
-			public EditableValueResult PublicationEndTime { get; set; }
+			public MetadataResult()
+			{
+				Fields = new Dictionary<string, EditableValueResult>();
+			}
 		}
-
-
 
 		public class StimulusResult
 		{
